@@ -1,5 +1,4 @@
-(function ($) {
-	"use strict";
+$(document).ready(function () {
 
 	new WOW().init();
 
@@ -114,7 +113,7 @@
 					slidesToScroll: 1,
 					speed: 400,
 				}
-            },
+			},
 			{
 				breakpoint: 768,
 				settings: {
@@ -122,7 +121,7 @@
 					slidesToScroll: 2,
 					speed: 500,
 				}
-            },
+			},
 			{
 				breakpoint: 992,
 				settings: {
@@ -130,7 +129,7 @@
 					slidesToScroll: 3,
 					speed: 600,
 				}
-            },
+			},
 			{
 				breakpoint: 1200,
 				settings: {
@@ -138,8 +137,8 @@
 					slidesToScroll: 4,
 					speed: 700,
 				}
-            },
-        ]
+			},
+		]
 	});
 
 	/*---product slick column4 activation---*/
@@ -160,7 +159,7 @@
 					slidesToScroll: 1,
 					speed: 400,
 				}
-            },
+			},
 			{
 				breakpoint: 768,
 				settings: {
@@ -168,7 +167,7 @@
 					slidesToScroll: 2,
 					speed: 500,
 				}
-            },
+			},
 			{
 				breakpoint: 1200,
 				settings: {
@@ -176,8 +175,8 @@
 					slidesToScroll: 3,
 					speed: 600,
 				}
-            },
-        ]
+			},
+		]
 	});
 
 	/*---product column4 activation---*/
@@ -332,7 +331,7 @@
 					slidesToScroll: 1,
 					speed: 400,
 				}
-            },
+			},
 			{
 				breakpoint: 992,
 				settings: {
@@ -340,8 +339,8 @@
 					slidesToScroll: 2,
 					speed: 600,
 				}
-            },
-        ]
+			},
+		]
 	});
 
 	/*---small product activation---*/
@@ -362,7 +361,7 @@
 					slidesToScroll: 1,
 					speed: 400,
 				}
-            },
+			},
 			{
 				breakpoint: 992,
 				settings: {
@@ -370,8 +369,8 @@
 					slidesToScroll: 2,
 					speed: 600,
 				}
-            },
-        ]
+			},
+		]
 	});
 
 
@@ -669,12 +668,15 @@
 
 	/*---categories slideToggle---*/
 	$(".categories_title").on("click", function () {
+		console.log('gggggg');
 		$(this).toggleClass('active');
 		$('.categories_menu_toggle').slideToggle('medium');
 	});
 
 	/*---widget sub categories---*/
 	$(".widget_sub_categories > a").on("click", function () {
+		console.log('gggggg');
+
 		$(this).toggleClass('active');
 		$('.widget_dropdown_categories').slideToggle('medium');
 	});
@@ -684,26 +686,6 @@
 		$(this).removeAttr('href');
 		$(this).toggleClass('open').next('.categorie_sub').toggleClass('open');
 	});
-
-	/*---MailChimp---*/
-	$('#mc-form').ajaxChimp({
-		language: 'en',
-		callback: mailChimpResponse,
-		// ADD YOUR MAILCHIMP URL BELOW HERE!
-		url: 'http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef'
-
-	});
-
-	function mailChimpResponse(resp) {
-
-		if (resp.result === 'success') {
-			$('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-			$('.mailchimp-error').fadeOut(400);
-
-		} else if (resp.result === 'error') {
-			$('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-		}
-	}
 
 	/*---Category menu---*/
 	function categorySubMenuToggle() {
@@ -853,31 +835,31 @@
 				url: $(form).attr('action'),
 				data: formData
 			})
-			.done(function (response) {
-				
-				// Make sure that the formMessages div has the 'success' class.
-				$(formMessages).removeClass('error');
-				$(formMessages).addClass('success');
+				.done(function (response) {
 
-				// Set the message text.
-				$(formMessages).text(response);
+					// Make sure that the formMessages div has the 'success' class.
+					$(formMessages).removeClass('error');
+					$(formMessages).addClass('success');
 
-				// Clear the form.
-				$('#contact-form input,#contact-form textarea').val('');
-			})
-			.fail(function (data) {
-				
-				// Make sure that the formMessages div has the 'error' class.
-				$(formMessages).removeClass('success');
-				$(formMessages).addClass('error');
+					// Set the message text.
+					$(formMessages).text(response);
 
-				// Set the message text.
-				if (data.responseText !== '') {
-					$(formMessages).text(data.responseText);
-				} else {
-					$(formMessages).text('خطایی در ارسال پیام رخ داده است.');
-				}
-			});
+					// Clear the form.
+					$('#contact-form input,#contact-form textarea').val('');
+				})
+				.fail(function (data) {
+
+					// Make sure that the formMessages div has the 'error' class.
+					$(formMessages).removeClass('success');
+					$(formMessages).addClass('error');
+
+					// Set the message text.
+					if (data.responseText !== '') {
+						$(formMessages).text(data.responseText);
+					} else {
+						$(formMessages).text('خطایی در ارسال پیام رخ داده است.');
+					}
+				});
 		});
 
 	});
@@ -902,5 +884,4 @@
 	$('#contact-form').find('input, textarea').on('input', function () {
 		this.setCustomValidity('');
 	});
-	
-})(jQuery);
+})
