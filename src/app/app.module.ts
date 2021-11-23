@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './_components/components.module';
 import { IndexComponent } from './pages/index/index.component';
+import { MainSliderComponent } from './pages/index/main-slider/main-slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    MainSliderComponent
   ],
   imports: [
     BrowserModule,
