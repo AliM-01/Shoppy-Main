@@ -10,6 +10,8 @@ export class MainSliderComponent implements OnInit {
 
   isDataLoaded: boolean = false;
   sliders: SliderModel[] = [];
+  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1, "dots": true,
+     "fade": true, "loop": true, "arrows": true};
 
   constructor(
     private sliderService: SliderService

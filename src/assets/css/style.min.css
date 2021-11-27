@@ -4711,6 +4711,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     }
 }
 
+.slick-dots {
+    bottom: 0px !important;
+    margin-bottom: 20px !important;
+}
+
 .mobile-header-wrapper-style {
     position: fixed;
     top: 0;
