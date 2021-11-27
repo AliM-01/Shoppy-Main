@@ -24,27 +24,6 @@ $(document).ready(function () {
     /*------ Wow Active ----*/
     new WOW().init();
 
-    /*------ Hero slider active 1 ----*/
-    $('.hero-slider-active-1').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        loop: true,
-        dots: false,
-        arrows: true,
-        prevArrow: '<span class="slider-icon-1-prev"><i class="far fa-chevron-left"></i></span>',
-        nextArrow: '<span class="slider-icon-1-next"><i class="far fa-chevron-right"></i></span>',
-    });
-
-    /*------ Hero slider active 2 ----*/
-    $('.hero-slider-active-2').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: true,
-        loop: true,
-        dots: true,
-        arrows: false,
-    });
 
     /*------ Timer active ----*/
     $('#timer-1-active').syotimer({
@@ -159,42 +138,6 @@ $(document).ready(function () {
                 breakpoint: 767,
                 settings: {
                     slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
-
-    /*------ Categories slider 1 ----*/
-    $('.categories-slider-1').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: false,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 4,
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
                 }
             },
             {
