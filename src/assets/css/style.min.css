@@ -4718,7 +4718,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     min-height: 100vh;
     bottom: 0;
     z-index: 111;
-    left: 0;
+    right: 0;
     visibility: hidden;
     opacity: 0;
     -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
