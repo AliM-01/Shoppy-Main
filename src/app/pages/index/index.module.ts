@@ -4,11 +4,13 @@ import { RouterModule } from '@angular/router';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { IndexComponent } from './index.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
+import { CategoriesSliderComponent } from './categories-slider/categories-slider.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    CategoriesSliderComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
   ],
   exports: [
     IndexComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    CategoriesSliderComponent
   ],
   schemas: []
 })
