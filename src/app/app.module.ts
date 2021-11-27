@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProductCategoryService } from '@app_services/product-category/product-category.service';
 import { SliderService } from '@app_services/slider/slider.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +19,7 @@ import { ComponentsModule } from './_components/components.module';
     ComponentsModule,
     IndexModule
   ],
-  providers: [SliderService],
+  providers: [SliderService, ProductCategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
