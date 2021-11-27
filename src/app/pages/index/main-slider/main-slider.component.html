@@ -1,99 +1,44 @@
 <div class="slider-area" *ngIf="isDataLoaded">
-	<ngx-slick-carousel class="" 
-                    #slickModal="slick-carousel" 
-                    [config]="slideConfig" >
-	
-		<div ngxSlickItem class="single-hero-slider single-animation-wrap slider-height-2 custom-d-flex custom-align-item-center bg-img"
-		style="background-image:url(assets/images/slider/hm2-slider-bg-1.jpg);">
-		<div class="custom-container">
-			<div class="row align-items-center slider-animated-1">
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="hero-slider-content-2">
-						<h4 class="animated"> بهترین انتخاب برای کودک </h4>
-						<h1 class="animated"> کودک دیجیتال <br> دماسنج </h1>
-						<p class="animated"> گرفتن دمای کودک با استفاده از این دماسنج دیجیتال به آسانی اشاره
-							و فشار دادن یک دکمه است. </p>
-						<div class="btn-style-1">
-							<a class="animated btn-1-padding-3" href="product-details.html">29,000 تومن -
-								همین حالا بخرید</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="single-slider-img single-slider-img-1">
-						<img class="animated" src="assets/images/slider/hm2-single-slider-img-1.png" alt="">
-						<div
-							class="slider-product-price slider-product-position3 slider-animated-1 animated">
-							<h3>
-								بهترین
-								<span class="mrg-top">قیمت</span>
-							</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div ngxSlickItem class="single-hero-slider single-animation-wrap slider-height-2 custom-d-flex custom-align-item-center bg-img"
-		style="background-image:url(assets/images/slider/hm2-slider-bg-2.jpg);">
-		<div class="custom-container">
-			<div class="row align-items-center slider-animated-1">
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="hero-slider-content-2">
-						<h4 class="animated"> ژل دست خشک ضد سپتیک </h4>
-						<h1 class="animated mrg-bottom">کووید 19 <br> لوازم پیشگیری و مراقبت </h1>
-						<div class="btn-style-1">
-							<a class="animated btn-1-padding-3" href="product-details.html">29,000 تومن -
-								همین حالا بخرید</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="single-slider-img single-slider-img-2">
-						<img class="animated" src="assets/images/slider/hm2-single-slider-img-2.png" alt="">
-						<div
-							class="slider-product-price slider-product-position4 slider-animated-1 animated">
-							<h3>
-								بهترین
-								<span class="mrg-top">قیمت</span>
-							</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div ngxSlickItem class="single-hero-slider single-animation-wrap slider-height-2 custom-d-flex custom-align-item-center bg-img"
-		style="background-image:url(assets/images/slider/hm2-slider-bg-3.jpg);">
-		<div class="custom-container">
-			<div class="row align-items-center slider-animated-1">
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="hero-slider-content-2">
-						<span class="animated"> قیمت فقط </span>
-						<h3 class="animated">120,000 تومن</h3>
-						<h1 class="animated"> نحوه استفاده از کمپرسور هوا قابل حمل </h1>
-						<p class="animated"> به خصوص برای افرادی که نیاز به استفاده از چندین بار در روز
-							دارند ایده آل است. طراحی تهویه خوب. </p>
-						<div class="btn-style-1">
-							<a class="animated btn-1-padding-3" href="product-details.html"> همین حالا
-								بخرید</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-12 col-sm-6">
-					<div class="single-slider-img single-slider-img-3">
-						<img class="animated" src="assets/images/slider/hm2-single-slider-img-3.png" alt="">
-						<div
-							class="slider-product-price slider-product-position3 slider-animated-1 animated">
-							<h3>
-								خوب
-								<span class="mrg-top"> معامله </span>
-							</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</ngx-slick-carousel>
+  <ngx-slick-carousel
+    #slickModal="slick-carousel"
+    [config]="slideConfig"
+  >
+    <div ngxSlickItem *ngFor="let slide of sliders"
+      class="single-hero-slider single-animation-wrap slider-height-2 custom-d-flex custom-align-item-center bg-img"
+      style="background-image:url(assets/images/slider/hm2-slider-bg-3.jpg);min-height: 40em!important;">
+
+      <div class="custom-container">
+
+        <div class="row align-items-center slider-animated-1">
+
+          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
+            <div class="hero-slider-content-2">
+              <h1 class="animated">{{slide.heading}}</h1>
+              <p class="animated">{{slide.text}}</p>
+              <div class="btn-style-1">
+                <a class="animated btn-1-padding-3" [routerLink]="slide.btnLink">
+					{{slide.btnText}}
+				</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-12 col-sm-6">
+            <div class="single-slider-img single-slider-img-1">
+              <img
+                class="animated"
+                [src]="baseSliderPath + '/original/' + slide.imagePath"
+                [alt]="slide.imageAlt"
+				[title]="slide.imageTitle"
+              />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </ngx-slick-carousel>
 </div>
