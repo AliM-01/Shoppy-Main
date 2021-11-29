@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SliderModel } from '@app_models/slider/slider';
-import { SliderService } from '@app_services/slider/slider.service';
+import { SliderService } from '@app_services/shop/slider/slider.service';
 import { environment } from '@environments/environment';
 @Component({
   selector: 'index-main-slider',
