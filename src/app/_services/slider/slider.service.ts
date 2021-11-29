@@ -14,6 +14,6 @@ export class SliderService {
   ) { }
 
   getSlidersList(): Observable<IResponse<SliderModel[]>> {
-    return this.http.get<IResponse<SliderModel[]>>(`${environment.apiUrl}/slider/get-list`);
+    return this.http.get<IResponse<SliderModel[]>>(`${environment.shopBaseApiUrl}/slider/get-list`);
   }
 }

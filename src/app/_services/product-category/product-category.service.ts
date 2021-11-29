@@ -14,6 +14,6 @@ export class ProductCategoryService {
   ) { }
 
   getProductCategorysList(): Observable<IResponse<ProductCategoryModel[]>> {
-    return this.http.get<IResponse<ProductCategoryModel[]>>(`${environment.apiUrl}/product-category/get-list`);
+    return this.http.get<IResponse<ProductCategoryModel[]>>(`${environment.shopBaseApiUrl}/product-category/get-list`);
   }
 }
