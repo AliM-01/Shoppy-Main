@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SliderModel } from '@app_models/slider/slider';
+import { SliderModel } from '@app_models/shop/slider/slider';
 import { SliderService } from '@app_services/shop/slider/slider.service';
 import { environment } from '@environments/environment';
 @Component({

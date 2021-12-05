@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IResponse } from '@app/_models/common/IResponse';
-import { ProductCategoryModel } from '@app/_models/product-category/product-category';
+import { IResponse } from '@app_models/common/IResponse';
+import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { environment } from '@environments/environment';
 
 @Injectable({
