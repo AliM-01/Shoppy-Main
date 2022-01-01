@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
-import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
+import { ProductModel } from '@app_models/shop/product/product';
+import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 
 @Component({
@@ -10,20 +10,20 @@ import { environment } from '@environments/environment';
 export class LatestProductSliderComponent implements OnInit {
 
   isDataLoaded: boolean = false;
-  productCategories: ProductCategoryModel[] = [];
-  baseProductCategoryPath: string = environment.productCategoryBaseImagePath;
-  slideConfig = {"slidesToShow": 6, "slidesToScroll": 1, "dots": false,
+  products: ProductModel[] = [];
+  baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
+  slideConfig = {"slidesToShow": 5, "slidesToScroll": 1, "dots": false,
      "fade": false, "loop": true, "arrows": true, "responsive": [
       {
           breakpoint: 1199,
           settings: {
-              slidesToShow: 4,
+              slidesToShow: 3,
           }
       },
       {
           breakpoint: 991,
           settings: {
-              slidesToShow: 3,
+              slidesToShow: 2,
           }
       },
       {
@@ -38,17 +38,19 @@ export class LatestProductSliderComponent implements OnInit {
               slidesToShow: 1,
           }
       }
-  ]};
+  ], 
+  prevArrow: '<span class="pro-icon-1-prev"><i class="far fa-angle-left"></i></span>',
+  nextArrow: '<span class="pro-icon-1-next"><i class="far fa-angle-right"></i></span>'};
 
   constructor(
-    private productCategoryService: ProductCategoryService
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
 
-    this.productCategoryService.getProductCategorysList().subscribe(res => {
+    this.productService.getLatestProducts().subscribe(res => {
       if(res.status ==="success"){
-        this.productCategories = res.data;
+        this.products = res.data;
         
         this.isDataLoaded = true;
       }

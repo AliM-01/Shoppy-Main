@@ -6,7 +6,7 @@ export class ProductModel {
          public imageAlt: string,
          public imageTitle: string,
          public price: string,
-         public discountedPrice: string,
+         public priceWithDiscount: string,
          public discountRate: number,
          public category: string,
          public hasDiscount: boolean,
