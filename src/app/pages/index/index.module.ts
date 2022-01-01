@@ -5,12 +5,14 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { IndexComponent } from './index.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { CategoriesSliderComponent } from './categories-slider/categories-slider.component';
+import { LatestProductSliderComponent } from './latest-product-slider/latest-product-slider.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     MainSliderComponent,
-    CategoriesSliderComponent
+    CategoriesSliderComponent,
+    LatestProductSliderComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { CategoriesSliderComponent } from './categories-slider/categories-slider
   exports: [
     IndexComponent,
     MainSliderComponent,
-    CategoriesSliderComponent
+    CategoriesSliderComponent,
+    LatestProductSliderComponent
   ],
   schemas: []
 })
