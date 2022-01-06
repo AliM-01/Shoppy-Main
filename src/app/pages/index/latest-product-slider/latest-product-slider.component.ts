@@ -12,7 +12,7 @@ export class LatestProductSliderComponent implements OnInit {
   isDataLoaded: boolean = false;
   products: ProductModel[] = [];
   baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
-  slideConfig = {"slidesToShow": 5, "slidesToScroll": 1, "dots": false,
+  slideConfig = {"slidesToShow": 5, "slidesToScroll": 4, "dots": true,
      "fade": false, "loop": true, "arrows": true, "responsive": [
       {
           breakpoint: 1199,
@@ -38,9 +38,7 @@ export class LatestProductSliderComponent implements OnInit {
               slidesToShow: 1,
           }
       }
-  ], 
-  prevArrow: '<span class="pro-icon-1-prev"><i class="far fa-angle-left"></i></span>',
-  nextArrow: '<span class="pro-icon-1-next"><i class="far fa-angle-right"></i></span>'};
+  ]};
 
   constructor(
     private productService: ProductService

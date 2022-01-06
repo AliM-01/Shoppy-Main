@@ -17,11 +17,9 @@
 						<div class="product-img-action-wrap mb-20">
 							<div class="product-img product-img-zoom">
 								<a href="product-details.html">
-									<img class="default-img" 
-										[src]="baseProductPath + product.imagePath"
+									<img class="default-img" [src]="baseProductPath + product.imagePath"
 										[alt]="product.imageAlt" [title]="product.imageTitle">
-									<img class="hover-img" 
-										[src]="baseProductPath + product.imagePath"
+									<img class="hover-img" [src]="baseProductPath + product.imagePath"
 										[alt]="product.imageAlt" [title]="product.imageTitle">
 								</a>
 							</div>
@@ -31,8 +29,11 @@
 								<button aria-label="مقایسه"><i class="far fa-signal"></i></button>
 							</div>
 							<div *ngIf="product.hasDiscount"
-							 class="product-badges product-badges-position product-badges-mrg">
-								<span class="hot yellow">داغ</span>
+								class="product-badges product-badges-position product-badges-mrg">
+								<span *ngIf="product.discountRate >= 50" class="hot red">{{ product.discountRate +
+									'% تخفیف'}}</span>
+								<span *ngIf="product.discountRate < 50" class="hot yellow">{{ product.discountRate +
+									'% تخفیف'}}</span>
 							</div>
 						</div>
 						<div class="product-content-wrap">
@@ -40,8 +41,14 @@
 								<a href="#"> {{product.category}} </a>
 							</div>
 							<h2><a href="#"> {{product.title}} </a></h2>
+
 							<div class="product-price" *ngIf="product.hasDiscount">
-								<span>{{product.price + 'تومان' + ' - ' + product.priceWithDiscount + 'تومان'}}</span>
+								<span class="new-price">{{product.priceWithDiscount + ' تومان '}}</span>
+								<span class="old-price">{{product.price + ' تومان '}}</span>
+							</div>
+
+							<div class="product-price" *ngIf="!product.hasDiscount">
+								<span>{{product.price + 'تومان'}}</span>
 							</div>
 						</div>
 					</div>
