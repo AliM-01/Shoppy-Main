@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { IndexModule } from './pages/index/index.module';
 import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingService } from '@loading';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
       autoDismiss: true
     }),
   ],
-  providers: [SliderService, ProductCategoryService, ProductService],
+  providers: [SliderService, ProductCategoryService, ProductService, LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
