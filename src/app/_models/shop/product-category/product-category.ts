@@ -1,3 +1,4 @@
+import { ProductModel } from '@app_models/shop/product/product';
 export class ProductCategoryModel {
     constructor(
          public id: number,
@@ -5,6 +6,7 @@ export class ProductCategoryModel {
          public imagePath: string,
          public imageAlt: string,
          public imageTitle: string,
-         public slug: string
+         public slug: string,
+         public products: ProductModel[],
      ){}
  }
