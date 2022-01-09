@@ -33,4 +33,20 @@ export class ProductCategoryService {
       })
     );
   }
+
+  getProductCategoriesListWithProducts(): Observable<IResponse<ProductCategoryModel[]>> {
+    this.loading.loadingOn();
+    return this.http.get<IResponse<ProductCategoryModel[]>>
+    (`${environment.shopBaseApiUrl}/product-category/get-list-with-products`)
+    .pipe(
+      tap(() => this.loading.loadingOff()),
+      catchError((error: HttpErrorResponse) => {
+
+        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+        this.loading.loadingOff();
+
+        return throwError(error);
+      })
+    );
+  }
 }
