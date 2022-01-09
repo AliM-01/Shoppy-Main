@@ -18,7 +18,7 @@ export class ProductCategoryService {
     private loading: LoadingService
   ) { }
 
-  getProductCategorysList(): Observable<IResponse<ProductCategoryModel[]>> {
+  getProductCategoriesList(): Observable<IResponse<ProductCategoryModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<ProductCategoryModel[]>>
     (`${environment.shopBaseApiUrl}/product-category/get-list`)

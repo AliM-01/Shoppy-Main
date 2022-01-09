@@ -46,7 +46,7 @@ export class CategoriesSliderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.productCategoryService.getProductCategorysList().subscribe(res => {
+    this.productCategoryService.getProductCategoriesList().subscribe(res => {
       if(res.status ==="success"){
         this.productCategories = res.data;
         
