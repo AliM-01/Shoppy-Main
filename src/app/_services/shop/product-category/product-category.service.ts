@@ -34,10 +34,10 @@ export class ProductCategoryService {
     );
   }
 
-  getProductCategoriesListWithProducts(): Observable<IResponse<ProductCategoryModel[]>> {
+  getProductCategory(slug: string): Observable<IResponse<ProductCategoryModel>> {
     this.loading.loadingOn();
-    return this.http.get<IResponse<ProductCategoryModel[]>>
-    (`${environment.shopBaseApiUrl}/product-category/get-list-with-products`)
+    return this.http.get<IResponse<ProductCategoryModel>>
+    (`${environment.shopBaseApiUrl}/product-category/${slug}`)
     .pipe(
       tap(() => this.loading.loadingOff()),
       catchError((error: HttpErrorResponse) => {
