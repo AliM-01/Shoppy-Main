@@ -10,10 +10,12 @@ import { IndexModule } from './pages/index/index.module';
 import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
+import { ProductCategoryModule } from '@apppages/product-category/product.category.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { LoadingService } from '@loading';
       tapToDismiss: false,
       autoDismiss: true
     }),
+    ProductCategoryModule
   ],
   providers: [SliderService, ProductCategoryService, ProductService, LoadingService],
   bootstrap: [AppComponent]

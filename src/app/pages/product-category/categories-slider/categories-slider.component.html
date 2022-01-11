@@ -11,13 +11,13 @@
 
 					<div class="categories-wrap">
 						<div class="categories-img categories-img-zoom">
-							<a [routerLink]="'/product-category/' + category.slug">
+							<a [routerLink]="['/category/details', category.slug.toString()]">
 								<img [src]="baseProductCategoryPath + '/thumbnail/' + category.imagePath" 
 									[alt]="category.imageAlt" [title]="category.imageTitle">
 							</a>
 						</div>
 						<div class="categories-content text-center">
-							<h3><a [routerLink]="'/product-category/' + category.slug">{{category.title}}</a></h3>
+							<h3><a [routerLink]="['/category/details', category.slug.toString()]">{{category.title}}</a></h3>
 						</div>
 					</div>
 			

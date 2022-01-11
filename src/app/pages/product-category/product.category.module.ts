@@ -20,7 +20,8 @@ import { CategoriesSliderComponent } from './categories-slider/categories-slider
     ComponentsModule,
     SlickCarouselModule
   ],
-  exports: [
+  exports: [ 
+    ProductCategoryDetailsPage,
     CategoriesSliderComponent
   ],
   schemas: [],
