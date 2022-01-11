@@ -4,25 +4,24 @@ import { RouterModule } from '@angular/router';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { IndexComponent } from './index.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
-import { CategoriesSliderComponent } from './categories-slider/categories-slider.component';
 import { LatestProductSliderComponent } from './latest-product-slider/latest-product-slider.component';
+import { ProductCategoryModule } from '@apppages/product-category/product.category.module';
 
 @NgModule({
   declarations: [
     IndexComponent,
     MainSliderComponent,
-    CategoriesSliderComponent,
     LatestProductSliderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    ProductCategoryModule
   ],
   exports: [
     IndexComponent,
     MainSliderComponent,
-    CategoriesSliderComponent,
     LatestProductSliderComponent
   ],
   schemas: []
