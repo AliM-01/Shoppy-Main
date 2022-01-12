@@ -6,13 +6,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
+import { ProductBoxComponent } from './product-box/product-box.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     MobileHeaderComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProductBoxComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
     HeaderComponent,
     FooterComponent,
     MobileHeaderComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProductBoxComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })

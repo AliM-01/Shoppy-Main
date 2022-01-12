@@ -6,6 +6,7 @@ import { IndexComponent } from './index.component';
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { LatestProductSliderComponent } from './latest-product-slider/latest-product-slider.component';
 import { ProductCategoryModule } from '@apppages/product-category/product.category.module';
+import { ComponentsModule } from '../../_components/components.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProductCategoryModule } from '@apppages/product-category/product.catego
   imports: [
     CommonModule,
     RouterModule,
+    ComponentsModule,
     SlickCarouselModule,
     ProductCategoryModule
   ],

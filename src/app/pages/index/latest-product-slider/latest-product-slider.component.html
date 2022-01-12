@@ -11,49 +11,8 @@
 		<div class="product-slider-active-1 nav-style-2 nav-style-2-modify-2">
 
 			<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
-				<div ngxSlickItem *ngFor="let product of products" class="product-plr-1">
-
-					<div class="single-product-wrap" style="padding: 25px;">
-						<div class="product-img-action-wrap mb-20">
-							<div class="product-img product-img-zoom">
-								<a href="product-details.html">
-									<img class="default-img" [src]="baseProductPath + product.imagePath"
-										[alt]="product.imageAlt" [title]="product.imageTitle">
-									<img class="hover-img" [src]="baseProductPath + product.imagePath"
-										[alt]="product.imageAlt" [title]="product.imageTitle">
-								</a>
-							</div>
-							<div class="product-action-1">
-								<button aria-label="افزودن به سبد خرید"><i class="far fa-shopping-bag"></i></button>
-								<button aria-label="افزودن به علاقه مندی‌ها"><i class="far fa-heart"></i></button>
-								<button aria-label="مقایسه"><i class="far fa-signal"></i></button>
-							</div>
-							<div *ngIf="product.hasDiscount"
-								class="product-badges product-badges-position product-badges-mrg">
-								<span *ngIf="product.discountRate >= 50" class="hot red">{{ product.discountRate +
-									'% تخفیف'}}</span>
-								<span *ngIf="product.discountRate < 50" class="hot yellow">{{ product.discountRate +
-									'% تخفیف'}}</span>
-							</div>
-						</div>
-						<div class="product-content-wrap">
-							<div class="product-category">
-								<a [routerLink]="['/category/details/i/', product.categoryId]"> {{product.category}} </a>
-							</div>
-							<h2><a href="#"> {{product.title}} </a></h2>
-
-							<div class="product-price" *ngIf="product.hasDiscount">
-								<span class="new-price">{{product.priceWithDiscount + ' تومان '}}</span>
-								<span class="old-price">{{product.price + ' تومان '}}</span>
-							</div>
-
-							<div class="product-price" *ngIf="!product.hasDiscount">
-								<span>{{product.price + 'تومان'}}</span>
-							</div>
-						</div>
-					</div>
-
-				</div>
+				<app-product-box ngxSlickItem *ngFor="let product of products" [product]="product"
+					class="product-plr-1"></app-product-box>
 
 			</ngx-slick-carousel>
 		</div>
