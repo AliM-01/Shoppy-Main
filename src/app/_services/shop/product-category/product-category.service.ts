@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { IResponse } from '@app_models/common/IResponse';
@@ -34,10 +34,14 @@ export class ProductCategoryService {
     );
   }
 
-  getProductCategory(slug: string): Observable<IResponse<ProductCategoryModel>> {
+  getProductCategoryBySlug(slug: string): Observable<IResponse<ProductCategoryModel>> {
     this.loading.loadingOn();
+
+    let params = new HttpParams()
+        .set('Slug', slug)
+
     return this.http.get<IResponse<ProductCategoryModel>>
-    (`${environment.shopBaseApiUrl}/product-category/${slug}`)
+    (`${environment.shopBaseApiUrl}/product-category/get`, { params })
     .pipe(
       tap(() => this.loading.loadingOff()),
       catchError((error: HttpErrorResponse) => {

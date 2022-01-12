@@ -33,7 +33,7 @@ export class ProductCategoryDetailsPage implements OnInit {
       }
       this.slug = slug;
 
-      this.productCategoryService.getProductCategory(this.slug)
+      this.productCategoryService.getProductCategoryBySlug(this.slug)
         .subscribe((res) => {
           if (res.status === 'success') {
             this.productCategory = res.data;
