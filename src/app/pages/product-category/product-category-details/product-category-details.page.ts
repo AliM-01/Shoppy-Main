@@ -11,14 +11,12 @@ import { environment } from '@environments/environment';
 })
 export class ProductCategoryDetailsPage implements OnInit {
 
-  slug: string = '';
   baseProductCategoryPath: string = environment.productCategoryBaseImagePath;
   productCategory!: ProductCategoryModel;
   baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
 
   constructor(
     private productCategoryService: ProductCategoryService,
-    private loading: LoadingService,
     private activatedRoute: ActivatedRoute,
     private _location: Location
   ) { }
@@ -28,19 +26,33 @@ export class ProductCategoryDetailsPage implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       const slug = params.slug;
 
-      if (slug === undefined) {
-        this._location.back();
-      }
-      this.slug = slug;
+      if (slug !== undefined) {
+        this.productCategoryService.getProductCategoryBySlug(slug)
+          .subscribe((res) => {
+            if (res.status === 'success') {
+              this.productCategory = res.data;
+            }
+          }, (error) => {
+            this._location.back();
+          });
+      } else {
+        const categoryId = params.id;
 
-      this.productCategoryService.getProductCategoryBySlug(this.slug)
-        .subscribe((res) => {
-          if (res.status === 'success') {
-            this.productCategory = res.data;
-          }
-        }, (error) => {
+        if (categoryId === undefined) {
           this._location.back();
-        });
+        } else {
+          this.productCategoryService.getProductCategoryById(categoryId)
+            .subscribe((res) => {
+              if (res.status === 'success') {
+                this.productCategory = res.data;
+              }
+            }, (error) => {
+              this._location.back();
+            });
+        }
+      }
+
+
 
     });
 

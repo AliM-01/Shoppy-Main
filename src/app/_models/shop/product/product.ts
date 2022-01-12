@@ -9,6 +9,7 @@ export class ProductModel {
          public priceWithDiscount: string,
          public discountRate: number,
          public category: string,
+         public categoryId: string,
          public hasDiscount: boolean,
          public slug: string
      ){}
