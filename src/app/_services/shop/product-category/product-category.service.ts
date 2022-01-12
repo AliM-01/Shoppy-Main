@@ -53,4 +53,24 @@ export class ProductCategoryService {
       })
     );
   }
+
+  getProductCategoryById(id: number): Observable<IResponse<ProductCategoryModel>> {
+    this.loading.loadingOn();
+
+    let params = new HttpParams()
+        .set('CategoryId', id.toString())
+
+    return this.http.get<IResponse<ProductCategoryModel>>
+    (`${environment.shopBaseApiUrl}/product-category/get`, { params })
+    .pipe(
+      tap(() => this.loading.loadingOff()),
+      catchError((error: HttpErrorResponse) => {
+
+        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+        this.loading.loadingOff();
+
+        return throwError(error);
+      })
+    );
+  }
 }
