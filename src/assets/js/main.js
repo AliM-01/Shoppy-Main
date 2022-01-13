@@ -1,4 +1,8 @@
-$(document).ready(function () {
+
+document.addEventListener("DOMContentLoaded", init(), false);
+
+function init() {
+
     /*-----------------
         Menu Stick
     -----------------*/
@@ -531,7 +535,7 @@ $(document).ready(function () {
         e.preventDefault();
         demo.toggleClass('demo-open');
     });
-})
 
 
+}
 
