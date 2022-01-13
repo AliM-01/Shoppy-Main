@@ -1,7 +1,30 @@
 
+
+// function topFunction() {
+//   document.body.scrollTop = 0; // For Safari
+//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+// } 
+
 document.addEventListener("DOMContentLoaded", init(), false);
 
 function init() {
+
+    scrollUpBtn = document.getElementById("scrollUp");
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollUpBtn.style.display = "block";
+        } else {
+            scrollUpBtn.style.display = "none";
+        }
+    }
+
+    scrollUpBtn.addEventListener("click", () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
 
     /*-----------------
         Menu Stick
@@ -15,14 +38,6 @@ function init() {
         } else {
             header.addClass('stick');
         }
-    });
-
-    /*------ ScrollUp -------- */
-    $.scrollUp({
-        scrollText: '<i class="fal fa-long-arrow-up"></i>',
-        easingType: 'linear',
-        scrollSpeed: 900,
-        animation: 'fade'
     });
 
     /*------ Wow Active ----*/
