@@ -1819,6 +1819,7 @@ textarea:focus {
 }
 
 #scrollUp {
+    position: fixed;
     width: 60px;
     height: 60px;
     background-color: #4e97fd;
@@ -1828,6 +1829,7 @@ textarea:focus {
     border-radius: 50%;
     text-align: center;
     overflow: hidden;
+    border: #fff;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
     z-index: 999 !important
@@ -7174,7 +7176,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-product-wrap .product-img-action-wrap .product-action-1 {
     position: absolute;
-    right: 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     bottom: 0;
     opacity: 0;
     visibility: hidden;
@@ -7189,8 +7194,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 48px;
     height: 48px;
     line-height: 48px;
+    color: #ffffff;
     border-radius: 50%;
-    background-color: #333;
+    background-color: #4e97fd;
     text-align: center;
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
@@ -7204,11 +7210,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     white-space: nowrap;
     border-radius: 5px;
-    
+    color: #ffffff;
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
-    background-color: #4e97fd;
+    background-color: #e4573d;
     content: attr(aria-label);
     line-height: 1.3;
     -webkit-transition-delay: .1s;
@@ -7233,7 +7239,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -o-transition-delay: .1s;
     transition-delay: .1s;
     border: 7px solid transparent;
-    border-top-color: #4e97fd;
+    border-top-color: #e4573d;
     z-index: 9;
     margin-bottom: -13px;
     transition-delay: .1s;
@@ -7252,7 +7258,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover {
-    background-color: #4e97fd
+    background-color: #e4573d
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover:after {
