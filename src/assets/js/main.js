@@ -9,52 +9,36 @@ document.addEventListener("DOMContentLoaded", init(), false);
 
 function init() {
 
-    scrollUpBtn = document.getElementById("scrollUp");
+    // /*-----------------
+    //     Menu Stick
+    // -----------------*/
+    var header = document.getElementsByClassName("sticky-bar");
+    var scrollUpBtn = document.getElementById("scrollUp");
+    var win = $(window);
+    win.on('scroll', function () {
+        var scroll = win.scrollTop();
 
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        if (scroll > 20 || scroll > 20) {
             scrollUpBtn.style.display = "block";
         } else {
             scrollUpBtn.style.display = "none";
         }
-    }
+
+        if (scroll < 200) {
+            header[0].classList.remove('stick');
+        } else {
+            header[0].classList.add('stick');
+        }
+    });
 
     scrollUpBtn.addEventListener("click", () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
 
-    /*-----------------
-        Menu Stick
-    -----------------*/
-    var header = $('.sticky-bar');
-    var win = $(window);
-    win.on('scroll', function () {
-        var scroll = win.scrollTop();
-        if (scroll < 200) {
-            header.removeClass('stick');
-        } else {
-            header.addClass('stick');
-        }
-    });
-
     /*------ Wow Active ----*/
     new WOW().init();
 
-
-    /*------ Timer active ----*/
-    $('#timer-1-active').syotimer({
-        year: 2020,
-        month: 10,
-        day: 31,
-        hour: 23,
-        minute: 59,
-        layout: 'hms',
-        periodic: false,
-        periodUnit: 'm'
-    });
 
     /*------ Product slider active 1 ----*/
     $('.product-slider-active-1').slick({
