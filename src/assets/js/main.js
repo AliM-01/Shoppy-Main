@@ -1,18 +1,13 @@
-
-
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// } 
-
-document.addEventListener("DOMContentLoaded", init(), false);
+window.onload = function () {
+    document.addEventListener("DOMContentLoaded", init(), false);
 
 function init() {
-
+    
+}
     // /*-----------------
     //     Menu Stick
     // -----------------*/
-    var header = document.getElementsByClassName("sticky-bar");
+    var header = document.getElementsByClassName("sticky-bar")[0];
     var scrollUpBtn = document.getElementById("scrollUp");
     var win = $(window);
     win.on('scroll', function () {
@@ -25,9 +20,9 @@ function init() {
         }
 
         if (scroll < 200) {
-            header[0].classList.remove('stick');
+            header.classList.remove('stick');
         } else {
-            header[0].classList.add('stick');
+            header.classList.add('stick');
         }
     });
 
@@ -36,120 +31,63 @@ function init() {
         document.documentElement.scrollTop = 0;
     });
 
-    /*------ Wow Active ----*/
+
+    /*====== Sidebar menu Active ======*/
+    var navbarTrigger = document.getElementById('burger_icon');
+    var endTrigger = document.getElementById('mobile_menu_close');
+    var container = document.getElementsByClassName("mobile-header-active")[0];
+    var wrapper4 = document.getElementsByTagName('body')[0];
+
+    let body_overlay = document.createElement('div');
+    body_overlay.classList.add("body-overlay-1")
+    wrapper4.prepend(body_overlay);
+
+    navbarTrigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        container.classList.add('sidebar-visible');
+        wrapper4.classList.add('mobile-menu-active');
+    });
+
+    endTrigger.addEventListener('click', () => {
+        container.classList.remove('sidebar-visible');
+        wrapper4.classList.remove('mobile-menu-active');
+    });
+
+    $('.body-overlay-1').on('click', function () {
+        container.classList.remove('sidebar-visible');
+        wrapper4.classList.remove('mobile-menu-active');
+    });
+
     new WOW().init();
 
 
-    /*------ Product slider active 1 ----*/
-    $('.product-slider-active-1').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: false,
-        arrows: true,
-        prevArrow: '<span class="pro-icon-1-prev"><i class="far fa-angle-left"></i></span>',
-        nextArrow: '<span class="pro-icon-1-next"><i class="far fa-angle-right"></i></span>',
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
+    /*---------------------
+         Mobile menu active
+     ------------------------ */
+    var $offCanvasNav = $('.mobile-menu'),
+        $offCanvasNavSubMenu = $offCanvasNav.find('.dropdown');
 
-    /*------ Testimonial active 1 ----*/
-    $('.testimonial-active-1').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: false,
-        arrows: true,
-        prevArrow: '<span class="pro-icon-1-prev"><i class="far fa-angle-left"></i></span>',
-        nextArrow: '<span class="pro-icon-1-next"><i class="far fa-angle-right"></i></span>',
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    });
+    /*Add Toggle Button With Off Canvas Sub Menu*/
+    $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="far fa-angle-down"></i></span>');
 
-    /*------ Testimonial active 3 ----*/
-    $('.testimonial-active-3').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: true,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                }
+    /*Close Off Canvas Sub Menu*/
+    $offCanvasNavSubMenu.slideUp();
+
+    /*Category Sub Menu Toggle*/
+    $offCanvasNav.on('click', 'li a, li .menu-expand', function (e) {
+        var $this = $(this);
+        if (($this.parent().attr('class').match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand'))) {
+            e.preventDefault();
+            if ($this.siblings('ul:visible').length) {
+                $this.parent('li').removeClass('active');
+                $this.siblings('ul').slideUp();
+            } else {
+                $this.parent('li').addClass('active');
+                $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
+                $this.closest('li').siblings('li').find('ul:visible').slideUp();
+                $this.siblings('ul').slideDown();
             }
-        ]
+        }
     });
 
     /*------ SVG img active ----*/
@@ -171,47 +109,24 @@ function init() {
         }
     })
 
-    /*-------------------------
-        Testimonial active 2
-    --------------------------*/
-    var $status = $('.pagingInfo');
-    var $slickElement = $('.testimonial-active-2');
-
-    $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-        //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-        var i = (currentSlide ? currentSlide : 0) + 1;
-        $status.text('0' + i + ' ------ ' + '0' + slick.slideCount);
-    });
-
-    $slickElement.slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: false,
-        arrows: true,
-        prevArrow: '<span class="testimonial-icon-2-prev"><i class="far fa-angle-right"></i></span>',
-        nextArrow: '<span class="testimonial-icon-2-next"><i class="far fa-angle-left"></i></span>',
-    });
-
     /*---------------------
         Price range
     --------------------- */
-    var sliderrange = $('#slider-range');
-    var amountprice = $('#amount');
-    $(function () {
-        sliderrange.slider({
-            range: true,
-            min: 16,
-            max: 400,
-            values: [0, 300],
-            slide: function (event, ui) {
-                amountprice.val("تومان" + ui.values[0] + "  تومان" + ui.values[1]);
-            }
-        });
-        amountprice.val(sliderrange.slider("values", 0) + " تومان " +
-            sliderrange.slider("values", 1) + "  تومان  ");
-    });
+    // var sliderrange = $('#slider-range');
+    // var amountprice = $('#amount');
+    // $(function () {
+    //     sliderrange.slider({
+    //         range: true,
+    //         min: 16,
+    //         max: 400,
+    //         values: [0, 300],
+    //         slide: function (event, ui) {
+    //             amountprice.val("تومان" + ui.values[0] + "  تومان" + ui.values[1]);
+    //         }
+    //     });
+    //     amountprice.val(sliderrange.slider("values", 0) + " تومان " +
+    //         sliderrange.slider("values", 1) + "  تومان  ");
+    // });
 
 
     /*-------------------------------
@@ -251,50 +166,6 @@ function init() {
     shopFiltericon.on('click', function () {
         $('.shop-filter-active').toggleClass('active');
     })
-
-    /*-------------------------------------
-        Product details big image slider
-    ---------------------------------------*/
-    $('.pro-dec-big-img-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        draggable: false,
-        fade: false,
-        asNavFor: '.product-dec-slider-small , .product-dec-slider-small-2',
-    });
-
-    /*---------------------------------------
-        Product details small image slider
-    -----------------------------------------*/
-    $('.product-dec-slider-small').slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        asNavFor: '.pro-dec-big-img-slider',
-        dots: false,
-        focusOnSelect: true,
-        fade: false,
-        arrows: false,
-        responsive: [{
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 3,
-            }
-        },
-        {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 4,
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 2,
-            }
-        }
-        ]
-    });
 
     /*-----------------------
         Magnific Popup
@@ -459,62 +330,6 @@ function init() {
     };
     sidebarSearch();
 
-    /*====== Sidebar menu Active ======*/
-    function mobileHeaderActive() {
-        var navbarTrigger = $('.burger-icon'),
-            endTrigger = $('.mobile-menu-close'),
-            container = $('.mobile-header-active'),
-            wrapper4 = $('body');
-
-        wrapper4.prepend('<div class="body-overlay-1"></div>');
-
-        navbarTrigger.on('click', function (e) {
-            e.preventDefault();
-            container.addClass('sidebar-visible');
-            wrapper4.addClass('mobile-menu-active');
-        });
-
-        endTrigger.on('click', function () {
-            container.removeClass('sidebar-visible');
-            wrapper4.removeClass('mobile-menu-active');
-        });
-
-        $('.body-overlay-1').on('click', function () {
-            container.removeClass('sidebar-visible');
-            wrapper4.removeClass('mobile-menu-active');
-        });
-    };
-    mobileHeaderActive();
-
-
-    /*---------------------
-         Mobile menu active
-     ------------------------ */
-    var $offCanvasNav = $('.mobile-menu'),
-        $offCanvasNavSubMenu = $offCanvasNav.find('.dropdown');
-
-    /*Add Toggle Button With Off Canvas Sub Menu*/
-    $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="far fa-angle-down"></i></span>');
-
-    /*Close Off Canvas Sub Menu*/
-    $offCanvasNavSubMenu.slideUp();
-
-    /*Category Sub Menu Toggle*/
-    $offCanvasNav.on('click', 'li a, li .menu-expand', function (e) {
-        var $this = $(this);
-        if (($this.parent().attr('class').match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand'))) {
-            e.preventDefault();
-            if ($this.siblings('ul:visible').length) {
-                $this.parent('li').removeClass('active');
-                $this.siblings('ul').slideUp();
-            } else {
-                $this.parent('li').addClass('active');
-                $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
-                $this.closest('li').siblings('li').find('ul:visible').slideUp();
-                $this.siblings('ul').slideDown();
-            }
-        }
-    });
 
     /*--- language currency active ----*/
     $('.mobile-language-active').on('click', function (e) {
@@ -535,6 +350,4 @@ function init() {
         demo.toggleClass('demo-open');
     });
 
-
 }
-
