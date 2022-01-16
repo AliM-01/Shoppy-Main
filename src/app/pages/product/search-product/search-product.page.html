@@ -21,22 +21,33 @@
 					<div class="sort-by-product-area">
 						<div class="sort-by-product-wrap">
 							<div class="sort-by">
-								<span><i class="far fa-align-left"></i>مرتب کردن:</span>
+								<span><i class="fa fa-align-left"></i> قیمت: </span>
 							</div>
 							<div class="sort-by-dropdown-wrap">
-								<span>پیش فرض<i class="far fa-angle-down"></i></span>
+								<span>{{ currentPriceSortSelected[1] }}<i class="fa fa-angle-down"></i></span>
 							</div>
 						</div>
 						<div class="sort-by-dropdown">
 							<ul>
-								<li><a (click)="setPriceOrder(0)" [ngClass]="active: priceSort === 0">همه</a></li>
-								<li><a href="#">محبوبترین</a></li>
-								<li><a href="#">پر فروش ترین</a></li>
-								<li><a href="#">جدیدترین</a></li>
-								<li><a (click)="setPriceOrder(1)" 
-									[ngClass]="active: priceSort === 1">قیمت از زیاد به کم</a></li>
-								<li><a (click)="setPriceOrder(2)" 
-									[ngClass]="active: priceSort === 2">قیمت از کم به زیاد</a></li>
+								<li><a (click)="setPriceOrder(0)">همه</a></li>
+								<li><a (click)="setPriceOrder(1)" >قیمت از زیاد به کم</a></li>
+								<li><a (click)="setPriceOrder(2)" >قیمت از کم به زیاد</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sort-by-product-area">
+						<div class="sort-by-product-wrap">
+							<div class="sort-by">
+								<span><i class="fa fa-align-left"></i> تاریخ: </span>
+							</div>
+							<div class="sort-by-dropdown-wrap">
+								<span> {{ currentCreationSortSelected[1] }} <i class="fa fa-angle-down"></i></span>
+							</div>
+						</div>
+						<div class="sort-by-dropdown">
+							<ul>
+								<li><a (click)="setCreationSort(0)">جدیدترین</a></li>
+								<li><a (click)="setCreationSort(1)">قدیمی ترین</a></li>
 							</ul>
 						</div>
 					</div>

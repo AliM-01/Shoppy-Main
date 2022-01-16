@@ -10696,7 +10696,6 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sort-by-dropdown ul li a {
-  
     color: #333;
     font-size: 15px;
     padding: 5px 30px;
@@ -10717,7 +10716,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .sort-by-dropdown ul li a:hover {
     background-color: #4e97fd;
-    color: #ffffff
+    color: #ffffff !important;
 }
 
 .pro-pagination-style ul {

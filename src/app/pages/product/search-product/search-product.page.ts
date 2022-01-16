@@ -17,6 +17,8 @@ export class SearchProductPage implements OnInit {
   productCategories: ProductCategoryModel[] = [];
   creationSort: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES
   priceSort: SearchProductPriceOrder = SearchProductPriceOrder.All;
+  currentPriceSortSelected = [0, "همه"];
+  currentCreationSortSelected = [0, "جدیدترین"];
   searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 10,
     this.creationSort, this.priceSort, 0, 0);
 
@@ -57,8 +59,6 @@ export class SearchProductPage implements OnInit {
 
   getProducts() {
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
-      console.log(res);
-
       this.searchProducts = res.data;
 
       if (res.data.phrase === null) {
@@ -70,6 +70,8 @@ export class SearchProductPage implements OnInit {
       if (res.data.selectedCategories === null) {
         this.searchProducts.selectedCategories = [];
       }
+
+      
 
       for (let i = 1; i < ((this.searchProducts.allPagesCount / this.searchProducts.takePage) + 1); i++) {
         this.pages.push(i);
@@ -100,13 +102,29 @@ export class SearchProductPage implements OnInit {
     }
   }
 
-  setCreationSort() {
-
+  setCreationSort(sort: number) {
+    this.creationSort = sort;
+    this.searchProducts.sortCreationDateOrder = sort;
+    this.currentCreationSortSelected[0] = sort;
+    if(sort == 0){
+      this.currentCreationSortSelected[1] = "جدیدترین";
+    } if(sort == 1) {
+      this.currentCreationSortSelected[1] = "قدیمی ترین";
+    }
+    this.getProducts();
   }
 
   setPriceOrder(sort: number) {
     this.priceSort = sort;
     this.searchProducts.searchProductPriceOrder = sort;
+    this.currentPriceSortSelected[0] = sort;
+    if(sort == 0){
+      this.currentPriceSortSelected[1] = "همه";
+    } if(sort == 1) {
+      this.currentPriceSortSelected[1] = "قیمت از زیاد به کم";
+    } if(sort == 2) {
+      this.currentPriceSortSelected[1] = "قیمت از کم به زیاد";
+    }
     this.getProducts();
   }
 }
