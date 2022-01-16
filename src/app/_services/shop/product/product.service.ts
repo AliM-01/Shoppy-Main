@@ -39,7 +39,7 @@ export class ProductService {
   searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
 
     this.loading.loadingOn();
-  console.log(search.searchProductPriceOrder.toString());
+    console.log(search);
 
     let params = new HttpParams()
       .set('PageId', search.pageId.toString())

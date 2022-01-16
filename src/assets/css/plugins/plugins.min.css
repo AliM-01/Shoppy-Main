@@ -6156,3 +6156,18 @@ img.mfp-img {
 .slick-arrow.slick-hidden {
     display: none
 }
+
+.ngx-slider .ngx-slider-pointer:after {
+    content: none !important;
+}
+
+.ngx-slider .ngx-slider-pointer {
+    width: 15px !important; 
+    height: 15px !important;
+    top: -6px !important;
+    background-color: #4e97fd !important;
+}
+
+.ngx-slider .ngx-slider-selection {    
+    background-color: #4e97fd !important;
+}

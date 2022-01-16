@@ -30,8 +30,8 @@
 						<div class="sort-by-dropdown">
 							<ul>
 								<li><a (click)="setPriceOrder(0)">همه</a></li>
-								<li><a (click)="setPriceOrder(1)" >قیمت از زیاد به کم</a></li>
-								<li><a (click)="setPriceOrder(2)" >قیمت از کم به زیاد</a></li>
+								<li><a (click)="setPriceOrder(1)">قیمت از زیاد به کم</a></li>
+								<li><a (click)="setPriceOrder(2)">قیمت از کم به زیاد</a></li>
 							</ul>
 						</div>
 					</div>
@@ -83,16 +83,28 @@
 							</ul>
 						</div>
 					</div>
-					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-2 mb-20">
-						<h4 class="sidebar-widget-title">فیلتر بر اساس قیمت</h4>
+					<div *ngIf="searchProducts.products.length"
+						class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-2 mb-20">
+						<h4 class="sidebar-widget-title">فیلتر بر اساس قیمت (تومان)</h4>
 						<div class="price-filter">
-							<div id="slider-range"></div>
+							<div class="custom-ngx-slider">
+								<ngx-slider [value]="searchProducts.selectedMinPrice"
+									[highValue]="searchProducts.selectedMaxPrice" [options]="
+									{ 
+										floor: searchProducts.filterMinPrice,
+										ceil: searchProducts.filterMaxPrice,
+										step: 250000
+									}" 
+									(userChangeEnd)="priceValueChanged($event)"
+									>
+								</ngx-slider>
+							</div>
+							<div>حداقل قیمت: {{searchProducts.selectedMinPrice}}</div>
+							<div>حداکثر قیمت: {{searchProducts.selectedMaxPrice}}</div>
 							<div class="price-slider-amount">
 								<div class="label-input">
-									<input type="text" id="amount" name="price"
-										placeholder="قیمت موردنظر را وارد کنید" />
 								</div>
-								<button type="button">فیلتر</button>
+								<button (click)="getProducts()" type="button">فیلتر</button>
 							</div>
 						</div>
 					</div>
