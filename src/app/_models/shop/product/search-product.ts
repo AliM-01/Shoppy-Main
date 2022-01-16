@@ -10,7 +10,6 @@ export class SearchProductModel implements IPaging {
 
     selectedCategories: string[]
     phrase: string;
-    categoryId: string;
     products: ProductModel[];
     searchProductPriceOrder: SearchProductPriceOrder = SearchProductPriceOrder.All;
     filterMinPrice: number;
@@ -20,7 +19,6 @@ export class SearchProductModel implements IPaging {
 
     constructor(
         phrase: string,
-        categoryId: string,
         products: ProductModel[],
         pageId: number,
         takePage: number,
@@ -30,7 +28,6 @@ export class SearchProductModel implements IPaging {
         selectedMaxPrice: number
         ){
         this.phrase = phrase;
-        this.categoryId = categoryId;
         this.products = products;
         this.pageId = pageId;
         this.takePage = takePage;
