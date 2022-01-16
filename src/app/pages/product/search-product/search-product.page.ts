@@ -4,8 +4,8 @@ import { PagingDataSortCreationDateOrder } from '@app_models/common/IPaging';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
-import { ProductCategoryModel } from '../../../_models/shop/product-category/product-category';
-import { SearchProductModel, SearchProductPriceOrder } from '../../../_models/shop/product/search-product';
+import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
+import { SearchProductModel, SearchProductPriceOrder } from '@app_models/shop/product/search-product';
 @Component({
   selector: 'search-product',
   templateUrl: './search-product.page.html'
@@ -17,7 +17,7 @@ export class SearchProductPage implements OnInit {
   productCategories: ProductCategoryModel[] = [];
   creationSort: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES
   priceSort: SearchProductPriceOrder = SearchProductPriceOrder.All;
-  searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 3,
+  searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 10,
     this.creationSort, this.priceSort, 0, 0);
 
   constructor(
@@ -58,7 +58,7 @@ export class SearchProductPage implements OnInit {
   getProducts() {
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
       console.log(res);
-      
+
       this.searchProducts = res.data;
 
       if (res.data.phrase === null) {
@@ -98,5 +98,15 @@ export class SearchProductPage implements OnInit {
     } else {
       this.router.navigate(['/product/search']);
     }
+  }
+
+  setCreationSort() {
+
+  }
+
+  setPriceOrder(sort: number) {
+    this.priceSort = sort;
+    this.searchProducts.searchProductPriceOrder = sort;
+    this.getProducts();
   }
 }

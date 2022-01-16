@@ -39,18 +39,18 @@ export class ProductService {
   searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
 
     this.loading.loadingOn();
+  console.log(search.searchProductPriceOrder.toString());
 
-    let params;
+    let params = new HttpParams()
+      .set('PageId', search.pageId.toString())
+      .set('TakePage', search.takePage.toString())
+      .set('SelectedMaxPrice', search.selectedMaxPrice)
+      .set('SelectedMinPrice', search.selectedMinPrice)
+      .set('SortCreationDateOrder', search.sortCreationDateOrder)
+      .set('SearchProductPriceOrder', search.searchProductPriceOrder);
 
     if (search !== null) {
-      params = new HttpParams()
-        .set('Phrase', search.phrase)
-        .set('PageId', search.pageId.toString())
-        .set('TakePage', search.takePage.toString())
-        .set('SelectedMaxPrice', search.selectedMaxPrice)
-        .set('SelectedMinPrice', search.selectedMinPrice)
-        .set('SortCreationDateOrder', search.sortCreationDateOrder)
-        .set('SearchProductPriceOrder', search.searchProductPriceOrder);
+      params.set('Phrase', search.phrase);
     }
 
     if(search.selectedCategories?.length){
