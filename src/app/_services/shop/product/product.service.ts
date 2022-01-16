@@ -53,8 +53,10 @@ export class ProductService {
         .set('SearchProductPriceOrder', search.searchProductPriceOrder);
     }
 
-    for (let category of search.selectedCategories) {
-      params = params.append('SelectedCategories', category);
+    if(search.selectedCategories?.length){
+      for (let category of search.selectedCategories) {
+        params = params.append('SelectedCategories', category);
+      }
     }
 
     return this.http.get<IResponse<SearchProductModel>>

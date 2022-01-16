@@ -17,7 +17,7 @@ export class SearchProductPage implements OnInit {
   productCategories: ProductCategoryModel[] = [];
   creationSort: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES
   priceSort: SearchProductPriceOrder = SearchProductPriceOrder.All;
-  searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 10,
+  searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 3,
     this.creationSort, this.priceSort, 0, 0);
 
   constructor(
@@ -36,8 +36,7 @@ export class SearchProductPage implements OnInit {
         pageId = parseInt(params.pageId, 0);
       }
 
-      this.searchProducts.selectedCategories = params.categories ? params.categories : [];
-
+      this.searchProducts.selectedCategories = params.categories;
       this.searchProducts.pageId = pageId;
       this.getProducts();
     });
@@ -58,6 +57,8 @@ export class SearchProductPage implements OnInit {
 
   getProducts() {
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
+      console.log(res);
+      
       this.searchProducts = res.data;
 
       if (res.data.phrase === null) {
@@ -70,7 +71,7 @@ export class SearchProductPage implements OnInit {
         this.searchProducts.selectedCategories = [];
       }
 
-      for (let i = this.searchProducts.startPage; i <= this.searchProducts.endPage; i++) {
+      for (let i = 1; i < ((this.searchProducts.allPagesCount / this.searchProducts.takePage) + 1); i++) {
         this.pages.push(i);
       }
     })
