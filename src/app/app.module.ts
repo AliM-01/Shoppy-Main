@@ -11,6 +11,7 @@ import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
 import { ProductCategoryModule } from '@apppages/product-category/product.category.module';
+import { ProductModule } from '@apppages/product/product.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductCategoryModule } from '@apppages/product-category/product.catego
       tapToDismiss: false,
       autoDismiss: true
     }),
-    ProductCategoryModule
+    ProductCategoryModule,
+    ProductModule
   ],
   providers: [SliderService, ProductCategoryService, ProductService, LoadingService],
   bootstrap: [AppComponent]
