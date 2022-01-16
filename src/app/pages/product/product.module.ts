@@ -5,9 +5,11 @@ import { ComponentsModule } from '@app_components/components.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ProductService } from '@app_services/shop/product/product.service';
 import { ProductRoutingModule } from './product.routing.module';
+import { SearchProductPage } from './search-product/search-product.page';
 
 @NgModule({
   declarations: [
+    SearchProductPage
   ],
   imports: [
     CommonModule,
@@ -17,6 +19,7 @@ import { ProductRoutingModule } from './product.routing.module';
     SlickCarouselModule
   ],
   exports: [
+    SearchProductPage
   ],
   schemas: [],
   providers: [ProductService]

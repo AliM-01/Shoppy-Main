@@ -1,0 +1,89 @@
+<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
+	<div class="custom-container">
+		<div class="breadcrumb-content text-center">
+			<ul>
+				<li>
+					<a routerLink="/">صفحه اصلی</a>
+				</li>
+				<li class="active"> فروشگاه</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="shop-area pt-75 pb-55">
+	<div class="custom-container">
+		<div class="row flex-row-reverse">
+			<div class="col-lg-9">
+				<div class="shop-topbar-wrapper">
+					<div class="totall-product">
+						<p>ما پیدا کردیم<span>51</span>محصول در دسترس برای شما</p>
+					</div>
+					<div class="sort-by-product-area">
+						<div class="sort-by-product-wrap">
+							<div class="sort-by">
+								<span><i class="far fa-align-left"></i>مرتب کردن:</span>
+							</div>
+							<div class="sort-by-dropdown-wrap">
+								<span>پیش فرض<i class="far fa-angle-down"></i></span>
+							</div>
+						</div>
+						<div class="sort-by-dropdown">
+							<ul>
+								<li><a class="active" href="#">پیش فرض</a></li>
+								<li><a href="#">محبوبترین</a></li>
+								<li><a href="#">پر فروش ترین</a></li>
+								<li><a href="#">جدیدترین</a></li>
+								<li><a href="#">قیمت از کم به زیاد</a></li>
+								<li><a href="#">قیمت از زیاد به کم</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="shop-bottom-area" *ngIf="searchProducts.products.length">
+					<div class="row">
+						<app-product-box *ngFor="let product of searchProducts.products" [product]="product"
+							class="col-xl-3 col-lg-4 col-md-4 col-12 col-sm-6"></app-product-box>
+					</div>
+					<div class="pro-pagination-style text-center mt-55">
+						<ul>
+							<li><a class="active" href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a class="next" href="#"><i class="far fa-angle-double-right"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="sidebar-wrapper sidebar-wrapper-mr1">
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-1 mb-20">
+						<h4 class="sidebar-widget-title"> دسته بندی</h4>
+						<div class="sidebar-categories-list">
+							<ul>
+								<li *ngFor="let category of productCategories">
+									<label>{{category.title}}</label>
+									<input [value]="category.id" type="checkbox"
+										(change)="filterCategories($event, category.slug)"
+										[checked]="searchProducts.selectedCategories?.indexOf(category.slug) >= 0" />
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-2 mb-20">
+						<h4 class="sidebar-widget-title">فیلتر بر اساس قیمت</h4>
+						<div class="price-filter">
+							<div id="slider-range"></div>
+							<div class="price-slider-amount">
+								<div class="label-input">
+									<input type="text" id="amount" name="price"
+										placeholder="قیمت موردنظر را وارد کنید" />
+								</div>
+								<button type="button">فیلتر</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

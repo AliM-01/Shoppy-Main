@@ -109,25 +109,6 @@ function init() {
         }
     })
 
-    /*---------------------
-        Price range
-    --------------------- */
-    // var sliderrange = $('#slider-range');
-    // var amountprice = $('#amount');
-    // $(function () {
-    //     sliderrange.slider({
-    //         range: true,
-    //         min: 16,
-    //         max: 400,
-    //         values: [0, 300],
-    //         slide: function (event, ui) {
-    //             amountprice.val("تومان" + ui.values[0] + "  تومان" + ui.values[1]);
-    //         }
-    //     });
-    //     amountprice.val(sliderrange.slider("values", 0) + " تومان " +
-    //         sliderrange.slider("values", 1) + "  تومان  ");
-    // });
-
 
     /*-------------------------------
         Sort by active

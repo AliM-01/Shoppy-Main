@@ -7,6 +7,8 @@ export class SearchProductModel implements IPaging {
     takePage: number;
     sortCreationDateOrder: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES;
     sortIdOrder: PagingDataSortIdOrder;
+    startPage: number;
+    endPage: number;
 
     selectedCategories: string[]
     phrase: string;
