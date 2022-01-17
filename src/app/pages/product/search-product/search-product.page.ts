@@ -20,8 +20,10 @@ export class SearchProductPage implements OnInit {
   priceSort: SearchProductPriceOrder = SearchProductPriceOrder.All;
   currentPriceSortSelected = [0, "همه"];
   currentCreationSortSelected = [0, "جدیدترین"];
-  searchProducts: SearchProductModel = new SearchProductModel('', [], 0, 10,
+  searchPhrase: string = '';
+  searchProducts: SearchProductModel = new SearchProductModel(this.searchPhrase, [], 0, 10,
     this.creationSort, this.priceSort, 0, 0);
+  isDataLoaded: boolean = false;
   constructor(
     private productCategoryService: ProductCategoryService,
     private productService: ProductService,
@@ -30,18 +32,28 @@ export class SearchProductPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.isDataLoaded = false;
     this.activatedRoute.queryParams.subscribe(params => {
       let pageId = 1;
 
       if (params.pageId !== undefined) {
         pageId = parseInt(params.pageId, 0);
       }
-      if (params.phrase !== undefined) {
-        this.searchProducts.phrase = params.phrase;
+      this.searchProducts.phrase = params.phrase;
+      this.searchPhrase = params.phrase;
+      
+      let selectedCategoryParams: string[];
+
+      if(typeof params?.categories === "string"){
+        selectedCategoryParams = [params?.categories]
+      } else if (typeof params?.categories === "object"){
+        selectedCategoryParams = params?.categories
       }
 
-      this.searchProducts.selectedCategories = params.categories;
+      if (selectedCategoryParams[0] !== null && selectedCategoryParams[0] !== undefined) {
+        this.searchProducts.selectedCategories = selectedCategoryParams;
+      }
+
       this.searchProducts.pageId = pageId;
       this.getProducts();
     });
@@ -57,15 +69,30 @@ export class SearchProductPage implements OnInit {
   setPage(page: number) {
     this.searchProducts.pageId = page;
     this.getProducts();
-    this.router.navigate(['/product/search'], { queryParams: { pageId: page, categories: this.searchProducts.selectedCategories } });
+
+    let queryParams: any = {
+      pageId: page
+    }
+    if (this.searchPhrase !== undefined && this.searchPhrase !== '') {
+      queryParams.phrase = this.searchPhrase;
+    }
+    if (this.searchProducts.selectedCategories !== undefined && this.searchProducts.selectedCategories.length > 0) {
+      queryParams.categories = this.searchProducts.selectedCategories;
+    }
+    this.router.navigate(['/product/search'], { queryParams: queryParams });
   }
 
   getProducts() {
+    this.isDataLoaded = false;
+
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
+      console.log(res);
+
       this.searchProducts = res.data;
 
       if (res.data.phrase === null) {
         this.searchProducts.phrase = '';
+        this.searchPhrase = '';
       }
 
       this.pages = [];
@@ -76,6 +103,10 @@ export class SearchProductPage implements OnInit {
 
       for (let i = 1; i < ((this.searchProducts.allPagesCount / this.searchProducts.takePage) + 1); i++) {
         this.pages.push(i);
+      }
+
+      if (res.data.products.length) {
+        this.isDataLoaded = true;
       }
     })
   }
@@ -97,7 +128,13 @@ export class SearchProductPage implements OnInit {
 
   setFilterCategories() {
     if (this.searchProducts.selectedCategories.length > 0) {
-      this.router.navigate(['/product/search'], { queryParams: { categories: this.searchProducts.selectedCategories } });
+      let queryParams: any = {
+        categories: this.searchProducts.selectedCategories
+      }
+      if (this.searchPhrase !== undefined && this.searchPhrase !== '') {
+        queryParams.phrase = this.searchPhrase;
+      }
+      this.router.navigate(['/product/search'], { queryParams: queryParams });
     } else {
       this.router.navigate(['/product/search']);
     }
@@ -129,7 +166,7 @@ export class SearchProductPage implements OnInit {
     this.getProducts();
   }
 
-  priceValueChanged(event: any){
+  priceValueChanged(event: any) {
     this.searchProducts.selectedMinPrice = event.value;
     this.searchProducts.selectedMaxPrice = event.highValue;
 

@@ -23,53 +23,52 @@ export class ProductService {
     this.loading.loadingOn();
 
     return this.http.get<IResponse<ProductModel[]>>
-    (`${environment.shopBaseApiUrl}/product/get-latest`)
-    .pipe(
-      tap(() => this.loading.loadingOff()),
-      catchError((error: HttpErrorResponse) => {
+      (`${environment.shopBaseApiUrl}/product/get-latest`)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
 
-        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-        this.loading.loadingOff();
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
 
-        return throwError(error);
-      })
-    );
+          return throwError(error);
+        })
+      );
   }
 
   searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
 
     this.loading.loadingOn();
-    console.log(search);
+    console.log('service', search);
 
     let params = new HttpParams()
       .set('PageId', search.pageId.toString())
+      .set('Phrase', ((search.phrase !== undefined && search.phrase !== null && search.phrase !== "") ? search.phrase : ''))
       .set('TakePage', search.takePage.toString())
       .set('SelectedMaxPrice', search.selectedMaxPrice)
       .set('SelectedMinPrice', search.selectedMinPrice)
       .set('SortCreationDateOrder', search.sortCreationDateOrder)
       .set('SearchProductPriceOrder', search.searchProductPriceOrder);
 
-    if (search !== null) {
-      params.set('Phrase', search.phrase);
-    }
-
-    if(search.selectedCategories?.length){
+    if (search.selectedCategories !== null && search.selectedCategories?.length) {
       for (let category of search.selectedCategories) {
         params = params.append('SelectedCategories', category);
       }
+    } else {
+      search.selectedCategories = [];
     }
 
     return this.http.get<IResponse<SearchProductModel>>
-    (`${environment.shopBaseApiUrl}/product/search`, { params })
-    .pipe(
-      tap(() => this.loading.loadingOff()),
-      catchError((error: HttpErrorResponse) => {
+      (`${environment.shopBaseApiUrl}/product/search`, { params })
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
 
-        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-        this.loading.loadingOff();
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
 
-        return throwError(error);
-      })
-    );
+          return throwError(error);
+        })
+      );
   }
 }

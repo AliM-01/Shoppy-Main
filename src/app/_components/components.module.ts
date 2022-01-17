@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxLoadingModule } from 'ngx-loading';
 import { FooterComponent } from './footer/footer.component';
@@ -19,6 +20,7 @@ import { ProductBoxComponent } from './product-box/product-box.component';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     NgxLoadingModule.forRoot({
       fullScreenBackdrop: true,
       primaryColour: '#57edbbe6',

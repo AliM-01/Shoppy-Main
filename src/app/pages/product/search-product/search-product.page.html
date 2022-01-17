@@ -15,7 +15,7 @@
 		<div class="row flex-row-reverse">
 			<div class="col-lg-9">
 				<div class="shop-topbar-wrapper">
-					<div class="totall-product">
+					<div class="totall-product" *ngIf="isDataLoaded">
 						<p>ما پیدا کردیم<span> {{searchProducts.allPagesCount}} </span>محصول در دسترس برای شما</p>
 					</div>
 					<div class="sort-by-product-area">
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="shop-bottom-area" *ngIf="searchProducts.products.length">
+				<div class="shop-bottom-area" *ngIf="isDataLoaded">
 					<div class="row">
 						<app-product-box *ngFor="let product of searchProducts.products" [product]="product"
 							class="col-xl-3 col-lg-4 col-md-4 col-12 col-sm-6"></app-product-box>
@@ -69,7 +69,7 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="sidebar-wrapper sidebar-wrapper-mr1">
-					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-1 mb-20">
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-1 mb-20" *ngIf="isDataLoaded">
 						<h4 class="sidebar-widget-title"> دسته بندی</h4>
 						<div class="sidebar-categories-list">
 							<ul>
@@ -83,7 +83,7 @@
 							</ul>
 						</div>
 					</div>
-					<div *ngIf="searchProducts.products.length"
+					<div *ngIf="isDataLoaded"
 						class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-2 mb-20">
 						<h4 class="sidebar-widget-title">فیلتر بر اساس قیمت (تومان)</h4>
 						<div class="price-filter">
