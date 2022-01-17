@@ -131,7 +131,7 @@
 					<nav>
 						<ul>
 							<li><a href="#" [routerLinkActive]="'active'">صفحه اصلی</a></li>
-							<li><a routerLink="/">فروشگاه<i class="fa fa-chevron-down"></i></a>
+							<li><a routerLink="/">دسته بندی ها<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li *ngFor="let category of productCategories">
 										<a [routerLink]="['/category/details/s/', category.slug.toString()]">

@@ -37,6 +37,9 @@ export class SearchProductPage implements OnInit {
       if (params.pageId !== undefined) {
         pageId = parseInt(params.pageId, 0);
       }
+      if (params.phrase !== undefined) {
+        this.searchProducts.phrase = params.phrase;
+      }
 
       this.searchProducts.selectedCategories = params.categories;
       this.searchProducts.pageId = pageId;
