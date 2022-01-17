@@ -17,8 +17,8 @@
 				<p><a href="#">کووید 19</a>لطفا در خانه بمانید</p>
 			</div>
 			<div class="mobile-search search-style-3 mobile-header-border">
-				<form action="#">
-					<input type="text" placeholder="جستجو...">
+				<form (submit)="submitSearch()">
+					<input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو...">
 					<button type="submit"> <i class="fa fa-search"></i> </button>
 				</form>
 			</div>

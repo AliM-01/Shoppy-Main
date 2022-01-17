@@ -50,7 +50,7 @@ export class SearchProductPage implements OnInit {
         selectedCategoryParams = params?.categories
       }
 
-      if (selectedCategoryParams[0] !== null && selectedCategoryParams[0] !== undefined) {
+      if (selectedCategoryParams !== null && selectedCategoryParams !== undefined && selectedCategoryParams.length) {
         this.searchProducts.selectedCategories = selectedCategoryParams;
       }
 
