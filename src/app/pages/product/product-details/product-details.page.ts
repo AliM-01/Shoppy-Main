@@ -5,8 +5,6 @@ import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
 import { BehaviorSubject, Observable } from 'rxjs';
-import * as $ from 'jquery';
-import 'magnific-popup';
 
 @Component({
   selector: 'product-details',
@@ -27,12 +25,11 @@ export class ProductDetailsPage implements OnInit {
 
   mainSlideConfig = {
     "slidesToShow": 1, "slidesToScroll": 1,
-    "arrows": false, "draggable": false, "fade": false,
-    "asNavFor": '.product-dec-slider-small'
+    "arrows": false, "draggable": false, "fade": false
   };
 
   picturesSlideConfig = {
-    "slidesToShow": 2, "slidesToScroll": 1, "asNavFor": '.pro-dec-big-img-slider',
+    "slidesToShow": 4, "slidesToScroll": 1,
     "dots": false,
     "autoplay": true,
     "autoplaySpeed": 2000,
@@ -92,5 +89,19 @@ export class ProductDetailsPage implements OnInit {
 
     });
 
+  }
+
+  setSlider(id: number) {
+    let activeSliders = Array.from(document.getElementsByClassName("product_details_sub_slider"));;
+
+    activeSliders.forEach(activeSlider => activeSlider.classList.remove('active'));
+
+    let sliderBox = document.getElementById("main_slider");
+
+    const pictureItem = this.product.productPictures.find(e => e.id === id);
+
+    sliderBox.setAttribute('src',
+     this.baseProductPictureOriginalPath + pictureItem.imagePath);
+    this.currentPicture = id;
   }
 }

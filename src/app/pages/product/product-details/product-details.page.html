@@ -25,8 +25,8 @@
 											<div ngxSlickItem *ngFor="let slide of product.productPictures"
 												class="single-big-img-style">
 												<div class="pro-details-big-img">
-													<a class="main_slider img-popup">
-														<img [src]="baseProductPictureOriginalPath + slide.imagePath"
+													<a class="img-popup">
+														<img id="main_slider"[src]="baseProductPictureOriginalPath + slide.imagePath"
 															[alt]="product.imageAlt" [title]="product.imageTitle">
 													</a>
 												</div>
@@ -39,9 +39,9 @@
 									<div class="product-dec-slider-small product-dec-small-style1">
 										<ngx-slick-carousel #slickModal="slick-carousel" [config]="picturesSlideConfig">
 
-											<div ngxSlickItem class="product-dec-small"
-												*ngFor="let pic of product.productPictures" [id]="'product_picture_' + pic.id">
-												<img [src]="baseProductPictureThumbnailPath + pic.imagePath"
+											<div ngxSlickItem class="product-dec-small product_details_sub_slider"
+												*ngFor="let pic of product.productPictures" [ngClass]="(pic.id === currentPicture) ? 'active' : ''">
+												<img (click)="setSlider(pic.id)" [id]="'product_picture_' + pic.id" [src]="baseProductPictureThumbnailPath + pic.imagePath"
 													[alt]="product.imageAlt" [title]="product.imageTitle">
 											</div>
 
