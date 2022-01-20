@@ -4,4 +4,5 @@ export const environment = {
   sliderBaseImagePath: "https://localhost:5001/slider",
   productCategoryBaseImagePath: "https://localhost:5001/product_category",
   productBaseImagePath: "https://localhost:5001/product",
+  productPictureBaseImagePath: "https://localhost:5001/product_picture",
 };
