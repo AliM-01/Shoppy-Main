@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { LoadingService } from '@loading';
 import { catchError, tap } from 'rxjs/operators';
 import { SearchProductModel } from '@app_models/shop/product/search-product';
+import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,23 @@ export class ProductService {
 
     return this.http.get<IResponse<SearchProductModel>>
       (`${environment.shopBaseApiUrl}/product/search`, { params })
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
+
+  getProductDetails(slug:string): Observable<IResponse<ProductDetailsModel>> {
+    this.loading.loadingOn();
+
+    return this.http.get<IResponse<ProductDetailsModel>>
+      (`${environment.shopBaseApiUrl}/product/${slug}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
