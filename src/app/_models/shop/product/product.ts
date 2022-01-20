@@ -1,16 +1,14 @@
 export class ProductModel {
-    constructor(
-         public id: number,
-         public title: string,
-         public imagePath: string,
-         public imageAlt: string,
-         public imageTitle: string,
-         public price: string,
-         public priceWithDiscount: string,
-         public discountRate: number,
-         public category: string,
-         public categoryId: string,
-         public hasDiscount: boolean,
-         public slug: string
-     ){}
- }
+    id: number;
+    title: string;
+    imagePath: string;
+    imageAlt: string;
+    imageTitle: string;
+    price: string;
+    priceWithDiscount: string;
+    discountRate: number;
+    category: string;
+    categoryId: string;
+    hasDiscount: boolean;
+    slug: string
+}
