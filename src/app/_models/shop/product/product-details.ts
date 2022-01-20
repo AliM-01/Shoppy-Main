@@ -1,3 +1,4 @@
+import { ProductPictureModel } from "../product-picture/product-picture";
 import { ProductModel } from "./product";
 
 export class ProductDetailsModel extends ProductModel {
@@ -7,5 +8,5 @@ export class ProductDetailsModel extends ProductModel {
     inventoryCurrentCount:string;
     metaKeywords:string;
     metaDescription:string;
-    
+    productPictures: ProductPictureModel[] = [];
 }
