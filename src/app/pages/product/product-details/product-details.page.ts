@@ -5,6 +5,8 @@ import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
 import { BehaviorSubject, Observable } from 'rxjs';
+import * as $ from 'jquery';
+import 'magnific-popup';
 
 @Component({
   selector: 'product-details',
@@ -17,8 +19,46 @@ export class ProductDetailsPage implements OnInit {
   productTitle$: Observable<string> = this.productTitleSubject.asObservable();
   isDataLoaded: boolean = false;
 
-  baseProductPath: string = environment.productBaseImagePath + '/original/';
-  baseProductPicturePath: string = environment.productPictureBaseImagePath + '/thumbnail/';
+  baseProductPictureOriginalPath: string = environment.productPictureBaseImagePath + '/original/';
+  baseProductPictureThumbnailPath: string = environment.productPictureBaseImagePath + '/thumbnail/';
+
+  pictureIds: number[] = [];
+  currentPicture: number = 1;
+
+  mainSlideConfig = {
+    "slidesToShow": 1, "slidesToScroll": 1,
+    "arrows": false, "draggable": false, "fade": false,
+    "asNavFor": '.product-dec-slider-small'
+  };
+
+  picturesSlideConfig = {
+    "slidesToShow": 2, "slidesToScroll": 1, "asNavFor": '.pro-dec-big-img-slider',
+    "dots": false,
+    "autoplay": true,
+    "autoplaySpeed": 2000,
+    "focusOnSelect": true,
+    "fade": false,
+    "arrows": false,
+    "responsive": [{
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 4,
+      }
+    },
+    {
+      breakpoint: 575,
+      settings: {
+        slidesToShow: 2,
+      }
+    }
+    ]
+  };
 
   constructor(
     private productService: ProductService,
@@ -38,8 +78,13 @@ export class ProductDetailsPage implements OnInit {
             if (res.status === 'success') {
               this.productTitleSubject.next(res.data.title)
               this.product = res.data;
-              this.isDataLoaded = true;
+              if (res.data.productPictures !== null) {
+                res.data.productPictures.forEach(gallery => {
+                  this.pictureIds.push(gallery.id)
+                });
+              }
 
+              this.isDataLoaded = true;
             }
           }, () => this._location.back()
           );
