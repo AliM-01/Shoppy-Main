@@ -7,10 +7,12 @@ import { ProductService } from '@app_services/shop/product/product.service';
 import { ProductRoutingModule } from './product.routing.module';
 import { SearchProductPage } from './search-product/search-product.page';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ProductDetailsPage } from './product-details/product-details.page';
 
 @NgModule({
   declarations: [
-    SearchProductPage
+    SearchProductPage,
+    ProductDetailsPage
   ],
   imports: [
     CommonModule,
