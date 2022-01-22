@@ -159,11 +159,9 @@
 								<div class="pro-details-additional-information">
 									<div class="additional-information">
 										<ul>
-											<li><span> نوع بسته بندی </span> بطری </li>
-											<li><span> رنگ</span> سبز ، صورتی ، آبی پودری ، بنفش </li>
-											<li><span> مقدار در هر مورد </span> 100 میلی گرم</li>
-											<li><span> الکل اتیلی </span> 70%</li>
-											<li><span> قطعه در یک </span> کارتون </li>
+											<li *ngFor="let feature of product.productFeatures">
+												<span> {{feature.featureTitle}} </span>
+												 {{feature.featureValue}} </li>
 										</ul>
 									</div>
 								</div>
