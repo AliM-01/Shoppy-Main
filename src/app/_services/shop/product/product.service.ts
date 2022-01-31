@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IResponse } from '@app_models/common/IResponse';
+import { IResponse } from '@app_models/_common/IResponse';
 import { ProductModel } from '@app_models/shop/product/product';
 import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';

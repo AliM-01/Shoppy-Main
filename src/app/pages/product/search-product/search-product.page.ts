@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PagingDataSortCreationDateOrder } from '@app_models/common/IPaging';
+import { PagingDataSortCreationDateOrder } from '@app_models/_common/IPaging';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { SearchProductModel, SearchProductPriceOrder } from '@app_models/shop/product/search-product';
-import { Options } from '@angular-slider/ngx-slider';
+
 @Component({
   selector: 'search-product',
   templateUrl: './search-product.page.html'
