@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { LoadingService } from '@loading';
 import { catchError, tap } from 'rxjs/operators';
 import { SearchProductModel } from '@app_models/shop/product/search-product';
-import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
+import { ProductDetailsModel } from '@app_models/shop/product/product-details';
 
 @Injectable({
   providedIn: 'root'

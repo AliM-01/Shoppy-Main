@@ -19,7 +19,7 @@
     "paths": {
       "@app*": ["src/app/*"],
       "@environments/*": ["src/environments/*"],
-      "@loading": ["src/app/_services/common/loading/loading.service"],
+      "@loading": ["src/app/_services/_common/loading/loading.service"],
     },
     "lib": [
       "es2018",
