@@ -1,10 +1,13 @@
 export class AddCommentModel {
-    name: string;
-    email: string;
-    text: string;
-    type: CommentType;
-    ownerRecordId: number;
-    parentId: number;
+
+    constructor(
+        public name: string,
+        public email: string,
+        public text: string,
+        public type: CommentType,
+        public ownerRecordId: number,
+        public parentId: number 
+    ){}
 }
 
 export enum CommentType {

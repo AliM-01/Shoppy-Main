@@ -22,7 +22,7 @@
                     <span>{{ comment.creationDate }}</span>
                 </div>
                 <div class="review-btn">
-                    <a href="#">پاسخ</a>
+                    <a href="#comment_from" (click)="setSelectedParentId(comment.id)">پاسخ</a>
                 </div>
             </div>
         </div>
@@ -40,17 +40,29 @@
                 <i class="fas fa-star"></i>
             </div>
         </div>
-        <div class="rating-form-style">
-            <form action="#">
+        <div class="rating-form-style" id="comment_from">
+            <form [formGroup]="addCommentForm" (ngSubmit)="submitAddCommentForm()">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="نام*">
+                        <input type="text" formControlName="name" placeholder="نام*">
+                        <p *ngIf="checkError('name', 'required')" class="text-danger">
+                            لطفا نام خود را وارد نمایید
+                        </p>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="email" placeholder="ایمیل*">
+                        <input type="email" formControlName="email" placeholder="ایمیل*">
+                        <p *ngIf="checkError('email', 'required')" class="text-danger">
+                            لطفا ایمیل خود را وارد نمایید
+                        </p>
                     </div>
                     <div class="col-lg-12 col-md-12">
-                        <textarea placeholder="بررسی شما"></textarea>
+                        <textarea formControlName="text" placeholder="نظر شما"></textarea>
+                        <p *ngIf="checkError('text', 'required')" class="text-danger">
+                            لطفا متن نظر خود را وارد نمایید
+                        </p>
+                        <p *ngIf="checkError('text', 'maxlength')" class="text-danger">
+                            مقدار متن نظر نباید بیشتر از 500 کاراکتر باشد
+                        </p>
                     </div>
                 </div>
                 <div class="form-submit">
