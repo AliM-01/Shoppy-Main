@@ -5,9 +5,8 @@ import { LoadingService } from '@loading';
 import { Input } from '@angular/core';
 
 @Component({
-  selector: 'record-comments',
-  templateUrl: './record-comments.component.html',
-  providers: [CommentService]
+  selector: 'app-record-comments',
+  templateUrl: './record-comments.component.html'
 })
 export class RecordCommentsComponent implements OnInit {
 
