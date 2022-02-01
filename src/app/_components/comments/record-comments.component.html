@@ -1,0 +1,62 @@
+<div class="pro-details-review">
+    <div *ngFor="let comment of comments" class="single-pro-details-review">
+        <div class="review-img">
+            <img src="assets/images/user/default-avatar.png" alt="">
+        </div>
+        <div class="review-content">
+            <div class="review-name-rating">
+                <div class="review-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="review-name">
+                    <h6> {{comment.name}} </h6>
+                </div>
+            </div>
+            <p [innerText]="comment.text"></p>
+            <div class="review-date-btn">
+                <div class="review-date">
+                    <span>{{ comment.creationDate }}</span>
+                </div>
+                <div class="review-btn">
+                    <a href="#">پاسخ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ratting-form-wrapper">
+        <h3> افزودن نظر </h3>
+        <p> آدرس ایمیل شما منتشر نخواهد شد. </p>
+        <div class="comment-form-rating-wrap">
+            <span> رتبه بندی شما: * </span>
+            <div class="comment-form-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        <div class="rating-form-style">
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="نام*">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="email" placeholder="ایمیل*">
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <textarea placeholder="بررسی شما"></textarea>
+                    </div>
+                </div>
+                <div class="form-submit">
+                    <button type="submit">ثبت</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
