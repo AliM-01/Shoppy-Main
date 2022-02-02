@@ -5,6 +5,7 @@ import { ComponentsModule } from '@app_components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecordCommentsComponent } from './record-comments/record-comments.component';
 import { CommentService } from '@app_services/comment/comment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @NgModule({
   declarations: [RecordCommentsComponent],
@@ -17,6 +18,6 @@ import { CommentService } from '@app_services/comment/comment.service';
   ],
   exports: [RecordCommentsComponent],
   schemas: [],
-  providers: [CommentService]
+  providers: [ToastrService, CommentService]
 })
 export class CommentModule { }

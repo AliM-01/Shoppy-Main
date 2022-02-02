@@ -42,16 +42,23 @@ export class RecordCommentsComponent implements OnInit {
 
     this.loading.loadingOff();
   }
-  
+
   checkError(controlName: string, errorName: string): boolean {
-    return this.addCommentForm.controls[controlName].hasError(errorName);
+    var control = this.addCommentForm.controls[controlName];
+
+    if (control.touched && control.hasError(errorName))
+      return true;
+
+    return false;
   }
 
-  setSelectedParentId(id:number){
+  setSelectedParentId(el: HTMLElement, id: number) {
     this.selectedParentId = id;
+
+    el.scrollIntoView();
   }
 
-  submitAddCommentForm(){
+  submitAddCommentForm() {
     this.loading.loadingOn();
 
     if (this.addCommentForm.valid) {
@@ -66,6 +73,8 @@ export class RecordCommentsComponent implements OnInit {
       );
 
       this.commentService.addComment(addData).subscribe(res => {
+        console.log(res);
+        
         if (res.status === 'success') {
           this.addCommentForm.reset();
           this.toastr.success(res.message, "موفقیت", { timeOut: 1500 })
