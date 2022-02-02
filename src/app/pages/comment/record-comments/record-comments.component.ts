@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RecordCommentsComponent implements OnInit {
 
   @Input() recordId: number;
-  @Input() recordType: CommentType;
+  @Input() recordType: string;
   comments: CommentModel[] = [];
 
   addCommentForm: FormGroup;
@@ -60,7 +60,7 @@ export class RecordCommentsComponent implements OnInit {
         this.addCommentForm.controls.name.value,
         this.addCommentForm.controls.email.value,
         this.addCommentForm.controls.text.value,
-        this.recordType,
+        (this.recordType as CommentType),
         this.recordId,
         this.selectedParentId
       );

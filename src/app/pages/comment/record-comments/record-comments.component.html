@@ -26,6 +26,10 @@
                 </div>
             </div>
         </div>
+
+        <div class="mr-2">
+            
+        </div>
     </div>
     <div class="ratting-form-wrapper">
         <h3> افزودن نظر </h3>
@@ -45,28 +49,31 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <input type="text" formControlName="name" placeholder="نام*">
-                        <p *ngIf="checkError('name', 'required')" class="text-danger">
+                        <span *ngIf="checkError('name', 'required')" class="text-danger">
                             لطفا نام خود را وارد نمایید
-                        </p>
+                        </span>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <input type="email" formControlName="email" placeholder="ایمیل*">
-                        <p *ngIf="checkError('email', 'required')" class="text-danger">
+                        <span *ngIf="checkError('email', 'required')" class="text-danger">
                             لطفا ایمیل خود را وارد نمایید
-                        </p>
+                        </span>
+                        <span *ngIf="checkError('email', 'email')" class="text-danger">
+                            لطفا ایمیل معتبر وارد نمایید
+                        </span>
                     </div>
                     <div class="col-lg-12 col-md-12">
                         <textarea formControlName="text" placeholder="نظر شما"></textarea>
-                        <p *ngIf="checkError('text', 'required')" class="text-danger">
+                        <span *ngIf="checkError('text', 'required')" class="text-danger">
                             لطفا متن نظر خود را وارد نمایید
-                        </p>
-                        <p *ngIf="checkError('text', 'maxlength')" class="text-danger">
+                        </span>
+                        <span *ngIf="checkError('text', 'maxlength')" class="text-danger">
                             مقدار متن نظر نباید بیشتر از 500 کاراکتر باشد
-                        </p>
+                        </span>
                     </div>
                 </div>
                 <div class="form-submit">
-                    <button type="submit">ثبت</button>
+                    <input type="submit" value="ثبت">
                 </div>
             </form>
         </div>

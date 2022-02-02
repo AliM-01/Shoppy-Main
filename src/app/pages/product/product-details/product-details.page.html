@@ -147,15 +147,15 @@
 					</div>
 					<div class="product-details-wrap-bottom">
 						<div class="tab-style-1 nav mb-35">
-							<a class="active" href="#product-details-1" data-toggle="tab">توضیحات</a>
-							<a href="#product-details-2" data-toggle="tab">اطلاعات اضافی</a>
-							<a href="#product-details-3" data-toggle="tab">نظرات (2)</a>
+							<a class="active" href="#description_section" data-toggle="tab">توضیحات</a>
+							<a href="#features_section" data-toggle="tab">اطلاعات اضافی</a>
+							<a href="#comment_section" data-toggle="tab">نظرات</a>
 						</div>
 						<div class="tab-content">
-							<div id="product-details-1" class="tab-pane active">
+							<div id="description_section" class="tab-pane active">
 								<div class="product-details-description" [innerHtml]="product.description"></div>
 							</div>
-							<div id="product-details-2" class="tab-pane">
+							<div id="features_section" class="tab-pane">
 								<div class="pro-details-additional-information">
 									<div class="additional-information">
 										<ul>
@@ -166,103 +166,8 @@
 									</div>
 								</div>
 							</div>
-							<div id="product-details-3" class="tab-pane">
-								<div class="pro-details-review">
-									<p><span>5.00</span> متوسط بر اساس 2 رتبه بندی. </p>
-									<div class="single-pro-details-review">
-										<div class="review-img">
-											<img src="assets/images/client/client-1.jpg" alt="">
-										</div>
-										<div class="review-content">
-											<div class="review-name-rating">
-												<div class="review-rating">
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<div class="review-name">
-													<h6> وانسون </h6>
-												</div>
-											</div>
-											<p> تحویل بسیار خوب و سریع در طول هفته. متشکرم!</p>
-											<div class="review-date-btn">
-												<div class="review-date">
-													<span>2 اسفند 1399</span>
-												</div>
-												<div class="review-btn">
-													<a href="#">پاسخ</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="single-pro-details-review">
-										<div class="review-img">
-											<img src="assets/images/client/client-2.jpg" alt="">
-										</div>
-										<div class="review-content">
-											<div class="review-name-rating">
-												<div class="review-rating">
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-													<i class="fas fa-star"></i>
-												</div>
-												<div class="review-name">
-													<h6> وانسون </h6>
-												</div>
-											</div>
-											<p> تحویل بسیار خوب و سریع در طول هفته. متشکرم!</p>
-											<div class="review-date-btn">
-												<div class="review-date">
-													<span>2 اسفند 1399</span>
-												</div>
-												<div class="review-btn">
-													<a href="#">پاسخ</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="ratting-form-wrapper">
-										<h3> افزودن نظر </h3>
-										<p> آدرس ایمیل شما منتشر نخواهد شد. </p>
-										<div class="comment-form-rating-wrap">
-											<span> رتبه بندی شما: * </span>
-											<div class="comment-form-rating">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-											</div>
-										</div>
-										<div class="rating-form-style">
-											<form action="#">
-												<div class="row">
-													<div class="col-lg-6 col-md-6">
-														<input type="text" placeholder="نام*">
-													</div>
-													<div class="col-lg-6 col-md-6">
-														<input type="email" placeholder="ایمیل*">
-													</div>
-													<div class="col-lg-12 col-md-12">
-														<textarea placeholder="بررسی شما"></textarea>
-													</div>
-												</div>
-												<div class="cookies-consent">
-													<input type="checkbox" value="yes">
-													<p> نام ، ایمیل و وب سایت من را برای دفعه بعدی که نظر می دهم در این
-														مرورگر ذخیره کنید. </p>
-												</div>
-												<div class="form-submit">
-													<input type="submit" value="ثبت">
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
+							<div id="comment_section" class="tab-pane">
+								<app-record-comments [recordId]="product.id" [recordType]="'Product'"></app-record-comments>
 							</div>
 						</div>
 					</div>

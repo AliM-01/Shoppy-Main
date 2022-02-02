@@ -8,6 +8,7 @@ import { ProductRoutingModule } from './product.routing.module';
 import { SearchProductPage } from './search-product/search-product.page';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ProductDetailsPage } from './product-details/product-details.page';
+import { CommentModule } from '@apppages/comment/comment.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProductDetailsPage } from './product-details/product-details.page';
     ProductRoutingModule,
     ComponentsModule,
     SlickCarouselModule,
+    CommentModule,
     NgxSliderModule
   ],
   exports: [

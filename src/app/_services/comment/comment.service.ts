@@ -46,8 +46,13 @@ export class CommentService {
     formData.append('text', addCommentData.text);
     formData.append('type', addCommentData.type.toString());
     formData.append('ownerRecordId', addCommentData.ownerRecordId.toString());
-    formData.append('parentId', addCommentData.parentId.toString());
 
+    if(addCommentData.parentId !== 0){
+      formData.append('parentId', addCommentData.parentId.toString());
+    }
+
+    console.log(addCommentData);
+    
     return this.http.post<IResponse<any>>
       (`${environment.commentBaseApiUrl}/add`, formData)
       .pipe(
