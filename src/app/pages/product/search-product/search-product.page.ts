@@ -6,6 +6,7 @@ import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { SearchProductModel, SearchProductPriceOrder } from '@app_models/shop/product/search-product';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'search-product',
@@ -27,12 +28,16 @@ export class SearchProductPage implements OnInit {
   constructor(
     private productCategoryService: ProductCategoryService,
     private productService: ProductService,
+    private title: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) { 
+    this.title.setTitle("جستجو محصولات");
+  }
 
   ngOnInit(): void {
     this.isDataLoaded = false;
+    
     this.activatedRoute.queryParams.subscribe(params => {
       let pageId = 1;
 
@@ -86,8 +91,8 @@ export class SearchProductPage implements OnInit {
     this.isDataLoaded = false;
 
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
-      console.log(res);
 
+      this.title.setTitle(`جستجو محصولات | ${res.data.allPagesCount} نتیجه پیدا شد`)
       this.searchProducts = res.data;
 
       if (res.data.phrase === null) {

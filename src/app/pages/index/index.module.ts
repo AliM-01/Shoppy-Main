@@ -8,7 +8,7 @@ import { LatestProductSliderComponent } from './latest-product-slider/latest-pro
 import { ProductCategoryModule } from '@apppages/product-category/product.category.module';
 import { ComponentsModule } from '../../_components/components.module';
 import { SliderService } from '@app_services/shop/slider/slider.service';
-import { ProductModule } from '@apppages/product/product.module';
+import { ProductModule } from '@app/pages/product/product.module';
 
 @NgModule({
   declarations: [

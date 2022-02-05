@@ -5,6 +5,7 @@ import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'product-details',
@@ -61,7 +62,9 @@ export class ProductDetailsPage implements OnInit {
     private productService: ProductService,
     private _location: Location,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private title: Title,
+    private meta: Meta,
   ) { }
 
   ngOnInit(): void {
@@ -70,25 +73,43 @@ export class ProductDetailsPage implements OnInit {
       const slug = params.slug;
 
       if (slug !== undefined) {
-        this.productService.getProductDetails(slug)
-          .subscribe((res) => {
-            if (res.status === 'success') {
-              this.productTitleSubject.next(res.data.title)
-              this.product = res.data;
-              if (res.data.productPictures !== null) {
-                res.data.productPictures.forEach(gallery => {
-                  this.pictureIds.push(gallery.id)
-                });
-              }
-
-              this.isDataLoaded = true;
-            }
-          }, () => this._location.back()
-          );
+        this.getProduct(slug);
+        this.setMetaTags();
       }
 
     });
 
+  }
+
+  getProduct(slug:string) {
+    this.productService.getProductDetails(slug)
+    .subscribe((res) => {
+      if (res.status === 'success') {
+        this.productTitleSubject.next(res.data.title)
+        this.product = res.data;
+        if (res.data.productPictures !== null) {
+          res.data.productPictures.forEach(gallery => {
+            this.pictureIds.push(gallery.id)
+          });
+        }
+
+        this.isDataLoaded = true;
+      }
+    },
+    () => this._location.back()
+  );
+  }
+
+  setMetaTags(){
+    this.title.setTitle(this.product.title);
+    this.meta.addTags([
+      { name: 'keywords', content: this.product.metaKeywords },
+      { name: 'robots', content: 'index, follow' }, 
+      { name: 'author', content: 'shoppy'},
+      { name: 'description', content: this.product.metaDescription },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: 'UTF-8'}
+    ]);
   }
 
   setSlider(id: number) {
@@ -101,7 +122,7 @@ export class ProductDetailsPage implements OnInit {
     const pictureItem = this.product.productPictures.find(e => e.id === id);
 
     sliderBox.setAttribute('src',
-     this.baseProductPictureOriginalPath + pictureItem.imagePath);
+      this.baseProductPictureOriginalPath + pictureItem.imagePath);
     this.currentPicture = id;
   }
 }

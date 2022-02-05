@@ -7,6 +7,8 @@ export class ProductCategoryModel {
          public imageAlt: string,
          public imageTitle: string,
          public slug: string,
+         public metaKeywords:string,
+         public metaDescription:string,
          public products: ProductModel[],
      ){}
  }
