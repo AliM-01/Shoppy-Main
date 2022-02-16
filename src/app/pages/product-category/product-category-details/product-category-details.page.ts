@@ -1,11 +1,12 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingService } from '@loading';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { environment } from '@environments/environment';
 import { Meta, Title } from '@angular/platform-browser';
+import { Observable, BehaviorSubject } from 'rxjs';
+
 @Component({
   selector: 'product-category-details',
   templateUrl: './product-category-details.page.html'
@@ -13,7 +14,13 @@ import { Meta, Title } from '@angular/platform-browser';
 export class ProductCategoryDetailsPage implements OnInit {
 
   baseProductCategoryPath: string = environment.productCategoryBaseImagePath;
-  productCategory!: ProductCategoryModel;
+
+  pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("دسته بندی ");
+  pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
+
+  productCategorySubject: BehaviorSubject<ProductCategoryModel> = new BehaviorSubject<ProductCategoryModel>(null);
+  productCategory$: Observable<ProductCategoryModel> = this.productCategorySubject.asObservable();
+
   baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
 
   constructor(
@@ -32,10 +39,12 @@ export class ProductCategoryDetailsPage implements OnInit {
       if (slug !== undefined) {
         this.productCategoryService.getProductCategoryBySlug(slug)
           .subscribe((res) => {
-            if (res.status === 'success') {
-              this.productCategory = res.data;
-            }
-          }, (error) => {
+
+            this.productCategorySubject.next(res.data);
+            this.pageTitleSubject.next(`دسته بندی : ${res.data.title}`);
+            this.setMetaTags(res.data);
+
+          }, () => {
             this._location.back();
           });
       } else {
@@ -44,14 +53,17 @@ export class ProductCategoryDetailsPage implements OnInit {
         if (categoryId === undefined) {
           this._location.back();
         } else {
+
           this.productCategoryService.getProductCategoryById(categoryId)
             .subscribe((res) => {
-              if (res.status === 'success') {
-                this.productCategory = res.data;
-              }
+              this.productCategorySubject.next(res.data);
+              this.pageTitleSubject.next(`دسته بندی : ${res.data.title}`);
+              this.setMetaTags(res.data);
+
             }, (error) => {
               this._location.back();
             });
+            
         }
       }
 
@@ -59,19 +71,18 @@ export class ProductCategoryDetailsPage implements OnInit {
 
     });
 
-    this.setMetaTags();
 
   }
-  
-  setMetaTags(){
-    this.title.setTitle(this.productCategory.title);
+
+  setMetaTags(data: ProductCategoryModel) {
+    this.title.setTitle(data.title);
     this.meta.addTags([
-      { name: 'keywords', content: this.productCategory.metaKeywords },
-      { name: 'robots', content: 'index, follow' }, 
-      { name: 'author', content: 'shoppy'},
-      { name: 'description', content: this.productCategory.metaDescription },
+      { name: 'keywords', content: data.metaKeywords },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'shoppy' },
+      { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { charset: 'UTF-8'}
+      { charset: 'UTF-8' }
     ]);
   }
 }
