@@ -1,9 +1,6 @@
-<div class="slider-area" *ngIf="isDataLoaded">
-  <ngx-slick-carousel
-    #slickModal="slick-carousel"
-    [config]="slideConfig"
-  >
-    <div ngxSlickItem *ngFor="let slide of sliders"
+<div class="slider-area" *ngIf="sliders$ | async">
+  <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of (sliders$ | async)"
       class="single-hero-slider single-animation-wrap slider-height-2 custom-d-flex custom-align-item-center bg-img"
       style="background-image:url(assets/images/bg/slider-bg.jpg);min-height: 40em!important;">
 
@@ -17,20 +14,16 @@
               <p class="animated">{{slide.text}}</p>
               <div class="btn-style-1">
                 <a class="animated btn-1-padding-3" [routerLink]="slide.btnLink">
-					{{slide.btnText}}
-				</a>
+                  {{slide.btnText}}
+                </a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-12 col-sm-6">
             <div class="single-slider-img single-slider-img-1">
-              <img
-                class="animated"
-                [src]="baseSliderPath + '/original/' + slide.imagePath"
-                [alt]="slide.imageAlt"
-				[title]="slide.imageTitle"
-              />
+              <img class="animated" [src]="baseSliderPath + '/original/' + slide.imagePath" [alt]="slide.imageAlt"
+                [title]="slide.imageTitle" />
             </div>
           </div>
 

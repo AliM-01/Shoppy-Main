@@ -8,10 +8,10 @@
 				<a href="#">مشاهده همه محصولات <i class="fa fa-arrow-left"></i></a>
 			</div>
 		</div>
-		<div class="product-slider-active-1 nav-style-2 nav-style-2-modify-2">
+		<div class="product-slider-active-1 nav-style-2 nav-style-2-modify-2" *ngIf="products$ | async">
 
 			<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
-				<app-product-box ngxSlickItem *ngFor="let product of products" [product]="product"
+				<app-product-box ngxSlickItem *ngFor="let product of (products$ | async)" [product]="product"
 					class="product-plr-1"></app-product-box>
 
 			</ngx-slick-carousel>

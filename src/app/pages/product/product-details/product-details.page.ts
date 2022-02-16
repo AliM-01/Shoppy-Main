@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
 import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
@@ -61,7 +61,6 @@ export class ProductDetailsPage implements OnInit {
   constructor(
     private productService: ProductService,
     private _location: Location,
-    private router: Router,
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private meta: Meta,
@@ -74,7 +73,6 @@ export class ProductDetailsPage implements OnInit {
 
       if (slug !== undefined) {
         this.getProduct(slug);
-        this.setMetaTags();
       }
 
     });
@@ -93,6 +91,8 @@ export class ProductDetailsPage implements OnInit {
           });
         }
 
+        this.setMetaTags(res.data)
+
         this.isDataLoaded = true;
       }
     },
@@ -100,13 +100,13 @@ export class ProductDetailsPage implements OnInit {
   );
   }
 
-  setMetaTags(){
-    this.title.setTitle(this.product.title);
+  setMetaTags(data: ProductDetailsModel){
+    this.title.setTitle(data.title);
     this.meta.addTags([
-      { name: 'keywords', content: this.product.metaKeywords },
+      { name: 'keywords', content: data.metaKeywords },
       { name: 'robots', content: 'index, follow' }, 
       { name: 'author', content: 'shoppy'},
-      { name: 'description', content: this.product.metaDescription },
+      { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { charset: 'UTF-8'}
     ]);
