@@ -4,9 +4,9 @@ export const environment = {
   commentBaseApiUrl: "https://localhost:5001/api/comment",
   blogBaseApiUrl: "https://localhost:5001/api/blog",
 
-  sliderBaseImagePath: "https://localhost:5001/slider",
-  productCategoryBaseImagePath: "https://localhost:5001/product_category",
-  productBaseImagePath: "https://localhost:5001/product",
-  productPictureBaseImagePath: "https://localhost:5001/product_picture",
-  articleBaseImagePath: "https://localhost:5001/article",
+  sliderBaseImagePath: "https://localhost:5001/upload/slider",
+  productCategoryBaseImagePath: "https://localhost:5001/upload/product_category",
+  productBaseImagePath: "https://localhost:5001/upload/product",
+  productPictureBaseImagePath: "https://localhost:5001/upload/product_picture",
+  articleBaseImagePath: "https://localhost:5001/upload/article",
 };
