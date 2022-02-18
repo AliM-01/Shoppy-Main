@@ -5,7 +5,7 @@ import { LoadingService } from '@loading';
 import { Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommentType, AddCommentModel } from '@app_models/comment/add-comment';
-import { ToastrService } from 'ngx-toastr';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-record-comments',
@@ -15,15 +15,16 @@ export class RecordCommentsComponent implements OnInit {
 
   @Input() recordId: number;
   @Input() recordType: string;
-  comments: CommentModel[] = [];
+
+  commentsSubject: BehaviorSubject<CommentModel[]> = new BehaviorSubject<CommentModel[]>([]);
+  comments$: Observable<CommentModel[]> = this.commentsSubject.asObservable();
 
   addCommentForm: FormGroup;
-  selectedParentId: number = 0;
+  selectedParentId: string = "0";
 
   constructor(
     private commentService: CommentService,
-    private toastr: ToastrService,
-    private loading: LoadingService,
+    private loading: LoadingService
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +38,9 @@ export class RecordCommentsComponent implements OnInit {
     this.loading.loadingOn();
 
     this.commentService.getRecordCommentsById(this.recordId).subscribe(res => {
-      this.comments = res.data;
+      console.log(res);
+      
+      this.commentsSubject.next(res.data);
     });
 
     this.loading.loadingOff();
@@ -52,7 +55,7 @@ export class RecordCommentsComponent implements OnInit {
     return false;
   }
 
-  setSelectedParentId(el: HTMLElement, id: number) {
+  setSelectedParentId(el: HTMLElement, id: string) {
     this.selectedParentId = id;
 
     el.scrollIntoView();
@@ -73,11 +76,8 @@ export class RecordCommentsComponent implements OnInit {
       );
 
       this.commentService.addComment(addData).subscribe(res => {
-        console.log(res);
-        
         if (res.status === 'success') {
           this.addCommentForm.reset();
-          this.toastr.success(res.message, "موفقیت", { timeOut: 1500 })
         }
       });
 

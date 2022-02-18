@@ -1,11 +1,11 @@
 export interface CommentModel {
-    id: number;
+    id: string;
     name: string;
     email: string;
     text: string;
     ownerRecordId: number;
     ownerName: string;
-    parentId: number;
+    parentId: string;
     replies: CommentModel[];
     creationDate: string
 }

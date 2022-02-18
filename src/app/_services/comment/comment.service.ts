@@ -20,6 +20,8 @@ export class CommentService {
   ) { }
   
   getRecordCommentsById(recordId: number): Observable<IResponse<CommentModel[]>> {
+    console.log(recordId);
+    
     this.loading.loadingOn();
 
     return this.http.get<IResponse<CommentModel[]>>
@@ -47,7 +49,7 @@ export class CommentService {
     formData.append('type', addCommentData.type.toString());
     formData.append('ownerRecordId', addCommentData.ownerRecordId.toString());
 
-    if(addCommentData.parentId !== 0){
+    if(addCommentData.parentId !== "0"){
       formData.append('parentId', addCommentData.parentId.toString());
     }
 

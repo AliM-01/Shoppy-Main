@@ -6,7 +6,7 @@ export class AddCommentModel {
         public text: string,
         public type: CommentType,
         public ownerRecordId: number,
-        public parentId: number 
+        public parentId: string 
     ){}
 }
 

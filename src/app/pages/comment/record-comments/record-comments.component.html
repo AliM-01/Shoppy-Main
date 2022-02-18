@@ -1,5 +1,5 @@
 <div class="pro-details-review">
-    <div *ngFor="let comment of comments">
+    <div *ngFor="let comment of (comments$ | async)">
 
         <div class="single-pro-details-review">
             <div class="d-flex justify-center">
@@ -8,16 +8,14 @@
                 </div>
                 <div class="review-content">
                     <div class="review-name-rating">
-                        <div class="review-name">
+                        <div class="review-name d-flex">
                             <h6> {{comment.name}} </h6>
+                            <div class="review-date">
+                                <span>{{ comment.creationDate }}</span>
+                            </div>
                         </div>
                     </div>
-                    <p [innerText]="comment.text"></p>
-                    <div class="review-date-btn">
-                        <div class="review-date">
-                            <span>{{ comment.creationDate }}</span>
-                        </div>
-                    </div>
+                    <div [innerHtml]="comment.text"></div>
                 </div>
             </div>
             <div class="review-btn">
@@ -31,16 +29,14 @@
                 </div>
                 <div class="review-content">
                     <div class="review-name-rating">
-                        <div class="review-name">
+                        <div class="review-name d-flex">
                             <h6> {{replie.name}} </h6>
+                            <div class="review-date">
+                                <span>{{ replie.creationDate }}</span>
+                            </div>
                         </div>
                     </div>
-                    <p [innerText]="replie.text"></p>
-                    <div class="review-date-btn">
-                        <div class="review-date">
-                            <span>{{ replie.creationDate }}</span>
-                        </div>
-                    </div>
+                    <div [innerHtml]="replie.text"></div>
                 </div>
             </div>
         </div>
