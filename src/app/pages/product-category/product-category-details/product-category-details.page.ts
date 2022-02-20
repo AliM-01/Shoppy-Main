@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { environment } from '@environments/environment';
@@ -15,6 +15,7 @@ import { FilterProductCategoryResponseModel } from '@app_models/shop/product-cat
 export class ProductCategoryDetailsPage implements OnInit {
 
   baseProductCategoryPath: string = environment.productCategoryBaseImagePath;
+  pages: number[] = [];
 
   filterProductCategory: FilterProductCategoryRequestModel
     = new FilterProductCategoryRequestModel(0, "", [], 0, 9);
@@ -31,30 +32,55 @@ export class ProductCategoryDetailsPage implements OnInit {
     private productCategoryService: ProductCategoryService,
     private activatedRoute: ActivatedRoute,
     private title: Title,
+    private router: Router,
     private meta: Meta,
   ) { }
 
   ngOnInit(): void {
 
     this.activatedRoute.params.subscribe(params => {
+      
+      let pageId = 1;
+
+      if (params.pageId !== undefined) {
+        pageId = parseInt(params.pageId, 0);
+      }
       const slug = params.slug;
       const categoryId = params.id;
 
       this.filterProductCategory.slug = slug;
       this.filterProductCategory.categoryId = categoryId;
+      this.filterProductCategory.pageId = pageId;
 
-      this.productCategoryService.getProductCategoryBy(this.filterProductCategory)
-        .subscribe(res => {
-
-          this.pageTitleSubject.next(`دسته بندی : ${res.data.productCategory.title}`);
-
-          this.productCategoryData = res.data;
-          this.setMetaTags(res.data.productCategory);
-
-        });
+      this.getProductCategory();
     });
 
 
+  }
+
+  getProductCategory(){
+    this.productCategoryService.getProductCategoryBy(this.filterProductCategory)
+    .subscribe(res => {
+
+      this.pageTitleSubject.next(`دسته بندی : ${res.data.productCategory.title}`);
+
+      this.productCategoryData = res.data;
+      this.setMetaTags(res.data.productCategory);
+
+      this.pages = [];
+
+      for (let i = 1; i < ((this.productCategoryData.filterData.allPagesCount / this.productCategoryData.filterData.takePage) + 1); i++) {
+        this.pages.push(i);
+      }
+    });
+  }
+
+  setPage(page: number) {
+    this.filterProductCategory.pageId = page;
+    let queryParams: any = {
+      pageId: page
+    }
+    this.router.navigate([`/category/details/${this.productCategoryData.productCategory.slug}`], { queryParams: queryParams });
   }
 
   setMetaTags(data: ProductCategoryModel) {

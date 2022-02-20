@@ -72,9 +72,6 @@ export class SearchProductPage implements OnInit {
   }
 
   setPage(page: number) {
-    this.searchProducts.pageId = page;
-    this.getProducts();
-
     let queryParams: any = {
       pageId: page
     }
