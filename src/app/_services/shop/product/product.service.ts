@@ -44,13 +44,16 @@ export class ProductService {
 
     let params = new HttpParams()
       .set('PageId', search.pageId.toString())
-      .set('Phrase', ((search.phrase !== undefined && search.phrase !== null && search.phrase !== "") ? search.phrase : ''))
       .set('TakePage', search.takePage.toString())
       .set('SelectedMaxPrice', search.selectedMaxPrice)
       .set('SelectedMinPrice', search.selectedMinPrice)
       .set('SortCreationDateOrder', search.sortCreationDateOrder)
       .set('SearchProductPriceOrder', search.searchProductPriceOrder);
 
+    if(search.phrase !== "" && search.phrase !== undefined){
+      params.set('Phrase', search.phrase);
+    }
+    
     if (search.selectedCategories !== null && search.selectedCategories?.length) {
       for (let category of search.selectedCategories) {
         params = params.append('SelectedCategories', category);
