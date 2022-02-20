@@ -7,6 +7,8 @@ import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
 import { catchError, tap } from 'rxjs/operators';
+import { FilterProductCategoryRequestModel } from '@app_models/shop/product-category/filter-product-category-request';
+import { FilterProductCategoryResponseModel } from '@app_models/shop/product-category/filter-product-category-response';
 
 @Injectable({
   providedIn: 'root'
@@ -21,56 +23,41 @@ export class ProductCategoryService {
   getProductCategoriesList(): Observable<IResponse<ProductCategoryModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<ProductCategoryModel[]>>
-    (`${environment.shopBaseApiUrl}/product-category/get-list`)
-    .pipe(
-      tap(() => this.loading.loadingOff()),
-      catchError((error: HttpErrorResponse) => {
+      (`${environment.shopBaseApiUrl}/product-category/get-list`)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
 
-        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-        this.loading.loadingOff();
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
 
-        return throwError(error);
-      })
-    );
+          return throwError(error);
+        })
+      );
   }
 
-  getProductCategoryBySlug(slug: string): Observable<IResponse<ProductCategoryModel>> {
+  getProductCategoryBy(filter: FilterProductCategoryRequestModel): Observable<IResponse<FilterProductCategoryResponseModel>> {
     this.loading.loadingOn();
-
     let params = new HttpParams()
-        .set('Slug', slug)
 
-    return this.http.get<IResponse<ProductCategoryModel>>
-    (`${environment.shopBaseApiUrl}/product-category/get`, { params })
-    .pipe(
-      tap(() => this.loading.loadingOff()),
-      catchError((error: HttpErrorResponse) => {
+    if (filter.categoryId !== undefined || filter.categoryId !== 0) {
+      params.set('CategoryId', filter.categoryId.toString());
+    }
+    if (filter.slug !== undefined || filter.slug !== "") {
+      params.set('Slug', filter.slug)
+    }
 
-        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-        this.loading.loadingOff();
+    return this.http.get<IResponse<FilterProductCategoryResponseModel>>
+      (`${environment.shopBaseApiUrl}/product-category/get`, { params })
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
 
-        return throwError(error);
-      })
-    );
-  }
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
 
-  getProductCategoryById(id: number): Observable<IResponse<ProductCategoryModel>> {
-    this.loading.loadingOn();
-
-    let params = new HttpParams()
-        .set('CategoryId', id.toString())
-
-    return this.http.get<IResponse<ProductCategoryModel>>
-    (`${environment.shopBaseApiUrl}/product-category/get`, { params })
-    .pipe(
-      tap(() => this.loading.loadingOff()),
-      catchError((error: HttpErrorResponse) => {
-
-        this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-        this.loading.loadingOff();
-
-        return throwError(error);
-      })
-    );
+          return throwError(error);
+        })
+      );
   }
 }

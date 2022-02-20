@@ -2,6 +2,8 @@ import { FilterProductCategoryRequestModel } from './filter-product-category-req
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 
 export class FilterProductCategoryResponseModel {
-    productCategory: ProductCategoryModel;
-    filterData: FilterProductCategoryRequestModel;
+    constructor(
+        public productCategory: ProductCategoryModel,
+        public filterData: FilterProductCategoryRequestModel) { }
+    
 }
