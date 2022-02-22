@@ -7,6 +7,7 @@ import { Observable, throwError } from 'rxjs';
 import { LoadingService } from '@loading';
 import { catchError, tap } from 'rxjs/operators';
 import { ArticleModel } from '@app_models/blog/article/article';
+import { ArticleDetailsModel } from '../../../_models/blog/article/article-details';
 
 @Injectable({
   providedIn: 'root'
@@ -35,11 +36,11 @@ export class ArticleService {
       );
   }
 
-  getArticleDetails(): Observable<IResponse<ArticleModel[]>> {
+  getArticleDetails(slug: string): Observable<IResponse<ArticleDetailsModel>> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ArticleModel[]>>
-      (`${environment.blogBaseApiUrl}/article/get-latest`)
+    return this.http.get<IResponse<ArticleDetailsModel>>
+      (`${environment.blogBaseApiUrl}/article/${slug}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
