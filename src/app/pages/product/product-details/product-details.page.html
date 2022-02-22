@@ -54,7 +54,7 @@
 									<div class="pro-details-category">
 										<ul>
 											<li>
-												<a [routerLink]="['/category/details/i/', product.categoryId]">
+												<a [routerLink]="['/category/details/', product.categorySlug]">
 													{{product.category}} 
 												</a>
 											</li>
@@ -62,9 +62,6 @@
 									</div>
 									<h1> {{ product.title }} </h1>
 									<div class="pro-details-brand-review">
-										<div class="pro-details-brand">
-											<span>برند:<a href="shop.html"> بایوزن</a></span>
-										</div>
 										<div class="pro-details-rating-wrap">
 											<span>5.00</span>
 											<div class="pro-details-rating">

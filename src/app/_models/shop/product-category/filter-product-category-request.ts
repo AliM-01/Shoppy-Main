@@ -9,18 +9,15 @@ export class FilterProductCategoryRequestModel implements IPaging {
     sortCreationDateOrder: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES;
     sortIdOrder: PagingDataSortIdOrder;
 
-    categoryId: number;
     slug: string;
     products: ProductModel[];
 
     constructor(
-        categoryId: number,
         slug: string,
         products: ProductModel[],
         pageId: number,
         takePage: number
     ) {
-        this.categoryId = categoryId;
         this.slug = slug;
         this.products = products;
         this.pageId = pageId;

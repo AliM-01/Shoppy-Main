@@ -18,7 +18,7 @@ export class ProductCategoryDetailsPage implements OnInit {
   pages: number[] = [];
 
   filterProductCategory: FilterProductCategoryRequestModel
-    = new FilterProductCategoryRequestModel(0, "", [], 0, 9);
+    = new FilterProductCategoryRequestModel("", [], 0, 9);
 
   productCategoryData: FilterProductCategoryResponseModel
     = new FilterProductCategoryResponseModel(null, this.filterProductCategory);
@@ -46,10 +46,8 @@ export class ProductCategoryDetailsPage implements OnInit {
         pageId = parseInt(params.pageId, 0);
       }
       const slug = params.slug;
-      const categoryId = params.id;
 
       this.filterProductCategory.slug = slug;
-      this.filterProductCategory.categoryId = categoryId;
       this.filterProductCategory.pageId = pageId;
 
       this.getProductCategory();

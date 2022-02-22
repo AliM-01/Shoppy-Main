@@ -9,6 +9,7 @@ export class ProductModel {
     discountRate: number;
     category: string;
     categoryId: string;
+    categorySlug: string;
     hasDiscount: boolean;
     slug: string
 }
