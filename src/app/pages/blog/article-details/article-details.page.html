@@ -1,0 +1,147 @@
+<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
+	<div class="custom-container">
+		<div class="breadcrumb-content text-center">
+			<ul>
+				<li>
+					<a routerLink="/">صفحه اصلی</a>
+				</li>
+				<li class="active"> {{ pageTitle$ | async }}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="blog-details-area padding-30-row-col pt-75 pb-75">
+	<div class="container">
+		<div class="row" *ngIf="article !== null">
+			<div class="col-lg-8">
+				<div class="blog-details-wrapper">
+					<div class="blog-details-top-content">
+						<div class="post-categories">
+							<a [routerLink]="'/blog/category/' + article.categoryId">{{article.category}}</a>
+						</div>
+						<h1> {{article.title}} </h1>
+						<div class="blog-meta-3">
+							<ul>
+								<li><i class="far fa-calendar"></i> {{ article.creationDate }}</li>
+								<li><i class="far fa-eye"></i> 453 بازدید</li>
+								<li><a href="#"><i class="far fa-comment-alt-lines"></i>0 نظر</a> </li>
+							</ul>
+						</div>
+					</div>
+					<img [src]="baseArticleImgPath + article.imagePath" [alt]="article.imageAlt" [title]="article.imageTitle">
+					
+					<div class="blog-tag-share-wrap">
+						<div class="blog-tag-wrap">
+							<span class="tag-icon fal fa-tags"></span>
+							<div class="blog-tag">
+								<a *ngFor="let tag of article.tags">
+									{{tag}} ,
+								</a>
+							</div>
+						</div>
+						<div class="blog-share-wrap">
+							<div class="blog-share-content">
+								<span> به اشتراک گذاشتن این پست </span>
+							</div>
+							<div class="blog-share-icon">
+								<span class="fas fa-share-alt"></span>
+								<div class="blog-share-list tooltip-style-4 bs-list-responsive">
+									<a aria-label="فیسبوک" href="#"><i class="fab fa-facebook-f"></i></a>
+									<a aria-label="توئیتر" href="#"><i class="fab fa-twitter"></i></a>
+									<a aria-label="Linkedin" href="#"><i class="fab fa-linkedin"></i></a>
+									<a aria-label="Tumblr" href="#"><i class="fab fa-tumblr-square"></i></a>
+									<a aria-label="Envelope" href="#"><i class="fas fa-envelope"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-prev-next-wrap">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-12 col-sm-6">
+								<div class="blog-prev-next-style blog-prev-position">
+									<a href="#">
+										<img src="assets/images/blog/prev.jpg" alt="">
+										<h4> روزمره روزانه برای یک زندگی سالم </h4>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-12 col-sm-6">
+								<div class="blog-prev-next-style blog-next-position">
+									<a href="#">
+										<img src="assets/images/blog/next.jpg" alt="">
+										<h4> محققان پزشکی دقیق ژن های جدید آلزایمر را شناسایی می کنند </h4>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-reply-wrapper">
+						<h3> فکر خود را اینجا بگذارید </h3>
+						<p> آدرس ایمیل شما منتشر نخواهد شد.  </p>
+						<form action="#">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<div class="input-style blog-input-style">
+										<input type="text" placeholder="نام*">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6">
+									<div class="input-style blog-input-style">
+										<input type="email" placeholder="ایمیل*">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="textarea-style blog-textarea-style">
+										<textarea placeholder="نظر شما*"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="blog-remember-wrap">
+								<input type="checkbox">
+								<label> مرا بخاطر بسپار </label>
+							</div>
+							<div class="blog-comment-submit">
+								<input type="submit" value="ثبت">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="sidebar-wrapper sidebar-wrapper-ml1">
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-2 mb-20">
+						<h4 class="sidebar-widget-title"> جستجو</h4>
+						<div class="search-style-3">
+							<form action="#">
+								<input type="text" placeholder="جستجو...">
+								<button type="submit"> <i class="far fa-search"></i> </button>
+							</form>
+						</div>
+					</div>
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-1 mb-20">
+						<h4 class="sidebar-widget-title"> دسته بندی</h4>
+						<div class="sidebar-categories-list">
+							<ul>
+								<li><a href="blog.html"> زندگی روزانه <span>(8)</span></a></li>
+								<li><a href="blog.html"> بهداشت 5.0<span>(1)</span></a></li>
+								<li><a href="blog.html"> اخبار داغ <span>(4)</span></a></li>
+								<li><a href="blog.html"> دسته بندی نشده <span>(2)</span></a></li>
+								<li><a href="blog.html"> سلامتی شما <span>(3)</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-6">
+						<h4 class="sidebar-widget-title"> تگ ها </h4>
+						<div class="sidebar-tag">
+							<ul>
+								<li *ngFor="let tag of article.tags">
+									<a href="#"> {{tag}} </a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
