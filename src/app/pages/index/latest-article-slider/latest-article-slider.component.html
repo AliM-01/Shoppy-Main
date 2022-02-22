@@ -5,7 +5,7 @@
 				<h2> جدید ترین مقالات </h2>
 			</div>
 			<div class="btn-style-2">
-				<a routerLink="/article">مشاهده همه <i class="fa fa-arrow-left"></i></a>
+				<a routerLink="/blog">مشاهده همه <i class="fa fa-arrow-left"></i></a>
 			</div>
 		</div>
 		<div class="product-slider-active-1 nav-style-2 nav-style-2-modify-2" *ngIf="articles$ | async">
@@ -14,11 +14,11 @@
 
 				<div *ngFor="let article of (articles$ | async)" class="blog-wrap-2 mb-30">
 					<div class="blog-img-2">
-						<a [routerLink]="'/article/' + article.slug">
+						<a [routerLink]="'/blog/i/' + article.slug">
 							<img [src]="baseArticlePath + article.imagePath" [alt]="article.imageAlt" [title]="article.imageTitle">
 						</a>
 						<div class="blog-tag-2">
-							<a [routerLink]="'/article-category/' + article.categoryId"> {{article.category}} </a>
+							<a [routerLink]="'/blog/category/' + article.categoryId"> {{article.category}} </a>
 						</div>
 					</div>
 					<div class="blog-content-2">
@@ -27,10 +27,10 @@
 								<li><i class="fa fa-calendar"></i>{{ article.creationDate }}</li>
 							</ul>
 						</div>
-						<h3><a [routerLink]="'/article/' + article.slug"> {{article.title }} </a></h3>
+						<h3><a [routerLink]="'/blog/i/' + article.slug"> {{article.title }} </a></h3>
 						<h5>{{article.summary}}</h5>
 						<div class="blog-btn">
-							<a [routerLink]="'/article/' + article.slug"> ادامه مطلب<i class="fa fa-long-arrow-right"></i></a>
+							<a [routerLink]="'/blog/i/' + article.slug"> ادامه مطلب<i class="fa fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
