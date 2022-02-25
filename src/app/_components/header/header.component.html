@@ -136,7 +136,7 @@
 							<li><a routerLink="/">دسته بندی ها<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li *ngFor="let category of productCategories">
-										<a [routerLink]="['/category/details/s/', category.slug.toString()]">
+										<a [routerLink]="['/category/details/', category.slug.toString()]">
 											{{category.title}} 
 										</a>
 									</li>
@@ -144,20 +144,10 @@
 							</li>
 							<li><a routerLink="/blog">وبلاگ<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
-									<li><a href="blog.html"> شبکه بلاگ - نوار کناری سمت چپ </a></li>
-									<li><a href="blog-grid-right-sidebar.html"> شبکه بلاگ - نوار کناری سمت راست
-										</a></li>
-									<li><a href="blog-grid-no-sidebar.html"> شبکه بلاگ - بدون نوار کناری </a>
-									</li>
-									<li><a href="blog-grid-wide.html"> شبکه گسترده </a></li>
-									<li><a href="#"> چیدمان تک <i class="fa fa-chevron-right"></i></a>
-										<ul class="level-menu level-menu-modify">
-											<li><a href="blog-details.html"> نوار کناری سمت چپ </a></li>
-											<li><a href="blog-details-right-sidebar.html"> نوار کناری سمت
-													راست</a></li>
-											<li><a href="blog-details-no-sidebar.html"> بدون نوار کناری </a>
-											</li>
-										</ul>
+									<li *ngFor="let category of articleCategories">
+										<a [routerLink]="['/blog']">
+											{{category.title}} 
+										</a>
 									</li>
 								</ul>
 							</li>

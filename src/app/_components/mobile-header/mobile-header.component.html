@@ -33,6 +33,15 @@
 								</li>
 							</ul>
 						</li>
+						<li class="menu-item-has-children"><a href="#">بلاگ</a>
+							<ul class="dropdown">
+								<li *ngFor="let category of articleCategories">
+									<a [routerLink]="['/blog']" class="cursor-pointer">
+										{{category.title}} 
+									</a>
+								</li>
+							</ul>
+						</li>
 						<li><a href="contact-us.html">ارتباط با ما</a></li>
 					</ul>
 				</nav>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
+import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 
 @Component({
@@ -10,19 +12,22 @@ import { ProductCategoryService } from '@app_services/shop/product-category/prod
 export class MobileHeaderComponent implements OnInit {
 
   productCategories: ProductCategoryModel[] = [];
+  articleCategories: ArticleCategoryModel[] = [];
   searchPhrase: string = '';
   
   constructor(
     private productCategoryService: ProductCategoryService,
+    private articleCategoryService: ArticleCategoryService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.productCategoryService.getProductCategoriesList().subscribe(res => {
-      if(res.status ==="success"){
-        this.productCategories = res.data;
-      }
-    });
+    this.productCategoryService.getProductCategoriesList().subscribe(res =>
+        this.productCategories = res.data
+    );
+    this.articleCategoryService.getArticleCategoriesList().subscribe(
+      res => this.articleCategories = res.data
+    );
   }
 
   submitSearch() {
