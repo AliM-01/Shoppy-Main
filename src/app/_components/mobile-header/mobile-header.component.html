@@ -13,9 +13,6 @@
 			</div>
 		</div>
 		<div class="mobile-header-content-area">
-			<div class="covid-update covid-update-mobile mobile-header-border">
-				<p><a href="#">کووید 19</a>لطفا در خانه بمانید</p>
-			</div>
 			<div class="mobile-search search-style-3 mobile-header-border">
 				<form (submit)="submitSearch()">
 					<input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو...">
@@ -30,7 +27,7 @@
 						<li class="menu-item-has-children"><a href="#">دسته بندی ها</a>
 							<ul class="dropdown">
 								<li *ngFor="let category of productCategories">
-									<a [routerLink]="['/category/details/', category.slug.toString()]">
+									<a [routerLink]="['/category/details/', category.slug.toString()]" class="cursor-pointer">
 										{{category.title}} 
 									</a>
 								</li>
@@ -40,48 +37,13 @@
 					</ul>
 				</nav>
 			</div>
-			<div class="main-categori-wrap mobile-header-border">
-				<a class="categori-button-active-2" href="#">
-					<span class="fa fa-bars"></span> مرور دسته ها <i class="down fa fa-chevron-down"></i>
-				</a>
-				<div class="categori-dropdown-wrap categori-dropdown-active-small">
-					<ul>
-						<li *ngFor="let category of productCategories">
-							<a [routerLink]="['/category/details/s/', category.slug.toString()]">
-								{{category.title}} 
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
 			<div class="mobile-header-info-wrap mobile-header-border">
-				<div class="single-mobile-header-info">
-					<a target="_blank" href="https://www.google.com/maps"> مکان فروشگاه</a>
-				</div>
 				<div class="single-mobile-header-info">
 					<a href="login-register.html"> ورود / ثبت نام</a>
 				</div>
 				<div class="single-mobile-header-info">
 					<a href="#">0912000000</a>
 				</div>
-				<div class="single-mobile-header-info">
-					<a class="mobile-language-active" href="#">زبان<span><i
-								class="fa fa-angle-down"></i></span></a>
-					<div class="lang-curr-dropdown lang-dropdown-active">
-						<ul>
-							<li><a href="#">انگلیسی</a></li>
-							<li><a href="#">فرانسوی</a></li>
-							<li><a href="#">آلمانی</a></li>
-							<li><a href="#">اسپانیایی</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="mobile-social-icon">
-				<a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
-				<a class="twitter" href="#"><i class="fab fa-twitter"></i></a>
-				<a class="tumblr" href="#"><i class="fab fa-tumblr"></i></a>
-				<a class="instagram" href="#"><i class="fab fa-instagram"></i></a>
 			</div>
 		</div>
 	</div>

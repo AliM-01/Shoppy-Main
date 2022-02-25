@@ -15,6 +15,7 @@ import { LoadingService } from '@app_services/_common/loading/loading.service';
 })
 export class ProductCategoryDetailsPage implements OnInit {
 
+  isDataLoaded: boolean = false;
   baseProductCategoryPath: string = environment.productCategoryBaseImagePath;
   pages: number[] = [];
 
@@ -81,6 +82,8 @@ export class ProductCategoryDetailsPage implements OnInit {
         for (let i = 1; i < ((this.productCategoryData.filterData.allPagesCount / this.productCategoryData.filterData.takePage) + 1); i++) {
           this.pages.push(i);
         }
+
+        this.isDataLoaded = true;
       });
     this.loadingService.loadingOff();
 
