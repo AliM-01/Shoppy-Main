@@ -30,7 +30,7 @@
 						<li class="menu-item-has-children"><a href="#">دسته بندی ها</a>
 							<ul class="dropdown">
 								<li *ngFor="let category of productCategories">
-									<a [routerLink]="['/category/details/s/', category.slug.toString()]">
+									<a [routerLink]="['/category/details/', category.slug.toString()]">
 										{{category.title}} 
 									</a>
 								</li>

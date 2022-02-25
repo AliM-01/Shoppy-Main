@@ -18,6 +18,8 @@ export class ProductDetailsPage implements OnInit {
   productTitle$: Observable<string> = this.productTitleSubject.asObservable();
   isDataLoaded: boolean = false;
 
+  tags: string[] = [];
+
   baseProductPictureOriginalPath: string = environment.productPictureBaseImagePath + '/original/';
   baseProductPictureThumbnailPath: string = environment.productPictureBaseImagePath + '/thumbnail/';
 
@@ -91,6 +93,7 @@ export class ProductDetailsPage implements OnInit {
           });
         }
 
+        this.tags = res.data.metaKeywords.split(",");
         this.setMetaTags(res.data)
 
         this.isDataLoaded = true;

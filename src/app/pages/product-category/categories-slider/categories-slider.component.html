@@ -12,7 +12,7 @@
 					<div class="categories-wrap">
 						<div class="categories-img categories-img-zoom">
 							<a [routerLink]="['/category/details/', category.slug.toString()]">
-								<img [src]="baseProductCategoryPath + '/thumbnail/' + category.imagePath" 
+								<img [src]="baseProductCategoryPath + '/' + category.imagePath" 
 									[alt]="category.imageAlt" [title]="category.imageTitle">
 							</a>
 						</div>

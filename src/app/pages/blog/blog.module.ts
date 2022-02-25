@@ -5,6 +5,7 @@ import { ComponentsModule } from '@app_components/components.module';
 import { ArticleService } from '@app_services/blog/article/article.service';
 import { ArticleDetailsPage } from './article-details/article-details.page';
 import { BlogRoutingModule } from './blog.routing.module';
+import { CommentModule } from '../comment/comment.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BlogRoutingModule } from './blog.routing.module';
     CommonModule,
     RouterModule,
     ComponentsModule,
-    BlogRoutingModule
+    BlogRoutingModule,
+    CommentModule
   ],
   exports: [
     ArticleDetailsPage

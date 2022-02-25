@@ -103,7 +103,7 @@
 													value="1">
 											</div>
 											<div class="pro-details-stock">
-												<span><i class="fa fa-check-circle"></i> {{
+												<span *ngIf="product.inventoryCurrentCount > 30"><i class="fa fa-check-circle"></i> {{
 													product.inventoryCurrentCount }} عدد موجود است </span>
 											</div>
 										</div>
@@ -122,8 +122,9 @@
 									<div class="product-details-meta">
 										<ul>
 											<li><span>کد: </span> {{product.code}} </li>
-											<li><span>برچسب ها:</span> <a href="#">کووید 19</a> / <a href="#"> مراقبت از
-													منزل </a> / <a href="#"> داروخانه </a></li>
+											<li><span>برچسب ها:</span> 
+												<a *ngFor="let tag of product.metaKeywords.split('-')" href="">{{tag}} ، </a>
+											</li>
 										</ul>
 									</div>
 									<div class="product-details-social tooltip-style-4">

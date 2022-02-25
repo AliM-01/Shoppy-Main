@@ -23,6 +23,8 @@ export class MainSliderComponent implements OnInit {
   ngOnInit(): void {
 
     this.sliderService.getSlidersList().subscribe(res => {
+      console.log(res);
+      
       if(res.status ==="success"){
         this.slidersSubject.next(res.data);
       }

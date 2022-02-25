@@ -7,6 +7,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { FilterProductCategoryRequestModel } from '@app_models/shop/product-category/filter-product-category-request';
 import { FilterProductCategoryResponseModel } from '@app_models/shop/product-category/filter-product-category-response';
+import { LoadingService } from '@app_services/_common/loading/loading.service';
 
 @Component({
   selector: 'product-category-details',
@@ -30,6 +31,7 @@ export class ProductCategoryDetailsPage implements OnInit {
 
   constructor(
     private productCategoryService: ProductCategoryService,
+    private loadingService: LoadingService,
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private router: Router,
@@ -37,15 +39,22 @@ export class ProductCategoryDetailsPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.loadingService.loadingOn();
     this.activatedRoute.params.subscribe(params => {
-      
+
       let pageId = 1;
+
+      
 
       if (params.pageId !== undefined) {
         pageId = parseInt(params.pageId, 0);
       }
       const slug = params.slug;
+
+      if (slug == undefined) {
+        this.loadingService.loadingOff();
+        this.router.navigate(['/'])
+      }
 
       this.filterProductCategory.slug = slug;
       this.filterProductCategory.pageId = pageId;
@@ -56,21 +65,25 @@ export class ProductCategoryDetailsPage implements OnInit {
 
   }
 
-  getProductCategory(){
+  getProductCategory() {
+    this.loadingService.loadingOn();
+
     this.productCategoryService.getProductCategoryBy(this.filterProductCategory)
-    .subscribe(res => {
+      .subscribe(res => {
 
-      this.pageTitleSubject.next(`دسته بندی : ${res.data.productCategory.title}`);
+        this.pageTitleSubject.next(`دسته بندی : ${res.data.productCategory.title}`);
 
-      this.productCategoryData = res.data;
-      this.setMetaTags(res.data.productCategory);
+        this.productCategoryData = res.data;
+        this.setMetaTags(res.data.productCategory);
 
-      this.pages = [];
+        this.pages = [];
 
-      for (let i = 1; i < ((this.productCategoryData.filterData.allPagesCount / this.productCategoryData.filterData.takePage) + 1); i++) {
-        this.pages.push(i);
-      }
-    });
+        for (let i = 1; i < ((this.productCategoryData.filterData.allPagesCount / this.productCategoryData.filterData.takePage) + 1); i++) {
+          this.pages.push(i);
+        }
+      });
+    this.loadingService.loadingOff();
+
   }
 
   setPage(page: number) {

@@ -43,7 +43,9 @@
 					<form action="#">
 						<select (change)="setSelectedCategory($event)">
 							<option>دسته بندی</option>
-							<option *ngFor="let category of productCategories" [value]="category.slug"> {{category.title}} </option>
+							<option *ngFor="let category of productCategories" [value]="category.slug"> 
+								{{category.title}} 
+							</option>
 						</select>
 						<input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو آیتم مورد نظر...">
 						<button (click)="submitSearch()" type="submit"> <i class="fa fa-search"></i> </button>
@@ -119,7 +121,7 @@
 					<div class="categori-dropdown-wrap categori-dropdown-active-large">
 						<ul>
 							<li *ngFor="let category of productCategories">
-								<a [routerLink]="['/category/details/s/', category.slug.toString()]">
+								<a [routerLink]="['/category/details/', category.slug.toString()]">
 									{{category.title}} 
 								</a>
 							</li>
@@ -130,7 +132,7 @@
 					class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block main-menu-light-white hover-boder hover-boder-white">
 					<nav>
 						<ul>
-							<li><a href="#" [routerLinkActive]="'active'">صفحه اصلی</a></li>
+							<li><a routerLink="/" [routerLinkActive]="'active'">صفحه اصلی</a></li>
 							<li><a routerLink="/">دسته بندی ها<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li *ngFor="let category of productCategories">
@@ -140,7 +142,7 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="blog.html">وبلاگ<i class="fa fa-chevron-down"></i></a>
+							<li><a routerLink="/blog">وبلاگ<i class="fa fa-chevron-down"></i></a>
 								<ul class="sub-menu">
 									<li><a href="blog.html"> شبکه بلاگ - نوار کناری سمت چپ </a></li>
 									<li><a href="blog-grid-right-sidebar.html"> شبکه بلاگ - نوار کناری سمت راست

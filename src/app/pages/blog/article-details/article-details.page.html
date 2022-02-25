@@ -12,7 +12,7 @@
 </div>
 <div class="blog-details-area padding-30-row-col pt-75 pb-75">
 	<div class="container">
-		<div class="row" *ngIf="article !== null">
+		<div class="row" *ngIf="isDataLoaded">
 			<div class="col-lg-8">
 				<div class="blog-details-wrapper">
 					<div class="blog-details-top-content">
@@ -29,7 +29,7 @@
 						</div>
 					</div>
 					<img [src]="baseArticleImgPath + article.imagePath" [alt]="article.imageAlt" [title]="article.imageTitle">
-					
+					<div [innerHtml]="article.text"></div>
 					<div class="blog-tag-share-wrap">
 						<div class="blog-tag-wrap">
 							<span class="tag-icon fal fa-tags"></span>
@@ -76,34 +76,7 @@
 						</div>
 					</div>
 					<div class="blog-reply-wrapper">
-						<h3> فکر خود را اینجا بگذارید </h3>
-						<p> آدرس ایمیل شما منتشر نخواهد شد.  </p>
-						<form action="#">
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<div class="input-style blog-input-style">
-										<input type="text" placeholder="نام*">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6">
-									<div class="input-style blog-input-style">
-										<input type="email" placeholder="ایمیل*">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="textarea-style blog-textarea-style">
-										<textarea placeholder="نظر شما*"></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="blog-remember-wrap">
-								<input type="checkbox">
-								<label> مرا بخاطر بسپار </label>
-							</div>
-							<div class="blog-comment-submit">
-								<input type="submit" value="ثبت">
-							</div>
-						</form>
+						<app-record-comments [recordId]="article.id" [recordType]="'Article'"></app-record-comments>
 					</div>
 				</div>
 			</div>

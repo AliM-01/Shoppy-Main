@@ -6,7 +6,7 @@ export class ProductDetailsModel extends ProductModel {
     code:string;
     shortDescription:string;
     description:string;
-    inventoryCurrentCount:string;
+    inventoryCurrentCount:number;
     metaKeywords:string;
     metaDescription:string;
     productPictures: ProductPictureModel[] = [];

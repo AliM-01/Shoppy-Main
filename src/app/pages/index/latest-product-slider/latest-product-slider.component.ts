@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from '@app_models/shop/product/product';
 import { ProductService } from '@app_services/shop/product/product.service';
+import { LoadingService } from '@app_services/_common/loading/loading.service';
 import { environment } from '@environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -46,15 +47,18 @@ export class LatestProductSliderComponent implements OnInit {
   };
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private loadingService: LoadingService
   ) { }
 
   ngOnInit(): void {
-
+    this.loadingService.loadingOn();
     this.productService.getLatestProducts().subscribe(res => {
       if (res.status === "success") {
         this.productsSubject.next(res.data);
       }
     })
+    this.loadingService.loadingOff();
+
   }
 }
