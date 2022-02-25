@@ -9,14 +9,14 @@ import { ProductCategoryModule } from '@apppages/product-category/product.catego
 import { ComponentsModule } from '../../_components/components.module';
 import { SliderService } from '@app_services/shop/slider/slider.service';
 import { ProductModule } from '@app/pages/product/product.module';
-import { LatestArticleSliderComponent } from './latest-article-slider/latest-article-slider.component';
+import { LatestArticleComponent } from './latest-article-slider/latest-article.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
     MainSliderComponent,
     LatestProductSliderComponent,
-    LatestArticleSliderComponent
+    LatestArticleComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +30,7 @@ import { LatestArticleSliderComponent } from './latest-article-slider/latest-art
     IndexComponent,
     MainSliderComponent,
     LatestProductSliderComponent,
-    LatestArticleSliderComponent
+    LatestArticleComponent
   ],
   schemas: [],
   providers: [SliderService]

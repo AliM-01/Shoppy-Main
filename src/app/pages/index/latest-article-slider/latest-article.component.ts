@@ -5,10 +5,10 @@ import { environment } from '@environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
-  selector: 'index-latest-articles-slider',
-  templateUrl: './latest-article-slider.component.html'
+  selector: 'index-latest-articles',
+  templateUrl: './latest-article.component.html'
 })
-export class LatestArticleSliderComponent implements OnInit {
+export class LatestArticleComponent implements OnInit {
 
   articlesSubject: BehaviorSubject<ArticleModel[]> = new BehaviorSubject<ArticleModel[]>([]);
   articles$: Observable<ArticleModel[]> = this.articlesSubject.asObservable();
