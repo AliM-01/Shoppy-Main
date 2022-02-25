@@ -1,7 +1,7 @@
 import { ProductModel } from '@app_models/shop/product/product';
 export class ProductCategoryModel {
     constructor(
-         public id: number,
+         public id: string,
          public title: string,
          public imagePath: string,
          public imageAlt: string,

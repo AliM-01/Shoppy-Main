@@ -1,5 +1,5 @@
 export class ProductModel {
-    id: number;
+    id: string;
     title: string;
     imagePath: string;
     imageAlt: string;

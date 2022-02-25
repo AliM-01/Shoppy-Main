@@ -3,7 +3,7 @@ export interface CommentModel {
     name: string;
     email: string;
     text: string;
-    ownerRecordId: number;
+    ownerRecordId: string;
     ownerName: string;
     parentId: string;
     replies: CommentModel[];

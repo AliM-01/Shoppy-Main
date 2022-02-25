@@ -19,7 +19,7 @@ export class ProductCategoryService {
     private toastr: ToastrService,
     private loading: LoadingService
   ) { }
-
+  
   getProductCategoriesList(): Observable<IResponse<ProductCategoryModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<ProductCategoryModel[]>>
@@ -38,14 +38,14 @@ export class ProductCategoryService {
 
   getProductCategoryBy(filter: FilterProductCategoryRequestModel): Observable<IResponse<FilterProductCategoryResponseModel>> {
     this.loading.loadingOn();
-    let params = new HttpParams()
 
-    if (filter.categoryId !== undefined || filter.categoryId !== 0) {
-      params.set('CategoryId', filter.categoryId.toString());
+    if (filter.slug === undefined || filter.slug === "") {
+      this.toastr.error("اطلاعات مناسب پیدا نشد", 'خطا', { timeOut: 2500 });
+      throw new Error("اطلاعات مناسب پیدا نشد");
     }
-    if (filter.slug !== undefined || filter.slug !== "") {
-      params.set('Slug', filter.slug)
-    }
+
+    let params = new HttpParams()
+     .set('Slug', filter.slug);
 
     return this.http.get<IResponse<FilterProductCategoryResponseModel>>
       (`${environment.shopBaseApiUrl}/product-category/get`, { params })

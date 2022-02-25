@@ -19,9 +19,7 @@ export class CommentService {
     private loading: LoadingService,
   ) { }
   
-  getRecordCommentsById(recordId: number): Observable<IResponse<CommentModel[]>> {
-    console.log(recordId);
-    
+  getRecordCommentsById(recordId: string): Observable<IResponse<CommentModel[]>> {
     this.loading.loadingOn();
 
     return this.http.get<IResponse<CommentModel[]>>
@@ -47,14 +45,12 @@ export class CommentService {
     formData.append('email', addCommentData.email);
     formData.append('text', addCommentData.text);
     formData.append('type', addCommentData.type.toString());
-    formData.append('ownerRecordId', addCommentData.ownerRecordId.toString());
+    formData.append('ownerRecordId', addCommentData.ownerRecordId);
 
-    if(addCommentData.parentId !== "0"){
-      formData.append('parentId', addCommentData.parentId.toString());
+    if(addCommentData.parentId !== null){
+      formData.append('parentId', addCommentData.parentId);
     }
 
-    console.log(addCommentData);
-    
     return this.http.post<IResponse<any>>
       (`${environment.commentBaseApiUrl}/add`, formData)
       .pipe(

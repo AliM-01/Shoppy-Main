@@ -40,8 +40,7 @@ export class ProductService {
   searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
 
     this.loading.loadingOn();
-    console.log('service', search);
-
+    
     let params = new HttpParams()
       .set('PageId', search.pageId.toString())
       .set('TakePage', search.takePage.toString())

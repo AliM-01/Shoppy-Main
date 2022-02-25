@@ -1,4 +1,4 @@
 export class ProductPictureModel {
-    id: number;
+    id: string;
     imagePath: string;
 }

@@ -1,5 +1,5 @@
 export class ArticleModel {
-    id: number;
+    id: string;
     title: string;
     summary: string;
     imagePath: string;

@@ -21,8 +21,8 @@ export class ProductDetailsPage implements OnInit {
   baseProductPictureOriginalPath: string = environment.productPictureBaseImagePath + '/original/';
   baseProductPictureThumbnailPath: string = environment.productPictureBaseImagePath + '/thumbnail/';
 
-  pictureIds: number[] = [];
-  currentPicture: number = 1;
+  pictureIds: string[] = [];
+  currentPicture: string = "";
 
   mainSlideConfig = {
     "slidesToShow": 1, "slidesToScroll": 1,
@@ -112,7 +112,7 @@ export class ProductDetailsPage implements OnInit {
     ]);
   }
 
-  setSlider(id: number) {
+  setSlider(id: string) {
     let activeSliders = Array.from(document.getElementsByClassName("product_details_sub_slider"));;
 
     activeSliders.forEach(activeSlider => activeSlider.classList.remove('active'));

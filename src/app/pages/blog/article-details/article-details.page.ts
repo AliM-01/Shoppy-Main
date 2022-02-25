@@ -5,7 +5,7 @@ import { environment } from '@environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { ArticleService } from '@app_services/blog/article/article.service';
-import { ArticleDetailsModel } from '../../../_models/blog/article/article-details';
+import { ArticleDetailsModel } from '@app_models/blog/article/article-details';
 
 @Component({
   selector: 'article-details',

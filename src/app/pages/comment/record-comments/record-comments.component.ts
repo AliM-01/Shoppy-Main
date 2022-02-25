@@ -13,7 +13,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class RecordCommentsComponent implements OnInit {
 
-  @Input() recordId: number;
+  @Input() recordId: string;
   @Input() recordType: string;
 
   commentsSubject: BehaviorSubject<CommentModel[]> = new BehaviorSubject<CommentModel[]>([]);
