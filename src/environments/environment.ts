@@ -8,5 +8,5 @@ export const environment = {
   productCategoryBaseImagePath: "https://localhost:5001/upload/product_category",
   productBaseImagePath: "https://localhost:5001/upload/product",
   productPictureBaseImagePath: "https://localhost:5001/upload/product_picture",
-  articleBaseImagePath: "https://localhost:5001/upload/article",
+  articleBaseImagePath: "https://localhost:5001/upload/article"
 };

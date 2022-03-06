@@ -6,9 +6,11 @@ import { ArticleService } from '@app_services/blog/article/article.service';
 import { ArticleDetailsPage } from './article-details/article-details.page';
 import { BlogRoutingModule } from './blog.routing.module';
 import { CommentModule } from '../comment/comment.module';
+import { SearchArticlePage } from './search-article/search-article.page';
 
 @NgModule({
   declarations: [
+    SearchArticlePage,
     ArticleDetailsPage
   ],
   imports: [

@@ -1,0 +1,72 @@
+<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
+	<div class="custom-container">
+		<div class="breadcrumb-content text-center">
+			<ul>
+				<li>
+					<a routerLink="/">صفحه اصلی</a>
+				</li>
+				<li class="active"> فروشگاه</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="shop-area pt-75 pb-55">
+	<div class="custom-container">
+		<div class="row flex-row-reverse">
+			<div class="col-lg-9">
+				<div class="shop-topbar-wrapper">
+					<div class="totall-product" *ngIf="isDataLoaded">
+						<p>ما پیدا کردیم<span> {{searchArticles.allPagesCount}} </span>مقاله</p>
+					</div>
+					<div class="sort-by-product-area">
+						<div class="sort-by-product-wrap">
+							<div class="sort-by">
+								<span><i class="fa fa-align-left"></i> تاریخ: </span>
+							</div>
+							<div class="sort-by-dropdown-wrap">
+								<span> {{ currentCreationSortSelected[1] }} <i class="fa fa-angle-down"></i></span>
+							</div>
+						</div>
+						<div class="sort-by-dropdown">
+							<ul>
+								<li><a (click)="setCreationSort(0)">جدیدترین</a></li>
+								<li><a (click)="setCreationSort(1)">قدیمی ترین</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="shop-bottom-area" *ngIf="isDataLoaded">
+					<div class="row">
+
+					</div>
+					<div class="pro-pagination-style text-center mt-55">
+						<ul>
+							<li *ngFor="let page of pages">
+								<a (click)="setPage(page)" [ngClass]="{ active: page === searchArticles.pageId }">{{
+									page }}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="sidebar-wrapper sidebar-wrapper-mr1">
+					<div class="sidebar-widget sidebar-widget-wrap sidebar-widget-padding-1 mb-20" *ngIf="isDataLoaded">
+						<h4 class="sidebar-widget-title"> دسته بندی</h4>
+						<div class="sidebar-categories-list">
+							<ul>
+								<li *ngFor="let category of articleCategories">
+									<input [value]="category.id" type="checkbox"
+										(change)="filterCategories($event, category.slug)"
+										[checked]="searchArticles.selectedCategories?.indexOf(category.slug) >= 0" />
+
+									<label>{{category.title}}</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
