@@ -6,6 +6,7 @@ import { environment } from '@environments/environment';
 import { ProductDetailsModel } from '../../../_models/shop/product/product-details';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
+import { LoadingService } from '../../../_services/_common/loading/loading.service';
 
 @Component({
   selector: 'product-details',
@@ -63,12 +64,16 @@ export class ProductDetailsPage implements OnInit {
   constructor(
     private productService: ProductService,
     private _location: Location,
+    private loading: LoadingService,
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private meta: Meta,
-  ) { }
+  ) {
+    this.loading.loadingOn();
+  }
 
   ngOnInit(): void {
+    this.loading.loadingOn();
     this.isDataLoaded = false;
     this.activatedRoute.params.subscribe(params => {
       const slug = params.slug;
@@ -81,37 +86,47 @@ export class ProductDetailsPage implements OnInit {
 
   }
 
-  getProduct(slug:string) {
+  getProduct(slug: string) {
+    this.loading.loadingOn();
+
     this.productService.getProductDetails(slug)
-    .subscribe((res) => {
-      if (res.status === 'success') {
-        this.productTitleSubject.next(res.data.title)
-        this.product = res.data;
-        if (res.data.productPictures !== null) {
-          res.data.productPictures.forEach(gallery => {
-            this.pictureIds.push(gallery.id)
-          });
+      .subscribe((res) => {
+        this.loading.loadingOn();
+
+        if (res.status === 'success') {
+          this.productTitleSubject.next(res.data.title)
+          this.product = res.data;
+          if (res.data.productPictures !== null) {
+            res.data.productPictures.forEach(gallery => {
+              this.pictureIds.push(gallery.id)
+            });
+          }
+          console.log(res);
+
+          this.tags = res.data.metaKeywords.split(",");
+          this.setMetaTags(res.data)
+
+          this.isDataLoaded = true;
+          this.loading.loadingOff();
+
         }
-
-        this.tags = res.data.metaKeywords.split(",");
-        this.setMetaTags(res.data)
-
-        this.isDataLoaded = true;
-      }
-    },
-    () => this._location.back()
-  );
+      },
+        () => {
+          this._location.back()
+          this.loading.loadingOff();
+        }
+      );
   }
 
-  setMetaTags(data: ProductDetailsModel){
+  setMetaTags(data: ProductDetailsModel) {
     this.title.setTitle(data.title);
     this.meta.addTags([
       { name: 'keywords', content: data.metaKeywords },
       { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'shoppy'},
+      { name: 'author', content: 'shoppy' },
       { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { charset: 'UTF-8'}
+      { charset: 'UTF-8' }
     ]);
   }
 

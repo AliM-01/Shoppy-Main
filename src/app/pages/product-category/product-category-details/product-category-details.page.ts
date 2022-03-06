@@ -37,7 +37,9 @@ export class ProductCategoryDetailsPage implements OnInit {
     private title: Title,
     private router: Router,
     private meta: Meta,
-  ) { }
+  ) {
+    this.loadingService.loadingOn();
+   }
 
   ngOnInit(): void {
     this.loadingService.loadingOn();
@@ -45,7 +47,7 @@ export class ProductCategoryDetailsPage implements OnInit {
 
       let pageId = 1;
 
-      
+
 
       if (params.pageId !== undefined) {
         pageId = parseInt(params.pageId, 0);

@@ -10,7 +10,7 @@
 		</div>
 	</div>
 </div>
-<div class="product-details-area padding-30-row-col pt-75 pb-55">
+<div class="product-details-area padding-30-row-col pt-75 pb-55" *ngIf="isDataLoaded">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-12">
@@ -54,7 +54,7 @@
 									<div class="pro-details-category">
 										<ul>
 											<li>
-												<a [routerLink]="['/category/details/', product.categorySlug]">
+												<a [routerLink]="['/category/details/', product.categoryId]">
 													{{product.category}}
 												</a>
 											</li>

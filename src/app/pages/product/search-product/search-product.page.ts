@@ -7,6 +7,7 @@ import { environment } from '@environments/environment';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { SearchProductModel, SearchProductPriceOrder } from '@app_models/shop/product/search-product';
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from '@app_services/_common/loading/loading.service';
 
 @Component({
   selector: 'search-product',
@@ -28,16 +29,20 @@ export class SearchProductPage implements OnInit {
   constructor(
     private productCategoryService: ProductCategoryService,
     private productService: ProductService,
+    private loadingService: LoadingService,
     private title: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { 
+  ) {
+    this.loadingService.loadingOn();
     this.title.setTitle("جستجو محصولات");
   }
 
   ngOnInit(): void {
+    this.loadingService.loadingOn();
+
     this.isDataLoaded = false;
-    
+
     this.activatedRoute.queryParams.subscribe(params => {
       let pageId = 1;
 
@@ -46,12 +51,12 @@ export class SearchProductPage implements OnInit {
       }
       this.searchProducts.phrase = params.phrase;
       this.searchPhrase = params.phrase;
-      
+
       let selectedCategoryParams: string[];
 
-      if(typeof params?.categories === "string"){
+      if (typeof params?.categories === "string") {
         selectedCategoryParams = [params?.categories]
-      } else if (typeof params?.categories === "object"){
+      } else if (typeof params?.categories === "object") {
         selectedCategoryParams = params?.categories
       }
 
@@ -72,6 +77,8 @@ export class SearchProductPage implements OnInit {
   }
 
   setPage(page: number) {
+    this.loadingService.loadingOn();
+
     let queryParams: any = {
       pageId: page
     }
@@ -81,13 +88,16 @@ export class SearchProductPage implements OnInit {
     if (this.searchProducts.selectedCategories !== undefined && this.searchProducts.selectedCategories.length > 0) {
       queryParams.categories = this.searchProducts.selectedCategories;
     }
+    this.loadingService.loadingOff();
     this.router.navigate(['/product/search'], { queryParams: queryParams });
   }
 
   getProducts() {
+    this.loadingService.loadingOn();
     this.isDataLoaded = false;
 
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
+      this.loadingService.loadingOn();
 
       this.title.setTitle(`جستجو محصولات | ${res.data.allPagesCount} نتیجه پیدا شد`)
       this.searchProducts = res.data;
@@ -110,10 +120,15 @@ export class SearchProductPage implements OnInit {
       if (res.data.products.length) {
         this.isDataLoaded = true;
       }
+      this.loadingService.loadingOff();
+
     })
+
+    this.loadingService.loadingOff();
   }
 
   filterCategories(event: any, catSlug: string) {
+    this.loadingService.loadingOn();
 
     if (this.searchProducts.selectedCategories === undefined || this.searchProducts.selectedCategories === null) {
       this.searchProducts.selectedCategories = [];
@@ -129,6 +144,8 @@ export class SearchProductPage implements OnInit {
   }
 
   setFilterCategories() {
+    this.loadingService.loadingOn();
+
     if (this.searchProducts.selectedCategories.length > 0) {
       let queryParams: any = {
         categories: this.searchProducts.selectedCategories
@@ -140,9 +157,13 @@ export class SearchProductPage implements OnInit {
     } else {
       this.router.navigate(['/product/search']);
     }
+    this.loadingService.loadingOff();
+
   }
 
   setCreationSort(sort: number) {
+    this.loadingService.loadingOn();
+
     this.creationSort = sort;
     this.searchProducts.sortCreationDateOrder = sort;
     this.currentCreationSortSelected[0] = sort;
@@ -155,6 +176,8 @@ export class SearchProductPage implements OnInit {
   }
 
   setPriceOrder(sort: number) {
+    this.loadingService.loadingOn();
+
     this.priceSort = sort;
     this.searchProducts.searchProductPriceOrder = sort;
     this.currentPriceSortSelected[0] = sort;
@@ -169,6 +192,8 @@ export class SearchProductPage implements OnInit {
   }
 
   priceValueChanged(event: any) {
+    this.loadingService.loadingOn();
+
     this.searchProducts.selectedMinPrice = event.value;
     this.searchProducts.selectedMaxPrice = event.highValue;
 
