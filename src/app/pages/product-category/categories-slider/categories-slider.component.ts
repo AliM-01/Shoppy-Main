@@ -23,7 +23,7 @@ export class CategoriesSliderComponent implements OnInit {
       {
           breakpoint: 991,
           settings: {
-              slidesToShow: 3,
+              slidesToShow: 2,
           }
       },
       {
@@ -35,7 +35,7 @@ export class CategoriesSliderComponent implements OnInit {
       {
           breakpoint: 575,
           settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
           }
       }
   ]};

@@ -13,7 +13,7 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class ProductDetailsPage implements OnInit {
 
-  product!: ProductDetailsModel;
+  product: ProductDetailsModel;
   private productTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   productTitle$: Observable<string> = this.productTitleSubject.asObservable();
   isDataLoaded: boolean = false;
@@ -107,7 +107,7 @@ export class ProductDetailsPage implements OnInit {
     this.title.setTitle(data.title);
     this.meta.addTags([
       { name: 'keywords', content: data.metaKeywords },
-      { name: 'robots', content: 'index, follow' }, 
+      { name: 'robots', content: 'index, follow' },
       { name: 'author', content: 'shoppy'},
       { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

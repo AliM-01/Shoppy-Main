@@ -4,9 +4,7 @@ import { NotFoundPage } from '@apppages/not-found/not-found.page';
 import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent}, 
-  { path: '**', pathMatch: 'full', 
-  component: NotFoundPage },
+  {path: '', component: IndexComponent},
   {
     path: 'category',
     loadChildren: () => import('./pages/product-category/product.category.module').then(m => m.ProductCategoryModule)
@@ -19,6 +17,7 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule)
   },
+  { path: '**', pathMatch: 'full', component: NotFoundPage },
 ];
 
 @NgModule({
