@@ -6,6 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { ArticleService } from '@app_services/blog/article/article.service';
 import { ArticleDetailsModel } from '@app_models/blog/article/article-details';
+import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
+import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
 
 @Component({
   selector: 'article-details',
@@ -18,9 +20,12 @@ export class ArticleDetailsPage implements OnInit {
   pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
   isDataLoaded: boolean = false;
   baseArticleImgPath: string = environment.productPictureBaseImagePath + '/original/';
+  articleCategories: ArticleCategoryModel[] = [];
+
 
   constructor(
     private articleService: ArticleService,
+    private articleCategoryService: ArticleCategoryService,
     private _location: Location,
     private activatedRoute: ActivatedRoute,
     private title: Title,
@@ -37,6 +42,9 @@ export class ArticleDetailsPage implements OnInit {
       }
 
     });
+    this.articleCategoryService.getArticleCategoriesList().subscribe(
+      res => this.articleCategories = res.data
+    );
 
   }
 
@@ -60,7 +68,7 @@ export class ArticleDetailsPage implements OnInit {
     this.title.setTitle(data.title);
     this.meta.addTags([
       { name: 'keywords', content: data.metaKeywords },
-      { name: 'robots', content: 'index, follow' }, 
+      { name: 'robots', content: 'index, follow' },
       { name: 'author', content: 'shoppy'},
       { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

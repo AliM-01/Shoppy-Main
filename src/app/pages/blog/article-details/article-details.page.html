@@ -95,11 +95,11 @@
 						<h4 class="sidebar-widget-title"> دسته بندی</h4>
 						<div class="sidebar-categories-list">
 							<ul>
-								<li><a href="blog.html"> زندگی روزانه <span>(8)</span></a></li>
-								<li><a href="blog.html"> بهداشت 5.0<span>(1)</span></a></li>
-								<li><a href="blog.html"> اخبار داغ <span>(4)</span></a></li>
-								<li><a href="blog.html"> دسته بندی نشده <span>(2)</span></a></li>
-								<li><a href="blog.html"> سلامتی شما <span>(3)</span></a></li>
+								<li *ngFor="let category of articleCategories">
+									<a [routerLink]="['/blog']" class="cursor-pointer">
+										{{category.title}}
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>
