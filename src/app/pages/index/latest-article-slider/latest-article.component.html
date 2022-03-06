@@ -1,38 +1,40 @@
-<div class="product-area pb-70">
-	<div class="custom-container">
-		<div class="section-title-btn-wrap mb-35">
-			<div class="section-title-1">
-				<h2> جدید ترین مقالات </h2>
-			</div>
-			<div class="btn-style-2">
-				<a routerLink="/blog">مشاهده همه <i class="fa fa-arrow-left"></i></a>
-			</div>
-		</div>
-		<div class="row grid p-5">
-			<div *ngFor="let article of (articles$ | async)" class="col-lg-4 col-md-6 col-12 col-sm-6 grid-item">
-				<div class="blog-img-2 mb-30">
-					<a [routerLink]="'/blog/i/' + article.slug">
-						<img [src]="baseArticlePath + article.imagePath" [alt]="article.imageAlt"
-							[title]="article.imageTitle" class="img-fluid">
-					</a>
-					<div class="blog-tag-2">
-						<a [routerLink]="'/blog/category/' + article.categoryId"> {{article.category}} </a>
-					</div>
-				</div>
-				<div class="blog-content-2">
-					<div class="blog-meta-2">
-						<ul style="float: left;">
-							<li><i class="fa fa-calendar" style="direction: ltr;"></i>{{ article.creationDate }}</li>
-						</ul>
-					</div>
-					<h3><a [routerLink]="'/blog/i/' + article.slug"> {{article.title }} </a></h3>
-					<h5>{{article.summary}}</h5>
-					<div class="blog-btn">
-						<a [routerLink]="'/blog/i/' + article.slug"> ادامه مطلب<i
-								class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="blog-area pt-75 pb-75">
+  <div class="custom-container">
+    <div class="section-title-btn-wrap mb-35">
+      <div class="section-title-1">
+        <h2> جدید ترین مقالات </h2>
+      </div>
+      <div class="btn-style-2">
+        <a routerLink="/blog">مشاهده همه <i class="fa fa-arrow-left"></i></a>
+      </div>
+    </div>
+    <div class="row grid">
+      <div class="col-lg-4 col-md-6 col-12 col-sm-6 grid-item" *ngFor="let article of (articles$ | async)">
+        <div class="blog-wrap-2 mb-30">
+          <div class="blog-img-2">
+            <a [routerLink]="'/blog/i/' + article.slug">
+              <img [src]="baseArticlePath + article.imagePath" [alt]="article.imageAlt" [title]="article.imageTitle"
+                class="blog-thumbnail-img">
+            </a>
+            <div class="blog-tag-2">
+              <a [routerLink]="'/blog/category/' + article.categoryId"> {{article.category}} </a>
+            </div>
+          </div>
+          <div class="blog-content-2">
+            <div class="blog-meta-2">
+              <ul>
+                <li><i class="far fa-calendar"></i>{{ article.creationDate }}</li>
+                <li><i class="far fa-eye"></i> 453 بازدید</li>
+              </ul>
+            </div>
+            <h3><a [routerLink]="'/blog/i/' + article.slug"> {{article.title }} </a></h3>
+            <h5>{{article.summary}}</h5>
+            <div class="blog-btn">
+              <a [routerLink]="'/blog/i/' + article.slug"> ادامه مطلب <i class="fa fa-arrow-left"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

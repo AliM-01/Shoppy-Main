@@ -6,7 +6,7 @@
     src: url('../fonts/IRANSansWeb.woff2') format('woff2'),
     url('../fonts/IRANSansWeb.woff') format('woff'),
     url('../fonts/IRANSans.ttf') format('truetype');
-} 
+}
 
 
 *{
@@ -111,22 +111,22 @@ body {
     line-height: 24px;
     font-size: 14px;
     font-style: normal;
-   
+
     color: #333;
     overflow-x: hidden;
-   
+
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #333;
-   
+
     margin-top: 0;
-  
+
 }
 
 p {
     font-size: 14px;
-   
+
     line-height: 24px;
     color: #444;
     margin-bottom: 15px;
@@ -2784,7 +2784,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .header-info>ul>li a {
     color: #444;
-  
+
 }
 
 .header-info>ul>li a i {
@@ -2851,7 +2851,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .covid-update p a {
     background-color: #3751ee;
-   
+
     color: #ffffff;
     display: inline-block;
     margin: 0 0 0 10px;
@@ -3076,7 +3076,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .main-menu>nav>ul>li ul.mega-menu li a.menu-title {
     font-size: 16px;
-   
+
     display: block
 }
 
@@ -3137,13 +3137,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content h4 {
     font-size: 15px;
     text-transform: uppercase;
-   
+
     margin: 0
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content h3 {
     font-size: 24px;
-   
+
     line-height: 1.5;
     margin: 5px 0 11px
 }
@@ -3168,13 +3168,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.new-price {
     font-size: 24px;
-  
+
     color: #e4573d
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.old-price {
     font-size: 16px;
-   
+
     color: #696969;
     text-decoration: line-through;
     margin-left: 5px
@@ -3183,7 +3183,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-btn a {
     display: inline-block;
     font-size: 14px;
-  
+
     color: #ffffff;
     border-radius: 26px;
     padding: 12px 22px 15px;
@@ -3232,7 +3232,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     margin: 0;
     text-align: center;
     font-size: 16px;
-   
+
     line-height: 1
 }
 
@@ -3552,7 +3552,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 20px;
     width: 20px;
     border-radius: 100%;
-   
+
     font-size: 12px;
     text-align: center;
     line-height: 20px
@@ -3679,7 +3679,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 20px;
     width: 20px;
     border-radius: 100%;
-  
+
     font-size: 12px;
     text-align: center;
     line-height: 20px
@@ -3784,7 +3784,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .cart-dropdown-wrap ul li .shopping-cart-title h4 {
     font-size: 15px;
-   
+
     line-height: 1;
     margin: 0 0 9px
 }
@@ -3799,7 +3799,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 {
     font-size: 18px;
-  
+
     line-height: 1;
     margin: 0 0 0px;
     color: #4e97fd
@@ -3807,7 +3807,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 span {
     color: #696969;
-  
+
     font-size: 15px
 }
 
@@ -4098,7 +4098,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     align-items: center;
     font-size: 16px;
     color: #ffffff;
-  
+
 }
 
 .main-categori-wrap>a span {
@@ -4114,7 +4114,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .main-categori-wrap>a>i {
     font-size: 14px;
     margin-right: 15px;
-   
+
 }
 
 .main-categori-wrap>a>i.up {
@@ -4141,7 +4141,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hotline p {
     color: #ffffff;
     font-size: 18px;
-   
+
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -4167,7 +4167,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hotline p span {
     font-size: 14px;
     margin-right: 10px;
-    
+
 }
 
 .categori-dropdown-active-large {
@@ -4184,7 +4184,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-box-shadow: 0 -3px 23px rgba(0, 0, 0, 0.06);
     box-shadow: 0 -3px 23px rgba(0, 0, 0, 0.06);
     font-size: 15px;
-   
+
     min-width: 270px;
     -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     -o-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -4207,7 +4207,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-box-shadow: 0 -3px 23px rgba(0, 0, 0, 0.06);
     box-shadow: 0 -3px 23px rgba(0, 0, 0, 0.06);
     font-size: 15px;
-    
+
     display: none;
     width: 100%
 }
@@ -4337,7 +4337,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 50px;
     padding: 21px 50px 16px 0px;
     color: #919191;
- 
+
     max-width: 100%;
     height: auto;
     -webkit-transform: translate(0, 50px);
@@ -4876,7 +4876,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 16px;
     display: block;
     color: #ffffff;
-   
+
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info a span {
@@ -4909,7 +4909,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info .lang-curr-dropdown ul li a {
     font-size: 15px;
     color: #696969;
-    
+
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info .lang-curr-dropdown ul li a:hover {
@@ -5145,7 +5145,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     margin: 0;
     text-align: center;
     font-size: 30px;
-  
+
     line-height: 1
 }
 
@@ -5158,7 +5158,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .slider-product-price h3 span {
     display: block;
     line-height: 1;
-  
+
     font-size: 20px;
     margin: 0 0 5px
 }
@@ -5990,7 +5990,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hero-slider-content-3 h1 {
     font-size: 48px;
- 
+
     line-height: 56px;
     margin: 0
 }
@@ -6360,7 +6360,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: inline-block;
     font-size: 14px;
     text-decoration: line-through;
- 
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -6622,14 +6622,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     margin: 0;
     text-align: center;
     font-size: 16px;
-   
+
     line-height: 1
 }
 
 .banner-wrap .banner-badge h3 span {
     display: block;
     line-height: 1;
-    
+
     font-size: 20px;
     margin: 0 0 3px
 }
@@ -6715,7 +6715,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     margin: 0;
     text-align: center;
     font-size: 20px;
- 
+
     line-height: 1
 }
 
@@ -6728,7 +6728,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-badge-2 h3 span {
     display: block;
     line-height: 1;
-  
+
     font-size: 30px;
     margin: 0 0 3px
 }
@@ -6875,7 +6875,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .section-title-1 h2 {
     font-size: 30px;
-  
+
     margin: 0;
     line-height: 1
 }
@@ -6925,7 +6925,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .section-title-2 h2 {
     font-size: 34px;
- 
+
     line-height: 1.42em;
     margin: 0 auto;
     width: 70%;
@@ -7298,7 +7298,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .single-product-wrap .product-badges span {
     display: inline-block;
     font-size: 13px;
-   
+
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1;
@@ -7360,7 +7360,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-product-wrap .product-content-wrap .product-price span.old-price {
     font-size: 14px;
-  
+
     color: #444;
     margin: 0 7px 0 0;
     text-decoration: line-through
@@ -7433,7 +7433,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-stock .product-stock-status .stock-status-same-style span.value {
- 
+
     color: #333
 }
 
@@ -7518,7 +7518,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .nav-style-2>span i {
     line-height: 52px;
-  
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -7741,7 +7741,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .btn-style-2 a {
     font-size: 15px;
- 
+
     color: #333
 }
 
@@ -7822,7 +7822,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 24px;
     line-height: 1.5em;
     margin: 0;
-   
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -7972,7 +7972,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span {
     font-size: 15px;
- 
+
     color: #4e97fd;
     display: inline-block
 }
@@ -7981,7 +7981,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     text-decoration: line-through;
     color: #444;
     margin: 0 0 0 7px;
-    
+
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span.new-price {
@@ -8042,7 +8042,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     bottom: 13%;
     right: 10%;
     font-size: 18px;
-   
+
     color: #333;
     z-index: 5
 }
@@ -8102,7 +8102,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-testimonial h4 {
     font-size: 20px;
-    
+
     margin: 0
 }
 
@@ -8209,7 +8209,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-testimonial-2 h4 {
     font-size: 20px;
-    
+
     margin: 0
 }
 
@@ -8273,7 +8273,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .nav-style-3>span i {
     line-height: 52px;
-    
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -8321,7 +8321,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-contact-wrap h4 {
     font-size: 18px;
-    
+
     margin: 0 0 12px
 }
 
@@ -8405,7 +8405,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-from-area h3 {
     font-size: 34px;
-  
+
     margin: 0 0 50px;
     text-align: center
 }
@@ -8445,7 +8445,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-from-area .contact-form-style button {
     font-size: 15px;
- 
+
     padding: 12px 41px;
     color: #ffffff;
     border: none;
@@ -8531,7 +8531,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h2 {
     font-size: 48px;
-  
+
     margin: 10px 0 0px;
     line-height: 40px
 }
@@ -8903,7 +8903,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .footer-about-2 .footer-contact-info p span {
     display: block;
     font-size: 20px;
- 
+
     margin: 4px 0 18px;
     color: #e4573d
 }
@@ -9012,7 +9012,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .subscribe-form form .mc-form .clear input {
     width: auto;
-  
+
     color: #ffffff;
     background-color: #4e97fd;
     padding: 0 36px
@@ -9187,7 +9187,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     font-size: 14px;
     display: inline-block;
- 
+
     letter-spacing: 1;
     text-transform: uppercase;
     line-height: 1;
@@ -9426,7 +9426,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .blog-wrap-2 .blog-content-2 .blog-btn a {
     display: inline-block;
     font-size: 15px;
-    
+
     color: #333
 }
 
@@ -9523,7 +9523,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .tm-demo-options-wrapper .tm-demo-panel .tm-demo-panel-header h3 {
     font-size: 15px;
-   
+
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 1.38px;
@@ -9540,7 +9540,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: inline-block;
     font-size: 15px;
     color: #ffffff;
-    
+
     background-color: #4e97fd;
     border-radius: 26px;
     padding: 10px 28px
@@ -9588,7 +9588,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     white-space: nowrap;
     border-radius: 5px;
-  
+
     font-size: 14px;
     padding: 8px 10px;
     color: #ffffff;
@@ -9669,7 +9669,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .medizin-common-style-wrap .medizin-common-paragraph-style h2 {
     font-size: 30px;
-    
+
     margin: 0 0 19px
 }
 
@@ -9695,14 +9695,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .medizin-common-style-wrap .medizin-common-paragraph-style h4 {
-    
+
     color: #444;
     font-size: 15px;
     margin: 20px 0 0
 }
 
 .medizin-common-style-wrap .medizin-common-paragraph-style h3 {
-  
+
     color: #333;
     font-size: 26px;
     margin: 0px 0 16px
@@ -9735,7 +9735,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .medizin-common-style-wrap .medizin-common-paragraph-style p a {
     color: #444;
-   
+
 }
 
 .medizin-common-style-wrap .medizin-common-paragraph-style p.paragraph-mrg-top {
@@ -9850,7 +9850,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .breadcrumb-content ul li {
     display: inline-block;
     font-size: 15px;
-  
+
     color: #4e97fd;
     margin-left: 18px;
     text-transform: capitalize;
@@ -9910,7 +9910,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .breadcrumb-title h1 {
     font-size: 40px;
-  
+
     line-height: 1.2;
     color: #333;
     margin: 0
@@ -10106,7 +10106,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: auto;
     width: 100%;
     font-size: 14px;
-  
+
 }
 
 .sidebar-widget .price-filter .price-slider-amount button {
@@ -10151,14 +10151,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .sidebar-widget .sidebar-rating-list ul li a i {
     color: #fb0;
-  
+
     font-size: 15px;
     margin-right: 1px
 }
 
 .sidebar-widget .sidebar-rating-list ul li a i.gray {
     color: #ababab;
-   
+
 }
 
 .sidebar-widget .sidebar-rating-list ul li a span {
@@ -10183,7 +10183,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 24px;
     line-height: 1.5em;
     margin: 0;
- 
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -10246,7 +10246,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .sidebar-widget.slidebar-product-wrap-2 .slidebar-product-img-2 .slidebar-pro-badge h3 span {
     display: block;
     line-height: 1;
- 
+
     font-size: 20px;
     margin: 0 0 4px
 }
@@ -10421,7 +10421,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     white-space: nowrap;
     border-radius: 5px;
-  
+
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
@@ -10489,7 +10489,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     white-space: nowrap;
     border-radius: 5px;
- 
+
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
@@ -10604,7 +10604,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .totall-product p span {
     color: #333;
-   
+
 }
 
 .shop-topbar-wrapper .sort-by-product-area {
@@ -10645,12 +10645,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .sort-by-product-area .sort-by-product-wrap .sort-by span {
     font-size: 15px;
-  
+
 }
 
 .shop-topbar-wrapper .sort-by-product-area .sort-by-product-wrap .sort-by-dropdown-wrap span {
     font-size: 15px;
-   
+
     color: #333
 }
 
@@ -10683,7 +10683,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     color: #333;
-   
+
 }
 
 .sort-by-dropdown.show {
@@ -10735,7 +10735,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 40px;
     line-height: 40px;
     font-size: 16px;
-   
+
     display: inline-block;
     border-radius: 100%;
     margin: 0 2px;
@@ -10985,7 +10985,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-sidebar-post .sidebar-post-content h4 {
     font-size: 15px;
-   
+
     line-height: 1.44
 }
 
@@ -11310,7 +11310,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-content .pro-details-price-short-description .pro-details-price span {
     font-size: 24px;
-   
+
 }
 
 .product-details-content .pro-details-price-short-description .pro-details-price span.new-price {
@@ -11450,7 +11450,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 0;
     border: 0;
     font-size: 15px;
-   
+
     border-radius: 26px;
     padding: 10px 41px 12px;
     background-color: #4e97fd
@@ -11636,7 +11636,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-wrap-bottom .entry-product-section-heading h2 {
     font-size: 28px;
-   
+
     border-bottom: 1px solid #eee;
     margin: 0;
     padding: 0 0 15px
@@ -11732,7 +11732,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review p span {
     font-size: 18px;
-    
+
     color: #4e97fd
 }
 
@@ -11815,7 +11815,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .single-pro-details-review .review-content .review-name-rating .review-name h6 {
     font-size: 17px;
-  
+
     margin: 0
 }
 
@@ -11864,7 +11864,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .single-pro-details-review .review-content .review-date-btn .review-btn a {
     display: inline-block;
-    
+
     color: #333;
     font-size: 15px
 }
@@ -11875,7 +11875,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .ratting-form-wrapper h3 {
     font-size: 20px;
-   
+
     margin: 0
 }
 
@@ -11905,7 +11905,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .ratting-form-wrapper .comment-form-rating-wrap .comment-form-rating i {
-   
+
     font-size: 18px;
     color: #ababab
 }
@@ -11971,7 +11971,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form .form-submit input {
     width: auto;
- 
+
     border-radius: 26px;
     height: auto;
     color: #ffffff;
@@ -14877,7 +14877,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
         padding-top: 20px
     }
 }
-
+.blog-thumbnail-img {
+  width: 200px;
+  height: 250px;
+  border-radius: 0.5em;
+}
 .blog-details-wrapper .blog-details-top-content {
     margin: 0 0 30px
 }
