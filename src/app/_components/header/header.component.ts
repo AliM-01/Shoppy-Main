@@ -5,6 +5,7 @@ import { ProductCategoryModel } from '@app_models/shop/product-category/product-
 import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
 import { OrderService } from '@app_services/order/order.service';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ import { ProductCategoryService } from '@app_services/shop/product-category/prod
   providers: [ArticleCategoryService, ProductCategoryService, OrderService]
 })
 export class HeaderComponent implements OnInit {
+
+  baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
 
   productCategories: ProductCategoryModel[] = [];
   articleCategories: ArticleCategoryModel[] = [];

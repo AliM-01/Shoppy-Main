@@ -90,4 +90,12 @@ export class OrderService {
   itemInCart(productId: string): boolean {
     return this.cartItemsSubject.value.findIndex((o) => o.productId === productId) > -1;
   }
+
+  get totalPrice():number {
+    let totalPrice = 0;
+    for (const item of this.cartItemsSubject.value) {
+      totalPrice = totalPrice + item.unitPrice;
+    }
+    return totalPrice;
+  }
 }

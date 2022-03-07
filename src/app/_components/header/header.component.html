@@ -62,34 +62,26 @@
               </a>
               <div class="cart-dropdown-wrap cart-dropdown-hm2">
                 <ul>
-                  <li>
+
+                  <li *ngFor="let item of (orderService.cartItems$ | async)">
                     <div class="shopping-cart-img">
-                      <a href="product-details.html"><img alt="" src="assets/images/cart/cart-1.jpg"></a>
+                      <a [routerLink]="'/product/details/' + item.productSlug">
+                        <img [src]="baseProductPath + item.productImg">
+                      </a>
                     </div>
                     <div class="shopping-cart-title">
-                      <h4><a href="product-details.html"> دستکش لاتکس جراحی </a></h4>
-                      <h3><span>1 × </span>10,000 تومن</h3>
+                      <h4><a [routerLink]="'/product/details/' + item.productSlug"> {{ item.productTitle }} </a></h4>
+                      <h3><span>{{ item.count }} × </span>{{ item.unitPrice }} تومان</h3>
                     </div>
                     <div class="shopping-cart-delete">
-                      <a href="#"><i class="fa fa-times"></i></a>
+                      <a (click)="orderService.removeItem(item.productId)"><i class="fa fa-times"></i></a>
                     </div>
                   </li>
-                  <li>
-                    <div class="shopping-cart-img">
-                      <a href="product-details.html"><img alt="" src="assets/images/cart/cart-2.jpg"></a>
-                    </div>
-                    <div class="shopping-cart-title">
-                      <h4><a href="product-details.html"> دستکش لاتکس جراحی </a></h4>
-                      <h3><span>1 × </span>10,000 تومن</h3>
-                    </div>
-                    <div class="shopping-cart-delete">
-                      <a href="#"><i class="fa fa-times"></i></a>
-                    </div>
-                  </li>
+
                 </ul>
                 <div class="shopping-cart-footer">
                   <div class="shopping-cart-total">
-                    <h4>جمع کل<span>38,000 تومن</span></h4>
+                    <h4>جمع کل<span>{{ orderService.totalPrice }} تومان</span></h4>
                   </div>
                   <div class="shopping-cart-button">
                     <a href="cart.html"> مشاهده سبد</a>
