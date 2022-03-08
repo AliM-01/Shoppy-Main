@@ -9,6 +9,7 @@ import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
 import { CartService } from '@app_services/cart/cart.service';
+import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CartService } from '@app_services/cart/cart.service';
       autoDismiss: true
     })
   ],
-  providers: [LoadingService, CartService],
+  providers: [LoadingService, MessengerService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

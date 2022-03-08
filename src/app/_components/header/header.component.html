@@ -58,12 +58,12 @@
             <div class="header-action-icon">
               <a class="mini-cart-icon" href="cart.html">
                 <i class="fa fa-shopping-bag"></i>
-                <span class="pro-count blue">{{ orderService.itemsCount$ | async}}</span>
+                <span class="pro-count blue">{{ cartCount }}</span>
               </a>
-              <div class="cart-dropdown-wrap cart-dropdown-hm2">
+              <div class="cart-dropdown-wrap cart-dropdown-hm2" *ngIf="cartItems.length > 0">
                 <ul>
 
-                  <li *ngFor="let item of (orderService.cartItems$ | async)">
+                  <li *ngFor="let item of cartItems">
                     <div class="shopping-cart-img">
                       <a [routerLink]="'/product/details/' + item.productSlug">
                         <img [src]="baseProductPath + item.productImg">
@@ -74,14 +74,14 @@
                       <h3><span>{{ item.count }} × </span>{{ item.unitPrice }} تومان</h3>
                     </div>
                     <div class="shopping-cart-delete">
-                      <a (click)="orderService.removeItem(item.productId)"><i class="fa fa-times"></i></a>
+                      <a (click)="removeItem(item.productId)"><i class="fa fa-times"></i></a>
                     </div>
                   </li>
 
                 </ul>
                 <div class="shopping-cart-footer">
                   <div class="shopping-cart-total">
-                    <h4>جمع کل<span>{{ orderService.totalPrice }} تومان</span></h4>
+                    <h4>جمع کل<span>{{ cartPrice }} تومان</span></h4>
                   </div>
                   <div class="shopping-cart-button">
                     <a href="cart.html"> مشاهده سبد</a>

@@ -6,6 +6,8 @@ import { ArticleCategoryService } from '@app_services/blog/article-category/arti
 import { CartService } from '@app_services/cart/cart.service';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { environment } from '@environments/environment';
+import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
+import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +15,10 @@ import { environment } from '@environments/environment';
   providers: [ArticleCategoryService, ProductCategoryService, CartService]
 })
 export class HeaderComponent implements OnInit {
+
+  cartItems: CartItemCookieModel[] = [];
+  cartCount = 0;
+  cartPrice = 0;
 
   baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
 
@@ -24,21 +30,52 @@ export class HeaderComponent implements OnInit {
   constructor(
     private productCategoryService: ProductCategoryService,
     private articleCategoryService: ArticleCategoryService,
-    public cartService: CartService,
+    private msg: MessengerService,
+    private cartService: CartService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.getProductCategoriesList();
+    this.getArticleCategoriesList();
+  }
+
+  private getProductCategoriesList(): void {
     this.productCategoryService.getProductCategoriesList().subscribe(res => {
       if (res.status === "success") {
         this.productCategories = res.data;
       }
     });
+  }
+
+  private getArticleCategoriesList(): void {
     this.articleCategoryService.getArticleCategoriesList().subscribe(res => {
       if (res.status === "success") {
         this.articleCategories = res.data;
       }
     });
+  }
+
+  handleCartChanges() {
+    this.msg.getMsg().subscribe((event:any) => {
+      this.loadCartItems();
+    })
+  }
+
+  loadCartItems() {
+    this.cartService.getCartItems()
+    .subscribe((items: CartItemCookieModel[]) => {
+      this.cartItems = items;
+      this.cartService.getCartItemsCount().subscribe((res:number) => {
+        this.cartCount = res;
+      })
+      this.cartPrice = this.cartService.itemsTotalPrice
+    })
+  }
+
+  removeItem(id:string) {
+    this.cartService.removeItem(id);
+    this.msg.sendMsg("remove item");
   }
 
   setSelectedCategory(event: any) {
