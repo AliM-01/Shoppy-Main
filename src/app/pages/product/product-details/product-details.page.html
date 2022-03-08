@@ -109,8 +109,8 @@
 										</div>
 									</div>
 									<div class="pro-details-action-wrap">
-										<div class="pro-details-add-to-cart">
-											<button>افزودن به سبد خرید</button>
+										<div class="pro-details-add-to-cart" *ngIf="!isInCart">
+											<button (click)="addToCart()">افزودن به سبد خرید</button>
 										</div>
 										<div class="pro-details-action tooltip-style-4">
 											<button aria-label="افزودن به سبد خرید"><i

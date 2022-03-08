@@ -7,6 +7,9 @@ import { ProductDetailsModel } from '../../../_models/shop/product/product-detai
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { LoadingService } from '../../../_services/_common/loading/loading.service';
+import { MessengerService } from '@app_services/_common/messenger/messenger.service';
+import { CartService } from '@app_services/cart/cart.service';
+import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
 
 @Component({
   selector: 'product-details',
@@ -18,6 +21,7 @@ export class ProductDetailsPage implements OnInit {
   private productTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   productTitle$: Observable<string> = this.productTitleSubject.asObservable();
   isDataLoaded: boolean = false;
+  isInCart: boolean = false;
 
   tags: string[] = [];
 
@@ -68,6 +72,8 @@ export class ProductDetailsPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private title: Title,
     private meta: Meta,
+    private msg: MessengerService,
+    private cartService: CartService,
   ) {
     this.loading.loadingOn();
   }
@@ -142,5 +148,29 @@ export class ProductDetailsPage implements OnInit {
     sliderBox.setAttribute('src',
       this.baseProductPictureOriginalPath + pictureItem.imagePath);
     this.currentPicture = id;
+  }
+
+  handleCartChanges() {
+    this.msg.getMsg().subscribe((event: any) => {
+      this.checkProductIsInCart();
+    })
+  }
+
+  checkProductIsInCart() {
+    this.cartService.itemInCart(this.product.id).subscribe((res: boolean) => {
+      this.isInCart = res;
+    })
+  }
+  addToCart() {
+    const item = new CartItemCookieModel(this.product.id, this.product.title, this.product.slug,
+      this.product.unitPrice, this.product.imagePath, 1)
+
+    this.cartService.addToCart(item);
+    this.msg.sendMsg("added item");
+  }
+
+  removeFromCart() {
+    this.cartService.removeItem(this.product.id);
+    this.msg.sendMsg("remove item");
   }
 }
