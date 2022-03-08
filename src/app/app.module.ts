@@ -8,7 +8,7 @@ import { IndexModule } from './pages/index/index.module';
 import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
-import { OrderService } from '@app_services/order/order.service';
+import { CartService } from '@app_services/cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { OrderService } from '@app_services/order/order.service';
       autoDismiss: true
     })
   ],
-  providers: [LoadingService, OrderService],
+  providers: [LoadingService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

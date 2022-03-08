@@ -11,13 +11,10 @@ export const CART_ITEMS_COOKIE_NAME: string = 'cart_items';
 @Injectable({
   providedIn: 'any',
 })
-export class OrderService {
+export class CartService {
 
   private itemsCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  itemsCount$: Observable<number> = this.itemsCountSubject.asObservable();
-
   private cartItemsSubject: BehaviorSubject<Array<CartItemCookieModel>> = new BehaviorSubject([]);
-  cartItems$: Observable<Array<CartItemCookieModel>> = this.cartItemsSubject.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -28,6 +25,13 @@ export class OrderService {
     this.loadCart();
   }
 
+  getCartItems(): Observable<Array<CartItemCookieModel>> {
+    return this.cartItemsSubject.asObservable();
+  }
+
+  getCartItemsCount(): Observable<number> {
+    return this.itemsCountSubject.asObservable();
+  }
 
   addToCart(item: CartItemCookieModel) {
     console.log('addd');
@@ -134,7 +138,6 @@ export class OrderService {
 
     this.itemsCountSubject.next(count);
     console.log(this.itemsCountSubject.value);
-    console.log(this.itemsCount$);
 
   }
 }
