@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getProductCategoriesList();
     this.getArticleCategoriesList();
+    this.handleCartChanges();
   }
 
   private getProductCategoriesList(): void {
@@ -57,23 +58,23 @@ export class HeaderComponent implements OnInit {
   }
 
   handleCartChanges() {
-    this.msg.getMsg().subscribe((event:any) => {
+    this.msg.getMsg().subscribe((event: any) => {
+      console.log('header changeee');
+
       this.loadCartItems();
     })
   }
 
   loadCartItems() {
-    this.cartService.getCartItems()
-    .subscribe((items: CartItemCookieModel[]) => {
-      this.cartItems = items;
-      this.cartService.getCartItemsCount().subscribe((res:number) => {
-        this.cartCount = res;
-      })
-      this.cartPrice = this.cartService.itemsTotalPrice
-    })
+    const items: CartItemCookieModel[] = this.cartService.getCartItems()
+    console.log('header load res', items);
+
+    this.cartItems = items;
+    this.cartCount = this.cartService.getCartItemsCount();
+    this.cartPrice = this.cartService.itemsTotalPrice
   }
 
-  removeItem(id:string) {
+  removeItem(id: string) {
     this.cartService.removeItem(id);
     this.msg.sendMsg("remove item");
   }

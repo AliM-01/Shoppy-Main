@@ -13,8 +13,8 @@ export const CART_ITEMS_COOKIE_NAME: string = 'cart_items';
 })
 export class CartService {
 
-  private itemsCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private cartItemsSubject: BehaviorSubject<Array<CartItemCookieModel>> = new BehaviorSubject([]);
+  private itemsCount: number = 0;
+  private cartItems: CartItemCookieModel[] = [];
 
   constructor(
     private http: HttpClient,
@@ -25,12 +25,14 @@ export class CartService {
     this.loadCart();
   }
 
-  getCartItems(): Observable<Array<CartItemCookieModel>> {
-    return this.cartItemsSubject.asObservable();
+  getCartItems(): CartItemCookieModel[]  {
+    console.log('service get item', this.cartItems);
+
+    return this.cartItems;
   }
 
-  getCartItemsCount(): Observable<number> {
-    return this.itemsCountSubject.asObservable();
+  getCartItemsCount(): number {
+    return this.itemsCount
   }
 
   addToCart(item: CartItemCookieModel) {
@@ -71,8 +73,8 @@ export class CartService {
       existingItems = [item];
     }
 
-    this.cartItemsSubject.next(existingItems);
-    console.log(this.cartItemsSubject.value);
+    this.cartItems = existingItems;
+    console.log(this.cartItems);
 
     this.loading.loadingOff();
     this.saveCart();
@@ -83,9 +85,9 @@ export class CartService {
     if (itemsInCookie !== undefined && itemsInCookie !== '') {
       const items: CartItemCookieModel[] = JSON.parse(itemsInCookie);
       console.log('load', items);
-      this.cartItemsSubject.next(items);
+      this.cartItems = items;
     } else {
-      this.cartItemsSubject.next([]);
+      this.cartItems = [];
     }
     this.calculateAllItemsCount();
   }
@@ -93,8 +95,8 @@ export class CartService {
   saveCart(): void {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
 
-    if (this.cartItemsSubject.value.length > 0) {
-      this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItemsSubject.value), 200000)
+    if (this.cartItems.length > 0) {
+      this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItems), 200000)
     }
 
     this.calculateAllItemsCount();
@@ -102,28 +104,28 @@ export class CartService {
 
   clearCart() {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
-    this.cartItemsSubject.next([]);
+    this.cartItems = [];
     this.calculateAllItemsCount();
   }
 
   removeItem(productId: string) {
-    const index = this.cartItemsSubject.value.findIndex((o) => o.productId === productId);
+    const index = this.cartItems.findIndex((o) => o.productId === productId);
 
     if (index > -1) {
-      this.cartItemsSubject.value.splice(index, 1);
+      this.cartItems.splice(index, 1);
       this.saveCart();
     }
   }
 
   itemInCart(productId: string): Observable<boolean> {
-    const exists = this.cartItemsSubject.value.findIndex((o) => o.productId === productId) > -1;
+    const exists = this.cartItems.findIndex((o) => o.productId === productId) > -1;
 
     return of(exists);
   }
 
   get itemsTotalPrice(): number {
     let totalPrice = 0;
-    for (const item of this.cartItemsSubject.value) {
+    for (const item of this.cartItems) {
       totalPrice = totalPrice + item.unitPrice;
     }
     return totalPrice;
@@ -131,13 +133,13 @@ export class CartService {
 
   private calculateAllItemsCount() {
     let count = 0;
-    for (const item of this.cartItemsSubject.value) {
+    for (const item of this.cartItems) {
       count = count + item.count;
     }
     console.log('count', count);
 
-    this.itemsCountSubject.next(count);
-    console.log(this.itemsCountSubject.value);
+    this.itemsCount = count;
+    console.log(this.itemsCount);
 
   }
 }

@@ -89,6 +89,7 @@ export class ProductDetailsPage implements OnInit {
       }
 
     });
+    this.handleCartChanges();
 
   }
 
@@ -152,6 +153,8 @@ export class ProductDetailsPage implements OnInit {
 
   handleCartChanges() {
     this.msg.getMsg().subscribe((event: any) => {
+      console.log('product change');
+
       this.checkProductIsInCart();
     })
   }
