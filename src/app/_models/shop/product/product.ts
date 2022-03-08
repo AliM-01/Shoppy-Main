@@ -4,6 +4,7 @@ export class ProductModel {
     imagePath: string;
     imageAlt: string;
     imageTitle: string;
+    unitPrice: number;
     price: string;
     priceWithDiscount: string;
     discountRate: number;

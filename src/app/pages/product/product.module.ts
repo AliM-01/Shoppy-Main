@@ -9,6 +9,7 @@ import { SearchProductPage } from './search-product/search-product.page';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ProductDetailsPage } from './product-details/product-details.page';
 import { CommentModule } from '@apppages/comment/comment.module';
+import { OrderService } from '@app_services/order/order.service';
 
 @NgModule({
   declarations: [

@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { ProductBoxComponent } from './product-box/product-box.component';
+import { OrderService } from '../_services/order/order.service';
 
 @NgModule({
   declarations: [
