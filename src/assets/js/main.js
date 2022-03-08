@@ -2,7 +2,7 @@ window.onload = function () {
     document.addEventListener("DOMContentLoaded", init(), false);
 
 function init() {
-    
+
 }
     // /*-----------------
     //     Menu Stick
@@ -137,7 +137,7 @@ function init() {
     }
 
     /*-----------------------
-        Shop filter active 
+        Shop filter active
     ------------------------- */
     $('.shop-filter-active').on('click', function (e) {
         e.preventDefault();
@@ -148,15 +148,6 @@ function init() {
         $('.shop-filter-active').toggleClass('active');
     })
 
-    /*-----------------------
-        Magnific Popup
-    ------------------------*/
-    $('.img-popup').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        }
-    });
 
     /*----------------------------
        Cart Plus Minus Button
@@ -183,11 +174,6 @@ function init() {
         }
         $button.parent().find("input").val(newVal);
     });
-
-    /*---------------------
-        Select active
-    --------------------- */
-    $('.select-active').select2();
 
     /*--- Checkout toggle function ----*/
     $('.checkout-click1').on('click', function (e) {
@@ -254,7 +240,7 @@ function init() {
     });
 
     /*----------------------------------------
-        SVG Inject With Vivus(After Inject) 
+        SVG Inject With Vivus(After Inject)
     ------------------------------------------*/
     SVGInject(document.querySelectorAll("img.svgInject"), {
         makeIdsUnique: true,
