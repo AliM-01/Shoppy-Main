@@ -122,6 +122,7 @@ export class CartService {
   }
 
   itemInCart(productId: string): Observable<boolean> {
+    this.loadCart();
     const exists = this.cartItems.findIndex((o) => o.productId === productId) > -1;
 
     return of(exists);
