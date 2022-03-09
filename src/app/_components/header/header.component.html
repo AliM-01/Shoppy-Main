@@ -50,50 +50,9 @@
             <button (click)="submitSearch()" type="button"> <i class="fa fa-search"></i> </button>
           </div>
         </div>
-        <div class="header-action-right">
-          <div class="header-action">
-            <div class="header-action-icon">
-              <a href="wishlist.html"><i class="fa fa-heart"></i></a>
-            </div>
-            <div class="header-action-icon">
-              <a class="mini-cart-icon" href="cart.html">
-                <i class="fa fa-shopping-bag"></i>
-                <span class="pro-count blue">{{ cartCount }}</span>
-              </a>
-              <div class="cart-dropdown-wrap cart-dropdown-hm2" *ngIf="cartItems.length > 0">
-                <ul>
 
-                  <li *ngFor="let item of cartItems">
-                    <div class="shopping-cart-img">
-                      <a [routerLink]="'/product/details/' + item.productSlug">
-                        <img [src]="baseProductPath + item.productImg">
-                      </a>
-                    </div>
-                    <div class="shopping-cart-title">
-                      <h4><a [routerLink]="'/product/details/' + item.productSlug"> {{ item.productTitle }} </a></h4>
-                      <h3><span>{{ item.count }} × </span>{{ item.unitPrice | thousandSeparator }} تومان</h3>
-                    </div>
-                    <div class="shopping-cart-delete">
-                      <a (click)="removeItem(item.productId)"><i class="fa fa-times"></i></a>
-                    </div>
-                  </li>
+        <app-header-cart></app-header-cart>
 
-                </ul>
-                <div class="shopping-cart-footer">
-                  <div class="shopping-cart-total">
-                    <h4>جمع کل<span>{{ cartPrice | thousandSeparator }} تومان</span></h4>
-                  </div>
-                  <div class="shopping-cart-button">
-                    <a href="cart.html"> مشاهده سبد</a>
-                    <a href="checkout.html"> پرداخت </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
       </div>
     </div>
   </div>

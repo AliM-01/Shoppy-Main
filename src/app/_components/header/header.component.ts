@@ -19,12 +19,6 @@ export class HeaderComponent implements OnInit {
 
   productCategorySelectData: Array<Select2OptionData>;
 
-  cartItems: CartItemCookieModel[] = [];
-  cartCount = 0;
-  cartPrice = 0;
-
-  baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
-
   productCategories: ProductCategoryModel[] = [];
   articleCategories: ArticleCategoryModel[] = [];
 
@@ -33,15 +27,12 @@ export class HeaderComponent implements OnInit {
   constructor(
     private productCategoryService: ProductCategoryService,
     private articleCategoryService: ArticleCategoryService,
-    private msg: MessengerService,
-    private cartService: CartService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getProductCategoriesList();
     this.getArticleCategoriesList();
-    this.handleCartChanges();
   }
 
   private getProductCategoriesList(): void {
@@ -74,28 +65,6 @@ export class HeaderComponent implements OnInit {
         this.articleCategories = res.data;
       }
     });
-  }
-
-  handleCartChanges() {
-    this.msg.getMsg().subscribe((event: any) => {
-      console.log('header changeee');
-
-      this.loadCartItems();
-    })
-  }
-
-  loadCartItems() {
-    const items: CartItemCookieModel[] = this.cartService.getCartItems()
-    console.log('header load res', items);
-
-    this.cartItems = items;
-    this.cartCount = this.cartService.getCartItemsCount();
-    this.cartPrice = this.cartService.itemsTotalPrice
-  }
-
-  removeItem(id: string) {
-    this.cartService.removeItem(id);
-    this.msg.sendMsg("remove item");
   }
 
   setSelectedCategory(event: any) {
