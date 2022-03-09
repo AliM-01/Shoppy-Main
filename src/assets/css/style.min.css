@@ -4002,7 +4002,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     }
 }
 
-.search-style-2 form {
+.search-style-2 div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -4010,16 +4010,16 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: relative
 }
 
-.search-style-2 form select {
+.search-style-2 div ng-select2 {
     color: #444;
     font-size: 15px;
     min-height: 52px;
     border: 2px solid #eee;
     border-right: none;
-    width: 170px;
+    width: 200px;
     padding: 3px 20px 3px 35px;
     border-radius: 0 26px 26px 0;
-    background: transparent url("../images/icon-img/select.png") no-repeat center left 20px;
+    background: transparent no-repeat center left 20px;
     background-color: #f8f8f8;
     -webkit-transition: all .3s ease 0s;
     -o-transition: all .3s ease 0s;
@@ -4028,42 +4028,42 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-appearance: none
 }
 
-.search-style-2 form select:focus {
+.search-style-2 div ng-select2:focus {
     color: #333
 }
 
-.search-style-2 form input {
+.search-style-2 div input {
     color: #444;
     font-size: 15px;
     min-height: 52px;
     border: 2px solid #eee;
-    width: 540px;
+    width: 490px;
     padding: 3px 20px 3px 62px;
     border-radius: 26px 0px 0px 26px;
     background-color: #fff
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .search-style-2 form input {
+    .search-style-2 div input {
         width: 340px
     }
 }
 
-.search-style-2 form input::-webkit-input-placeholder {
+.search-style-2 div input::-webkit-input-placeholder {
     color: #444;
     opacity: 1
 }
 
-.search-style-2 form input::-moz-input-placeholder {
+.search-style-2 div input::-moz-input-placeholder {
     color: #444;
     opacity: 1
 }
 
-.search-style-2 form input:focus {
+.search-style-2 div input:focus {
     border: 2px solid #4e97fd
 }
 
-.search-style-2 form button {
+.search-style-2 div button {
     position: absolute;
     left: 0px;
     top: 50%;

@@ -18,7 +18,7 @@ export class CartModel {
     this.payAmount += cartItem.itemPayAmount;
   }
 
-  public SetPaymentMethod(methodId: number) {
+  public setPaymentMethod(methodId: number) {
     this.paymentMethod = methodId;
   }
 }

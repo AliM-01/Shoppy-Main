@@ -39,16 +39,16 @@
           <a [routerLink]="'/'"><img src="assets/images/logo/logo.png" alt="logo"></a>
         </div>
         <div class="search-style-2">
-          <form action="#">
-            <select (change)="setSelectedCategory($event)">
-              <option>دسته بندی</option>
-              <option *ngFor="let category of productCategories" [value]="category.slug">
-                {{category.title}}
-              </option>
-            </select>
+          <div action="#">
+            <ng-select2
+              [(ngModel)]="selectedCategory" [data]="productCategorySelectData"
+               [placeholder]="'دسته بندی'" [options]="{
+                minimumResultsForSearch: -1
+               }">
+            </ng-select2>
             <input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو آیتم مورد نظر...">
-            <button (click)="submitSearch()" type="submit"> <i class="fa fa-search"></i> </button>
-          </form>
+            <button (click)="submitSearch()" type="button"> <i class="fa fa-search"></i> </button>
+          </div>
         </div>
         <div class="header-action-right">
           <div class="header-action">

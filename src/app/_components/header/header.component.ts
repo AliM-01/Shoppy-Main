@@ -8,6 +8,7 @@ import { ProductCategoryService } from '@app_services/shop/product-category/prod
 import { environment } from '@environments/environment';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
+import { Select2OptionData } from 'ng-select2';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,8 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
   providers: [ArticleCategoryService, ProductCategoryService, CartService]
 })
 export class HeaderComponent implements OnInit {
+
+  productCategorySelectData: Array<Select2OptionData>;
 
   cartItems: CartItemCookieModel[] = [];
   cartCount = 0;
@@ -45,7 +48,23 @@ export class HeaderComponent implements OnInit {
     this.productCategoryService.getProductCategoriesList().subscribe(res => {
       if (res.status === "success") {
         this.productCategories = res.data;
+
+        let searchCategorySelectListData: {
+          id: string,
+          text: string
+        }[] = [];
+        for (let i = 0; i < this.productCategories.length; i++) {
+          const element = this.productCategories[i];
+          searchCategorySelectListData.push(
+            {
+              id: this.productCategories[i].slug,
+              text: this.productCategories[i].title
+            });
+        }
+
+        this.productCategorySelectData = searchCategorySelectListData;
       }
+
     });
   }
 

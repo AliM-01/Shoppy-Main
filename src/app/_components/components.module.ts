@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { ProductBoxComponent } from './product-box/product-box.component';
-import { CartService } from '../_services/cart/cart.service';
+import { NgSelect2Module } from 'ng-select2';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { CartService } from '../_services/cart/cart.service';
       secondaryColour: '#17e9a3e5',
       tertiaryColour: '#57edbbe6',
       backdropBackgroundColour: '#fff'
-    })
+    }),
+    NgSelect2Module
   ],
   exports: [
     HeaderComponent,
