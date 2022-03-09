@@ -71,7 +71,7 @@
                     </div>
                     <div class="shopping-cart-title">
                       <h4><a [routerLink]="'/product/details/' + item.productSlug"> {{ item.productTitle }} </a></h4>
-                      <h3><span>{{ item.count }} × </span>{{ item.unitPrice }} تومان</h3>
+                      <h3><span>{{ item.count }} × </span>{{ item.unitPrice | thousandSeparator }} تومان</h3>
                     </div>
                     <div class="shopping-cart-delete">
                       <a (click)="removeItem(item.productId)"><i class="fa fa-times"></i></a>
@@ -81,7 +81,7 @@
                 </ul>
                 <div class="shopping-cart-footer">
                   <div class="shopping-cart-total">
-                    <h4>جمع کل<span>{{ cartPrice }} تومان</span></h4>
+                    <h4>جمع کل<span>{{ cartPrice | thousandSeparator }} تومان</span></h4>
                   </div>
                   <div class="shopping-cart-button">
                     <a href="cart.html"> مشاهده سبد</a>

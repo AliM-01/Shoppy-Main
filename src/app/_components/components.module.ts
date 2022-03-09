@@ -9,6 +9,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { ProductBoxComponent } from './product-box/product-box.component';
 import { NgSelect2Module } from 'ng-select2';
+import { PipesModule } from '@app_pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgSelect2Module } from 'ng-select2';
       tertiaryColour: '#57edbbe6',
       backdropBackgroundColour: '#fff'
     }),
-    NgSelect2Module
+    NgSelect2Module,
+    PipesModule
   ],
   exports: [
     HeaderComponent,
