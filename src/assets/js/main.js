@@ -58,8 +58,6 @@ function init() {
         wrapper4.classList.remove('mobile-menu-active');
     });
 
-    new WOW().init();
-
 
     /*---------------------
          Mobile menu active
@@ -258,12 +256,6 @@ function init() {
             duration: 50
         });
     })
-
-    /*---- CounterUp ----*/
-    $('.count').counterUp({
-        delay: 10,
-        time: 2000
-    });
 
     // Isotope active
     $('.grid').imagesLoaded(function () {

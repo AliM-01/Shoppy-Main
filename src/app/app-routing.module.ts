@@ -5,6 +5,7 @@ import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
+  {path: 'not-found', component: NotFoundPage},
   {
     path: 'category',
     loadChildren: () => import('./pages/product-category/product.category.module').then(m => m.ProductCategoryModule)
@@ -17,7 +18,7 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule)
   },
-  { path: '**', pathMatch: 'full', component: NotFoundPage },
+  { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
 
 @NgModule({

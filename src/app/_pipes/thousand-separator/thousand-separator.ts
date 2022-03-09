@@ -18,6 +18,6 @@ export class ThousandSeparatorPipe implements PipeTransform {
     var rgx = /(\d+)(\d{3})/;
     while (rgx.test(y))
       y = y.replace(rgx, '$1' + ',' + '$2');
-    return `${(y + z)} تومان`;
+    return (y + z);
   }
 }
