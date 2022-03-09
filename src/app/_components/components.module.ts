@@ -10,12 +10,14 @@ import { MobileHeaderComponent } from './mobile-header/mobile-header.component';
 import { ProductBoxComponent } from './product-box/product-box.component';
 import { NgSelect2Module } from 'ng-select2';
 import { PipesModule } from '@app_pipes/pipes.module';
+import { HeaderCartComponent } from './header/header-cart/header-cart.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     MobileHeaderComponent,
+    HeaderCartComponent,
     LoadingComponent,
     ProductBoxComponent
   ],
