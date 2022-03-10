@@ -1,0 +1,143 @@
+<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
+  <div class="custom-container">
+    <div class="breadcrumb-content text-center">
+      <ul>
+        <li>
+          <a routerLink="/">صفحه اصلی</a>
+        </li>
+        <li class="active"> سبد خرید </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="cart-area pt-75 pb-35">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
+
+          <div *ngFor="let item of cart.items">
+            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد</p>
+          </div>
+
+          <div class="table-content table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th class="width-thumbnail">محصول</th>
+                  <th class="width-name"></th>
+                  <th class="width-price"> قیمت</th>
+                  <th class="width-subtotal">جمع کل</th>
+                  <th class="width-subtotal">تخفیف</th>
+                  <th class="width-subtotal">مبلغ قابل پرداخت</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let item of cart.items">
+                  <td class="product-thumbnail">
+                    <a href="#">
+                      <img [src]="baseProductPath + item.imagePath" [alt]="item.imageAlt" [title]="item.imageTitle">
+                    </a>
+                  </td>
+                  <td class="product-name">
+                    <h5>
+                      <a href="#"> {{item.title }} </a>
+                    </h5>
+                  </td>
+                  <td class="product-price"><span class="amount">{{item.unitPrice | thousandSeparator}} تومان</span>
+                  </td>
+
+                  <td class="product-total"><span>{{item.totalItemPrice | thousandSeparator}} تومان</span></td>
+
+                  <td class="product-total">
+                    <span> {{item.discountRate}} درصد</span>
+                    <br />
+                    <span> {{item.discountAmount | thousandSeparator}} تومان</span>
+                  </td>
+
+                  <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="cart-table-content" *ngIf="!(cart.items.length > 0)">
+          <div class="alert alert-warning">سبد خرید شما خالی می باشد</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="(cart.items.length > 0)">
+      <div class="col-lg-4 col-md-12 col-12">
+        <div class="coupon-wrap mb-40">
+          <h4>کد تخفیف</h4>
+          <div class="coupon-content common-form-style">
+            <p>اگر کد تخفیف دارید آنرا وارد کنید.</p>
+            <div class="input-style coupon-content-mrg">
+              <input type="text" placeholder="کد تخفیف">
+            </div>
+            <div class="common-btn-style">
+              <a class="common-btn-padding-2" href="#">تایید کد تخفیف</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-12">
+        <div class="row">
+          <!-- <div class="col-lg-6 col-md-6 col-12">
+            <div class="cart-collaterals-wrap mb-40">
+              <h4>کد تخفیف</h4>
+              <div class="collaterals-content common-form-style">
+                <p>قیمت <span>5,000 تومن</span></p>
+                <div class="select-style select-style-mrg-1">
+                  <select class="select-active">
+                    <option>استان خود را انتخاب کنید</option>
+                    <option>قم</option>
+                    <option>ایلام</option>
+                    <option>اهواز</option>
+                    <option>اصفهان</option>
+                  </select>
+                </div>
+                <div class="select-style select-style-mrg-1">
+                  <select class="select-active">
+                    <option>تهران</option>
+                    <option>قم</option>
+                    <option>ایلام</option>
+                    <option>اهواز</option>
+                    <option>اصفهان</option>
+                  </select>
+                </div>
+                <div class="input-style input-style-mb">
+                  <input type="text" placeholder="استان">
+                </div>
+                <div class="input-style input-style-mb">
+                  <input type="text" placeholder="کد پستی">
+                </div>
+                <div class="common-btn-style">
+                  <a class="common-btn-padding-2" (click)="ngOnInit()">بروز رسانی</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-lg-6 col-md-6 col-12">
+            <div class="grand-total-wrap mb-40">
+              <ul>
+                <li>خرید<h4>{{cart.totalAmount | thousandSeparator}} تومن</h4>
+                </li>
+                <li>تخفیف <h4>{{cart.discountAmount | thousandSeparator}} تومن</h4>
+                </li>
+              </ul>
+              <div class="grand-total">
+                <h4>جمع کل<span>{{cart.payAmount | thousandSeparator}} تومن</span></h4>
+              </div>
+              <div class="grand-total-btn">
+                <a href="checkout.html"> پرداخت </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
