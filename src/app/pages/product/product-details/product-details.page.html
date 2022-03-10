@@ -83,24 +83,16 @@
 											<p> {{ product.shortDescription }} </p>
 										</div>
 									</div>
-									<div class="pro-details-color-wrap">
-										<span> رنگ</span>
-										<div class="pro-details-color-list pro-details-color-mrg tooltip-style-3">
-											<ul>
-												<li><a aria-label="Green" class="green" href="#">سبز</a></li>
-												<li><a aria-label="Pink" class="pink" href="#">صورتی</a></li>
-												<li><a aria-label="Powder blue" class="powder-blue" href="#">بنفش</a>
-												</li>
-												<li><a aria-label="Purple" class="purple" href="#"> بنفش</a></li>
-											</ul>
-										</div>
-									</div>
 									<div class="pro-details-quality-stock-area">
 										<span> مقدار </span>
 										<div class="pro-details-quality-stock-wrap">
 											<div class="product-quality">
-												<input class="cart-plus-minus-box input-text qty text" name="qtybutton"
-													value="1">
+                        <div class="dec qtybutton"(click)="minusCount()"></div>
+
+												<input class="cart-plus-minus-box input-text qty text"
+													[value]="countToAddToCart">
+
+                        <div class="inc qtybutton" (click)="plusCount()"></div>
 											</div>
 											<div class="pro-details-stock">
 												<span *ngIf="product.inventoryCurrentCount > 30"><i class="fa fa-check-circle"></i> {{
@@ -111,6 +103,9 @@
 									<div class="pro-details-action-wrap">
 										<div class="pro-details-add-to-cart" *ngIf="!isInCart">
 											<button (click)="addToCart()">افزودن به سبد خرید</button>
+										</div>
+										<div class="pro-details-remove-from-cart" *ngIf="isInCart">
+											<button (click)="removeFromCart()">حذف از سبد خرید</button>
 										</div>
 										<div class="pro-details-action tooltip-style-4">
 											<button aria-label="افزودن به سبد خرید"><i

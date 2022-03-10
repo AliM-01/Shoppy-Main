@@ -105,6 +105,13 @@ export class CartService {
     this.calculateAllItemsCount();
   }
 
+  changeCount(productId: string, count: number): void {
+    const index = this.cartItems.findIndex((o) => o.productId === productId);
+
+    this.cartItems[index].count = count;
+    this.saveCart();
+  }
+
   clearCart() {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
     this.cartItems = [];

@@ -150,28 +150,6 @@ function init() {
     /*----------------------------
        Cart Plus Minus Button
    ------------------------------ */
-    $(".product-quality").append('<div class="dec qtybutton">-</i></div><div class="inc qtybutton">+</div>');
-    $(".qtybutton").on("click", function () {
-        var $button = $(this),
-            oldValue = $button.parent().find("input").val(),
-            maxValue = $('.cart-plus-minus-box').data('limit'),
-            newVal;
-        if ($button.text() == "+") {
-            if (maxValue >= parseFloat(oldValue) + 1) {
-                newVal = parseFloat(oldValue) + 1;
-            } else {
-                newVal = 6
-            }
-        } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 1) {
-                newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 1;
-            }
-        }
-        $button.parent().find("input").val(newVal);
-    });
 
     /*--- Checkout toggle function ----*/
     $('.checkout-click1').on('click', function (e) {

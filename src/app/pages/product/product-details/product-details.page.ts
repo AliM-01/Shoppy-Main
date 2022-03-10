@@ -17,6 +17,8 @@ import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
 })
 export class ProductDetailsPage implements OnInit {
 
+  countToAddToCart: number = 1;
+
   product: ProductDetailsModel;
   private productTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   productTitle$: Observable<string> = this.productTitleSubject.asObservable();
@@ -161,12 +163,14 @@ export class ProductDetailsPage implements OnInit {
 
   checkProductIsInCart() {
     this.cartService.itemInCart(this.product.id).subscribe((res: boolean) => {
+      if (!res) this.countToAddToCart = 0;
+
       this.isInCart = res;
     })
   }
   addToCart() {
     const item = new CartItemCookieModel(this.product.id, this.product.title, this.product.slug,
-      this.product.unitPrice, this.product.imagePath, 1)
+      this.product.unitPrice, this.product.imagePath, this.countToAddToCart)
 
     this.cartService.addToCart(item);
     this.msg.sendMsg("added item");
@@ -175,5 +179,31 @@ export class ProductDetailsPage implements OnInit {
   removeFromCart() {
     this.cartService.removeItem(this.product.id);
     this.msg.sendMsg("remove item");
+  }
+
+  plusCount() {
+    this.countToAddToCart++;
+
+    if (this.isInCart) {
+      this.cartService.changeCount(this.product.id, this.countToAddToCart)
+      this.msg.sendMsg("count changed");
+    } else {
+      this.addToCart();
+    }
+  }
+
+  minusCount() {
+    if ((this.countToAddToCart - 1) <= 0)
+      return;
+
+    this.countToAddToCart--;
+
+    if (this.isInCart) {
+      this.cartService.changeCount(this.product.id, this.countToAddToCart)
+      this.msg.sendMsg("count changed");
+
+    } else {
+      this.addToCart();
+    }
   }
 }
