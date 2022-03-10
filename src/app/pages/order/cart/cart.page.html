@@ -14,82 +14,94 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <form action="#">
-          <div class="cart-table-content">
-            <div class="table-content table-responsive">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="width-thumbnail">محصول</th>
-                    <th class="width-name"></th>
-                    <th class="width-price"> قیمت</th>
-                    <th class="width-quantity">تعداد</th>
-                    <th class="width-subtotal">جمع کل</th>
-                    <th class="width-subtotal">تخفیف</th>
-                    <th class="width-subtotal">مبلغ قابل پرداخت</th>
-                    <th class="width-remove"></th>
-                  </tr>
-                </thead>
-                <tbody>
+        <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
-                  <tr *ngFor="let item of cart.items">
-                    <td class="product-thumbnail">
-                      <a href="#">
-                        <img [src]="baseProductPath + item.imagePath" [alt]="item.imageAlt" [title]="item.imageTitle">
-                      </a>
-                    </td>
-                    <td class="product-name">
-                      <h5>
-                        <a href="#"> {{item.title }} </a>
-                      </h5>
-                    </td>
-                    <td class="product-price"><span class="amount">{{item.unitPrice | thousandSeparator}} تومان</span>
-                    </td>
+          <div *ngFor="let item of cart.items">
+            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد</p>
+          </div>
 
+          <div class="table-content table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th class="width-thumbnail">محصول</th>
+                  <th class="width-name"></th>
+                  <th class="width-price"> قیمت</th>
+                  <th class="width-quantity">تعداد</th>
+                  <th class="width-subtotal">جمع کل</th>
+                  <th class="width-subtotal">تخفیف</th>
+                  <th class="width-subtotal">مبلغ قابل پرداخت</th>
+                  <th class="width-remove"></th>
+                </tr>
+              </thead>
+              <tbody>
 
-                    <td class="cart-quality">
-                      <div class="product-quality">
-                        <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="1">
-                      </div>
-                    </td>
+                <tr *ngFor="let item of cart.items">
+                  <td class="product-thumbnail">
+                    <a href="#">
+                      <img [src]="baseProductPath + item.imagePath" [alt]="item.imageAlt" [title]="item.imageTitle">
+                    </a>
+                  </td>
+                  <td class="product-name">
+                    <h5>
+                      <a href="#"> {{item.title }} </a>
+                    </h5>
+                  </td>
+                  <td class="product-price"><span class="amount">{{item.unitPrice | thousandSeparator}} تومان</span>
+                  </td>
 
 
-                    <td class="product-total"><span>{{item.totalItemPrice | thousandSeparator}} تومان</span></td>
+                  <td class="cart-quality">
+                    <div class="product-quality">
+                      <div class="dec qtybutton" (click)="minusCount(item.productId, item.count)"></div>
 
-                    <td class="product-total">
-                      <span> {{item.discountRate}} درصد</span>
-                      <br />
-                      <span> {{item.discountAmount | thousandSeparator}} تومان</span>
-                    </td>
+                      <input class="cart-plus-minus-box input-text qty text" name="qtybutton"
+                       [value]="item.count">
 
-                    <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
 
-                    <td class="product-remove">
-                      <a (click)="removeFromCart(item.productId)" >حذف</a>
-                    </td>
-                  </tr>
+                      <div class="inc qtybutton" (click)="plusCount(item.productId, item.count)"></div>
+                    </div>
+                  </td>
 
-                </tbody>
-              </table>
+
+                  <td class="product-total"><span>{{item.totalItemPrice | thousandSeparator}} تومان</span></td>
+
+                  <td class="product-total">
+                    <span> {{item.discountRate}} درصد</span>
+                    <br />
+                    <span> {{item.discountAmount | thousandSeparator}} تومان</span>
+                  </td>
+
+                  <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
+
+                  <td class="product-remove">
+                    <a (click)="removeFromCart(item.productId)">حذف</a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <div class="cart-shiping-update-wrapper">
+            <div class="continure-clear-btn">
+              <div class="continure-btn">
+                <a href="#"> ادامه خرید </a>
+              </div>
+              <div class="clear-btn">
+                <a (click)="clearCart()"><i class="fa fa-times"></i> پاک کردن سبد خرید </a>
+              </div>
             </div>
-            <div class="cart-shiping-update-wrapper">
-              <div class="continure-clear-btn">
-                <div class="continure-btn">
-                  <a href="#"> ادامه خرید </a>
-                </div>
-                <div class="clear-btn">
-                  <a (click)="clearCart()"><i class="fa fa-times"></i> پاک کردن سبد خرید </a>
-                </div>
-              </div>
-              <div class="update-btn">
-                <a (click)="ngOnInit()"> بروز رسانی خرید </a>
-              </div>
+            <div class="update-btn">
+              <a (click)="ngOnInit()"> بروز رسانی خرید </a>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="cart-table-content" *ngIf="!(cart.items.length > 0)">
+          <div class="alert alert-warning">سبد خرید شما خالی می باشد</div>
+        </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="(cart.items.length > 0)">
       <div class="col-lg-4 col-md-12 col-12">
         <div class="coupon-wrap mb-40">
           <h4>کد تخفیف</h4>

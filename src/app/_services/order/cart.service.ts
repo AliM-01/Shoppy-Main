@@ -73,23 +73,17 @@ export class CartService {
     }
 
     this.cartItems = existingItems;
-    console.log('service added', this.cartItems);
-
     this.loading.loadingOff();
     this.saveCart();
   }
 
   loadCart(): void {
-    console.log('service load');
-
     const itemsInCookie = this.cookieService.get(CART_ITEMS_COOKIE_NAME);
     if (itemsInCookie !== undefined && itemsInCookie !== '') {
       const items: CartItemCookieModel[] = JSON.parse(itemsInCookie);
-      console.log('service load', items);
       this.cartItems = items;
     } else {
       this.cartItems = [];
-      console.log('service else');
     }
     this.calculateAllItemsCount();
   }
@@ -98,7 +92,6 @@ export class CartService {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
 
     if (this.cartItems.length > 0) {
-      console.log('service save success');
       this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItems), 200000)
     }
 
@@ -147,10 +140,6 @@ export class CartService {
     for (const item of this.cartItems) {
       count = count + item.count;
     }
-    console.log('count', count);
-
     this.itemsCount = count;
-    console.log(this.itemsCount);
-
   }
 }

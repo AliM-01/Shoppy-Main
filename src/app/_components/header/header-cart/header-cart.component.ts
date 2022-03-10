@@ -19,7 +19,9 @@ export class HeaderCartComponent implements OnInit {
   constructor(
     private msg: MessengerService,
     private cartService: CartService
-  ) { }
+  ) {
+    this.loadCartItems();
+   }
 
   ngOnInit(): void {
     this.handleCartChanges();
