@@ -163,7 +163,7 @@ export class ProductDetailsPage implements OnInit {
 
   checkProductIsInCart() {
     this.cartService.itemInCart(this.product.id).subscribe((res: boolean) => {
-      if (!res) this.countToAddToCart = 0;
+      if (!res) this.countToAddToCart = 1;
 
       this.isInCart = res;
     })
@@ -181,7 +181,18 @@ export class ProductDetailsPage implements OnInit {
     this.msg.sendMsg("remove item");
   }
 
+  private checkInStockCount(count: number): boolean {
+    if (count >= (this.product.inventoryCurrentCount - 1)) {
+      return false
+    }
+
+    return true;
+  }
+
   plusCount() {
+    if (!(this.checkInStockCount((this.countToAddToCart + 1)))) {
+      return;
+    }
     this.countToAddToCart++;
 
     if (this.isInCart) {
@@ -196,6 +207,9 @@ export class ProductDetailsPage implements OnInit {
     if ((this.countToAddToCart - 1) <= 0)
       return;
 
+    if (!(this.checkInStockCount(this.countToAddToCart - 1))) {
+      return;
+    }
     this.countToAddToCart--;
 
     if (this.isInCart) {

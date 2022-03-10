@@ -95,7 +95,7 @@
                         <div class="inc qtybutton" (click)="plusCount()"></div>
 											</div>
 											<div class="pro-details-stock">
-												<span *ngIf="product.inventoryCurrentCount > 30"><i class="fa fa-check-circle"></i> {{
+												<span *ngIf="product.inventoryCurrentCount < 20"><i class="fa fa-check-circle"></i> {{
 													product.inventoryCurrentCount }} عدد موجود است </span>
 											</div>
 										</div>
