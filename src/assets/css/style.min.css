@@ -12128,7 +12128,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-table-content .table-content {
-    border: 1px solid #eee
+    border: 1px solid #eee;
+    border-radius: 1em;
 }
 
 .cart-table-content .table-content table {
@@ -12143,6 +12144,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #333;
     font-size: 15px;
     font-weight: 500;
+    text-align: center;
     padding: 14px 15px 14px 0
 }
 
@@ -12167,25 +12169,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-table-content .table-content table thead>tr th.width-name {
-    min-width: 356px
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .cart-table-content .table-content table thead>tr th.width-name {
-        min-width: 250px
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .cart-table-content .table-content table thead>tr th.width-name {
-        min-width: 120px
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .cart-table-content .table-content table thead>tr th.width-name {
-        min-width: 140px
-    }
+    width: 25% !important
 }
 
 .cart-table-content .table-content table thead>tr th.width-price {
@@ -12201,22 +12185,6 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 @media only screen and (max-width: 767px) {
     .cart-table-content .table-content table thead>tr th.width-price {
         min-width: 100px
-    }
-}
-
-.cart-table-content .table-content table thead>tr th.width-quantity {
-    min-width: 187px
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .cart-table-content .table-content table thead>tr th.width-quantity {
-        min-width: 140px
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .cart-table-content .table-content table thead>tr th.width-quantity {
-        min-width: 140px
     }
 }
 
@@ -12261,7 +12229,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-table-content .table-content table tbody>tr td {
-    padding: 30px 0 30px 0
+    padding: 30px 0 30px 0;
+    text-align: center;
 }
 
 .cart-table-content .table-content table tbody>tr td:first-child {
@@ -12286,7 +12255,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .cart-table-content .table-content table tbody>tr td.product-thumbnail a img {
     width: 80px;
-    border: 1px solid #eee
+    border: 1px solid #eee;
+    border-radius: 1em;
 }
 
 .cart-table-content .table-content table tbody>tr td.product-name h5 {

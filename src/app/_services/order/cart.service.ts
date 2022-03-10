@@ -27,7 +27,6 @@ export class CartService {
 
   getCartItems(): CartItemCookieModel[] {
     this.loadCart();
-    console.log('service get item', this.cartItems);
     return this.cartItems;
   }
 
@@ -37,8 +36,6 @@ export class CartService {
   }
 
   addToCart(item: CartItemCookieModel) {
-    console.log('addd');
-
     this.loading.loadingOn();
 
     let existingItems: CartItemCookieModel[] = [];
@@ -47,7 +44,6 @@ export class CartService {
       existingItems = JSON.parse(this.cookieService.get(CART_ITEMS_COOKIE_NAME));
 
       if (existingItems !== null) {
-        console.log('Items exists');
 
         const currentProductInCart: CartItemCookieModel = existingItems.find(x => x.productId === item.productId);
         if (currentProductInCart !== undefined) {

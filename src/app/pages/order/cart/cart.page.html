@@ -16,8 +16,9 @@
       <div class="col-12">
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
-          <div *ngFor="let item of cart.items">
-            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد</p>
+          <div *ngFor="let item of cart.items" class="container mb-4">
+            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود
+              نمی باشد</p>
           </div>
 
           <div class="table-content table-responsive">
@@ -55,8 +56,7 @@
                     <div class="product-quality">
                       <div class="dec qtybutton" (click)="minusCount(item.productId, item.count)"></div>
 
-                      <input class="cart-plus-minus-box input-text qty text" name="qtybutton"
-                       [value]="item.count">
+                      <input disabled class="cart-plus-minus-box input-text qty text" name="qtybutton" [value]="item.count">
 
 
                       <div class="inc qtybutton" (click)="plusCount(item.productId, item.count)"></div>
@@ -67,9 +67,15 @@
                   <td class="product-total"><span>{{item.totalItemPrice | thousandSeparator}} تومان</span></td>
 
                   <td class="product-total">
-                    <span> {{item.discountRate}} درصد</span>
-                    <br />
-                    <span> {{item.discountAmount | thousandSeparator}} تومان</span>
+
+                    <div *ngIf="item.discountRate > 0">
+                      <span> {{item.discountRate}} درصد</span>
+                      <br />
+                      <span> {{item.discountAmount | thousandSeparator}} تومان</span>
+                    </div>
+
+                    <p *ngIf="item.discountRate == 0" class="alert alert-warning p-1">برای این محصول تخفیف وجود ندارد
+                    </p>
                   </td>
 
                   <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
@@ -84,19 +90,16 @@
           </div>
           <div class="cart-shiping-update-wrapper">
             <div class="continure-clear-btn">
-              <div class="continure-btn">
-                <a href="#"> ادامه خرید </a>
-              </div>
               <div class="clear-btn">
                 <a (click)="clearCart()"><i class="fa fa-times"></i> پاک کردن سبد خرید </a>
               </div>
             </div>
             <div class="update-btn">
-              <a (click)="ngOnInit()"> بروز رسانی خرید </a>
+              <a routerLink="/cart/checkout"> ادامه خرید </a>
             </div>
           </div>
         </div>
-        <div class="cart-table-content" *ngIf="!(cart.items.length > 0)">
+        <div class="cart-table-content container" *ngIf="!(cart.items.length > 0)">
           <div class="alert alert-warning">سبد خرید شما خالی می باشد</div>
         </div>
       </div>
