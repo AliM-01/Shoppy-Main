@@ -8,7 +8,7 @@ import { IndexModule } from './pages/index/index.module';
 import { ComponentsModule } from './_components/components.module';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
-import { CartService } from '@app_services/cart/cart.service';
+import { CartService } from '@app_services/order/cart.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 
 @NgModule({

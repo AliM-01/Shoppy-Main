@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { LoadingService } from '../../../_services/_common/loading/loading.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
-import { CartService } from '@app_services/cart/cart.service';
+import { CartService } from '@app_services/order/cart.service';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
 
 @Component({

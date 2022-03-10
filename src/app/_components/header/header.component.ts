@@ -3,11 +3,8 @@ import { Router } from '@angular/router';
 import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
-import { CartService } from '@app_services/cart/cart.service';
+import { CartService } from '@app_services/order/cart.service';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
-import { environment } from '@environments/environment';
-import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
-import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { Select2OptionData } from 'ng-select2';
 
 @Component({
