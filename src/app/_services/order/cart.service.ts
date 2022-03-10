@@ -41,7 +41,6 @@ export class CartService {
 
     this.loading.loadingOn();
 
-    //-----check if there are items already added in cart
     let existingItems: CartItemCookieModel[] = [];
 
     if (this.cookieService.check(CART_ITEMS_COOKIE_NAME)) {
