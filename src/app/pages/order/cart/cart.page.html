@@ -64,7 +64,9 @@
 
                     <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
 
-                    <td class="product-remove"><a (click)="removeFromCart(item.productId)">حذف</a></td>
+                    <td class="product-remove">
+                      <a (click)="removeFromCart(item.productId)" >حذف</a>
+                    </td>
                   </tr>
 
                 </tbody>
@@ -80,7 +82,7 @@
                 </div>
               </div>
               <div class="update-btn">
-                <a routerLink="/cart"> بروز رسانی خرید </a>
+                <a (click)="ngOnInit()"> بروز رسانی خرید </a>
               </div>
             </div>
           </div>
@@ -104,7 +106,7 @@
       </div>
       <div class="col-lg-8 col-md-12 col-12">
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-12">
+          <!-- <div class="col-lg-6 col-md-6 col-12">
             <div class="cart-collaterals-wrap mb-40">
               <h4>کد تخفیف</h4>
               <div class="collaterals-content common-form-style">
@@ -134,21 +136,21 @@
                   <input type="text" placeholder="کد پستی">
                 </div>
                 <div class="common-btn-style">
-                  <a class="common-btn-padding-2" href="#">بروز رسانی</a>
+                  <a class="common-btn-padding-2" (click)="ngOnInit()">بروز رسانی</a>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="col-lg-6 col-md-6 col-12">
             <div class="grand-total-wrap mb-40">
               <ul>
-                <li>خرید<h4>180,000 تومن</h4>
+                <li>خرید<h4>{{cart.totalAmount | thousandSeparator}} تومن</h4>
                 </li>
-                <li>خرید <h4><span>قیمت: </span>5,000 تومن</h4>
+                <li>تخفیف <h4>{{cart.discountAmount | thousandSeparator}} تومن</h4>
                 </li>
               </ul>
               <div class="grand-total">
-                <h4>جمع کل<span>185,000 تومن</span></h4>
+                <h4>جمع کل<span>{{cart.payAmount | thousandSeparator}} تومن</span></h4>
               </div>
               <div class="grand-total-btn">
                 <a href="checkout.html"> پرداخت </a>

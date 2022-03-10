@@ -10,6 +10,7 @@ export class ThousandSeparatorPipe implements PipeTransform {
   }
 
   separateThousands(inputNumber: any): string {
+    if(inputNumber === undefined) return '';
     let numberToString = inputNumber.toString();
     numberToString = numberToString.replace(',', '');
     let x = numberToString.split('.');

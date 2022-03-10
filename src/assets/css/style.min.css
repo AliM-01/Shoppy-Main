@@ -12308,11 +12308,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #696969;
     padding: 0 0 3px;
     display: inline-block;
-    border-bottom: 1px solid #eee
+    border-bottom: 1px solid #da0e2b
 }
 
 .cart-table-content .table-content table tbody>tr td.product-remove a:hover {
-    color: #4e97fd
+    color: #da0e2b
 }
 
 .cart-shiping-update-wrapper {
