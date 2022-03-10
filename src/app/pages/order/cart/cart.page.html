@@ -17,8 +17,15 @@
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
           <div *ngFor="let item of cart.items" class="container mb-4">
-            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود
-              نمی باشد</p>
+            <p class="alert alert-warning" *ngIf="item.itemInInventoryCountIsLowerThanRequestedCount && !item.isNotInStock">کالای
+              {{item.title}} با تعداد درخواستی در انبار موجود
+              نمی باشد
+            </p>
+
+            <p class="alert alert-warning" *ngIf="item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount">
+              کالای {{item.title}} در انبار موجود نمی باشد
+            </p>
+
           </div>
 
           <div class="table-content table-responsive">
@@ -56,7 +63,8 @@
                     <div class="product-quality">
                       <div class="dec qtybutton" (click)="minusCount(item.productId, item.count)"></div>
 
-                      <input disabled class="cart-plus-minus-box input-text qty text" name="qtybutton" [value]="item.count">
+                      <input disabled class="cart-plus-minus-box input-text qty text" name="qtybutton"
+                        [value]="item.count">
 
 
                       <div class="inc qtybutton" (click)="plusCount(item.productId, item.count)"></div>

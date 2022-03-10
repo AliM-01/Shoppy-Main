@@ -68,6 +68,8 @@ export class CartService {
       existingItems = [item];
     }
 
+    this.toastr.success('کالای مورد نظر به سبد خرید افزوده شد', 'موفقیت', { timeOut: 1000 })
+
     this.cartItems = existingItems;
     this.loading.loadingOff();
     this.saveCart();
@@ -104,11 +106,15 @@ export class CartService {
   clearCart() {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
     this.cartItems = [];
+
+    this.toastr.info('محصول مورد نظر از سبد خرید حذف شد', 'اعلان', { timeOut: 1000 })
     this.calculateAllItemsCount();
   }
 
   removeItem(productId: string) {
     const index = this.cartItems.findIndex((o) => o.productId === productId);
+
+    this.toastr.info('محصول مورد نظر از سبد خرید حذف شد', 'اعلان', { timeOut: 1000 })
 
     if (index > -1) {
       this.cartItems.splice(index, 1);

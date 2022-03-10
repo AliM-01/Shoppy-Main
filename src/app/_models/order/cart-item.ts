@@ -1,17 +1,17 @@
 export class CartItemModel {
-  constructor(
-    public productId: string,
-    public title: string,
-    public unitPrice: number,
-    public imagePath: string,
-    public imageAlt: string,
-    public imageTitle: string,
-    public count: number,
-    public isInStock: boolean,
-    public discountRate: number,
-    public discountAmount: number,
-    public itemPayAmount: number,
-  ) { }
+  productId: string;
+  title: string;
+  slug: string;
+  unitPrice: number;
+  imagePath: string;
+  imageAlt: string;
+  imageTitle: string;
+  count: number;
+  isNotInStock: boolean;
+  itemInInventoryCountIsLowerThanRequestedCount: boolean;
+  discountRate: number;
+  discountAmount: number;
+  itemPayAmount: number;
 
   public get totalItemPrice() {
     return this.unitPrice * this.count;
