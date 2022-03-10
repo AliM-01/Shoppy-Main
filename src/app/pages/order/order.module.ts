@@ -5,6 +5,7 @@ import { ComponentsModule } from '@app_components/components.module';
 import { CartService } from '@app_services/order/cart.service';
 import { OrderRoutingModule } from './order.routing.module';
 import { CartPage } from './cart/cart.page';
+import { PipesModule } from '../../_pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CartPage } from './cart/cart.page';
     RouterModule,
     OrderRoutingModule,
     ComponentsModule,
+    PipesModule
   ],
   exports: [
   ],
