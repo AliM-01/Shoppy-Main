@@ -11,9 +11,11 @@ import { ProductBoxComponent } from './product-box/product-box.component';
 import { NgSelect2Module } from 'ng-select2';
 import { PipesModule } from '@app_pipes/pipes.module';
 import { HeaderCartComponent } from './header/header-cart/header-cart.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
+    BreadcrumbComponent,
     HeaderComponent,
     FooterComponent,
     MobileHeaderComponent,
@@ -36,6 +38,7 @@ import { HeaderCartComponent } from './header/header-cart/header-cart.component'
     PipesModule
   ],
   exports: [
+    BreadcrumbComponent,
     HeaderComponent,
     FooterComponent,
     MobileHeaderComponent,
