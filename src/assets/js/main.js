@@ -187,20 +187,6 @@ function init() {
         $(this).siblings('.payment-box').slideToggle(900);
     });
 
-    /*-------------------------------------
-        Checkout paymentMethod function
-    ---------------------------------------*/
-    paymentMethodChanged();
-    function paymentMethodChanged() {
-        var $order_review = $('.payment-method');
-
-        $order_review.on('click', 'input[name="payment_method"]', function () {
-            var selectedClass = 'payment-selected';
-            var parent = $(this).parents('.sin-payment').first();
-            parent.addClass(selectedClass).siblings().removeClass(selectedClass);
-        });
-    }
-
     /*------------------------
         Clipboar Active
     -------------------------*/

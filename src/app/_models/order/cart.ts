@@ -8,7 +8,6 @@ export class CartModel {
   totalAmount: number;
   discountAmount: number;
   payAmount: number;
-  paymentMethod: number;
   items: CartItemModel[];
 
   public add(cartItem: CartItemModel) {
@@ -16,9 +15,5 @@ export class CartModel {
     this.totalAmount += cartItem.totalItemPrice;
     this.discountAmount += cartItem.discountAmount;
     this.payAmount += cartItem.itemPayAmount;
-  }
-
-  public setPaymentMethod(methodId: number) {
-    this.paymentMethod = methodId;
   }
 }
