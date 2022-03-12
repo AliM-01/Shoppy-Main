@@ -1,17 +1,15 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { Inject, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable, throwError } from "rxjs";
 import { catchError, finalize, map, tap } from "rxjs/operators";
 import { TokenStoreService } from "./token-store.service";
 import { RefreshTokenService } from './refresh-token.service';
 import { environment } from "@environments/environment";
-import { LoginRequestModel } from '../../_models/auth/login-request';
 import { AuthTokenType } from "@app_models/auth/auth-token-type";
-import { AuthUser } from "@app_models/auth/auth-user";
 import { ToastrService } from "ngx-toastr";
 import { LoadingService } from "@app_services/_common/loading/loading.service";
-import { RevokeRefreshTokenRequestModel } from '../../_models/auth/revoke-refresh-token-request';
+import { LoginRequestModel, RegisterRequestModel, RevokeRefreshTokenRequestModel } from '../../_models/auth/_index';
 import { IResponse } from "@app_models/_common/IResponse";
 import { LoginResponseModel } from "@app_models/auth/login-response";
 import { of } from "rxjs";
@@ -39,6 +37,30 @@ export class AuthService {
           this.refreshTokenService.scheduleRefreshToken(true, false);
         }
       })
+  }
+
+  register(registerData: RegisterRequestModel): Observable<IResponse<any>> {
+
+    this.loading.loadingOn();
+
+    const formData = new FormData();
+    formData.append('firstName', registerData.firstName);
+    formData.append('lastName', registerData.lastName);
+    formData.append('email', registerData.email);
+    formData.append('password', registerData.password);
+    formData.append('confirmPassword', registerData.confirmPassword);
+
+    return this.http
+      .post<IResponse<any>>(`${environment.authBaseApiUrl}/register`, formData)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+          return throwError(error);
+        })
+      );
   }
 
   login(loginData: LoginRequestModel): Observable<boolean> {
