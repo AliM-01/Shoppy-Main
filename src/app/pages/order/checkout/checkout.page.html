@@ -17,7 +17,7 @@
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
           <div *ngFor="let item of cart.items">
-            <p class="alert alert-warning" *ngIf="!item.isInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد</p>
+            <p class="alert alert-warning" *ngIf="item.isNotInStock">کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد</p>
           </div>
 
           <div class="table-content table-responsive">
