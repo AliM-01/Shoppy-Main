@@ -4,8 +4,12 @@ import { NotFoundPage } from '@apppages/not-found/not-found.page';
 import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  {path: '', component: IndexComponent},
-  {path: 'not-found', component: NotFoundPage},
+  { path: '', component: IndexComponent },
+  { path: 'not-found', component: NotFoundPage },
+  {
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
+  },
   {
     path: 'category',
     loadChildren: () => import('./pages/product-category/product.category.module').then(m => m.ProductCategoryModule)
