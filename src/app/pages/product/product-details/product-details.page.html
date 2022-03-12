@@ -1,171 +1,155 @@
-<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
-	<div class="custom-container">
-		<div class="breadcrumb-content text-center">
-			<ul>
-				<li>
-					<a routerLink="/">صفحه اصلی</a>
-				</li>
-				<li class="active"> {{ productTitle$ | async }}</li>
-			</ul>
-		</div>
-	</div>
-</div>
+<app-breadcrumb [pageTitle]="pageTitle$ | async"></app-breadcrumb>
+
 <div class="product-details-area padding-30-row-col pt-75 pb-55" *ngIf="isDataLoaded">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-12">
-				<div class="product-details-wrap">
-					<div class="product-details-wrap-top">
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-12">
-								<div class="product-details-slider-wrap">
-									<div class="pro-dec-big-img-slider">
-										<ngx-slick-carousel #slickModal="slick-carousel" [config]="mainSlideConfig">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <div class="product-details-wrap">
+          <div class="product-details-wrap-top">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="product-details-slider-wrap">
+                  <div class="pro-dec-big-img-slider">
+                    <ngx-slick-carousel #slickModal="slick-carousel" [config]="mainSlideConfig">
 
-											<div ngxSlickItem *ngFor="let slide of product.productPictures"
-												class="single-big-img-style">
-												<div class="pro-details-big-img">
-													<a class="img-popup">
-														<img id="main_slider"[src]="baseProductPictureOriginalPath + slide.imagePath"
-															[alt]="product.imageAlt" [title]="product.imageTitle">
-													</a>
-												</div>
-												<div class="pro-details-badges product-badges-position">
-													<span class="red"> فروش! </span>
-												</div>
-											</div>
-										</ngx-slick-carousel>
-									</div>
-									<div class="product-dec-slider-small product-dec-small-style1">
-										<ngx-slick-carousel #slickModal="slick-carousel" [config]="picturesSlideConfig">
+                      <div ngxSlickItem *ngFor="let slide of product.productPictures" class="single-big-img-style">
+                        <div class="pro-details-big-img">
+                          <a class="img-popup">
+                            <img id="main_slider" [src]="baseProductPictureOriginalPath + slide.imagePath"
+                              [alt]="product.imageAlt" [title]="product.imageTitle">
+                          </a>
+                        </div>
+                        <div class="pro-details-badges product-badges-position">
+                          <span class="red"> فروش! </span>
+                        </div>
+                      </div>
+                    </ngx-slick-carousel>
+                  </div>
+                  <div class="product-dec-slider-small product-dec-small-style1">
+                    <ngx-slick-carousel #slickModal="slick-carousel" [config]="picturesSlideConfig">
 
-											<div ngxSlickItem class="product-dec-small product_details_sub_slider"
-												*ngFor="let pic of product.productPictures" [ngClass]="(pic.id === currentPicture) ? 'active' : ''">
-												<img (click)="setSlider(pic.id)" [id]="'product_picture_' + pic.id" [src]="baseProductPictureThumbnailPath + pic.imagePath"
-													[alt]="product.imageAlt" [title]="product.imageTitle">
-											</div>
+                      <div ngxSlickItem class="product-dec-small product_details_sub_slider"
+                        *ngFor="let pic of product.productPictures"
+                        [ngClass]="(pic.id === currentPicture) ? 'active' : ''">
+                        <img (click)="setSlider(pic.id)" [id]="'product_picture_' + pic.id"
+                          [src]="baseProductPictureThumbnailPath + pic.imagePath" [alt]="product.imageAlt"
+                          [title]="product.imageTitle">
+                      </div>
 
-										</ngx-slick-carousel>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-12">
-								<div class="product-details-content pro-details-content-pl">
-									<div class="pro-details-category">
-										<ul>
-											<li>
-												<a [routerLink]="['/category/details/', product.categoryId]">
-													{{product.category}}
-												</a>
-											</li>
-										</ul>
-									</div>
-									<h1> {{ product.title }} </h1>
-									<div class="pro-details-brand-review">
-										<div class="pro-details-rating-wrap">
-											<span>5.00</span>
-											<div class="pro-details-rating">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-											</div>
-											<a href="#"> (2 نظر) </a>
-										</div>
-									</div>
-									<div class="pro-details-price-short-description">
-										<div class="pro-details-price" *ngIf="product.hasDiscount">
-											<span class="new-price">{{product.priceWithDiscount + ' تومان '}}</span>
-											<span class="old-price">{{product.price + ' تومان '}}</span>
-										</div>
-										<div class="pro-details-short-description">
-											<p> {{ product.shortDescription }} </p>
-										</div>
-									</div>
-									<div class="pro-details-quality-stock-area">
-										<span> مقدار </span>
-										<div class="pro-details-quality-stock-wrap">
-											<div class="product-quality">
-                        <div class="dec qtybutton"(click)="minusCount()"></div>
+                    </ngx-slick-carousel>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="product-details-content pro-details-content-pl">
+                  <div class="pro-details-category">
+                    <ul>
+                      <li>
+                        <a [routerLink]="['/category/details/', product.categoryId]">
+                          {{product.category}}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <h1> {{ product.title }} </h1>
+                  <div class="pro-details-brand-review">
+                    <div class="pro-details-rating-wrap">
+                      <span>5.00</span>
+                      <div class="pro-details-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </div>
+                      <a href="#"> (2 نظر) </a>
+                    </div>
+                  </div>
+                  <div class="pro-details-price-short-description">
+                    <div class="pro-details-price" *ngIf="product.hasDiscount">
+                      <span class="new-price">{{product.priceWithDiscount + ' تومان '}}</span>
+                      <span class="old-price">{{product.price + ' تومان '}}</span>
+                    </div>
+                    <div class="pro-details-short-description">
+                      <p> {{ product.shortDescription }} </p>
+                    </div>
+                  </div>
+                  <div class="pro-details-quality-stock-area">
+                    <span> مقدار </span>
+                    <div class="pro-details-quality-stock-wrap">
+                      <div class="product-quality">
+                        <div class="dec qtybutton" (click)="minusCount()"></div>
 
-												<input class="cart-plus-minus-box input-text qty text"
-													[value]="countToAddToCart">
+                        <input class="cart-plus-minus-box input-text qty text" [value]="countToAddToCart">
 
                         <div class="inc qtybutton" (click)="plusCount()"></div>
-											</div>
-											<div class="pro-details-stock">
-												<span *ngIf="product.inventoryCurrentCount < 20"><i class="fa fa-check-circle"></i> {{
-													product.inventoryCurrentCount }} عدد موجود است </span>
-											</div>
-										</div>
-									</div>
-									<div class="pro-details-action-wrap">
-										<div class="pro-details-add-to-cart" *ngIf="!isInCart">
-											<button (click)="addToCart()">افزودن به سبد خرید</button>
-										</div>
-										<div class="pro-details-remove-from-cart" *ngIf="isInCart">
-											<button (click)="removeFromCart()">حذف از سبد خرید</button>
-										</div>
-										<div class="pro-details-action tooltip-style-4">
-											<button aria-label="افزودن به سبد خرید"><i
-													class="fa fa-shopping-bag"></i></button>
-											<button aria-label="افزودن به علاقه مندی‌ها"><i
-													class="fa fa-heart"></i></button>
-										</div>
-									</div>
-									<div class="product-details-meta">
-										<ul>
-											<li><span>کد: </span> {{product.code}} </li>
-											<li><span>برچسب ها:</span>
-												<a *ngFor="let tag of product.metaKeywords.split('-')" href="">{{tag}} ، </a>
-											</li>
-										</ul>
-									</div>
-									<div class="product-details-social tooltip-style-4">
-										<a aria-label="فیسبوک" class="facebook" href="#"><i
-												class="fab fa-facebook-f"></i></a>
-										<a aria-label="توئیتر" class="twitter" href="#"><i
-												class="fab fa-twitter"></i></a>
-										<a aria-label="Linkedin" class="linkedin" href="#"><i
-												class="fab fa-linkedin"></i></a>
-										<a aria-label="Tumblr" class="tumblr" href="#"><i
-												class="fab fa-tumblr-square"></i></a>
-										<a aria-label="Email" class="envelope" href="#"><i
-												class="fas fa-envelope"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="product-details-wrap-bottom">
-						<div class="tab-style-1 nav mb-35">
-							<a class="active" href="#description_section" data-toggle="tab">توضیحات</a>
-							<a href="#features_section" data-toggle="tab">اطلاعات اضافی</a>
-							<a href="#comment_section" data-toggle="tab">نظرات</a>
-						</div>
-						<div class="tab-content">
-							<div id="description_section" class="tab-pane active">
-								<div class="product-details-description" [innerHtml]="product.description"></div>
-							</div>
-							<div id="features_section" class="tab-pane">
-								<div class="pro-details-additional-information">
-									<div class="additional-information">
-										<ul>
-											<li *ngFor="let feature of product.productFeatures">
-												<span> {{feature.featureTitle}} </span>
-												 {{feature.featureValue}} </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div id="comment_section" class="tab-pane">
-								<app-record-comments [recordId]="product.id" [recordType]="'Product'"></app-record-comments>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                      </div>
+                      <div class="pro-details-stock">
+                        <span *ngIf="product.inventoryCurrentCount < 20"><i class="fa fa-check-circle"></i> {{
+                          product.inventoryCurrentCount }} عدد موجود است </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pro-details-action-wrap">
+                    <div class="pro-details-add-to-cart" *ngIf="!isInCart">
+                      <button (click)="addToCart()">افزودن به سبد خرید</button>
+                    </div>
+                    <div class="pro-details-remove-from-cart" *ngIf="isInCart">
+                      <button (click)="removeFromCart()">حذف از سبد خرید</button>
+                    </div>
+                    <div class="pro-details-action tooltip-style-4">
+                      <button aria-label="افزودن به سبد خرید"><i class="fa fa-shopping-bag"></i></button>
+                      <button aria-label="افزودن به علاقه مندی‌ها"><i class="fa fa-heart"></i></button>
+                    </div>
+                  </div>
+                  <div class="product-details-meta">
+                    <ul>
+                      <li><span>کد: </span> {{product.code}} </li>
+                      <li><span>برچسب ها:</span>
+                        <a *ngFor="let tag of product.metaKeywords.split('-')" href="">{{tag}} ، </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product-details-social tooltip-style-4">
+                    <a aria-label="فیسبوک" class="facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a aria-label="توئیتر" class="twitter" href="#"><i class="fab fa-twitter"></i></a>
+                    <a aria-label="Linkedin" class="linkedin" href="#"><i class="fab fa-linkedin"></i></a>
+                    <a aria-label="Tumblr" class="tumblr" href="#"><i class="fab fa-tumblr-square"></i></a>
+                    <a aria-label="Email" class="envelope" href="#"><i class="fas fa-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product-details-wrap-bottom">
+            <div class="tab-style-1 nav mb-35">
+              <a class="active" href="#description_section" data-toggle="tab">توضیحات</a>
+              <a href="#features_section" data-toggle="tab">اطلاعات اضافی</a>
+              <a href="#comment_section" data-toggle="tab">نظرات</a>
+            </div>
+            <div class="tab-content">
+              <div id="description_section" class="tab-pane active">
+                <div class="product-details-description" [innerHtml]="product.description"></div>
+              </div>
+              <div id="features_section" class="tab-pane">
+                <div class="pro-details-additional-information">
+                  <div class="additional-information">
+                    <ul>
+                      <li *ngFor="let feature of product.productFeatures">
+                        <span> {{feature.featureTitle}} </span>
+                        {{feature.featureValue}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="comment_section" class="tab-pane">
+                <app-record-comments [recordId]="product.id" [recordType]="'Product'"></app-record-comments>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

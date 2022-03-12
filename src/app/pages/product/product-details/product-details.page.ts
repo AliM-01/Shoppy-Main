@@ -20,8 +20,8 @@ export class ProductDetailsPage implements OnInit {
   countToAddToCart: number = 1;
 
   product: ProductDetailsModel;
-  private productTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
-  productTitle$: Observable<string> = this.productTitleSubject.asObservable();
+  private pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
   isDataLoaded: boolean = false;
   isInCart: boolean = false;
 
@@ -103,7 +103,7 @@ export class ProductDetailsPage implements OnInit {
         this.loading.loadingOn();
 
         if (res.status === 'success') {
-          this.productTitleSubject.next(res.data.title)
+          this.pageTitleSubject.next(res.data.title)
           this.product = res.data;
           if (res.data.productPictures !== null) {
             res.data.productPictures.forEach(gallery => {

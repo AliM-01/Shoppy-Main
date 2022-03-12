@@ -1,15 +1,5 @@
-<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
-  <div class="custom-container">
-    <div class="breadcrumb-content text-center">
-      <ul>
-        <li>
-          <a routerLink="/">صفحه اصلی</a>
-        </li>
-        <li class="active"> سبد خرید </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<app-breadcrumb [pageTitle]="'سبد خرید'"></app-breadcrumb>
+
 <div class="cart-area pt-75 pb-35">
   <div class="container-fluid">
     <div class="row">
@@ -17,12 +7,14 @@
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
           <div *ngFor="let item of cart.items" class="container mb-4">
-            <p class="alert alert-warning" *ngIf="item.itemInInventoryCountIsLowerThanRequestedCount && !item.isNotInStock">کالای
+            <p class="alert alert-warning"
+              *ngIf="item.itemInInventoryCountIsLowerThanRequestedCount && !item.isNotInStock">کالای
               {{item.title}} با تعداد درخواستی در انبار موجود
               نمی باشد
             </p>
 
-            <p class="alert alert-warning" *ngIf="item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount">
+            <p class="alert alert-warning"
+              *ngIf="item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount">
               کالای {{item.title}} در انبار موجود نمی باشد
             </p>
 

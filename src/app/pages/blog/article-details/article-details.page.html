@@ -1,15 +1,5 @@
-<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
-  <div class="custom-container">
-    <div class="breadcrumb-content text-center">
-      <ul>
-        <li>
-          <a routerLink="/">صفحه اصلی</a>
-        </li>
-        <li class="active"> {{ pageTitle$ | async }}</li>
-      </ul>
-    </div>
-  </div>
-</div>
+<app-breadcrumb [pageTitle]="pageTitle$ | async"></app-breadcrumb>
+
 <div class="blog-details-area padding-30-row-col pt-75 pb-75">
   <div class="container">
     <div class="row" *ngIf="isDataLoaded">

@@ -1,30 +1,29 @@
+<div class="categories-area pb-70">
+  <div class="custom-container">
+    <div class="section-title-1 mb-40">
+      <h2> خرید بر اساس دسته ها </h2>
+    </div>
+    <div class="categories-slider-1">
 
-	<div class="categories-area pb-70">
-		<div class="custom-container">
-			<div class="section-title-1 mb-40">
-				<h2> خرید بر اساس دسته ها </h2>
-			</div>
-			<div class="categories-slider-1">
+      <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let category of productCategories" class="product-plr-1">
 
-			<ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
-				<div ngxSlickItem *ngFor="let category of productCategories" class="product-plr-1">
+          <div class="categories-wrap">
+            <div class="categories-img categories-img-zoom">
+              <a [routerLink]="['/category/details/', category.slug.toString()]">
+                <img [src]="baseProductCategoryPath + '/' + category.imagePath" [alt]="category.imageAlt"
+                  [title]="category.imageTitle">
+              </a>
+            </div>
+            <div class="categories-content text-center">
+              <h3><a [routerLink]="['/category/details/', category.slug.toString()]">{{category.title}}</a></h3>
+            </div>
+          </div>
 
-					<div class="categories-wrap">
-						<div class="categories-img categories-img-zoom">
-							<a [routerLink]="['/category/details/', category.slug.toString()]">
-								<img [src]="baseProductCategoryPath + '/' + category.imagePath" 
-									[alt]="category.imageAlt" [title]="category.imageTitle">
-							</a>
-						</div>
-						<div class="categories-content text-center">
-							<h3><a [routerLink]="['/category/details/', category.slug.toString()]">{{category.title}}</a></h3>
-						</div>
-					</div>
-			
-				</div>
-			
-			</ngx-slick-carousel>
+        </div>
 
-			</div>
-		</div>
-	</div>
+      </ngx-slick-carousel>
+
+    </div>
+  </div>
+</div>

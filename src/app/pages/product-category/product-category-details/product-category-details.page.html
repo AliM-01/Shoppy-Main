@@ -1,49 +1,39 @@
-<div class="breadcrumb-area breadcrumb-area-padding-2 bg-gray-2">
-	<div class="custom-container">
-		<div class="breadcrumb-content text-center">
-			<ul>
-				<li>
-					<a routerLink="/">صفحه اصلی</a>
-				</li>
-				<li class="active">{{ pageTitle$ | async }}</li>
-			</ul>
-		</div>
-	</div>
-</div>
+<app-breadcrumb [pageTitle]="pageTitle$ | async"></app-breadcrumb>
+
 <div class="shop-area adding-30-row-col pt-75 pb-75">
-	<div class="custom-container">
-		<div class="row flex-row-reverse" *ngIf="isDataLoaded">
-			<div class="col-lg-12">
-				<div class="shop-topbar-wrapper row">
-					<div class="col-lg-2 col-sm-12">
-						<img [src]="baseProductCategoryPath + '/' + productCategoryData.productCategory.imagePath"
-							[alt]="productCategoryData.productCategory.imageAlt" [title]="productCategoryData.productCategory.imageTitle" width="350"
-							height="350">
-					</div>
-					<div class="col-lg-10 col-sm-12">
-						<h1 class="text-center mt-2">{{ pageTitle$ | async }}</h1>
-					</div>
+  <div class="custom-container">
+    <div class="row flex-row-reverse" *ngIf="isDataLoaded">
+      <div class="col-lg-12">
+        <div class="shop-topbar-wrapper row">
+          <div class="col-lg-2 col-sm-12">
+            <img [src]="baseProductCategoryPath + '/' + productCategoryData.productCategory.imagePath"
+              [alt]="productCategoryData.productCategory.imageAlt"
+              [title]="productCategoryData.productCategory.imageTitle" width="350" height="350">
+          </div>
+          <div class="col-lg-10 col-sm-12">
+            <h1 class="text-center mt-2">{{ pageTitle$ | async }}</h1>
+          </div>
 
-				</div>
-				<hr />
-				<div class="shop-bottom-area">
-					<h3>محصولات</h3>
-					<div class="row">
+        </div>
+        <hr />
+        <div class="shop-bottom-area">
+          <h3>محصولات</h3>
+          <div class="row">
 
-						<app-product-box *ngFor="let product of productCategoryData.filterData.products" [product]="product"
-							class="custom-col-5"></app-product-box>
-							
-					</div>
-					<div class="pro-pagination-style text-center">
-						<ul>
-							<li *ngFor="let page of pages">
-								<a (click)="setPage(page)" [ngClass]="{ active: page === productCategoryData.filterData.pageId }">{{
-									page }}</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <app-product-box *ngFor="let product of productCategoryData.filterData.products" [product]="product"
+              class="custom-col-5"></app-product-box>
+
+          </div>
+          <div class="pro-pagination-style text-center">
+            <ul>
+              <li *ngFor="let page of pages">
+                <a (click)="setPage(page)" [ngClass]="{ active: page === productCategoryData.filterData.pageId }">{{
+                  page }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
