@@ -1,0 +1,44 @@
+<app-breadcrumb [pageTitle]="'ورود به حساب'"></app-breadcrumb>
+
+<div class="login-register-area pt-75 pb-75">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-9 col-sm-12">
+              <div class="login-register-wrap login-register-gray-bg">
+                  <div class="login-register-title">
+                      <h1>ورود</h1>
+                  </div>
+                  <div class="login-register-form">
+                      <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                          <div class="login-register-input-style input-style input-style-white">
+                              <label>نام کاربری یا آدرس ایمیل</label>
+                              <input type="email" formControlName="email">
+
+                              <p class="text-danger" *ngIf="checkError('email', 'required') || checkError('email', 'email')">لطفا ایمیل معتبر وارد نمایید</p>
+                          </div>
+
+                          <div class="login-register-input-style input-style input-style-white">
+                              <label>رمز عبور</label>
+                              <input type="password" formControlName="password" />
+
+                              <p class="text-danger" *ngIf="checkError('password', 'required')">لطفا رمز عبور را وارد نمایید</p>
+                          </div>
+                          <div class="lost-remember-wrap">
+                              <div class="remember-wrap">
+                                  <input type="checkbox">
+                                  <span> مرا بخاطر بسپار </span>
+                              </div>
+                              <div class="lost-wrap">
+                                  <a routerLink="/">رمز عبور را فراموش کرده اید؟</a>
+                              </div>
+                          </div>
+                          <div class="login-register-btn">
+                              <button type="submit">ورود </button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

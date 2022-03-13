@@ -1,7 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexModule } from './pages/index/index.module';
@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoadingService } from '@loading';
 import { CartService } from '@app_services/order/cart.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
+import { AuthInterceptor } from './_http/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,16 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
       autoDismiss: true
     })
   ],
-  providers: [LoadingService, MessengerService, CartService],
+  providers: [
+    LoadingService,
+    MessengerService,
+    CartService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
