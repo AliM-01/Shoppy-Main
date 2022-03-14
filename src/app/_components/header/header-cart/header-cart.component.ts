@@ -11,6 +11,8 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
 })
 export class HeaderCartComponent implements OnInit {
 
+  showAll: boolean = false;
+
   cartItems: CartItemCookieModel[] = [];
   cartCount = 0;
   cartPrice = 0;
@@ -36,7 +38,8 @@ export class HeaderCartComponent implements OnInit {
   loadCartItems() {
     const items: CartItemCookieModel[] = this.cartService.getCartItems()
 
-    this.cartItems = items;
+    this.showAll = items.length > 2;
+    this.cartItems = items.splice(0 , 2);
     this.cartCount = this.cartService.getCartItemsCount();
     this.cartPrice = this.cartService.itemsTotalPrice
   }

@@ -1,6 +1,6 @@
 <a class="mini-cart-icon">
   <i class="fa fa-shopping-bag"></i>
-  <span class="pro-count blue">{{ cartCount }}</span>
+  <span *ngIf="cartItems.length > 0" class="pro-count blue">{{ cartCount }}</span>
 </a>
 <div class="cart-dropdown-wrap cart-dropdown-hm2" *ngIf="cartItems.length > 0">
   <ul>
@@ -18,6 +18,11 @@
       <div class="shopping-cart-delete">
         <a (click)="removeItem(item.productId)"><i class="fa fa-times"></i></a>
       </div>
+    </li>
+
+    <li *ngIf="showAll">
+      <a routerLink="/cart">نمایش همه</a>
+      <i class="fa fa-arrow-left ml-2"></i>
     </li>
 
   </ul>

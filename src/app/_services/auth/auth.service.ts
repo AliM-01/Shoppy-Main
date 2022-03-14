@@ -22,9 +22,6 @@ export class AuthService {
   private isUserLoggedInSubject = new BehaviorSubject<boolean>(false);
   isUserLoggedIn$: Observable<boolean> = this.isUserLoggedInSubject.asObservable();
 
-  private authStatusSource = new BehaviorSubject<boolean>(false);
-  authStatus$ = this.authStatusSource.asObservable();
-
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
@@ -83,7 +80,7 @@ export class AuthService {
             this.loading.loadingOff();
             this.tokenStoreService.storeLoginSession(res.data);
             this.refreshTokenService.scheduleRefreshToken(true, true);
-            this.authStatusSource.next(true);
+            this.isUserLoggedInSubject.next(true);
             return true;
           }
 
@@ -93,7 +90,7 @@ export class AuthService {
         catchError((error: HttpErrorResponse) => {
 
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-          this.authStatusSource.next(false);
+          this.isUserLoggedInSubject.next(false);
           this.toastr.error("عملیات با خطا مواجه شد", 'خطا', { timeOut: 2500 });
 
           this.loading.loadingOff();
@@ -123,7 +120,7 @@ export class AuthService {
         finalize(() => {
           this.tokenStoreService.deleteAuthTokens();
           this.refreshTokenService.unscheduleRefreshToken(true);
-          this.authStatusSource.next(false);
+          this.isUserLoggedInSubject.next(false);
           if (navigateToHome) {
             this.router.navigate(["/"]);
           }
@@ -164,6 +161,6 @@ export class AuthService {
 
   private updateStatusOnPageRefresh(): void {
     this.isUserLoggedInRequest()
-      .subscribe(res => this.authStatusSource.next(res))
+      .subscribe(res => this.isUserLoggedInSubject.next(res))
   }
 }
