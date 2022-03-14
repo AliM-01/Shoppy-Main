@@ -7,40 +7,18 @@
         </div>
         <div class="search-style-2">
           <div action="#">
-            <ng-select2
-              [(ngModel)]="selectedCategory" [data]="productCategorySelectData"
-               [placeholder]="'دسته بندی'" [options]="{
+            <ng-select2 [(ngModel)]="selectedCategory" [data]="productCategorySelectData" [placeholder]="'دسته بندی'"
+              [options]="{
                 minimumResultsForSearch: -1
                }">
             </ng-select2>
+
             <input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو آیتم مورد نظر...">
             <button (click)="submitSearch()" type="button"> <i class="fa fa-search"></i> </button>
           </div>
         </div>
 
-        <div class="header-action-right">
-          <div class="header-action">
-
-            <div *ngIf="!isLoggedIn" class="d-flex">
-              <a (click)="navigateTo('/auth/login')" class="h6">
-                ورود به حساب
-                <i class="fa fa-user"></i>
-              </a>
-              <a (click)="navigateTo('/auth/register')" class="h6 ml-3">
-                / ثبت نام
-                <i class="fa fa-user"></i>
-              </a>
-            </div>
-
-            <div *ngIf="isLoggedIn" class="d-flex">
-              <a (click)="authService.logout(true)" class="h6">
-                خروج
-              </a>
-            </div>
-
-          </div>
-        </div>
-
+        <app-header-auth class="header-action-right"></app-header-auth>
 
       </div>
     </div>
@@ -48,17 +26,21 @@
   <div class="header-bottom header-bottom-bg-color sticky-bar gray-bg sticky-blue-bg">
     <div class="custom-container">
       <div class="header-wrap header-space-between position-relative">
+
         <div class="logo logo-width-1 d-block d-lg-none">
           <a [routerLink]="'/'"><img src="assets/images/logo/logo-white.png" alt="logo"></a>
         </div>
+
         <div class="main-categori-wrap d-none d-lg-block">
           <div class="categori-dropdown-wrap categori-dropdown-active-large">
             <ul>
+
               <li *ngFor="let category of productCategories">
                 <a [routerLink]="['/category/details/', category.slug.toString()]">
                   {{category.title}}
                 </a>
               </li>
+
             </ul>
           </div>
         </div>

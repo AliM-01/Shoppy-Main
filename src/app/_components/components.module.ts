@@ -12,6 +12,7 @@ import { NgSelect2Module } from 'ng-select2';
 import { PipesModule } from '@app_pipes/pipes.module';
 import { HeaderCartComponent } from './header/header-cart/header-cart.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { HeaderAuthComponent } from './header/header-auth/header-auth.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     FooterComponent,
     MobileHeaderComponent,
     HeaderCartComponent,
+    HeaderAuthComponent,
     LoadingComponent,
     ProductBoxComponent
   ],
