@@ -3935,12 +3935,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-height-2 {
-    min-height: 200px
+    min-height: 160px
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .header-height-2 {
-        min-height: 224px
+        min-height: 160px
     }
 }
 
