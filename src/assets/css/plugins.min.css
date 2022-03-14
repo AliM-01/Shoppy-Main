@@ -1,12 +1,3 @@
-@charset "UTF-8";
-/*!
- * animate.css -http://daneden.me/animate
- * Version - 3.5.2
- * Licensed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Copyright (c) 2017 Daniel Eden
- */
-
 .animated {
     -webkit-animation-duration: 1.25s;
     animation-duration: 1.25s;
@@ -6162,12 +6153,12 @@ img.mfp-img {
 }
 
 .ngx-slider .ngx-slider-pointer {
-    width: 15px !important; 
+    width: 15px !important;
     height: 15px !important;
     top: -6px !important;
     background-color: #4e97fd !important;
 }
 
-.ngx-slider .ngx-slider-selection {    
+.ngx-slider .ngx-slider-selection {
     background-color: #4e97fd !important;
 }
