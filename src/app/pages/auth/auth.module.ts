@@ -10,9 +10,11 @@ import { CommentModule } from '../comment/comment.module';
 import { AuthRoutingModule } from './auth.routing.module';
 import { LoginPage } from './login/login.page';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RegisterPage } from './register/register.page';
 
 @NgModule({
   declarations: [
+    RegisterPage,
     LoginPage
   ],
   imports: [
@@ -25,6 +27,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommentModule
   ],
   exports: [
+    RegisterPage,
     LoginPage
   ],
   schemas: [],
