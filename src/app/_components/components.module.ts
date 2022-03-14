@@ -13,6 +13,7 @@ import { PipesModule } from '@app_pipes/pipes.module';
 import { HeaderCartComponent } from './header/header-cart/header-cart.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { HeaderAuthComponent } from './header/header-auth/header-auth.component';
+import {ArticleBoxComponent } from './article-box/article-box.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderAuthComponent } from './header/header-auth/header-auth.component'
     HeaderCartComponent,
     HeaderAuthComponent,
     LoadingComponent,
-    ProductBoxComponent
+    ProductBoxComponent,
+    ArticleBoxComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { HeaderAuthComponent } from './header/header-auth/header-auth.component'
     FooterComponent,
     MobileHeaderComponent,
     LoadingComponent,
-    ProductBoxComponent
+    ProductBoxComponent,
+    ArticleBoxComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })
