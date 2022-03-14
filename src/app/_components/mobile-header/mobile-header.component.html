@@ -16,7 +16,7 @@
 			<div class="mobile-search search-style-3 mobile-header-border">
 				<form (submit)="submitSearch()">
 					<input [(ngModel)]="searchPhrase" name="searchPhrase" type="text" placeholder="جستجو...">
-					<button type="submit"> <i class="fa fa-search"></i> </button>
+					<button type="submit"> <i class="las la-search"></i> </button>
 				</form>
 			</div>
 			<div class="mobile-menu-wrap mobile-header-border">
@@ -28,7 +28,7 @@
 							<ul class="dropdown">
 								<li *ngFor="let category of productCategories">
 									<a [routerLink]="['/category/details/', category.slug.toString()]" class="cursor-pointer">
-										{{category.title}} 
+										{{category.title}}
 									</a>
 								</li>
 							</ul>
@@ -37,7 +37,7 @@
 							<ul class="dropdown">
 								<li *ngFor="let category of articleCategories">
 									<a [routerLink]="['/blog']" class="cursor-pointer">
-										{{category.title}} 
+										{{category.title}}
 									</a>
 								</li>
 							</ul>

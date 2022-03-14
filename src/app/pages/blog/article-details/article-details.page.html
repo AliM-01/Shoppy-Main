@@ -12,9 +12,9 @@
             <h1> {{article.title}} </h1>
             <div class="blog-meta-3">
               <ul>
-                <li><i class="far fa-calendar"></i> {{ article.creationDate }}</li>
-                <li><i class="far fa-eye"></i> 453 بازدید</li>
-                <li><a href="#"><i class="far fa-comment-alt-lines"></i>0 نظر</a> </li>
+                <li><i class="far la-calendar"></i> {{ article.creationDate }}</li>
+                <li><i class="far la-eye"></i> 453 بازدید</li>
+                <li><a href="#"><i class="far la-comment-alt-lines"></i>0 نظر</a> </li>
               </ul>
             </div>
           </div>
@@ -22,7 +22,7 @@
           <div [innerHtml]="article.text"></div>
           <div class="blog-tag-share-wrap">
             <div class="blog-tag-wrap">
-              <span class="tag-icon fal fa-tags"></span>
+              <span class="tag-icon fal la-tags"></span>
               <div class="blog-tag">
                 <a *ngFor="let tag of article.tags">
                   {{tag}} ,
@@ -34,13 +34,13 @@
                 <span> به اشتراک گذاشتن این پست </span>
               </div>
               <div class="blog-share-icon">
-                <span class="fas fa-share-alt"></span>
+                <span class="fas la-share-alt"></span>
                 <div class="blog-share-list tooltip-style-4 bs-list-responsive">
-                  <a aria-label="فیسبوک" href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a aria-label="توئیتر" href="#"><i class="fab fa-twitter"></i></a>
-                  <a aria-label="Linkedin" href="#"><i class="fab fa-linkedin"></i></a>
-                  <a aria-label="Tumblr" href="#"><i class="fab fa-tumblr-square"></i></a>
-                  <a aria-label="Envelope" href="#"><i class="fas fa-envelope"></i></a>
+                  <a aria-label="فیسبوک" href="#"><i class="fab la-facebook-f"></i></a>
+                  <a aria-label="توئیتر" href="#"><i class="fab la-twitter"></i></a>
+                  <a aria-label="Linkedin" href="#"><i class="fab la-linkedin"></i></a>
+                  <a aria-label="Tumblr" href="#"><i class="fab la-tumblr-square"></i></a>
+                  <a aria-label="Envelope" href="#"><i class="fas la-envelope"></i></a>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@
             <div class="search-style-3">
               <form action="#">
                 <input type="text" placeholder="جستجو...">
-                <button type="submit"> <i class="far fa-search"></i> </button>
+                <button type="submit"> <i class="far la-search"></i> </button>
               </form>
             </div>
           </div>

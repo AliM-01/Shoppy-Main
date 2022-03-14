@@ -66,7 +66,7 @@ function init() {
         $offCanvasNavSubMenu = $offCanvasNav.find('.dropdown');
 
     /*Add Toggle Button With Off Canvas Sub Menu*/
-    $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="down fa fa-chevron-down"></i></span>');
+    $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="down las la-angle-down"></i></span>');
 
     /*Close Off Canvas Sub Menu*/
     $offCanvasNavSubMenu.slideUp();

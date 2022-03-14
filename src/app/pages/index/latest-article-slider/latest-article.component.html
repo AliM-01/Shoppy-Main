@@ -5,7 +5,7 @@
         <h2> جدید ترین مقالات </h2>
       </div>
       <div class="btn-style-2">
-        <a routerLink="/blog">مشاهده همه <i class="fa fa-arrow-left"></i></a>
+        <a routerLink="/blog">مشاهده همه <i class="las la-long-arrow-alt-left"></i></a>
       </div>
     </div>
     <div class="row grid">
@@ -23,14 +23,20 @@
           <div class="blog-content-2">
             <div class="blog-meta-2">
               <ul>
-                <li><i class="far fa-calendar"></i>{{ article.creationDate }}</li>
-                <li><i class="far fa-eye"></i> 453 بازدید</li>
+                <li>
+                  <i class="las la-calendar-week"></i>
+                  {{ article.creationDate }}
+                </li>
+                <li>
+                  <i class="las la-eye"></i>
+                  453 بازدید
+                </li>
               </ul>
             </div>
             <h3><a [routerLink]="'/blog/i/' + article.slug"> {{article.title }} </a></h3>
             <h5>{{article.summary}}</h5>
             <div class="blog-btn">
-              <a [routerLink]="'/blog/i/' + article.slug"> ادامه مطلب <i class="fa fa-arrow-left"></i></a>
+              <a [routerLink]="'/blog/i/' + article.slug"> ادامه مطلب <i class="las la-long-arrow-alt-left"></i></a>
             </div>
           </div>
         </div>
