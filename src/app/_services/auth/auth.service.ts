@@ -19,6 +19,9 @@ import { of } from "rxjs";
 })
 export class AuthService {
 
+  private isUserLoggedInSubject = new BehaviorSubject<boolean>(false);
+  isUserLoggedIn$: Observable<boolean> = this.isUserLoggedInSubject.asObservable();
+
   private authStatusSource = new BehaviorSubject<boolean>(false);
   authStatus$ = this.authStatusSource.asObservable();
 
@@ -31,7 +34,7 @@ export class AuthService {
     private refreshTokenService: RefreshTokenService
   ) {
     this.updateStatusOnPageRefresh();
-    this.isAuthUserLoggedIn()
+    this.isUserLoggedInRequest()
       .subscribe(res => {
         if (res) {
           this.refreshTokenService.scheduleRefreshToken(true, false);
@@ -130,7 +133,7 @@ export class AuthService {
       });
   }
 
-  isAuthUserLoggedIn(): Observable<boolean> {
+  isUserLoggedInRequest(): Observable<boolean> {
 
     if (!this.tokenStoreService.hasStoredAccessAndRefreshTokens()) {
       return of(false)
@@ -142,12 +145,15 @@ export class AuthService {
       .pipe(
         map(res => {
           if (res.status === 'success') {
+            this.isUserLoggedInSubject.next(true);
             return true;
           } else {
+            this.isUserLoggedInSubject.next(false);
             return false;
           }
         }),
         catchError((error: HttpErrorResponse) => {
+          this.isUserLoggedInSubject.next(false);
 
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
           this.loading.loadingOff();
@@ -157,7 +163,7 @@ export class AuthService {
   }
 
   private updateStatusOnPageRefresh(): void {
-    this.isAuthUserLoggedIn()
-      .subscribe(res => this.authStatusSource.next(res) )
+    this.isUserLoggedInRequest()
+      .subscribe(res => this.authStatusSource.next(res))
   }
 }
