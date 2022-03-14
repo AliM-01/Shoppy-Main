@@ -9,9 +9,9 @@
       </a>
     </div>
     <div class="product-action-1">
-      <button (click)="addToCart()" aria-label="افزودن به سبد خرید"><i class="fa fa-shopping-bag"></i></button>
-      <button aria-label="افزودن به علاقه مندی‌ها"><i class="fa fa-heart"></i></button>
-      <button aria-label="مقایسه"><i class="fa fa-signal"></i></button>
+      <button (click)="addToCart()" aria-label="افزودن به سبد خرید"><i class="las la-shopping-bag"></i></button>
+      <button aria-label="افزودن به علاقه مندی‌ها"><i class="las la-heart"></i></button>
+      <button aria-label="مقایسه"><i class="las la-signal"></i></button>
     </div>
     <div *ngIf="product.hasDiscount" class="product-badges product-badges-position product-badges-mrg">
       <span *ngIf="product.discountRate >= 50" class="hot red">{{ product.discountRate

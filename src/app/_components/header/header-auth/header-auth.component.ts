@@ -10,11 +10,11 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
         <div *ngIf="!isLoggedIn" class="d-flex">
           <a (click)="navigateTo('/auth/login')" class="h6">
             ورود به حساب
-            <i class="fa fa-user"></i>
+            <i class="las la-user"></i>
           </a>
           <a (click)="navigateTo('/auth/register')" class="h6 ml-3">
             / ثبت نام
-            <i class="fa fa-user"></i>
+            <i class="las la-user"></i>
           </a>
         </div>
 

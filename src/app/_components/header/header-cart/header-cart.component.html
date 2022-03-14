@@ -1,5 +1,6 @@
 <a class="mini-cart-icon">
-  <i class="fa fa-shopping-bag"></i>
+  <i class="las la-shopping-cart"></i>
+
   <span *ngIf="cartItems.length > 0" class="pro-count blue">{{ cartCount }}</span>
 </a>
 <div class="cart-dropdown-wrap cart-dropdown-hm2" *ngIf="cartItems.length > 0">
@@ -16,13 +17,13 @@
         <h3><span>{{ item.count }} × </span>{{ item.unitPrice | thousandSeparator }} تومان</h3>
       </div>
       <div class="shopping-cart-delete">
-        <a (click)="removeItem(item.productId)"><i class="fa fa-times"></i></a>
+        <a (click)="removeItem(item.productId)"><i class="las la-times"></i></a>
       </div>
     </li>
 
     <li *ngIf="showAll">
       <a routerLink="/cart">نمایش همه</a>
-      <i class="fa fa-arrow-left ml-2"></i>
+      <i class="las la-long-arrow-alt-left ml-2"></i>
     </li>
 
   </ul>
@@ -31,7 +32,10 @@
       <h4>جمع کل<span>{{ cartPrice | thousandSeparator }} تومان</span></h4>
     </div>
     <div class="shopping-cart-button">
-      <a routerLink="/cart"> مشاهده سبد</a>
+      <a routerLink="/cart">
+        مشاهده سبد
+        <i class="las la-shopping-cart"></i>
+      </a>
       <a href="checkout.html"> پرداخت </a>
     </div>
   </div>

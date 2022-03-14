@@ -17,8 +17,9 @@ direction: rtl;
   text-align: justify;
 }
 
-
-
+.la-shopping-cart {
+  font-size: 1.4em;
+}
 
 
 @media only screen and (min-width: 1200px) {
@@ -1820,8 +1821,8 @@ textarea:focus {
 
 #scrollUp {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     background-color: #4e97fd;
     color: #ffffff;
     left: 30px;
@@ -1850,13 +1851,11 @@ textarea:focus {
 
 #scrollUp i {
     display: block;
-    line-height: 60px;
     font-size: 25px
 }
 
 @media only screen and (max-width: 767px) {
     #scrollUp i {
-        line-height: 40px;
         font-size: 16px
     }
 }
@@ -2943,10 +2942,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li>a i {
-    font-size: 8px;
-    position: relative;
-    top: -3px;
-    margin-right: 4px
+  font-size: 13px;
+  position: relative;
+  top: 1px;
+  margin-right: 4px;
 }
 
 .main-menu>nav>ul>li>a.active {
@@ -7257,7 +7256,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button i {
-    font-size: 15px;
+    font-size: 1.3em;
     color: #ffffff
 }
 
@@ -7749,12 +7748,16 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #333
 }
 
+.la, .las {
+    font-size: 1.6em;
+}
+
 .btn-style-2 a i {
-    font-size: 16px;
-    margin-right: 14px;
-    position: relative;
-    top: 2px;
-    color: #4e97fd
+  font-size: 1.5em;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+  color: #4e97fd;
 }
 
 .btn-style-2 a:hover {
@@ -14355,7 +14358,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff
 }
 
-.myaccount-tab-menu a i.fa {
+.myaccount-tab-menu a i.las {
     font-size: 14px;
     text-align: center;
     width: 25px
