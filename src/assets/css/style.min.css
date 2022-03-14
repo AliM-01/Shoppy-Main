@@ -3448,8 +3448,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -ms-flex-align: center;
     align-items: center
 }
-
-.header-action .header-action-icon {
+.mini-cart-icon {
+  color: #fff !important;
+}
+.header-action-icon {
     margin-left: 28px;
     position: relative;
     display: -webkit-box;
@@ -3458,73 +3460,73 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: flex
 }
 
-.header-action .header-action-icon.header-action-mrg-none {
+.header-action-icon.header-action-mrg-none {
     margin-right: 13px
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header-action .header-action-icon.header-action-mrg-none {
+    .header-action-icon.header-action-mrg-none {
         margin-right: 33px
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .header-action .header-action-icon.header-action-mrg-none {
+    .header-action-icon.header-action-mrg-none {
         margin-left: 15px
     }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .header-action .header-action-icon.header-action-mrg-none {
+    .header-action-icon.header-action-mrg-none {
         margin-right: 20px
     }
 }
 
-.header-action .header-action-icon.header-action-mrg-none2 {
+.header-action-icon.header-action-mrg-none2 {
     margin-right: 0px
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header-action .header-action-icon.header-action-mrg-none2 {
+    .header-action-icon.header-action-mrg-none2 {
         margin-right: 33px
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .header-action .header-action-icon.header-action-mrg-none2 {
+    .header-action-icon.header-action-mrg-none2 {
         margin-left: 15px
     }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .header-action .header-action-icon.header-action-mrg-none2 {
+    .header-action-icon.header-action-mrg-none2 {
         margin-right: 20px
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header-action .header-action-icon {
+    .header-action-icon {
         margin-right: 33px
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .header-action .header-action-icon {
+    .header-action-icon {
         margin-left: 15px
     }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .header-action .header-action-icon {
+    .header-action-icon {
         margin-right: 20px
     }
 }
 
-.header-action .header-action-icon:last-child {
+.header-action-icon:last-child {
     margin-right: 0
 }
 
-.header-action .header-action-icon>a {
+.header-action-icon>a {
     font-size: 24px;
     color: #333;
     line-height: 1;
@@ -3533,18 +3535,18 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 @media only screen and (max-width: 767px) {
-    .header-action .header-action-icon>a {
+    .header-action-icon>a {
         font-size: 20px
     }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .header-action .header-action-icon>a {
+    .header-action-icon>a {
         font-size: 22px
     }
 }
 
-.header-action .header-action-icon>a span.pro-count {
+.header-action-icon>a span.pro-count {
     position: absolute;
     right: -11px;
     bottom: -8px;
@@ -3558,15 +3560,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     line-height: 20px
 }
 
-.header-action .header-action-icon>a span.pro-count.blue {
+.header-action-icon>a span.pro-count.blue {
     background-color: #4e97fd
 }
 
-.header-action .header-action-icon:hover>a {
-    color: #4e97fd
-}
 
-.header-action .header-action-icon:hover .cart-dropdown-wrap {
+.header-action-icon:hover .cart-dropdown-wrap {
     opacity: 1;
     visibility: visible;
     top: 100%
