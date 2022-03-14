@@ -7,6 +7,7 @@ import { checkFormGroupErrors } from '@app_services/_common/functions/functions'
 import { LoadingService } from '@app_services/_common/loading/loading.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginRequestModel } from '@app_models/auth/login-request';
+import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 
 @Component({
   selector: 'auth-login',
@@ -20,6 +21,7 @@ export class LoginPage implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private msg: MessengerService,
     private loading: LoadingService,
     private authService: AuthService,
     private toastr: ToastrService
@@ -56,9 +58,11 @@ export class LoginPage implements OnInit {
         this.loginForm.controls.password.value,
         (this.loginForm.controls.rememberMe.value as boolean),
       );
+      this.loading.loadingOn();
 
       this.authService.login(loginData)
         .subscribe(isLoggedIn => {
+          this.msg.sendMsg("login");
 
           console.log(isLoggedIn);
 
@@ -71,6 +75,7 @@ export class LoginPage implements OnInit {
           }
 
         });
+        this.loading.loadingOff();
 
 
     } else {
