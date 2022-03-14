@@ -106,7 +106,7 @@ export class SearchArticlePage implements OnInit {
         this.pages.push(i);
       }
 
-      if (res.data.Articles.length) {
+      if (res.data.articles.length) {
         this.isDataLoaded = true;
       }
     })

@@ -9,7 +9,7 @@ export class SearchArticleModel implements IPaging {
     sortIdOrder: PagingDataSortIdOrder;
     selectedCategories: string[]
     phrase: string;
-    Articles: ArticleModel[];
+    articles: ArticleModel[];
 
     constructor(
         phrase: string,
@@ -19,7 +19,7 @@ export class SearchArticleModel implements IPaging {
         sortCreationDateOrder: PagingDataSortCreationDateOrder
         ){
         this.phrase = phrase;
-        this.Articles = articles;
+        this.articles = articles;
         this.pageId = pageId;
         this.takePage = takePage;
         this.sortCreationDateOrder = sortCreationDateOrder;

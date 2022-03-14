@@ -9438,11 +9438,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a i {
-    margin-right: 14px;
-    color: #4e97fd;
-    font-size: 15px;
-    position: relative;
-    top: 2px
+  color: #4e97fd;
+  font-size: 19px;
+  position: relative;
+  top: 4px;
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a:hover {

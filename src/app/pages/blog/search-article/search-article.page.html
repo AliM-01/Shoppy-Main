@@ -27,7 +27,8 @@
 				</div>
 				<div class="shop-bottom-area" *ngIf="isDataLoaded">
 					<div class="row">
-
+            <app-article-box *ngFor="let article of searchArticles.articles" [article]="article"
+            class="col-lg-4 col-md-6 col-12 col-sm-6 grid-item"></app-article-box>
 					</div>
 					<div class="pro-pagination-style text-center mt-55">
 						<ul>
