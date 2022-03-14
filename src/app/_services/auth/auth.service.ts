@@ -13,25 +13,23 @@ import { LoginRequestModel, RegisterRequestModel, RevokeRefreshTokenRequestModel
 import { IResponse } from "@app_models/_common/IResponse";
 import { LoginResponseModel } from "@app_models/auth/login-response";
 import { of } from "rxjs";
+import { MessengerService } from '../_common/messenger/messenger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private authStatusSource = new BehaviorSubject<boolean>(false);
-  authStatus$ = this.authStatusSource.asObservable();
-
   constructor(
     private http: HttpClient,
     private toastr: ToastrService,
+    private msg: MessengerService,
     private loading: LoadingService,
     private router: Router,
     private tokenStoreService: TokenStoreService,
     private refreshTokenService: RefreshTokenService
   ) {
-    this.updateStatusOnPageRefresh();
-    this.isAuthUserLoggedIn()
+    this.isUserLoggedInRequest()
       .subscribe(res => {
         if (res) {
           this.refreshTokenService.scheduleRefreshToken(true, false);
@@ -71,6 +69,8 @@ export class AuthService {
     formData.append('email', loginData.email);
     formData.append('password', loginData.password);
 
+    this.msg.sendMsg("login");
+
     return this.http
       .post<IResponse<LoginResponseModel>>(`${environment.authBaseApiUrl}/login`, formData)
       .pipe(
@@ -80,17 +80,14 @@ export class AuthService {
             this.loading.loadingOff();
             this.tokenStoreService.storeLoginSession(res.data);
             this.refreshTokenService.scheduleRefreshToken(true, true);
-            this.authStatusSource.next(true);
+
             return true;
           }
 
           return false;
         }),
-        tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
-
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
-          this.authStatusSource.next(false);
           this.toastr.error("عملیات با خطا مواجه شد", 'خطا', { timeOut: 2500 });
 
           this.loading.loadingOff();
@@ -106,6 +103,8 @@ export class AuthService {
 
     const logoutData = new RevokeRefreshTokenRequestModel(refreshToken);
 
+    this.msg.sendMsg("logout");
+
     this.http
       .post<IResponse<string>>(`${environment.authBaseApiUrl}/logout`, logoutData)
       .pipe(
@@ -120,7 +119,7 @@ export class AuthService {
         finalize(() => {
           this.tokenStoreService.deleteAuthTokens();
           this.refreshTokenService.unscheduleRefreshToken(true);
-          this.authStatusSource.next(false);
+
           if (navigateToHome) {
             this.router.navigate(["/"]);
           }
@@ -130,7 +129,7 @@ export class AuthService {
       });
   }
 
-  isAuthUserLoggedIn(): Observable<boolean> {
+  isUserLoggedInRequest(): Observable<boolean> {
 
     if (!this.tokenStoreService.hasStoredAccessAndRefreshTokens()) {
       return of(false)
@@ -148,7 +147,6 @@ export class AuthService {
           }
         }),
         catchError((error: HttpErrorResponse) => {
-
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
           this.loading.loadingOff();
 
@@ -156,8 +154,4 @@ export class AuthService {
         }));
   }
 
-  private updateStatusOnPageRefresh(): void {
-    this.isAuthUserLoggedIn()
-      .subscribe(res => this.authStatusSource.next(res) )
-  }
 }

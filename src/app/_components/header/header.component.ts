@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
-import { CartService } from '@app_services/order/cart.service';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { Select2OptionData } from 'ng-select2';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  providers: [ArticleCategoryService, ProductCategoryService, CartService]
+  providers: [ArticleCategoryService, ProductCategoryService]
 })
 export class HeaderComponent implements OnInit {
 
@@ -28,6 +27,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.getProductCategoriesList();
     this.getArticleCategoriesList();
   }
@@ -79,5 +79,4 @@ export class HeaderComponent implements OnInit {
     }
     this.router.navigate(['/product/search'], { queryParams: queryParams });
   }
-
 }
