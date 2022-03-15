@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { CartService } from '@app_services/order/cart.service';
 
 @Component({
-  selector: 'checkout',
+  selector: 'app-checkout',
   templateUrl: './checkout.page.html'
 })
 export class CheckoutPage implements OnInit {
@@ -27,13 +27,13 @@ export class CheckoutPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.computeCart();
+    this.checkout();
   }
 
-  computeCart(): void {
+  checkout(): void {
     this.loading.loadingOn();
     this.cartService.loadCart();
-    this.orderService.computeCart().subscribe(res => {
+    this.orderService.checkout().subscribe(res => {
       this.cart = res.data;
     })
   }

@@ -6,16 +6,16 @@
       <div class="col-12">
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
-          <div *ngFor="let item of cart.items">
-
+          <div *ngFor="let item of cart.items" class="container mb-4">
             <p class="alert alert-warning"
-              *ngIf="item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount">
-              کالای {{item.title}} در انبار موجود نمی باشد
+              *ngIf="(item.itemInInventoryCountIsLowerThanRequestedCount && !item.isNotInStock)">کالای
+              {{item.title}} با تعداد درخواستی در انبار موجود
+              نمی باشد
             </p>
 
             <p class="alert alert-warning"
-              *ngIf="!item.isNotInStock && item.itemInInventoryCountIsLowerThanRequestedCount">
-              کالای {{item.title}} با تعداد درخواستی در انبار موجود نمی باشد
+              *ngIf="(item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount)">
+              کالای {{item.title}} در انبار موجود نمی باشد
             </p>
 
           </div>
