@@ -58,6 +58,7 @@ export class ArticleDetailsPage implements OnInit {
         this.article = res.data;
 
         this.setMetaTags(res.data)
+        this.getRelated();
 
         this.isDataLoaded = true;
       }

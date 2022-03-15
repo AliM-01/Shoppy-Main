@@ -10,6 +10,7 @@ import { LoadingService } from '../../../_services/_common/loading/loading.servi
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { CartService } from '@app_services/order/cart.service';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
+import { ProductModel } from '../../../_models/shop/product/product';
 
 @Component({
   selector: 'product-details',
@@ -20,6 +21,8 @@ export class ProductDetailsPage implements OnInit {
   countToAddToCart: number = 1;
 
   product: ProductDetailsModel;
+  relatedProducts: ProductModel[] = [];
+
   private pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
   isDataLoaded: boolean = false;
@@ -67,6 +70,36 @@ export class ProductDetailsPage implements OnInit {
     ]
   };
 
+  slideConfig = {
+    "slidesToShow": 5, "slidesToScroll": 4, "dots": true,
+    "fade": false, "loop": true, "arrows": true, "responsive": [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
+  };
+
   constructor(
     private productService: ProductService,
     private _location: Location,
@@ -110,10 +143,10 @@ export class ProductDetailsPage implements OnInit {
               this.pictureIds.push(gallery.id)
             });
           }
-          console.log(res);
 
           this.tags = res.data.metaKeywords.split(",");
           this.setMetaTags(res.data)
+          this.getRelated();
 
           this.isDataLoaded = true;
           this.loading.loadingOff();
@@ -219,5 +252,12 @@ export class ProductDetailsPage implements OnInit {
     } else {
       this.addToCart();
     }
+  }
+
+  getRelated(){
+    this.productService.getRelatedProducts(this.product.id)
+      .subscribe(res => {
+        this.relatedProducts = res.data;
+      });
   }
 }
