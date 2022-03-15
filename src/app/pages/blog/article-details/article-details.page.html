@@ -18,7 +18,8 @@
               </ul>
             </div>
           </div>
-          <img [src]="baseArticleImgPath + article.imagePath" [alt]="article.imageAlt" [title]="article.imageTitle">
+          <img [src]="baseArticleImgPath + '/original/' + article.imagePath" [alt]="article.imageAlt"
+            [title]="article.imageTitle">
           <div [innerHtml]="article.text"></div>
           <div class="blog-tag-share-wrap">
             <div class="blog-tag-wrap">
@@ -48,18 +49,11 @@
           <div class="blog-prev-next-wrap">
             <div class="row">
               <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                <div class="blog-prev-next-style blog-prev-position">
-                  <a href="#">
-                    <img src="assets/images/blog/prev.jpg" alt="">
-                    <h4> روزمره روزانه برای یک زندگی سالم </h4>
-                  </a>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-12 col-sm-6">
-                <div class="blog-prev-next-style blog-next-position">
-                  <a href="#">
-                    <img src="assets/images/blog/next.jpg" alt="">
-                    <h4> محققان پزشکی دقیق ژن های جدید آلزایمر را شناسایی می کنند </h4>
+                <div *ngFor="let relatedArticle of relatedArticles" class="blog-prev-next-style blog-prev-position">
+                  <a [routerLink]="'/blog/i/' + relatedArticle.slug">
+                    <img [src]="baseArticleImgPath + '/thumbnail/' + relatedArticle.imagePath"
+                      [alt]="relatedArticle.imageAlt" [title]="relatedArticle.imageTitle">
+                    <h4> {{ relatedArticle.title }} </h4>
                   </a>
                 </div>
               </div>
