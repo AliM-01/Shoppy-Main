@@ -87,4 +87,21 @@ export class ArticleService {
         })
       );
   }
+
+  getRelatedArticles(articleId: string): Observable<IResponse<ArticleModel[]>> {
+    this.loading.loadingOn();
+
+    return this.http.get<IResponse<ArticleModel[]>>
+      (`${environment.blogBaseApiUrl}/article/get-related/${articleId}`)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
 }
