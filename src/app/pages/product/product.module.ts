@@ -9,12 +9,13 @@ import { SearchProductPage } from './search-product/search-product.page';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ProductDetailsPage } from './product-details/product-details.page';
 import { CommentModule } from '@apppages/comment/comment.module';
-import { CartService } from '@app_services/order/cart.service';
+import { ProductDetailsRelatedProductsComponent } from './product-details/product-details-related-products/product-details-related-products.component';
 
 @NgModule({
   declarations: [
     SearchProductPage,
-    ProductDetailsPage
+    ProductDetailsPage,
+    ProductDetailsRelatedProductsComponent
   ],
   imports: [
     CommonModule,

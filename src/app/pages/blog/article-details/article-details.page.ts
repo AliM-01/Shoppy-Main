@@ -8,6 +8,7 @@ import { ArticleService } from '@app_services/blog/article/article.service';
 import { ArticleDetailsModel } from '@app_models/blog/article/article-details';
 import { ArticleCategoryService } from '@app_services/blog/article-category/article-category.service';
 import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
+import { ArticleModel } from '../../../_models/blog/article/article';
 
 @Component({
   selector: 'article-details',
@@ -19,9 +20,10 @@ export class ArticleDetailsPage implements OnInit {
   private pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
   isDataLoaded: boolean = false;
-  baseArticleImgPath: string = environment.productPictureBaseImagePath + '/original/';
-  articleCategories: ArticleCategoryModel[] = [];
+  baseArticleImgPath: string = environment.productPictureBaseImagePath;
 
+  articleCategories: ArticleCategoryModel[] = [];
+  relatedArticles: ArticleModel[] = [];
 
   constructor(
     private articleService: ArticleService,
@@ -56,6 +58,7 @@ export class ArticleDetailsPage implements OnInit {
         this.article = res.data;
 
         this.setMetaTags(res.data)
+        this.getRelated();
 
         this.isDataLoaded = true;
       }
@@ -74,5 +77,12 @@ export class ArticleDetailsPage implements OnInit {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { charset: 'UTF-8'}
     ]);
+  }
+
+  getRelated(){
+    this.articleService.getRelatedArticles(this.article.id)
+      .subscribe(res => {
+        this.relatedArticles = res.data;
+      })
   }
 }

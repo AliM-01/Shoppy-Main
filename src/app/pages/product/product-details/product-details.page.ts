@@ -10,6 +10,7 @@ import { LoadingService } from '../../../_services/_common/loading/loading.servi
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { CartService } from '@app_services/order/cart.service';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
+import { ProductModel } from '../../../_models/shop/product/product';
 
 @Component({
   selector: 'product-details',
@@ -20,6 +21,7 @@ export class ProductDetailsPage implements OnInit {
   countToAddToCart: number = 1;
 
   product: ProductDetailsModel;
+
   private pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
   isDataLoaded: boolean = false;
@@ -110,7 +112,6 @@ export class ProductDetailsPage implements OnInit {
               this.pictureIds.push(gallery.id)
             });
           }
-          console.log(res);
 
           this.tags = res.data.metaKeywords.split(",");
           this.setMetaTags(res.data)
