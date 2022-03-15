@@ -40,7 +40,7 @@ export class ProductService {
   searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
 
     this.loading.loadingOn();
-    
+
     let params = new HttpParams()
       .set('PageId', search.pageId.toString())
       .set('TakePage', search.takePage.toString())
@@ -52,7 +52,7 @@ export class ProductService {
     if(search.phrase !== "" && search.phrase !== undefined){
       params.set('Phrase', search.phrase);
     }
-    
+
     if (search.selectedCategories !== null && search.selectedCategories?.length) {
       for (let category of search.selectedCategories) {
         params = params.append('SelectedCategories', category);
@@ -80,6 +80,23 @@ export class ProductService {
 
     return this.http.get<IResponse<ProductDetailsModel>>
       (`${environment.shopBaseApiUrl}/product/${slug}`)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
+
+  getRelatedProducts(productId: string): Observable<IResponse<ProductModel[]>> {
+    this.loading.loadingOn();
+
+    return this.http.get<IResponse<ProductModel[]>>
+      (`${environment.shopBaseApiUrl}/product/get-related/${productId}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
