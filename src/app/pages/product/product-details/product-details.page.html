@@ -151,13 +151,7 @@
         </div>
       </div>
 
-      <div class="col-lg-12 col-md-12 col-12" *ngIf="relatedProducts.length > 0">
-        <ngx-slick-carousel #slickModal="slick-carousel" [config]="slideConfig">
-          <app-product-box ngxSlickItem *ngFor="let relatedProduct of relatedProducts" [product]="relatedProduct"
-            class="product-plr-1"></app-product-box>
-
-        </ngx-slick-carousel>
-      </div>
+      <product-details-related-products [productId]="product.id" class="col-lg-12 col-md-12 col-12"></product-details-related-products>
 
     </div>
   </div>

@@ -21,7 +21,6 @@ export class ProductDetailsPage implements OnInit {
   countToAddToCart: number = 1;
 
   product: ProductDetailsModel;
-  relatedProducts: ProductModel[] = [];
 
   private pageTitleSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
   pageTitle$: Observable<string> = this.pageTitleSubject.asObservable();
@@ -67,36 +66,6 @@ export class ProductDetailsPage implements OnInit {
         slidesToShow: 2,
       }
     }
-    ]
-  };
-
-  slideConfig = {
-    "slidesToShow": 5, "slidesToScroll": 4, "dots": true,
-    "fade": false, "loop": true, "arrows": true, "responsive": [
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 575,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
     ]
   };
 
@@ -146,7 +115,6 @@ export class ProductDetailsPage implements OnInit {
 
           this.tags = res.data.metaKeywords.split(",");
           this.setMetaTags(res.data)
-          this.getRelated();
 
           this.isDataLoaded = true;
           this.loading.loadingOff();
@@ -252,12 +220,5 @@ export class ProductDetailsPage implements OnInit {
     } else {
       this.addToCart();
     }
-  }
-
-  getRelated(){
-    this.productService.getRelatedProducts(this.product.id)
-      .subscribe(res => {
-        this.relatedProducts = res.data;
-      });
   }
 }
