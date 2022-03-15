@@ -40,4 +40,23 @@ export class OrderService {
         })
       );
   }
+
+  checkout(): Observable<IResponse<CartModel>> {
+    this.loading.loadingOn();
+
+    const itemsData = this.cartService.getCartItems();
+
+    return this.http.post<IResponse<CartModel>>
+      (`${environment.orderBaseApiUrl}/checkout`, itemsData)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
 }
