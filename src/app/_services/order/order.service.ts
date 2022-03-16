@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
@@ -11,6 +11,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { InitializePaymentRequestModel } from '@app_models/order/initialize-payment-request';
 import { InitializePaymentResponseModel } from '@app_models/order/initialize-payment-response';
 import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
+import { VerifyPaymentRequestModel } from '../../_models/order/verify-payment-request';
 
 @Injectable({
   providedIn: 'any',
@@ -83,8 +84,36 @@ export class OrderService {
   initializePaymentRequest(payment: InitializePaymentRequestModel): Observable<IResponse<InitializePaymentResponseModel>> {
     this.loading.loadingOn();
 
+    let params = new HttpParams()
+      .set("amount", payment.amount)
+      .set("callBackUrl", payment.callBackUrl)
+      .set("email", payment.email)
+      .set("orderId", payment.orderId)
+
     return this.http.post<IResponse<InitializePaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/initialize-payment`, payment)
+      (`${environment.orderBaseApiUrl}/initialize-payment`, { params })
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
+
+  verifyPayment(payment: VerifyPaymentRequestModel, status: string): Observable<IResponse<InitializePaymentResponseModel>> {
+    this.loading.loadingOn();
+
+    let params = new HttpParams()
+      .set("authority", payment.authority)
+      .set("status", status)
+      .set("oId", payment.orderId);
+
+    return this.http.post<IResponse<InitializePaymentResponseModel>>
+      (`${environment.orderBaseApiUrl}/verify-payment`, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
