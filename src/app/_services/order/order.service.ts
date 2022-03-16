@@ -10,6 +10,7 @@ import { CartService } from './cart.service';
 import { tap, catchError } from 'rxjs/operators';
 import { InitializePaymentRequestModel } from '@app_models/order/initialize-payment-request';
 import { InitializePaymentResponseModel } from '@app_models/order/initialize-payment-response';
+import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
 
 @Injectable({
   providedIn: 'any',
@@ -50,6 +51,23 @@ export class OrderService {
 
     return this.http.post<IResponse<CartModel>>
       (`${environment.orderBaseApiUrl}/checkout`, itemsData)
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
+
+  placeOrder(cart: CartModel): Observable<IResponse<PlaceOrderResponseModel>> {
+    this.loading.loadingOn();
+
+    return this.http.post<IResponse<PlaceOrderResponseModel>>
+      (`${environment.orderBaseApiUrl}/place-order`, cart)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
