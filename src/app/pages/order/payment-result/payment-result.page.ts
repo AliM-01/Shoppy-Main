@@ -35,17 +35,16 @@ export class PaymentResultPage implements OnInit {
   ngOnInit(): void {
     this.loading.loadingOn();
 
-    this.authority = this.activatedRoute.snapshot.queryParams["authority"];
+    this.authority = this.activatedRoute.snapshot.queryParams["Authority"];
     this.orderId = this.activatedRoute.snapshot.queryParams["oId"];
+    const status = this.activatedRoute.snapshot.queryParams["Status"];
 
     console.log('authority', this.authority);
     console.log('orderId', this.orderId);
 
-    if (this.orderId === undefined || this.orderId === '') {
+    if (this.authority === undefined) {
       this.router.navigate(['/']);
     } else {
-      const status = this.activatedRoute.snapshot.queryParams["status"];
-
       console.log('status', status);
 
       if (status !== "OK") {

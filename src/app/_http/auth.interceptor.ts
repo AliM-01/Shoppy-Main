@@ -42,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 0)) {
           return this.handle401Error(request, next);
         } else {
-          this.router.navigate(["/auth/login"]);
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2000})
           return throwError(error);
         }
       }));
@@ -61,7 +61,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.refreshTokenSubject.next(res.data.accessToken);
           return next.handle(this.addToken(request, res.data.accessToken));
         }),
-        catchError((error) => {
+        catchError((error: HttpErrorResponse) => {
           this.router.navigate(["/auth/login"]);
           return throwError(error);
         })

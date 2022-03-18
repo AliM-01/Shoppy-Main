@@ -67,13 +67,13 @@ export class CheckoutPage implements OnInit {
     this.loading.loadingOn();
 
     const payment = new InitializePaymentRequestModel(oId,
-      this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack");
+      this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack?oId=" + oId);
 
     this.orderService.initializePaymentRequest(payment)
       .subscribe(res => {
         console.log('initializePaymentRequest', res);
 
-        this.loading.loadingOn();
+        this.loading.loadingOff();
         window.location.href = res.data.redirectUrl;
 
       });
