@@ -5,6 +5,17 @@
     <div class="row">
       <div class="col-12">
 
+        <div class="cart-table-content container" *ngIf="!isVerified">
+          <div class="alert alert-success" role="alert">در حال پردازش پرداخت ...</div>
+        </div>
+
+        <div class="cart-table-content container" *ngIf="isVerified">
+          <div [ngClass]="{ 'alert-success': isResultSuccess }" [ngClass]="{ 'alert-danger': !isResultSuccess }"
+           class="alert" role="alert">{{ resultMsg }}</div>
+          <hr />
+          <div class="alert alert-info" role="alert">کد پیگیری خرید : {{resultIssueTracking}}</div>
+        </div>
+
       </div>
     </div>
   </div>
