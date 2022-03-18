@@ -13,6 +13,7 @@ import { InitializePaymentResponseModel } from '@app_models/order/initialize-pay
 import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
 import { VerifyPaymentRequestModel } from '../../_models/order/verify-payment-request';
 import { BrowserStorageService } from '@app_services/auth/browser-storage.service';
+import { VerifyPaymentResponseModel } from '@app_models/order/verify-payment-response';
 
 @Injectable({
   providedIn: 'any',
@@ -109,14 +110,14 @@ export class OrderService {
       );
   }
 
-  verifyPayment(payment: VerifyPaymentRequestModel): Observable<IResponse<InitializePaymentResponseModel>> {
+  verifyPayment(payment: VerifyPaymentRequestModel): Observable<IResponse<VerifyPaymentResponseModel>> {
     this.loading.loadingOn();
 
     let params = new HttpParams()
       .set("authority", payment.authority)
       .set("oId", payment.orderId);
 
-    return this.http.post<IResponse<InitializePaymentResponseModel>>
+    return this.http.post<IResponse<VerifyPaymentResponseModel>>
       (`${environment.orderBaseApiUrl}/verify-payment`, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
