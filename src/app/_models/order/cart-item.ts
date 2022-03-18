@@ -3,6 +3,7 @@ export class CartItemModel {
   title: string;
   slug: string;
   unitPrice: number;
+  unitPriceWithDiscount: number;
   imagePath: string;
   imageAlt: string;
   imageTitle: string;

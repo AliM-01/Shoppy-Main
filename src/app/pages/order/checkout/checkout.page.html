@@ -6,20 +6,6 @@
       <div class="col-12">
         <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
 
-          <div *ngFor="let item of cart.items" class="container mb-4">
-            <p class="alert alert-warning"
-              *ngIf="(item.itemInInventoryCountIsLowerThanRequestedCount && !item.isNotInStock)">کالای
-              {{item.title}} با تعداد درخواستی در انبار موجود
-              نمی باشد
-            </p>
-
-            <p class="alert alert-warning"
-              *ngIf="(item.isNotInStock && !item.itemInInventoryCountIsLowerThanRequestedCount)">
-              کالای {{item.title}} در انبار موجود نمی باشد
-            </p>
-
-          </div>
-
           <div class="table-content table-responsive">
             <table>
               <thead>
@@ -27,7 +13,6 @@
                   <th class="width-thumbnail">محصول</th>
                   <th class="width-name"></th>
                   <th class="width-price"> قیمت</th>
-                  <th class="width-subtotal">جمع کل</th>
                   <th class="width-subtotal">تخفیف</th>
                   <th class="width-subtotal">مبلغ قابل پرداخت</th>
                 </tr>
@@ -35,25 +20,31 @@
               <tbody>
 
                 <tr *ngFor="let item of cart.items">
+
                   <td class="product-thumbnail">
-                    <a href="#">
+                    <a [routerLink]="'/product/details/' + item.slug">
                       <img [src]="baseProductPath + item.imagePath" [alt]="item.imageAlt" [title]="item.imageTitle">
                     </a>
                   </td>
+
                   <td class="product-name">
                     <h5>
-                      <a href="#"> {{item.title }} </a>
+                      <a [routerLink]="'/product/details/' + item.slug"> {{item.title }} </a>
                     </h5>
                   </td>
-                  <td class="product-price"><span class="amount">{{item.unitPrice | thousandSeparator}} تومان</span>
+
+                  <td class="product-price">
+                    <span class="amount">{{item.unitPriceWithDiscount | thousandSeparator}} تومان</span>
                   </td>
 
-                  <td class="product-total"><span>{{item.totalItemPrice | thousandSeparator}} تومان</span></td>
+                  <td class="product-price">
+                    <div *ngIf="item.discountRate > 0">
+                      <span> {{item.discountRate}} درصد</span>
+                    </div>
 
-                  <td class="product-total">
-                    <span> {{item.discountRate}} درصد</span>
-                    <br />
-                    <span> {{item.discountAmount | thousandSeparator}} تومان</span>
+                    <p *ngIf="item.discountRate == 0" class="alert alert-warning p-1">
+                      برای این محصول تخفیف وجود ندارد
+                    </p>
                   </td>
 
                   <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
@@ -63,9 +54,7 @@
             </table>
           </div>
         </div>
-        <div class="cart-table-content" *ngIf="!(cart.items.length > 0)">
-          <div class="alert alert-warning">سبد خرید شما خالی می باشد</div>
-        </div>
+
       </div>
     </div>
     <div class="row" *ngIf="(cart.items.length > 0)">
