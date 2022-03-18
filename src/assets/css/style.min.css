@@ -3869,22 +3869,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button a {
-    display: inline-block;
-    font-size: 15px;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 50px;
-    line-height: 1;
-    padding: 16px 42px 17px;
-    background-color: #4e97fd
+  display: inline-block;
+  color: #ffffff;
+  border-radius: 1.4em;
+  text-align: center;
+  padding: 1em;
+  background-color: #4e97fd;
 }
 
-@media only screen and (max-width: 767px) {
-    .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button a {
-        padding: 12px 22px 13px
-    }
+.cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button .delete {
+  background-color: #f7492b;
 }
-
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button a:hover {
     background-color: #e4573d
 }

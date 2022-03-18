@@ -31,12 +31,22 @@
     <div class="shopping-cart-total">
       <h4>جمع کل<span>{{ cartPrice | thousandSeparator }} تومان</span></h4>
     </div>
-    <div class="shopping-cart-button">
-      <a routerLink="/cart">
-        مشاهده سبد
-        <i class="las la-shopping-cart"></i>
-      </a>
-      <a href="checkout.html"> پرداخت </a>
+    <div class="d-flex align-items-center justify-content-center">
+
+      <div class="shopping-cart-button d-flex align-items-center justify-content-center">
+        <a routerLink="/cart">
+          مشاهده سبد
+          <i class="las la-shopping-cart"></i>
+        </a>
+      </div>
+
+      <div class="shopping-cart-button d-flex align-items-center justify-content-center">
+        <a routerLink="/cart" class="delete">
+          حذف
+        <i class="las la-trash"></i>
+        </a>
+      </div>
+
     </div>
   </div>
 </div>

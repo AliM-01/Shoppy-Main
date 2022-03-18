@@ -88,11 +88,11 @@
           <div class="cart-shiping-update-wrapper">
             <div class="continure-clear-btn">
               <div class="clear-btn">
-                <a (click)="clearCart()"><i class="las la-times"></i> پاک کردن سبد خرید </a>
+                <a (click)="clearCart()"><i class="las la-times text-danger"></i> پاک کردن سبد خرید </a>
               </div>
             </div>
-            <div *ngIf="!(cart.items.length > 0)" class="update-btn">
-              <a routerLink="/cart/checkout"> ادامه خرید </a>
+            <div *ngIf="(cart.items.length > 0)" class="update-btn">
+              <a routerLink="/cart/checkout"> پردازش </a>
             </div>
           </div>
         </div>
