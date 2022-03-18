@@ -7,11 +7,13 @@ import { OrderRoutingModule } from './order.routing.module';
 import { CartPage } from './cart/cart.page';
 import { PipesModule } from '../../_pipes/pipes.module';
 import { CheckoutPage } from './checkout/checkout.page';
+import { PaymentResultPage } from './payment-result/payment-result.page';
 
 @NgModule({
   declarations: [
     CartPage,
-    CheckoutPage
+    CheckoutPage,
+    PaymentResultPage
   ],
   imports: [
     CommonModule,
