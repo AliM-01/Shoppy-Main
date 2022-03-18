@@ -7,6 +7,8 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
 import { Title } from '@angular/platform-browser';
 import { CartService } from '@app_services/order/cart.service';
 import { InitializePaymentRequestModel } from '@app_models/order/initialize-payment-request';
+import { AuthService } from '@app_services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -19,6 +21,8 @@ export class CheckoutPage implements OnInit {
 
   constructor(
     private orderService: OrderService,
+    private authService: AuthService,
+    private router: Router,
     private loading: LoadingService,
     private title: Title,
     private msg: MessengerService,
@@ -41,23 +45,33 @@ export class CheckoutPage implements OnInit {
 
   pay() {
     this.loading.loadingOn();
-    this.orderService.placeOrder(this.cart)
-      .subscribe((res) => {
+    this.authService.isUserLoggedInRequest().subscribe(res => {
+      if(!res){
+        this.router.navigate(['/auth/login'])
+      } if(res){
+        this.orderService.placeOrder(this.cart)
+        .subscribe((res) => {
+          console.log('placeOrder', res);
 
-        const payment = new InitializePaymentRequestModel(res.data.orderId,
-          this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack", "a@gmail.com");
+          this.paymentRedirect(res.data.orderId);
 
-        this.paymentRedirect(payment);
-      }, () => {
-        this.ngOnInit();
-      })
+        }, () => {
+          this.ngOnInit();
+        })
+      }
+    })
+
   }
 
-  paymentRedirect(payment: InitializePaymentRequestModel) {
+  paymentRedirect(oId: string) {
     this.loading.loadingOn();
+
+    const payment = new InitializePaymentRequestModel(oId,
+      this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack");
 
     this.orderService.initializePaymentRequest(payment)
       .subscribe(res => {
+        console.log('initializePaymentRequest', res);
 
         this.loading.loadingOn();
         window.location.href = res.data.redirectUrl;

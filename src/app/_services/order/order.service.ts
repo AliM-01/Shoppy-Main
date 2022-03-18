@@ -92,12 +92,11 @@ export class OrderService {
 
     let params = new HttpParams()
       .set("amount", payment.amount)
-      .set("callBackUrl", payment.callBackUrl)
-      .set("email", payment.email)
-      .set("orderId", payment.orderId)
+      .set("callBack", payment.callBackUrl)
+      .set("oId", payment.orderId)
 
     return this.http.post<IResponse<InitializePaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/initialize-payment`, { params })
+      (`${environment.orderBaseApiUrl}/initialize-payment`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -118,7 +117,7 @@ export class OrderService {
       .set("oId", payment.orderId);
 
     return this.http.post<IResponse<VerifyPaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/verify-payment`, { params })
+      (`${environment.orderBaseApiUrl}/verify-payment`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
