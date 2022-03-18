@@ -12,6 +12,7 @@ import { InitializePaymentRequestModel } from '@app_models/order/initialize-paym
 import { InitializePaymentResponseModel } from '@app_models/order/initialize-payment-response';
 import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
 import { VerifyPaymentRequestModel } from '../../_models/order/verify-payment-request';
+import { BrowserStorageService } from '@app_services/auth/browser-storage.service';
 
 @Injectable({
   providedIn: 'any',
@@ -23,6 +24,7 @@ export class OrderService {
     private cartService: CartService,
     private toastr: ToastrService,
     private loading: LoadingService,
+    private browserStorageService: BrowserStorageService
   ) {
   }
 
@@ -70,7 +72,10 @@ export class OrderService {
     return this.http.post<IResponse<PlaceOrderResponseModel>>
       (`${environment.orderBaseApiUrl}/place-order`, cart)
       .pipe(
-        tap(() => this.loading.loadingOff()),
+        tap((res) => {
+          this.loading.loadingOff()
+          this.browserStorageService.setLocal("cart_order_id", res.data.orderId);
+        }),
         catchError((error: HttpErrorResponse) => {
 
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
@@ -104,12 +109,11 @@ export class OrderService {
       );
   }
 
-  verifyPayment(payment: VerifyPaymentRequestModel, status: string): Observable<IResponse<InitializePaymentResponseModel>> {
+  verifyPayment(payment: VerifyPaymentRequestModel): Observable<IResponse<InitializePaymentResponseModel>> {
     this.loading.loadingOn();
 
     let params = new HttpParams()
       .set("authority", payment.authority)
-      .set("status", status)
       .set("oId", payment.orderId);
 
     return this.http.post<IResponse<InitializePaymentResponseModel>>

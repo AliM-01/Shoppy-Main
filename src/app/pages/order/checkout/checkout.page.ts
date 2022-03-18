@@ -6,6 +6,7 @@ import { LoadingService } from '@app_services/_common/loading/loading.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { Title } from '@angular/platform-browser';
 import { CartService } from '@app_services/order/cart.service';
+import { InitializePaymentRequestModel } from '@app_models/order/initialize-payment-request';
 
 @Component({
   selector: 'app-checkout',
@@ -38,4 +39,30 @@ export class CheckoutPage implements OnInit {
     })
   }
 
+  pay() {
+    this.loading.loadingOn();
+    this.orderService.placeOrder(this.cart)
+      .subscribe((res) => {
+
+        const payment = new InitializePaymentRequestModel(res.data.orderId,
+          this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack", "a@gmail.com");
+
+        this.paymentRedirect(payment);
+      }, () => {
+        this.ngOnInit();
+      })
+  }
+
+  paymentRedirect(payment: InitializePaymentRequestModel) {
+    this.loading.loadingOn();
+
+    this.orderService.initializePaymentRequest(payment)
+      .subscribe(res => {
+
+        this.loading.loadingOn();
+        window.location.href = res.data.redirectUrl;
+
+      });
+
+  }
 }
