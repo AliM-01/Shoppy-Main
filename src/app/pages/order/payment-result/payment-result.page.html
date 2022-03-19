@@ -1,19 +1,23 @@
 <app-breadcrumb [pageTitle]="'نتیجه خرید'"></app-breadcrumb>
 
 <div class="cart-area pt-75 pb-35">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-12">
 
         <div class="cart-table-content container" *ngIf="!isVerified">
-          <div class="alert alert-success" role="alert">در حال پردازش پرداخت ...</div>
+          <div class="alert alert-info text-center" role="alert">در حال پردازش پرداخت ...</div>
         </div>
 
-        <div class="cart-table-content container" *ngIf="isVerified">
-          <div [ngClass]="{ 'alert-success': isResultSuccess }" [ngClass]="{ 'alert-danger': !isResultSuccess }"
-           class="alert" role="alert">{{ resultMsg }}</div>
-          <hr />
-          <div class="alert alert-info" role="alert">کد پیگیری خرید : {{resultIssueTracking}}</div>
+        <div class="cart-table-content d-flex justify-content-center" *ngIf="isVerified">
+
+          <div *ngIf="isResultSuccess" class="alert alert-success text-center w-50" role="alert">
+            <h3>{{ resultMsg }}</h3>
+            <br />
+            <h3>کد پیگیری خرید : {{resultIssueTracking}}</h3>
+          </div>
+
+          <div *ngIf="!isResultSuccess" class="alert alert-danger text-center w-50" role="alert">{{ resultMsg }}</div>
         </div>
 
       </div>

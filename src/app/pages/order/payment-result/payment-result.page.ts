@@ -6,6 +6,7 @@ import { CartService } from '@app_services/order/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VerifyPaymentRequestModel } from '@app_models/order/verify-payment-request';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 
 @Component({
   selector: 'cart-payment-result',
@@ -25,6 +26,7 @@ export class PaymentResultPage implements OnInit {
     private orderService: OrderService,
     private loading: LoadingService,
     private activatedRoute: ActivatedRoute,
+    private msg: MessengerService,
     private router: Router,
     private title: Title,
     private cartService: CartService,
@@ -64,16 +66,20 @@ export class PaymentResultPage implements OnInit {
     this.orderService.verifyPayment(payment).subscribe((res) => {
       console.log('res', res);
 
-      this.resultMsg = res.data.msg;
+      this.resultMsg = res.data.resultMessage;
       this.resultIssueTracking = res.data.issueTracking;
       this.cartService.clearCart();
+      this.msg.sendMsg("clear cart");
+
       this.isVerified = true;
+      this.isResultSuccess = true;
 
       this.loading.loadingOff();
 
     }, (error: HttpErrorResponse) => {
       this.resultMsg = error.error.message;
       this.isVerified = true;
+      this.isResultSuccess = false;
 
     })
   }

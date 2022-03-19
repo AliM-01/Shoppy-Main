@@ -87,12 +87,14 @@ export class CartService {
   }
 
   saveCart(): void {
-    this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
+    this.cookieService.delete(CART_ITEMS_COOKIE_NAME, "/");
 
     if (this.cartItems.length > 0) {
       this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItems), 200000)
     }
+    console.log('f cart', this.cartItems);
 
+    this.loadCart();
     this.calculateAllItemsCount();
   }
 
@@ -104,11 +106,14 @@ export class CartService {
   }
 
   clearCart() {
-    this.cookieService.delete(CART_ITEMS_COOKIE_NAME);
+    console.log('clear cart');
+
+    this.cookieService.delete(CART_ITEMS_COOKIE_NAME, "/");
     this.cartItems = [];
+    console.log('clear cart', this.cartItems);
 
     this.toastr.info('محصول مورد نظر از سبد خرید حذف شد', 'اعلان', { timeOut: 1000 })
-    this.calculateAllItemsCount();
+    this.saveCart();
   }
 
   removeItem(productId: string) {
