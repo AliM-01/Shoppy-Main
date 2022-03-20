@@ -42,9 +42,9 @@
                       <span> {{item.discountRate}} درصد</span>
                     </div>
 
-                    <p *ngIf="item.discountRate == 0" class="alert alert-warning p-1">
+                    <strong *ngIf="item.discountRate == 0" class="alert alert-warning p-1">
                       برای این محصول تخفیف وجود ندارد
-                    </p>
+                    </strong>
                   </td>
 
                   <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
@@ -73,42 +73,7 @@
         </div>
       </div>
       <div class="col-lg-8 col-md-12 col-12">
-        <div class="row">
-          <!-- <div class="col-lg-6 col-md-6 col-12">
-            <div class="cart-collaterals-wrap mb-40">
-              <h4>کد تخفیف</h4>
-              <div class="collaterals-content common-form-style">
-                <p>قیمت <span>5,000 تومن</span></p>
-                <div class="select-style select-style-mrg-1">
-                  <select class="select-active">
-                    <option>استان خود را انتخاب کنید</option>
-                    <option>قم</option>
-                    <option>ایلام</option>
-                    <option>اهواز</option>
-                    <option>اصفهان</option>
-                  </select>
-                </div>
-                <div class="select-style select-style-mrg-1">
-                  <select class="select-active">
-                    <option>تهران</option>
-                    <option>قم</option>
-                    <option>ایلام</option>
-                    <option>اهواز</option>
-                    <option>اصفهان</option>
-                  </select>
-                </div>
-                <div class="input-style input-style-mb">
-                  <input type="text" placeholder="استان">
-                </div>
-                <div class="input-style input-style-mb">
-                  <input type="text" placeholder="کد پستی">
-                </div>
-                <div class="common-btn-style">
-                  <a class="common-btn-padding-2" (click)="ngOnInit()">بروز رسانی</a>
-                </div>
-              </div>
-            </div>
-          </div> -->
+        <div class="row d-flex justify-content-center">
           <div class="col-lg-6 col-md-6 col-12">
             <div class="grand-total-wrap mb-40">
               <ul>

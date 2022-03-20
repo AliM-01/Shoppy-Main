@@ -70,9 +70,9 @@
                       <span> {{item.discountRate}} درصد</span>
                     </div>
 
-                    <p *ngIf="item.discountRate == 0" class="alert alert-warning p-1">
+                    <strong *ngIf="item.discountRate == 0" class="alert alert-warning p-1">
                       برای این محصول تخفیف وجود ندارد
-                    </p>
+                    </strong>
                   </td>
 
                   <td class="product-total"><span>{{item.itemPayAmount | thousandSeparator}} تومان</span></td>
@@ -96,8 +96,8 @@
             </div>
           </div>
         </div>
-        <div class="cart-table-content container" *ngIf="!(cart.items.length > 0)">
-          <div class="alert alert-warning">سبد خرید شما خالی می باشد</div>
+        <div class="cart-table-content container d-flex justify-content-center" *ngIf="!(cart.items.length > 0)">
+          <strong class="alert alert-warning">سبد خرید شما خالی می باشد</strong>
         </div>
       </div>
     </div>

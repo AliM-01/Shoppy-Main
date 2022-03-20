@@ -1,51 +1,53 @@
 <app-breadcrumb [pageTitle]="'نتیجه خرید'"></app-breadcrumb>
 
-<div class="cart-area pt-75 pb-35">
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-3">
+<div class="container pt-75">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8">
 
-        <div class="row">
-          <div class="col-12">
-            <strong>
+      <div class="row">
 
-            </strong>
-            <img *ngIf="!isVerified" src="/assets/images/icons/processing.png" alt="در حال پردازش پرداخت" width="250"
-              height="250">
+        <div class="col-12 d-flex justify-content-center mb-3">
+
+          <strong>
+
+            <img *ngIf="!isVerified" src="/assets/images/icons/processing.png" alt="در حال پردازش پرداخت" width="300"
+              height="300">
 
             <img *ngIf="isVerified && isResultSuccess" src="/assets/images/icons/payment_success.png" [alt]="resultMsg"
-              width="250" height="250">
+              width="300" height="300">
 
             <img *ngIf="isVerified && !isResultSuccess" src="/assets/images/icons/error.png" [alt]="resultMsg"
-              width="250" height="250">
+              width="300" height="300">
 
-          </div>
+          </strong>
 
-          <br />
-          <div class="col-12">
+        </div>
 
-            <p *ngIf="isResultSuccess">
-              <strong>در حال پردازش پرداخت ...</strong>
-            </p>
+        <br />
 
-            <p *ngIf="isVerified && isResultSuccess">
-              <strong>{{ resultMsg }}</strong>
-              <br />
-              کد پیگیری خرید : {{resultIssueTracking}}
+        <div class="col-12 text-center">
 
-              از خریدتان متشکریم.
-              پرداخت شما با موفقیت در فروشگاه اینترنتی خانه سام ثبت شد و سفارش شما در نوبت پردازش قرار گرفت.
-            </p>
+          <h3 *ngIf="!isVerified">در حال پردازش پرداخت ...
+          </h3>
 
-            <p *ngIf="isVerified && !isResultSuccess">
-              <strong class="text-daner">{{ resultMsg }}</strong>
-            </p>
+          <h4  style="font-size: 1.3em;" *ngIf="isVerified && isResultSuccess" style="text-align: justify;">
+            <strong style="font-size: 1.4em;" class="text-success">{{ resultMsg }}</strong>
+            <br />
+            <strong style="font-size: 1.4em;">کد پیگیری خرید : {{resultIssueTracking}}</strong>
 
-          </div>
+            <br>
+            از خریدتان متشکریم.
+            پرداخت شما با موفقیت در فروشگاه اینترنتی خانه سام ثبت شد و سفارش شما در نوبت پردازش قرار گرفت.
+
+
+          </h4>
+
+          <h3 *ngIf="isVerified && !isResultSuccess" class="text-daner">{{ resultMsg }}</h3>
 
         </div>
 
       </div>
+
     </div>
   </div>
 </div>
