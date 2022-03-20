@@ -2,22 +2,47 @@
 
 <div class="cart-area pt-75 pb-35">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-3">
 
-        <div class="cart-table-content container" *ngIf="!isVerified">
-          <div class="alert alert-info text-center" role="alert">در حال پردازش پرداخت ...</div>
-        </div>
+        <div class="row">
+          <div class="col-12">
+            <strong>
 
-        <div class="cart-table-content d-flex justify-content-center" *ngIf="isVerified">
+            </strong>
+            <img *ngIf="!isVerified" src="/assets/images/icons/processing.png" alt="در حال پردازش پرداخت" width="250"
+              height="250">
 
-          <div *ngIf="isResultSuccess" class="alert alert-success text-center w-50" role="alert">
-            <h3>{{ resultMsg }}</h3>
-            <br />
-            <h3>کد پیگیری خرید : {{resultIssueTracking}}</h3>
+            <img *ngIf="isVerified && isResultSuccess" src="/assets/images/icons/payment_success.png" [alt]="resultMsg"
+              width="250" height="250">
+
+            <img *ngIf="isVerified && !isResultSuccess" src="/assets/images/icons/error.png" [alt]="resultMsg"
+              width="250" height="250">
+
           </div>
 
-          <div *ngIf="!isResultSuccess" class="alert alert-danger text-center w-50" role="alert">{{ resultMsg }}</div>
+          <br />
+          <div class="col-12">
+
+            <p *ngIf="isResultSuccess">
+              <strong>در حال پردازش پرداخت ...</strong>
+            </p>
+
+            <p *ngIf="isVerified && isResultSuccess">
+              <strong>{{ resultMsg }}</strong>
+              <br />
+              کد پیگیری خرید : {{resultIssueTracking}}
+
+              از خریدتان متشکریم.
+              پرداخت شما با موفقیت در فروشگاه اینترنتی خانه سام ثبت شد و سفارش شما در نوبت پردازش قرار گرفت.
+            </p>
+
+            <p *ngIf="isVerified && !isResultSuccess">
+              <strong class="text-daner">{{ resultMsg }}</strong>
+            </p>
+
+          </div>
+
         </div>
 
       </div>
