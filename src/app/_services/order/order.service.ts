@@ -12,7 +12,6 @@ import { InitializePaymentRequestModel } from '@app_models/order/initialize-paym
 import { InitializePaymentResponseModel } from '@app_models/order/initialize-payment-response';
 import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
 import { VerifyPaymentRequestModel } from '../../_models/order/verify-payment-request';
-import { BrowserStorageService } from '@app_services/auth/browser-storage.service';
 import { VerifyPaymentResponseModel } from '@app_models/order/verify-payment-response';
 
 @Injectable({
@@ -24,8 +23,7 @@ export class OrderService {
     private http: HttpClient,
     private cartService: CartService,
     private toastr: ToastrService,
-    private loading: LoadingService,
-    private browserStorageService: BrowserStorageService
+    private loading: LoadingService
   ) {
   }
 
@@ -75,7 +73,6 @@ export class OrderService {
       .pipe(
         tap((res) => {
           this.loading.loadingOff()
-          this.browserStorageService.setLocal("cart_order_id", res.data.orderId);
         }),
         catchError((error: HttpErrorResponse) => {
 

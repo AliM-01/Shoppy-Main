@@ -11,6 +11,7 @@ import { LoadingService } from '@loading';
 import { CartService } from '@app_services/order/cart.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { AuthInterceptor } from './_http/auth.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthInterceptor } from './_http/auth.interceptor';
     })
   ],
   providers: [
+    CookieService,
     LoadingService,
     MessengerService,
     CartService,
