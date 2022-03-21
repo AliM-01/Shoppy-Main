@@ -25,12 +25,16 @@ export class AuthInterceptor implements HttpInterceptor {
     private router: Router) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('inercept init');
 
     if(request.url.includes("refresh-token")){
+      console.log("includes");
       return next.handle(request)
     }
 
     const accessToken = this.tokenStoreService.getRawAuthToken(AuthTokenType.AccessToken);
+    console.log('accessToken', accessToken);
+
     if(!accessToken){
       return next.handle(request);
     } else {
@@ -42,7 +46,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 0)) {
           return this.handle401Error(request, next);
         } else {
-          this.toastr.error(error.error.message, 'خطا', { timeOut: 2000})
+          this.router.navigate(["/not-found"]);
           return throwError(error);
         }
       }));
@@ -61,7 +65,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.refreshTokenSubject.next(res.data.accessToken);
           return next.handle(this.addToken(request, res.data.accessToken));
         }),
-        catchError((error: HttpErrorResponse) => {
+        catchError((error) => {
           this.router.navigate(["/auth/login"]);
           return throwError(error);
         })
@@ -78,10 +82,13 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>, token: string) {
+    console.log(token);
+
     return request.clone({
       setHeaders: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token.toString()}`
       }
     });
   }
+
 }
