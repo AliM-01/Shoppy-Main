@@ -33,7 +33,7 @@ export class OrderService {
     const itemsData = this.cartService.getCartItems();
 
     return this.http.post<IResponse<CartModel>>
-      (`${environment.orderBaseApiUrl}/compute-cart`, itemsData)
+      (`${environment.orderBaseApiUrl}/cart/compute`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -52,7 +52,7 @@ export class OrderService {
     const itemsData = this.cartService.getCartItems();
 
     return this.http.post<IResponse<CartModel>>
-      (`${environment.orderBaseApiUrl}/checkout`, itemsData)
+      (`${environment.orderBaseApiUrl}/cart/checkout`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -69,7 +69,7 @@ export class OrderService {
     this.loading.loadingOn();
 
     return this.http.post<IResponse<PlaceOrderResponseModel>>
-      (`${environment.orderBaseApiUrl}/place-order`, cart)
+      (`${environment.orderBaseApiUrl}/place`, cart)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -91,7 +91,7 @@ export class OrderService {
       .set("oId", payment.orderId)
 
     return this.http.post<IResponse<InitializePaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/initialize-payment`, null, { params })
+      (`${environment.orderBaseApiUrl}/payment/initialize`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -112,7 +112,7 @@ export class OrderService {
       .set("oId", payment.orderId);
 
     return this.http.post<IResponse<VerifyPaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/verify-payment`, null, { params })
+      (`${environment.orderBaseApiUrl}/payment/verify`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
