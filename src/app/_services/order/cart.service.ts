@@ -1,10 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
-import { CookieService } from 'ngx-cookie-service'
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
+import { CookieService } from '@app_services/_common/cookie/cookie.service';
 
 export const CART_ITEMS_COOKIE_NAME: string = 'cart_items';
 
@@ -17,7 +16,6 @@ export class CartService {
   private cartItems: CartItemCookieModel[] = [];
 
   constructor(
-    private http: HttpClient,
     private cookieService: CookieService,
     private toastr: ToastrService,
     private loading: LoadingService,
@@ -90,9 +88,8 @@ export class CartService {
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME, "/");
 
     if (this.cartItems.length > 0) {
-      this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItems), 200000)
+      this.cookieService.set(CART_ITEMS_COOKIE_NAME, JSON.stringify(this.cartItems), { expires: (7*24*60*60)})
     }
-    console.log('f cart', this.cartItems);
 
     this.loadCart();
     this.calculateAllItemsCount();
@@ -106,12 +103,8 @@ export class CartService {
   }
 
   clearCart() {
-    console.log('clear cart');
-
     this.cookieService.delete(CART_ITEMS_COOKIE_NAME, "/");
     this.cartItems = [];
-    console.log('clear cart', this.cartItems);
-
     this.toastr.info('محصول مورد نظر از سبد خرید حذف شد', 'اعلان', { timeOut: 1000 })
     this.saveCart();
   }

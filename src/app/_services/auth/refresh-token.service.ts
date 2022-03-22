@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { AuthTokenType } from "@app_models/auth/auth-token-type";
 import { LoginResponseModel } from "@app_models/auth/login-response";
 import { IResponse } from "@app_models/_common/IResponse";
@@ -15,7 +15,7 @@ import { TokenStoreService } from "./token-store.service";
 })
 export class RefreshTokenService {
 
-  private refreshTokenTimerCheckId = "is_refreshToken_timer_started";
+  private REFRESH_TOKEN_TIMER_CHECK_ID = "is_refreshToken_timer_started";
   private refreshTokenSubscription: Subscription | null = null;
 
   constructor(
@@ -70,7 +70,7 @@ export class RefreshTokenService {
   invalidateCurrentTabId() {
     const currentTabId = getCurrentTabId(this.browserStorageService);
     const timerStat = this.browserStorageService.getLocal(
-      this.refreshTokenTimerCheckId
+      this.REFRESH_TOKEN_TIMER_CHECK_ID
     );
     if (timerStat && timerStat.tabId === currentTabId) {
       this.setRefreshTokenTimerStopped();
@@ -78,9 +78,6 @@ export class RefreshTokenService {
   }
 
   revokeRefreshTokenRequestModel(refreshToken: string): Observable<IResponse<LoginResponseModel>> {
-    console.log('revoke init');
-    console.log('revoke old token', refreshToken);
-
     const formData = new FormData();
 
     formData.append('RefreshToken', refreshToken);
@@ -90,7 +87,6 @@ export class RefreshTokenService {
       .pipe(
         tap((res) => {
           if (res.status === 'success') {
-            console.log("revoke result", res);
             this.tokenStoreService.storeLoginSession(res.data);
             this.deleteRefreshTokenTimerCheckId();
             this.scheduleRefreshToken(true, false);
@@ -121,7 +117,7 @@ export class RefreshTokenService {
   private isRefreshTokenTimerStartedInAnotherTab(): boolean {
 
     const currentTabId = getCurrentTabId(this.browserStorageService);
-    const timerStat = this.browserStorageService.getLocal(this.refreshTokenTimerCheckId);
+    const timerStat = this.browserStorageService.getLocal(this.REFRESH_TOKEN_TIMER_CHECK_ID);
 
     const isStarted = timerStat && timerStat.isStarted === true && timerStat.tabId !== currentTabId;
 
@@ -129,7 +125,7 @@ export class RefreshTokenService {
   }
 
   private setRefreshTokenTimerStarted(): void {
-    this.browserStorageService.setLocal(this.refreshTokenTimerCheckId,
+    this.browserStorageService.setLocal(this.REFRESH_TOKEN_TIMER_CHECK_ID,
       {
         isStarted: true,
         tabId: getCurrentTabId(this.browserStorageService)
@@ -137,11 +133,11 @@ export class RefreshTokenService {
   }
 
   private deleteRefreshTokenTimerCheckId() {
-    this.browserStorageService.removeLocal(this.refreshTokenTimerCheckId);
+    this.browserStorageService.removeLocal(this.REFRESH_TOKEN_TIMER_CHECK_ID);
   }
 
   private setRefreshTokenTimerStopped(): void {
-    this.browserStorageService.setLocal(this.refreshTokenTimerCheckId, {
+    this.browserStorageService.setLocal(this.REFRESH_TOKEN_TIMER_CHECK_ID, {
       isStarted: false,
       tabId: -1
     });
