@@ -4,14 +4,14 @@ import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
 import { IResponse } from '@app_models/_common/IResponse';
 import { Observable, throwError } from 'rxjs';
-import { CartModel } from '../../_models/order/cart';
+import { CartModel } from '@app_models/order/cart';
 import { environment } from '@environments/environment';
 import { CartService } from './cart.service';
 import { tap, catchError } from 'rxjs/operators';
 import { InitializePaymentRequestModel } from '@app_models/order/initialize-payment-request';
 import { InitializePaymentResponseModel } from '@app_models/order/initialize-payment-response';
-import { PlaceOrderResponseModel } from '../../_models/order/place-order-response';
-import { VerifyPaymentRequestModel } from '../../_models/order/verify-payment-request';
+import { PlaceOrderResponseModel } from '@app_models/order/place-order-response';
+import { VerifyPaymentRequestModel } from '@app_models/order/verify-payment-request';
 import { VerifyPaymentResponseModel } from '@app_models/order/verify-payment-response';
 
 @Injectable({
@@ -71,9 +71,7 @@ export class OrderService {
     return this.http.post<IResponse<PlaceOrderResponseModel>>
       (`${environment.orderBaseApiUrl}/place-order`, cart)
       .pipe(
-        tap((res) => {
-          this.loading.loadingOff()
-        }),
+        tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
 
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
