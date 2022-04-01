@@ -21,7 +21,7 @@ export class SliderService {
   getSlidersList(): Observable<IResponse<SliderModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<SliderModel[]>>
-    (`${environment.shopBaseApiUrl}/slider/get-list`)
+    (`${environment.shopBaseApiUrl}/slider/get-all`)
     .pipe(
       tap(() => this.loading.loadingOff()),
       catchError((error: HttpErrorResponse) => {

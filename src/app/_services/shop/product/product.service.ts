@@ -24,7 +24,7 @@ export class ProductService {
     this.loading.loadingOn();
 
     return this.http.get<IResponse<ProductModel[]>>
-      (`${environment.shopBaseApiUrl}/product/get-latest`)
+      (`${environment.shopBaseApiUrl}/product/latest`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -92,11 +92,11 @@ export class ProductService {
       );
   }
 
-  getRelatedProducts(productId: string): Observable<IResponse<ProductModel[]>> {
+  getRelatedProducts(categoryId: string): Observable<IResponse<ProductModel[]>> {
     this.loading.loadingOn();
 
     return this.http.get<IResponse<ProductModel[]>>
-      (`${environment.shopBaseApiUrl}/product/get-related/${productId}`)
+      (`${environment.shopBaseApiUrl}/product/get-related/${categoryId}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {

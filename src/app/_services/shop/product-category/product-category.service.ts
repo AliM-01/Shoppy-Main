@@ -19,11 +19,11 @@ export class ProductCategoryService {
     private toastr: ToastrService,
     private loading: LoadingService
   ) { }
-  
+
   getProductCategoriesList(): Observable<IResponse<ProductCategoryModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<ProductCategoryModel[]>>
-      (`${environment.shopBaseApiUrl}/product-category/get-list`)
+      (`${environment.shopBaseApiUrl}/product-category/get-all`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {

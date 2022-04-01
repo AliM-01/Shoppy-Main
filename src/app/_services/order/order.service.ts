@@ -91,7 +91,7 @@ export class OrderService {
       .set("oId", payment.orderId)
 
     return this.http.post<IResponse<InitializePaymentResponseModel>>
-      (`${environment.orderBaseApiUrl}/payment/initialize`, null, { params })
+      (`${environment.orderBaseApiUrl}/payment/init`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {

@@ -16,11 +16,11 @@ export class ArticleCategoryService {
     private toastr: ToastrService,
     private loading: LoadingService
   ) { }
-  
+
   getArticleCategoriesList(): Observable<IResponse<ArticleCategoryModel[]>> {
     this.loading.loadingOn();
     return this.http.get<IResponse<ArticleCategoryModel[]>>
-      (`${environment.blogBaseApiUrl}/article-category/get-list`)
+      (`${environment.blogBaseApiUrl}/article-category/get-all`)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
