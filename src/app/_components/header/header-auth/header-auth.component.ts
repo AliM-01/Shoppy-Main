@@ -9,7 +9,7 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
     <div class="header-action">
         <div *ngIf="!isLoggedIn" class="d-flex">
           <a (click)="navigateTo('/auth/login')" class="h6">
-            ورود به حساب
+              ورود به حساب
             <i class="las la-user"></i>
           </a>
           <a (click)="navigateTo('/auth/register')" class="h6 ml-3">
@@ -19,6 +19,9 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
         </div>
 
         <div *ngIf="isLoggedIn" class="d-flex">
+          <a routerLink="/user-profile" class="h6">
+              <i class="la la-user"></i>
+          </a>
           <a (click)="authService.logout(true)" class="h6">
             خروج
           </a>
