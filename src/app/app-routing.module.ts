@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPage } from '@apppages/not-found/not-found.page';
-import { AuthGuard } from '@app_guards/auth/auth.guard';
 import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
@@ -29,8 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'user-profile',
-    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfileModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfileModule)
   },
   { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
