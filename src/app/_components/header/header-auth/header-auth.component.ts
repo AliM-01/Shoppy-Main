@@ -5,29 +5,7 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
 
 @Component({
   selector: 'app-header-auth',
-  template: `
-    <div class="header-action">
-        <div *ngIf="!isLoggedIn" class="d-flex">
-          <a (click)="navigateTo('/auth/login')" class="h6">
-              ورود به حساب
-            <i class="las la-user"></i>
-          </a>
-          <a (click)="navigateTo('/auth/register')" class="h6 ml-3">
-            / ثبت نام
-            <i class="las la-user"></i>
-          </a>
-        </div>
-
-        <div *ngIf="isLoggedIn" class="d-flex">
-          <a routerLink="/user-profile" class="h6">
-              <i class="la la-user"></i>
-          </a>
-          <a (click)="authService.logout(true)" class="h6">
-            خروج
-          </a>
-        </div>
-    </div>
-  `
+  templateUrl: './header-auth.component.html'
 })
 export class HeaderAuthComponent implements OnInit {
 
