@@ -1,12 +1,12 @@
 <div class="header-action">
 
   <div class="d-flex">
-    <a class="h6">
+    <a *ngIf="!isChecked" class="h6 header-sync-icon rotating">
       <i class="las la-sync"></i>
     </a>
   </div>
 
-  <!-- <div *ngIf="isChecked && !isLoggedIn" class="d-flex">
+  <div *ngIf="isChecked && !isLoggedIn" class="d-flex">
 
     <a (click)="navigateTo('/auth/login')" class="h6">
       ورود به حساب
@@ -28,5 +28,5 @@
 
     <a (click)="authService.logout(true)" class="h6">خروج</a>
 
-  </div> -->
+  </div>
 </div>
