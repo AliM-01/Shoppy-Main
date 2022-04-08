@@ -3357,6 +3357,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     align-items: center
 }
 
+.header-action .la-sync {
+  color: #3777cd !important;
+}
+
 .search-style-1 {
     margin-left: 28px
 }

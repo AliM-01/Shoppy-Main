@@ -9,6 +9,7 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
 })
 export class HeaderAuthComponent implements OnInit {
 
+  isChecked: boolean = false;
   isLoggedIn: boolean = false;
 
   constructor(
@@ -31,6 +32,7 @@ export class HeaderAuthComponent implements OnInit {
   checkAuth() {
     this.authService.isUserLoggedInRequest().subscribe(res => {
       this.isLoggedIn = res;
+      this.isChecked = true;
     })
   }
 
