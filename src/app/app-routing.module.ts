@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'cart',
     loadChildren: () => import('./pages/order/order.module').then(m => m.OrderModule)
   },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfileModule)
+  },
   { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
 

@@ -45,7 +45,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private checkIsLoggedIn(): Promise<boolean> {
-    return this.authService.isAuthUserLoggedIn()
+    return this.authService.isUserLoggedInRequest()
       .toPromise()
       .then(res => {
         if (res) {

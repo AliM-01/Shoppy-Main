@@ -3357,6 +3357,47 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     align-items: center
 }
 
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.header-sync-icon i {
+  color: #3777cd !important;
+  font-size: 1.8em;
+}
+
 .search-style-1 {
     margin-left: 28px
 }
@@ -14323,90 +14364,104 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     background-color: #e4573d
 }
 
-.myaccount-tab-menu {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column
+.user-sidebar {
+  background-color: #0f51ab;
+  border-radius: 2em;
+  padding: 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column
 }
 
-.myaccount-tab-menu a {
-    border: 1px solid #eee;
-    border-bottom: none;
-    font-weight: 500;
-    font-size: 16px;
-    display: block;
-    color: #444;
-    padding: 15px 30px;
-    text-transform: capitalize
+.user-sidebar .user-sidebar-profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
-.myaccount-tab-menu a:last-child {
-    border-bottom: 1px solid #eee
+.user-sidebar .user-sidebar-profile-img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
 
-.myaccount-tab-menu a:hover, .myaccount-tab-menu a.active {
-    background-color: #4e97fd;
-    border-color: #4e97fd;
-    color: #ffffff
+.user-sidebar a {
+  border-bottom: none;
+  font-weight: 500;
+  font-size: 16px;
+  display: block;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+  color: #fff !important;
+  padding: 15px 30px;
 }
 
-.myaccount-tab-menu a i.las {
-    font-size: 14px;
+.user-sidebar a:hover, .user-sidebar a.active {
+  background-color: #3777cd;
+  color: #fff;
+  border: #3777cd 1px solid;
+  padding: 15px 30px;
+  border-radius: 0.85em;
+}
+
+.user-sidebar a i {
+    font-size: 1.6em;
     text-align: center;
     width: 25px
 }
 
 @media only screen and (max-width: 767px) {
-    #myaccountContent {
+    .user-sidebar-content-wrapper {
         margin-top: 30px
     }
 }
 
-.myaccount-content .welcome p {
+.user-sidebar-content .welcome p {
     font-size: 15px;
     margin: 0 0 23px
 }
 
-.myaccount-content .welcome p a {
+.user-sidebar-content .welcome p a {
     color: #444
 }
 
-.myaccount-content .welcome p a:hover {
+.user-sidebar-content .welcome p a:hover {
     color: #4e97fd
 }
 
-.myaccount-content .welcome p strong {
+.user-sidebar-content .welcome p strong {
     font-weight: 700
 }
 
-.myaccount-content p {
+.user-sidebar-content p {
     font-size: 15px;
     line-height: 1.74
 }
 
-.myaccount-content p a {
+.user-sidebar-content p a {
     color: #444
 }
 
-.myaccount-content p a:hover {
+.user-sidebar-content p a:hover {
     color: #4e97fd
 }
 
-.myaccount-content .account-details-form .account-info label {
+.user-sidebar-content .account-details-form .account-info label {
     font-size: 15px;
     color: #444;
     margin: 0 0 3px
 }
 
 @media only screen and (max-width: 767px) {
-    .myaccount-content .account-details-form .account-info.mb-30 {
+    .user-sidebar-content .account-details-form .account-info.mb-30 {
         margin-bottom: 15px
     }
 }
 
-.myaccount-content .account-details-form span {
+.user-sidebar-content .account-details-form span {
     font-style: italic;
     font-size: 15px;
     color: #444;
@@ -14414,25 +14469,25 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: block
 }
 
-.myaccount-content .account-details-form fieldset {
+.user-sidebar-content .account-details-form fieldset {
     padding: 1.55em 1.625em 3em;
     border: 1px solid #eee;
     margin: 30px 0 36px
 }
 
 @media only screen and (max-width: 767px) {
-    .myaccount-content .account-details-form fieldset {
+    .user-sidebar-content .account-details-form fieldset {
         padding: 1.55em 1em 3em
     }
 }
 
-.myaccount-content .account-details-form fieldset legend {
+.user-sidebar-content .account-details-form fieldset legend {
     font-size: 18px;
     width: auto;
     float: inherit
 }
 
-.myaccount-content .account-details-form .account-info-btn button {
+.user-sidebar-content .account-details-form .account-info-btn button {
     font-size: 15px;
     font-weight: 700;
     color: #ffffff;
@@ -14442,55 +14497,55 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border: none
 }
 
-.myaccount-content .account-details-form .account-info-btn button:hover {
+.user-sidebar-content .account-details-form .account-info-btn button:hover {
     background-color: #e4573d
 }
 
-.myaccount-content.myaccount-address .myaccount-address-wrap {
+.user-sidebar-content.myaccount-address .myaccount-address-wrap {
     margin: 20px 0 0px
 }
 
-.myaccount-content.myaccount-address .myaccount-address-wrap h3 {
+.user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
     font-size: 25px;
     font-weight: 600;
     margin: 0
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .myaccount-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 22px
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .myaccount-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 22px
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .myaccount-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 20px
     }
 }
 
-.myaccount-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
+.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
     margin: 20px 0 0
 }
 
 @media only screen and (max-width: 767px) {
-    .myaccount-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
+    .user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
         margin: 14px 0 0
     }
 }
 
-.myaccount-content.myaccount-address .myaccount-address-wrap .myaccount-address-content h4 {
+.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content h4 {
     font-size: 18px;
     font-size: 500;
     margin: 0 0 5px
 }
 
-.myaccount-content.myaccount-address .myaccount-address-wrap .myaccount-address-content p {
+.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content p {
     font-size: 15px;
     color: #444;
     line-height: 1.74;
