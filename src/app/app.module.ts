@@ -12,6 +12,7 @@ import { CartService } from '@app_services/order/cart.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { AuthInterceptor } from './_http/auth.interceptor';
 import { CookieService } from '@app_services/_common/cookie/cookie.service';
+import { LayoutsModule } from './layouts/layouts.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CookieService } from '@app_services/_common/cookie/cookie.service';
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
+    LayoutsModule,
     IndexModule,
     ToastrModule.forRoot({
       tapToDismiss: false,
