@@ -8,19 +8,28 @@
     url('../fonts/IRANSans.ttf') format('truetype');
 }
 
-
-*{
-font-family: 'IRansans';
-direction: rtl;
+:root {
+  --sh-blue: #4e97fd;
+  --sh-red: #e4573d;
+  --sh-bg-blue: #0f51ab;
+  --sh-header-bg: #1d56a7;
+  --sh-font-family: 'IRanSans';
+  --sh-line-awesome: 'Line Awesome Free';
 }
-.textalign{
+
+
+* {
+  font-family: var(--sh-font-family);
+  direction: rtl;
+}
+
+.textalign {
   text-align: justify;
 }
 
 .la-shopping-cart {
   font-size: 1.4em;
 }
-
 
 @media only screen and (min-width: 1200px) {
     .container {
@@ -1823,7 +1832,7 @@ textarea:focus {
     position: fixed;
     width: 45px;
     height: 45px;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff;
     left: 30px;
     bottom: 30px;
@@ -1838,7 +1847,7 @@ textarea:focus {
 
 #scrollUp:hover {
     color: #ffffff;
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -2828,7 +2837,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-info>ul>li>ul li a:hover {
-    color: #4e97fd;
+    color: var(--sh-blue);
     background-color: rgba(78, 151, 253, 0.1)
 }
 
@@ -2859,7 +2868,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .covid-update p a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .covid-update.covid-update-mobile {
@@ -2949,7 +2958,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li>a.active {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .main-menu>nav>ul>li ul.sub-menu {
@@ -3168,7 +3177,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.new-price {
     font-size: 24px;
 
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.old-price {
@@ -3186,7 +3195,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 12px 22px 15px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3249,11 +3258,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap:hover .menu-banner-btn a {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .main-menu>nav>ul>li:hover>a {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .main-menu>nav>ul>li:hover ul.sub-menu {
@@ -3283,7 +3292,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     -o-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
-    background: #4e97fd
+    background: var(--sh-blue)
 }
 
 .main-menu.hover-boder>nav>ul>li:hover>a::after {
@@ -3455,7 +3464,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-1 form input:focus {
-    border: 1px solid #4e97fd;
+    border: 1px solid var(--sh-blue);
     background-color: #ffffff
 }
 
@@ -3471,11 +3480,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 100%;
     padding: 0 15px;
     background-color: transparent;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .search-style-1 form button:hover {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .header-action {
@@ -3601,7 +3610,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-action-icon>a span.pro-count.blue {
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 
@@ -3725,12 +3734,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-action-2 .header-action-icon-2>a span.pro-count.blue {
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .header-action-2 .header-action-icon-2:hover>a {
-    color: #4e97fd;
-    fill: #4e97fd
+    color: var(--sh-blue);
+    fill: var(--sh-blue)
 }
 
 .header-action-2 .header-action-icon-2:hover .cart-dropdown-wrap {
@@ -3833,7 +3842,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h4 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 {
@@ -3841,7 +3850,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
     line-height: 1;
     margin: 0 0 0px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 span {
@@ -3891,7 +3900,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-total h4 span {
     font-size: 18px;
     float: left;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button {
@@ -3915,14 +3924,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   border-radius: 1.4em;
   text-align: center;
   padding: 1em;
-  background-color: #4e97fd;
+  background-color: var(--sh-blue);
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button .delete {
   background-color: #f7492b;
 }
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .sticky-bar.stick {
@@ -3945,7 +3954,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sticky-bar.stick.sticky-blue-bg {
-    background-color: #415da1
+    background-color: var(--sh-header-bg)
 }
 
 .header-height-1 {
@@ -4099,7 +4108,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-2 div input:focus {
-    border: 2px solid #4e97fd
+    border: 2px solid var(--sh-blue)
 }
 
 .search-style-2 div button {
@@ -4113,13 +4122,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 0;
     border: none;
     font-size: 20px;
-    color: #4e97fd;
+    color: var(--sh-blue);
     height: 100%;
     padding: 5px 17px
 }
 
 .header-bottom-bg-color {
-    background-color: #415da1
+    background-color: var(--sh-header-bg)
 }
 
 .main-categori-wrap {
@@ -4200,7 +4209,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hotline p i {
     font-size: 24px;
     margin-left: 10px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .hotline p span {
@@ -4282,7 +4291,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .categori-dropdown-wrap ul li a:hover {
-    color: #4e97fd;
+    color: var(--sh-blue);
     background-color: rgba(78, 151, 253, 0.1)
 }
 
@@ -4319,7 +4328,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-3 form input:focus {
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .search-style-3 form button {
@@ -4338,7 +4347,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-3 form button:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .search-popup-wrap {
@@ -4372,7 +4381,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 1170px;
     background-color: transparent;
     border: 0;
-    border-bottom: 3px solid #4e97fd;
+    border-bottom: 3px solid var(--sh-blue);
     font-size: 50px;
     padding: 21px 50px 16px 0px;
     color: #919191;
@@ -4650,7 +4659,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .burger-icon:hover span::before, .burger-icon:hover span::after {
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .burger-icon:hover span.burger-icon-top::before {
@@ -4768,7 +4777,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-top {
@@ -4952,7 +4961,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info .lang-curr-dropdown ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info:hover>a {
@@ -5340,7 +5349,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
 
     letter-spacing: 3px;
-    color: #e4573d;
+    color: var(--sh-red);
     text-transform: uppercase;
     margin: 0 0 20px
 }
@@ -5389,7 +5398,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-1 .slider-product-offer-wrap .slider-product-offer span.red {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .hero-slider-content-1 .slider-product-offer-wrap p {
@@ -5413,7 +5422,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-weight: bold;
     border-radius: 50px;
     padding: 14px 42px 16px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -5473,7 +5482,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .btn-style-1 a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .nav-style-1.nav-style-1-position-1>span {
@@ -5611,7 +5620,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hero-slider-content-2 h4 {
     font-size: 24px;
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 0 0 18px
 }
 
@@ -5732,7 +5741,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hero-slider-content-2 h3 {
     font-size: 34px;
 
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 10px 0 15px;
     line-height: 1
 }
@@ -6004,7 +6013,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hero-slider-content-3 h4 {
     font-size: 24px;
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 0 0 20px
 }
 
@@ -6125,7 +6134,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hero-slider-content-3 h3 {
     font-size: 34px;
 
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 10px 0 15px;
     line-height: 1
 }
@@ -6220,7 +6229,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-4 .slider-product-offer-wrap-2 .slider-product-offer-2 span.red {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .hero-slider-content-4 .slider-product-offer-wrap-2 p {
@@ -6389,7 +6398,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-1 h3 {
     font-size: 24px;
     font-weight: bold;
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 0px 0 26px
 }
 
@@ -6548,7 +6557,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-2 h4 {
     font-size: 24px;
     font-weight: bold;
-    color: #e4573d;
+    color: var(--sh-red);
     margin: 0 0 26px
 }
 
@@ -6614,12 +6623,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-3 h4 {
     font-size: 24px;
     font-weight: bold;
-    color: #4e97fd;
+    color: var(--sh-blue);
     margin: 0 0 30px
 }
 
 .banner-wrap .banner-content-3 h4.red {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -6811,7 +6820,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap:hover .btn-style-1 a {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -7053,7 +7062,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 30px;
     padding: 6px 24px 5px;
     margin-right: 20px;
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -7169,7 +7178,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-area-border {
-    border: 2px solid #4e97fd;
+    border: 2px solid var(--sh-blue);
     border-radius: 5px;
     padding: 0 30px
 }
@@ -7235,7 +7244,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     line-height: 48px;
     color: #ffffff;
     border-radius: 50%;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     text-align: center;
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
@@ -7253,7 +7262,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
-    background-color: #e4573d;
+    background-color: var(--sh-red);
     content: attr(aria-label);
     line-height: 1.3;
     -webkit-transition-delay: .1s;
@@ -7278,7 +7287,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -o-transition-delay: .1s;
     transition-delay: .1s;
     border: 7px solid transparent;
-    border-top-color: #e4573d;
+    border-top-color: var(--sh-red);
     z-index: 9;
     margin-bottom: -13px;
     transition-delay: .1s;
@@ -7297,7 +7306,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover:after {
@@ -7356,7 +7365,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-badges span.red {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .single-product-wrap .product-badges span.red-2 {
@@ -7371,7 +7380,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-content-wrap .product-category a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .single-product-wrap .product-content-wrap h2 {
@@ -7384,17 +7393,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-content-wrap h2 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .single-product-wrap .product-content-wrap .product-price span {
     font-size: 16px;
     font-weight: bold;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .single-product-wrap .product-content-wrap .product-price span.new-price {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .single-product-wrap .product-content-wrap .product-price span.old-price {
@@ -7412,9 +7421,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-stock .status-bar .sold-bar {
-    background-image: -webkit-linear-gradient(215deg, #4e97fd 0%, #77ccfd 100%);
-    background-image: -o-linear-gradient(215deg, #4e97fd 0%, #77ccfd 100%);
-    background-image: linear-gradient(235deg, #4e97fd 0%, #77ccfd 100%);
+    background-image: -webkit-linear-gradient(215deg, var(--sh-blue) 0%, #77ccfd 100%);
+    background-image: -o-linear-gradient(215deg, var(--sh-blue) 0%, #77ccfd 100%);
+    background-image: linear-gradient(235deg, var(--sh-blue) 0%, #77ccfd 100%);
     border-radius: 4px;
     height: 8px
 }
@@ -7578,7 +7587,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .nav-style-2>span:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .nav-style-2.nav-style-2-modify-2>span {
@@ -7770,7 +7779,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .categories-wrap .categories-content h3 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .categories-wrap:hover .categories-img-zoom a img {
@@ -7793,11 +7802,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   margin-right: 4px;
   position: relative;
   top: 3px;
-  color: #4e97fd;
+  color: var(--sh-blue);
 }
 
 .btn-style-2 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .slidebar-product-wrap {
@@ -7942,7 +7951,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .slidebar-product-wrap .slidebar-product-details ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .sidebar-product-wrap .single-sidebar-product {
@@ -8010,13 +8019,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 h4 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span {
     font-size: 15px;
 
-    color: #4e97fd;
+    color: var(--sh-blue);
     display: inline-block
 }
 
@@ -8028,7 +8037,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span.new-price {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8335,7 +8344,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .nav-style-3>span:hover {
-    color: #4e97fd;
+    color: var(--sh-blue);
     background: white
 }
 
@@ -8483,7 +8492,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-from-area .contact-form-style .textarea-style textarea:focus {
     background-color: #ffffff;
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .contact-from-area .contact-form-style button {
@@ -8492,7 +8501,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 12px 41px;
     color: #ffffff;
     border: none;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     width: 100%;
     border-radius: 26px
 }
@@ -8503,7 +8512,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-from-area .contact-form-style button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .contact-from-area p {
@@ -8556,7 +8565,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-icon i {
     font-size: 40px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8603,7 +8612,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h2 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h3 {
@@ -8637,7 +8646,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h3 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 {
@@ -8658,7 +8667,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .single-contact-info3-wrap {
@@ -8680,7 +8689,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-contact-info3-wrap .single-contact-info3-icon i {
     font-size: 32px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8768,7 +8777,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .copyright p a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -8841,7 +8850,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .footer-widget .footer-info-list ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .footer-widget .app-visa-wrap p {
@@ -8948,7 +8957,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 20px;
 
     margin: 4px 0 18px;
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .footer-about-2 .footer-social-icon {
@@ -9057,7 +9066,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: auto;
 
     color: #ffffff;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     padding: 0 36px
 }
 
@@ -9080,7 +9089,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .subscribe-form form .mc-form .clear input:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .payment-img-wrap {
@@ -9226,7 +9235,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap .blog-img .blog-tag a {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff;
     font-size: 14px;
     display: inline-block;
@@ -9302,7 +9311,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap .blog-content h3 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-wrap:hover .blog-img a img {
@@ -9343,7 +9352,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap-2 .blog-img-2 .blog-tag-2 a {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff;
     font-size: 14px;
     display: inline-block;
@@ -9463,7 +9472,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap-2 .blog-content-2 h3 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a {
@@ -9474,14 +9483,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a i {
-  color: #4e97fd;
+  color: var(--sh-blue);
   font-size: 19px;
   position: relative;
   top: 4px;
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-wrap-2:hover .blog-img-2 a img {
@@ -9583,7 +9592,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     color: #ffffff;
 
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     border-radius: 26px;
     padding: 10px 28px
 }
@@ -9594,7 +9603,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .tm-demo-panel-header .tm-demo-btn a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .quick-option-list a {
@@ -9893,7 +9902,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: inline-block;
     font-size: 15px;
 
-    color: #4e97fd;
+    color: var(--sh-blue);
     margin-left: 18px;
     text-transform: capitalize;
     position: relative
@@ -9937,11 +9946,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     -o-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
-    background: #4e97fd
+    background: var(--sh-blue)
 }
 
 .breadcrumb-content ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .breadcrumb-content ul li a:hover::after {
@@ -10054,7 +10063,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-categories-list ul li:hover>a {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .sidebar-widget .sidebar-brand-list ul li, .sidebar-widget .sidebar-sort-list ul li, .sidebar-widget .sidebar-price-filter-list ul li {
@@ -10075,7 +10084,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-brand-list ul li:hover>a, .sidebar-widget .sidebar-sort-list ul li:hover>a, .sidebar-widget .sidebar-price-filter-list ul li:hover>a {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .sidebar-widget .price-filter {
@@ -10110,7 +10119,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     display: block;
     border: 0;
-    background: #4e97fd none repeat scroll 0 0;
+    background: var(--sh-blue) none repeat scroll 0 0;
     border: none;
     -webkit-transition: all .0s ease 0s;
     -o-transition: all .0s ease 0s;
@@ -10118,7 +10127,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .price-filter #slider-range .ui-slider-handle {
-    background: #4e97fd none repeat scroll 0 0;
+    background: var(--sh-blue) none repeat scroll 0 0;
     border: medium none;
     border-radius: 50%;
     height: 19px;
@@ -10154,7 +10163,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .sidebar-widget .price-filter .price-slider-amount button {
     background-color: #ffffff;
     border: medium none;
-    color: #4e97fd;
+    color: var(--sh-blue);
     line-height: 1;
     padding: 10px 35px;
     cursor: pointer;
@@ -10179,7 +10188,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .price-filter .price-slider-amount button:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -10371,7 +10380,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-tag ul li a:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -10407,46 +10416,6 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 50%;
     border: 1px solid #ccc;
     position: relative
-}
-
-.sidebar-color-list ul li a.black, .pro-details-color-list ul li a.black {
-    background-color: #000000
-}
-
-.sidebar-color-list ul li a.blue, .pro-details-color-list ul li a.blue {
-    background-color: #1e73be
-}
-
-.sidebar-color-list ul li a.green, .pro-details-color-list ul li a.green {
-    background-color: #1ca54f
-}
-
-.sidebar-color-list ul li a.pink, .pro-details-color-list ul li a.pink {
-    background-color: #ed9a9d
-}
-
-.sidebar-color-list ul li a.powder-blue, .pro-details-color-list ul li a.powder-blue {
-    background-color: #94dde3
-}
-
-.sidebar-color-list ul li a.purple, .pro-details-color-list ul li a.purple {
-    background-color: #9382dd
-}
-
-.sidebar-color-list ul li a.red, .pro-details-color-list ul li a.red {
-    background-color: #dd3333
-}
-
-.sidebar-color-list ul li a.transparent, .pro-details-color-list ul li a.transparent {
-    background-color: transparent
-}
-
-.sidebar-color-list ul li a.white, .pro-details-color-list ul li a.white {
-    background-color: #fff
-}
-
-.sidebar-color-list ul li a.yellow, .pro-details-color-list ul li a.yellow {
-    background-color: #eeee22
 }
 
 .sidebar-color-list.pro-details-color-mrg ul li, .pro-details-color-list.pro-details-color-mrg ul li {
@@ -10502,7 +10471,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tooltip-style-3 ul li a:hover {
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .tooltip-style-3 ul li a:hover:after {
@@ -10535,7 +10504,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     content: attr(aria-label);
     line-height: 1.3;
     -webkit-transition-delay: .1s;
@@ -10560,7 +10529,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -o-transition-delay: .1s;
     transition-delay: .1s;
     border: 7px solid transparent;
-    border-top-color: #4e97fd;
+    border-top-color: var(--sh-blue);
     z-index: 9;
     margin-bottom: -13px;
     transition-delay: .1s;
@@ -10706,7 +10675,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .sort-by-product-area:hover .sort-by-product-wrap {
     background-color: #ffffff;
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .sort-by-dropdown {
@@ -10751,13 +10720,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     top: 5px;
     left: 10px;
     font-size: 12px;
-    color: #4e97fd;
-    font-family: 'Font Awesome 5 Pro';
+    color: var(--sh-blue);
+    font-family: var(--sh-line-awesome);
     font-weight: 900
 }
 
 .sort-by-dropdown ul li a:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff !important;
 }
 
@@ -10785,11 +10754,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-pagination-style ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .pro-pagination-style ul li a.active {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -10889,7 +10858,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     color: #ffffff;
     display: inline-block;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     position: relative;
     border-radius: 26px;
     padding: 11px 24px 10px
@@ -10923,7 +10892,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .shop-filter a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .widget-menu-style {
@@ -10956,7 +10925,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     right: 16px;
-    font-family: 'Font Awesome 5 Pro';
+    font-family: var(--sh-line-awesome);
     color: #ababab;
     font-weight: 900;
     -webkit-transition: all .3s ease 0s;
@@ -10966,7 +10935,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .widget-menu-style nav ul li a:hover, .widget-menu-style nav ul li a.active {
     color: #ffffff;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .widget-menu-style nav ul li a:hover::before, .widget-menu-style nav ul li a.active::before {
@@ -11036,7 +11005,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-sidebar-post .sidebar-post-content h4 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .single-sidebar-post .sidebar-post-content span {
@@ -11085,11 +11054,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-dec-small-style1 .product-dec-small.slick-active img:hover {
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .product-dec-small-style1 .product-dec-small.slick-active.slick-current img {
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .product-dec-small-style1 .product-dec-small:last-child {
@@ -11131,7 +11100,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-big-img-style .pro-details-badges span.red {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .product-details-content .pro-details-category ul {
@@ -11157,7 +11126,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-category ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -11289,13 +11258,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-brand-review .pro-details-brand span a {
-    color: #4e97fd;
+    color: var(--sh-blue);
     display: inline-block;
     margin: 0 0 0 3px
 }
 
 .product-details-content .pro-details-brand-review .pro-details-brand span a:hover {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .product-details-content .pro-details-brand-review .pro-details-rating-wrap {
@@ -11356,7 +11325,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-price-short-description .pro-details-price span.new-price {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .product-details-content .pro-details-price-short-description .pro-details-price span.old-price {
@@ -11498,10 +11467,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-add-to-cart button {
-  background-color: #4e97fd
+  background-color: var(--sh-blue)
 }
 .product-details-content .pro-details-action-wrap .pro-details-remove-from-cart button {
-  background-color: #e4573d
+  background-color: var(--sh-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -11512,7 +11481,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-add-to-cart button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-action {
@@ -11546,7 +11515,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-action button:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -11572,7 +11541,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .product-details-meta ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .product-details-content .product-details-meta ul li span {
@@ -11782,7 +11751,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .pro-details-review p span {
     font-size: 18px;
 
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .pro-details-review .single-pro-details-review {
@@ -11919,7 +11888,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .single-pro-details-review .review-content .review-date-btn .review-btn a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .pro-details-review .ratting-form-wrapper h3 {
@@ -11974,7 +11943,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form input:focus, .pro-details-review .ratting-form-wrapper .rating-form-style form textarea:focus {
-    border: 1px solid #4e97fd;
+    border: 1px solid var(--sh-blue);
     background-color: #ffffff
 }
 
@@ -12024,14 +11993,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     height: auto;
     color: #ffffff;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     border: none;
     padding: 12px 54px 13px;
     margin: 0
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form .form-submit input:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .pro-details-mrg-tb {
@@ -12074,7 +12043,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .tab-style-1 a.active {
     color: #333;
-    border-bottom: 3px solid #4e97fd
+    border-bottom: 3px solid var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12129,7 +12098,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-quality .qtybutton.dec:hover::before {
-    border-top: 5px solid #4e97fd
+    border-top: 5px solid var(--sh-blue)
 }
 
 .product-quality .qtybutton.inc {
@@ -12155,7 +12124,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-quality .qtybutton.inc:hover::after {
-    border-bottom: 5px solid #4e97fd
+    border-bottom: 5px solid var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12307,13 +12276,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-table-content .table-content table tbody>tr td.product-name h5 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-price span, .cart-table-content .table-content table tbody>tr td.product-total span {
     font-size: 15px;
     font-weight: 500;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-remove a {
@@ -12415,7 +12384,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .cart-shiping-update-wrapper .continure-clear-btn .clear-btn a i {
     margin-left: 8px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -12425,7 +12394,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-shiping-update-wrapper .continure-clear-btn .clear-btn a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .cart-shiping-update-wrapper .update-btn a {
@@ -12435,7 +12404,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12445,7 +12414,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-shiping-update-wrapper .update-btn a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .coupon-wrap h4 {
@@ -12502,7 +12471,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .input-style input:focus {
     background-color: #ffffff;
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .cart-collaterals-wrap h4 {
@@ -12520,7 +12489,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .cart-collaterals-wrap .collaterals-content p span {
     font-size: 18px;
     font-weight: 700;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .select-style.select-style-mrg-1 {
@@ -12547,7 +12516,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .select-style .select2-container--default .select2-selection--single[aria-expanded="true"] {
     background-color: #ffffff;
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .select-style .select2-container--default .select2-selection--single span {
@@ -12567,7 +12536,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .select2-container .select2-dropdown {
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .select2-container .select2-dropdown.select2-dropdown--below {
@@ -12600,13 +12569,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     transform: translateY(-50%);
     left: 40px;
     font-weight: 900;
-    font-family: 'Font Awesome 5 Pro';
+    font-family: var(--sh-line-awesome);
     display: inline-block;
     cursor: pointer
 }
 
 .select2-container .select2-dropdown .select2-search--dropdown:hover::after {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .select2-container .select2-dropdown .select2-search--dropdown>input {
@@ -12631,7 +12600,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .select2-container .select2-dropdown .select2-search--dropdown>input:focus {
     background-color: #ffffff;
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option {
@@ -12642,12 +12611,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option.select2-results__option--highlighted {
     color: #ffffff;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option[aria-selected="true"] {
     color: #ffffff;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .continure-btn a, .common-btn-style a {
@@ -12657,7 +12626,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12671,7 +12640,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .continure-btn a:hover, .common-btn-style a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .grand-total-wrap {
@@ -12703,7 +12672,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .grand-total-wrap ul li h4 {
     font-size: 18px;
     font-weight: 700;
-    color: #4e97fd;
+    color: var(--sh-blue);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -12731,7 +12700,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .grand-total-wrap .grand-total h4 span {
     float: left;
     font-size: 20px;
-    color: #e4573d;
+    color: var(--sh-red);
     font-weight: 700
 }
 
@@ -12742,12 +12711,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     text-align: center
 }
 
 .grand-total-wrap .grand-total-btn a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12763,7 +12732,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p a {
-    color: #4e97fd;
+    color: var(--sh-blue);
     display: inline-block;
     position: relative
 }
@@ -12799,7 +12768,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p a:hover::before {
-    background-color: #4E97FD;
+    background-color: var(--sh-blue);
     -webkit-transform: scaleX(0) translateZ(0);
     transform: scaleX(0) translateZ(0);
     transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -12811,7 +12780,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p a:hover::after {
-    background-color: #4E97FD;
+    background-color: var(--sh-blue);
     -webkit-transform: scaleX(1) translateZ(0);
     transform: scaleX(1) translateZ(0);
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s, -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s
@@ -12883,11 +12852,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 10px 41px;
     color: #ffffff;
     border-radius: 26px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .customer-zone .checkout-login-info .button-remember-wrap button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .customer-zone .checkout-login-info .lost-password a {
@@ -12896,7 +12865,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone .checkout-login-info .lost-password a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .customer-zone .checkout-login-info3 {
@@ -12930,14 +12899,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 22px;
     border: none;
     background-color: transparent;
-    color: #4e97fd;
+    color: var(--sh-blue);
     height: 100%;
     border-radius: 26px
 }
 
 .customer-zone .checkout-login-info3 form button:hover {
     color: #ffffff;
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .billing-info-wrap h3 {
@@ -13309,7 +13278,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-top .order-summary-img-price .order-summary-price span {
     font-weight: 700;
     font-size: 15px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .order-summary .order-summary-middle ul {
@@ -13335,7 +13304,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-middle ul li h4 {
     font-size: 18px;
     font-weight: 700;
-    color: #4e97fd;
+    color: var(--sh-blue);
     display: block;
     text-align: right;
     margin: 0
@@ -13364,7 +13333,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-bottom h4 span {
     float: left;
     font-size: 20px;
-    color: #e4573d;
+    color: var(--sh-red);
     font-weight: 700
 }
 
@@ -13423,7 +13392,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-thumbnail a i:hover {
-    color: #e4573d
+    color: var(--sh-red)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-img {
@@ -13467,7 +13436,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info h5 a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info .wishlist-product-price {
@@ -13476,7 +13445,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info .wishlist-product-price span {
     font-weight: 700;
-    color: #4e97fd;
+    color: var(--sh-blue);
     font-size: 18px
 }
 
@@ -13526,11 +13495,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     line-height: 1;
     color: #ffffff;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-add-wrap .wishlist-product-add a:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .wishlist-bottom {
@@ -13620,7 +13589,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-bottom .wishlist-social-wrap .wishlist-social a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .wishlist-bottom .wishlist-social-wrap .wishlist-social a:last-child {
@@ -13709,7 +13678,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     padding: 0 41px;
     padding: 9px 41px 13px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .about-us-img img {
@@ -13766,7 +13735,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 200px;
     font-weight: 900;
     line-height: .8em;
-    color: #4e97fd;
+    color: var(--sh-blue);
     margin: 0
 }
 
@@ -13854,7 +13823,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 0 36px;
     padding: 13px 36px;
     background-color: #edf4fe;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .about-us-content .about-btn a i {
@@ -13864,7 +13833,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .about-us-content .about-btn a:hover {
     color: #ffffff;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .about-us-img {
@@ -14048,7 +14017,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .team-wrap .team-img .team-social a:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -14142,7 +14111,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .about-us-area .mouse-scroll-area-2 .about-us-shape-1 .medizin-shape {
     width: 150px;
     height: 150px;
-    color: #4e97fd;
+    color: var(--sh-blue);
     border-radius: 50%;
     background: currentColor
 }
@@ -14334,7 +14303,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .error-content .search-style-4 form input:focus {
-    border: 1px solid #4e97fd
+    border: 1px solid var(--sh-blue)
 }
 
 .error-content .search-style-4 form button {
@@ -14351,7 +14320,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     padding: 5px 41px;
     border-radius: 26px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -14361,11 +14330,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .error-content .search-style-4 form button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .user-sidebar {
-  background-color: #0f51ab;
+  background-color: var(--sh-bg-blue);
   border-radius: 2em;
   padding: 1em;
   -webkit-box-orient: vertical;
@@ -14414,54 +14383,34 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 @media only screen and (max-width: 767px) {
-    .user-sidebar-content-wrapper {
+    .user-dashboard-content-wrapper {
         margin-top: 30px
     }
 }
 
-.user-sidebar-content .welcome p {
-    font-size: 15px;
-    margin: 0 0 23px
+.user-dashboard-content {
+  border-radius: 0.75em;
+  border: #fff 1px solid !important;
+  box-shadow: 0 0.5rem 2rem rgb(146 165 191) !important;
 }
 
-.user-sidebar-content .welcome p a {
-    color: #444
+.user-dashboard-content .card-body {
+  padding-right: 1.85rem !important;
 }
 
-.user-sidebar-content .welcome p a:hover {
-    color: #4e97fd
-}
-
-.user-sidebar-content .welcome p strong {
-    font-weight: 700
-}
-
-.user-sidebar-content p {
-    font-size: 15px;
-    line-height: 1.74
-}
-
-.user-sidebar-content p a {
-    color: #444
-}
-
-.user-sidebar-content p a:hover {
-    color: #4e97fd
-}
-
-.user-sidebar-content .account-details-form .account-info label {
+.user-dashboard-content .account-details-form .account-info label {
     font-size: 15px;
     color: #444;
     margin: 0 0 3px
 }
 
 @media only screen and (max-width: 767px) {
-    .user-sidebar-content .account-details-form .account-info.mb-30 {
+    .user-dashboard-content .account-details-form .account-info.mb-30 {
         margin-bottom: 15px
     }
 }
 
-.user-sidebar-content .account-details-form span {
+.user-dashboard-content .account-details-form span {
     font-style: italic;
     font-size: 15px;
     color: #444;
@@ -14469,83 +14418,83 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: block
 }
 
-.user-sidebar-content .account-details-form fieldset {
+.user-dashboard-content .account-details-form fieldset {
     padding: 1.55em 1.625em 3em;
     border: 1px solid #eee;
     margin: 30px 0 36px
 }
 
 @media only screen and (max-width: 767px) {
-    .user-sidebar-content .account-details-form fieldset {
+    .user-dashboard-content .account-details-form fieldset {
         padding: 1.55em 1em 3em
     }
 }
 
-.user-sidebar-content .account-details-form fieldset legend {
+.user-dashboard-content .account-details-form fieldset legend {
     font-size: 18px;
     width: auto;
     float: inherit
 }
 
-.user-sidebar-content .account-details-form .account-info-btn button {
+.user-dashboard-content .account-details-form .account-info-btn button {
     font-size: 15px;
     font-weight: 700;
     color: #ffffff;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     border-radius: 26px;
     padding: 11px 41px 13px;
     border: none
 }
 
-.user-sidebar-content .account-details-form .account-info-btn button:hover {
-    background-color: #e4573d
+.user-dashboard-content .account-details-form .account-info-btn button:hover {
+    background-color: var(--sh-red)
 }
 
-.user-sidebar-content.myaccount-address .myaccount-address-wrap {
+.user-dashboard-content.myaccount-address .myaccount-address-wrap {
     margin: 20px 0 0px
 }
 
-.user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
+.user-dashboard-content.myaccount-address .myaccount-address-wrap h3 {
     font-size: 25px;
     font-weight: 600;
     margin: 0
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-dashboard-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 22px
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-dashboard-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 22px
     }
 }
 
 @media only screen and (max-width: 767px) {
-    .user-sidebar-content.myaccount-address .myaccount-address-wrap h3 {
+    .user-dashboard-content.myaccount-address .myaccount-address-wrap h3 {
         font-size: 20px
     }
 }
 
-.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
+.user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
     margin: 20px 0 0
 }
 
 @media only screen and (max-width: 767px) {
-    .user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
+    .user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content {
         margin: 14px 0 0
     }
 }
 
-.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content h4 {
+.user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content h4 {
     font-size: 18px;
     font-size: 500;
     margin: 0 0 5px
 }
 
-.user-sidebar-content.myaccount-address .myaccount-address-wrap .myaccount-address-content p {
+.user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content p {
     font-size: 15px;
     color: #444;
     line-height: 1.74;
@@ -14690,7 +14639,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a {
     font-size: 15px;
-    color: #4e97fd;
+    color: var(--sh-blue);
     position: relative;
     display: inline-block
 }
@@ -14726,7 +14675,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a:hover::before {
-    background-color: #4E97FD;
+    background-color: var(--sh-blue);
     -webkit-transform: scaleX(0) translateZ(0);
     transform: scaleX(0) translateZ(0);
     transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -14738,7 +14687,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a:hover::after {
-    background-color: #4E97FD;
+    background-color: var(--sh-blue);
     -webkit-transform: scaleX(1) translateZ(0);
     transform: scaleX(1) translateZ(0);
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s, -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s
@@ -14758,7 +14707,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     font-weight: 700;
     border: none;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff;
     display: block;
     text-align: center;
@@ -14768,7 +14717,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .login-register-btn button:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 .login-register-wrap .login-register-form form .privacy-policy-wrap p {
@@ -14782,7 +14731,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .privacy-policy-wrap p a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .compare-table .table thead tr {
@@ -14802,7 +14751,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .compare-table .table thead tr th a.title:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .compare-table .table tbody tr {
@@ -14867,7 +14816,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .compare-table .table tbody tr td.compare-rating span {
     font-weight: 700;
     font-size: 20px;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .compare-table .table tbody tr td.compare-btn a {
@@ -14877,7 +14826,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     padding: 12px 41px;
     font-weight: 700;
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -14893,7 +14842,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .compare-table .table tbody tr td.compare-btn a:hover {
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff
 }
 
@@ -14927,7 +14876,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 2px;
     padding: 1px 10px;
-    background-color: #4e97fd
+    background-color: var(--sh-blue)
 }
 
 .blog-details-wrapper .blog-details-top-content h1 {
@@ -14999,7 +14948,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-details-top-content .blog-meta-3 ul li a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-details-wrapper img {
@@ -15009,7 +14958,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-details-wrapper blockquote {
     padding-right: 1em;
-    border-right: 4px solid #4e97fd;
+    border-right: 4px solid var(--sh-blue);
     margin: 49px 50px 45px 0
 }
 
@@ -15131,7 +15080,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-tag-wrap .blog-tag a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap {
@@ -15164,7 +15113,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     line-height: 52px;
     text-align: center;
     border-radius: 100%;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     cursor: pointer
 }
 
@@ -15267,7 +15216,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon .blog-share-list a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon:hover .blog-share-list {
@@ -15358,7 +15307,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-author-wrap .blog-author-img .blog-author-social a:hover {
-    color: #4e97fd
+    color: var(--sh-blue)
 }
 
 .blog-details-wrapper .blog-author-wrap .blog-author-content {
@@ -15489,11 +15438,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     content: '\f104';
     left: 20px;
+    font-weight: 900;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: 'Font Awesome 5 Pro'
+    font-family: var(--sh-line-awesome)
 }
 
 @media only screen and (max-width: 767px) {
@@ -15538,7 +15488,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: 'Font Awesome 5 Pro'
+    font-weight: 900;
+    font-family: var(--sh-line-awesome);
 }
 
 .blog-details-wrapper .blog-prev-next-wrap .blog-prev-next-style:hover a img {
@@ -15584,7 +15535,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-reply-wrapper form .blog-textarea-style textarea:focus {
-    border: 1px solid #4e97fd;
+    border: 1px solid var(--sh-blue);
     background-color: #ffffff
 }
 
@@ -15621,7 +15572,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .blog-details-wrapper .blog-reply-wrapper form .blog-comment-submit input {
     width: auto;
     height: 48px;
-    background-color: #4e97fd;
+    background-color: var(--sh-blue);
     color: #ffffff;
     border-radius: 26px;
     padding: 0 41px;
@@ -15630,7 +15581,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-reply-wrapper form .blog-comment-submit input:hover {
-    background-color: #e4573d
+    background-color: var(--sh-red)
 }
 
 @media only screen and (max-width: 767px) {
