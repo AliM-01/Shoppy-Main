@@ -10,10 +10,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule)
   },
-  {
-    path: 'user-profile',
-    loadChildren: () => import('./pages/user-profile/user-profile.module').then(m => m.UserProfileModule)
-  },
   { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
 
