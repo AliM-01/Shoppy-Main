@@ -15638,3 +15638,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
         padding-top: 40px
     }
 }
+
+.rounded-5 {
+  border-radius: 0.75em;
+}
