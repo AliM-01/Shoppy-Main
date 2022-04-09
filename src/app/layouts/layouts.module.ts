@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from '@app_components/components.module';
 import { HomeLayout } from './home/home.layout';
+import { UserDashboardLayout } from './user-dashboard/user-dashboard.layout';
 
 @NgModule({
   declarations: [
-    HomeLayout
+    HomeLayout,
+    UserDashboardLayout
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { HomeLayout } from './home/home.layout';
     ComponentsModule,
   ],
   exports: [
-    HomeLayout
+    HomeLayout,
+    UserDashboardLayout
   ],
   schemas: [],
   providers: []
