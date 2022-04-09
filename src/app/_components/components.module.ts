@@ -14,6 +14,7 @@ import { HeaderCartComponent } from './header/header-cart/header-cart.component'
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { HeaderAuthComponent } from './header/header-auth/header-auth.component';
 import {ArticleBoxComponent } from './article-box/article-box.component';
+import { UserDashboardSidebarComponent } from './user-dashboard-sidebar/user-dashboard-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ArticleBoxComponent } from './article-box/article-box.component';
     HeaderAuthComponent,
     LoadingComponent,
     ProductBoxComponent,
-    ArticleBoxComponent
+    ArticleBoxComponent,
+    UserDashboardSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import {ArticleBoxComponent } from './article-box/article-box.component';
     MobileHeaderComponent,
     LoadingComponent,
     ProductBoxComponent,
-    ArticleBoxComponent
+    ArticleBoxComponent,
+    UserDashboardSidebarComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })
