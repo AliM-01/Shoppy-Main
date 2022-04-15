@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeLayout } from "./home/home.layout";
 import { UserDashboardLayout } from './user-dashboard/user-dashboard.layout';
 import { AuthGuard } from '../_guards/auth/auth.guard';
+import { IndexComponent } from "@apppages/index/index.component";
 
 const routes: Routes = [
   // Home
@@ -10,6 +11,7 @@ const routes: Routes = [
     path: '',
     component: HomeLayout,
     children: [
+      { path: '', component: IndexComponent },
       {
         path: 'auth',
         loadChildren: () => import('../pages/auth/auth.module').then(m => m.AuthModule)

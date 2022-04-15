@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { IndexModule } from '@apppages/index/index.module';
 import { ComponentsModule } from '@app_components/components.module';
 import { HomeLayout } from './home/home.layout';
 import { LayoutsRoutingModule } from './layouts.routing.module';
@@ -16,6 +17,7 @@ import { UserDashboardLayout } from './user-dashboard/user-dashboard.layout';
     RouterModule,
     ComponentsModule,
     LayoutsRoutingModule,
+    IndexModule,
   ],
   exports: [
     HomeLayout,
