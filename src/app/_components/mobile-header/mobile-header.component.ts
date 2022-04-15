@@ -14,7 +14,7 @@ export class MobileHeaderComponent implements OnInit {
   productCategories: ProductCategoryModel[] = [];
   articleCategories: ArticleCategoryModel[] = [];
   searchPhrase: string = '';
-  
+
   constructor(
     private productCategoryService: ProductCategoryService,
     private articleCategoryService: ArticleCategoryService,
@@ -22,12 +22,8 @@ export class MobileHeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productCategoryService.getProductCategoriesList().subscribe(res =>
-        this.productCategories = res.data
-    );
-    this.articleCategoryService.getArticleCategoriesList().subscribe(
-      res => this.articleCategories = res.data
-    );
+    this.productCategoryService.getProductCategoriesList().subscribe(res => this.productCategories = res);
+    this.articleCategoryService.getArticleCategoriesList().subscribe(res => this.articleCategories = res);
   }
 
   submitSearch() {

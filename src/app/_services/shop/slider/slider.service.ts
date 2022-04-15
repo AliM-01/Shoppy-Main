@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { IResponse } from '@app_models/_common/IResponse';
 import { SliderModel } from '@app_models/shop/slider/slider';
 import { environment } from '@environments/environment';
 import { LoadingService } from '@loading';
@@ -18,9 +17,9 @@ export class SliderService {
     private loading: LoadingService
   ) { }
 
-  getSlidersList(): Observable<IResponse<SliderModel[]>> {
+  getSlidersList(): Observable<SliderModel[]> {
     this.loading.loadingOn();
-    return this.http.get<IResponse<SliderModel[]>>
+    return this.http.get<SliderModel[]>
     (`${environment.shopBaseApiUrl}/slider/get-all`)
     .pipe(
       tap(() => this.loading.loadingOff()),

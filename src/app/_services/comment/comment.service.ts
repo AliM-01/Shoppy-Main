@@ -7,7 +7,7 @@ import { IResponse } from '@app_models/_common/IResponse';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from '@environments/environment';
-import { AddCommentModel } from '../../_models/comment/add-comment';
+import { AddCommentModel } from '@app_models/comment/add-comment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +18,11 @@ export class CommentService {
     private toastr: ToastrService,
     private loading: LoadingService,
   ) { }
-  
-  getRecordCommentsById(recordId: string): Observable<IResponse<CommentModel[]>> {
+
+  getRecordCommentsById(recordId: string): Observable<CommentModel[]> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<CommentModel[]>>
+    return this.http.get<CommentModel[]>
       (`${environment.commentBaseApiUrl}/get-comments/${recordId}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -36,7 +36,7 @@ export class CommentService {
       );
   }
 
-  addComment(addCommentData: AddCommentModel): Observable<IResponse<any>> {
+  addComment(addCommentData: AddCommentModel): Observable<IResponse> {
     this.loading.loadingOn();
 
     const formData = new FormData();
@@ -51,7 +51,7 @@ export class CommentService {
       formData.append('parentId', addCommentData.parentId);
     }
 
-    return this.http.post<IResponse<any>>
+    return this.http.post<IResponse>
       (`${environment.commentBaseApiUrl}/add`, formData)
       .pipe(
         tap((res) => {

@@ -54,8 +54,6 @@ export class ProductDetailsRelatedProductsComponent implements OnInit {
 
   getRelated() {
     this.productService.getRelatedProducts(this.productId)
-      .subscribe(res => {
-        this.relatedProducts = res.data;
-      });
+      .subscribe(res => this.relatedProducts = res);
   }
 }

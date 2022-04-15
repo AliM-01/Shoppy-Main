@@ -51,10 +51,6 @@ export class LatestArticleComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.articleService.getLatestArticles().subscribe(res => {
-      if (res.status === "success") {
-        this.articlesSubject.next(res.data);
-      }
-    })
+    this.articleService.getLatestArticles().subscribe(res => this.articlesSubject.next(res))
   }
 }

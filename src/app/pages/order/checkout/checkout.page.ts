@@ -38,26 +38,24 @@ export class CheckoutPage implements OnInit {
   checkout(): void {
     this.loading.loadingOn();
     this.cartService.loadCart();
-    this.orderService.checkout().subscribe(res => {
-      this.cart = res.data;
-    })
+    this.orderService.checkout().subscribe(res => this.cart = res)
   }
 
   pay() {
     this.loading.loadingOn();
     this.authService.isUserLoggedInRequest().subscribe(res => {
-      if(!res){
+      if (!res) {
         this.router.navigate(['/auth/login'])
-      } if(res){
+      } if (res) {
         this.orderService.placeOrder(this.cart)
-        .subscribe((res) => {
-          console.log('placeOrder', res);
+          .subscribe((res) => {
+            console.log('placeOrder', res);
 
-          this.paymentRedirect(res.data.orderId);
+            this.paymentRedirect(res.orderId);
 
-        }, () => {
-          this.ngOnInit();
-        })
+          }, () => {
+            this.ngOnInit();
+          })
       }
     })
 
@@ -71,11 +69,9 @@ export class CheckoutPage implements OnInit {
 
     this.orderService.initializePaymentRequest(payment)
       .subscribe(res => {
-        console.log('initializePaymentRequest', res);
 
         this.loading.loadingOff();
-        window.location.href = res.data.redirectUrl;
-
+        window.location.href = res.redirectUrl;
       });
 
   }

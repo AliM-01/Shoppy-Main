@@ -62,11 +62,7 @@ export class SearchArticlePage implements OnInit {
       this.getArticles();
     });
 
-    this.articleCategoryService.getArticleCategoriesList().subscribe(res => {
-      if (res.status === "success") {
-        this.articleCategories = res.data;
-      }
-    })
+    this.articleCategoryService.getArticleCategoriesList().subscribe(res => this.articleCategories = res);
 
   }
 
@@ -88,17 +84,17 @@ export class SearchArticlePage implements OnInit {
 
     this.articleService.searchArticle(this.searchArticles).subscribe((res) => {
 
-      this.title.setTitle(`جستجو مقالات | ${res.data.allPagesCount} نتیجه پیدا شد`)
-      this.searchArticles = res.data;
+      this.title.setTitle(`جستجو مقالات | ${res.allPagesCount} نتیجه پیدا شد`)
+      this.searchArticles = res;
 
-      if (res.data.phrase === null) {
+      if (res.phrase === null) {
         this.searchArticles.phrase = '';
         this.searchPhrase = '';
       }
 
       this.pages = [];
 
-      if (res.data.selectedCategories === null) {
+      if (res.selectedCategories === null) {
         this.searchArticles.selectedCategories = [];
       }
 
@@ -106,7 +102,7 @@ export class SearchArticlePage implements OnInit {
         this.pages.push(i);
       }
 
-      if (res.data.articles.length) {
+      if (res.articles.length) {
         this.isDataLoaded = true;
       }
     })

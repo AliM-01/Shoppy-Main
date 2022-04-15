@@ -27,12 +27,12 @@ export class OrderService {
   ) {
   }
 
-  computeCart(): Observable<IResponse<CartModel>> {
+  computeCart(): Observable<CartModel> {
     this.loading.loadingOn();
 
     const itemsData = this.cartService.getCartItems();
 
-    return this.http.post<IResponse<CartModel>>
+    return this.http.post<CartModel>
       (`${environment.orderBaseApiUrl}/cart/compute`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -46,12 +46,12 @@ export class OrderService {
       );
   }
 
-  checkout(): Observable<IResponse<CartModel>> {
+  checkout(): Observable<CartModel> {
     this.loading.loadingOn();
 
     const itemsData = this.cartService.getCartItems();
 
-    return this.http.post<IResponse<CartModel>>
+    return this.http.post<CartModel>
       (`${environment.orderBaseApiUrl}/cart/checkout`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -65,10 +65,10 @@ export class OrderService {
       );
   }
 
-  placeOrder(cart: CartModel): Observable<IResponse<PlaceOrderResponseModel>> {
+  placeOrder(cart: CartModel): Observable<PlaceOrderResponseModel> {
     this.loading.loadingOn();
 
-    return this.http.post<IResponse<PlaceOrderResponseModel>>
+    return this.http.post<PlaceOrderResponseModel>
       (`${environment.orderBaseApiUrl}/place`, cart)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -82,7 +82,7 @@ export class OrderService {
       );
   }
 
-  initializePaymentRequest(payment: InitializePaymentRequestModel): Observable<IResponse<InitializePaymentResponseModel>> {
+  initializePaymentRequest(payment: InitializePaymentRequestModel): Observable<InitializePaymentResponseModel> {
     this.loading.loadingOn();
 
     let params = new HttpParams()
@@ -90,7 +90,7 @@ export class OrderService {
       .set("callBack", payment.callBackUrl)
       .set("oId", payment.orderId)
 
-    return this.http.post<IResponse<InitializePaymentResponseModel>>
+    return this.http.post<InitializePaymentResponseModel>
       (`${environment.orderBaseApiUrl}/payment/init`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -104,14 +104,14 @@ export class OrderService {
       );
   }
 
-  verifyPayment(payment: VerifyPaymentRequestModel): Observable<IResponse<VerifyPaymentResponseModel>> {
+  verifyPayment(payment: VerifyPaymentRequestModel): Observable<VerifyPaymentResponseModel> {
     this.loading.loadingOn();
 
     let params = new HttpParams()
       .set("authority", payment.authority)
       .set("oId", payment.orderId);
 
-    return this.http.post<IResponse<VerifyPaymentResponseModel>>
+    return this.http.post<VerifyPaymentResponseModel>
       (`${environment.orderBaseApiUrl}/payment/verify`, null, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),

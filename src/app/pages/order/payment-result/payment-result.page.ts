@@ -64,11 +64,11 @@ export class PaymentResultPage implements OnInit {
     const payment: VerifyPaymentRequestModel = new VerifyPaymentRequestModel(this.authority, this.orderId);
 
     this.orderService.verifyPayment(payment).subscribe((res) => {
-      console.log('res', res);
 
-      this.resultMsg = res.data.resultMessage;
-      this.resultIssueTracking = res.data.issueTracking;
+      this.resultMsg = res.resultMessage;
+      this.resultIssueTracking = res.issueTracking;
       this.cartService.clearCart();
+
       this.msg.sendMsg("clear cart");
 
       this.isVerified = true;

@@ -66,8 +66,8 @@ export class AuthInterceptor implements HttpInterceptor {
         .pipe(
           switchMap(res => {
             this.isRefreshing = false;
-            this.refreshTokenSubject.next(res.data.accessToken);
-            return next.handle(this.addToken(request, res.data.accessToken));
+            this.refreshTokenSubject.next(res.accessToken);
+            return next.handle(this.addToken(request, res.accessToken));
           }),
           catchError((error) => {
             this.router.navigate(["/auth/access-denied"]);

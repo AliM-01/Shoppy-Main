@@ -37,11 +37,7 @@ export class RecordCommentsComponent implements OnInit {
 
     this.loading.loadingOn();
 
-    this.commentService.getRecordCommentsById(this.recordId).subscribe(res => {
-      console.log(res);
-      
-      this.commentsSubject.next(res.data);
-    });
+    this.commentService.getRecordCommentsById(this.recordId).subscribe(res => this.commentsSubject.next(res));
 
     this.loading.loadingOff();
   }
@@ -75,11 +71,7 @@ export class RecordCommentsComponent implements OnInit {
         this.selectedParentId
       );
 
-      this.commentService.addComment(addData).subscribe(res => {
-        if (res.status === 'success') {
-          this.addCommentForm.reset();
-        }
-      });
+      this.commentService.addComment(addData).subscribe(res => this.addCommentForm.reset());
 
     } else {
       this.addCommentForm.markAllAsTouched();

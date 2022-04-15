@@ -34,34 +34,27 @@ export class HeaderComponent implements OnInit {
 
   private getProductCategoriesList(): void {
     this.productCategoryService.getProductCategoriesList().subscribe(res => {
-      if (res.status === "success") {
-        this.productCategories = res.data;
+      this.productCategories = res;
 
-        let searchCategorySelectListData: {
-          id: string,
-          text: string
-        }[] = [];
-        for (let i = 0; i < this.productCategories.length; i++) {
-          const element = this.productCategories[i];
-          searchCategorySelectListData.push(
-            {
-              id: this.productCategories[i].slug,
-              text: this.productCategories[i].title
-            });
-        }
+      let searchCategorySelectListData: {
+        id: string,
+        text: string
+      }[] = [];
+      for (let i = 0; i < this.productCategories.length; i++) {
 
-        this.productCategorySelectData = searchCategorySelectListData;
+        searchCategorySelectListData.push(
+          {
+            id: this.productCategories[i].slug,
+            text: this.productCategories[i].title
+          });
       }
 
+      this.productCategorySelectData = searchCategorySelectListData;
     });
   }
 
   private getArticleCategoriesList(): void {
-    this.articleCategoryService.getArticleCategoriesList().subscribe(res => {
-      if (res.status === "success") {
-        this.articleCategories = res.data;
-      }
-    });
+    this.articleCategoryService.getArticleCategoriesList().subscribe(res => this.articleCategories = res);
   }
 
   setSelectedCategory(event: any) {

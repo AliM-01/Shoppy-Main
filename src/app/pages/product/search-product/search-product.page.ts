@@ -68,11 +68,7 @@ export class SearchProductPage implements OnInit {
       this.getProducts();
     });
 
-    this.productCategoryService.getProductCategoriesList().subscribe(res => {
-      if (res.status === "success") {
-        this.productCategories = res.data;
-      }
-    })
+    this.productCategoryService.getProductCategoriesList().subscribe(res => this.productCategories = res);
 
   }
 
@@ -99,17 +95,17 @@ export class SearchProductPage implements OnInit {
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
       this.loadingService.loadingOn();
 
-      this.title.setTitle(`جستجو محصولات | ${res.data.allPagesCount} نتیجه پیدا شد`)
-      this.searchProducts = res.data;
+      this.title.setTitle(`جستجو محصولات | ${res.allPagesCount} نتیجه پیدا شد`)
+      this.searchProducts = res;
 
-      if (res.data.phrase === null) {
+      if (res.phrase === null) {
         this.searchProducts.phrase = '';
         this.searchPhrase = '';
       }
 
       this.pages = [];
 
-      if (res.data.selectedCategories === null) {
+      if (res.selectedCategories === null) {
         this.searchProducts.selectedCategories = [];
       }
 
@@ -117,7 +113,7 @@ export class SearchProductPage implements OnInit {
         this.pages.push(i);
       }
 
-      if (res.data.products.length) {
+      if (res.products.length) {
         this.isDataLoaded = true;
       }
       this.loadingService.loadingOff();

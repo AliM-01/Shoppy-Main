@@ -104,22 +104,19 @@ export class ProductDetailsPage implements OnInit {
       .subscribe((res) => {
         this.loading.loadingOn();
 
-        if (res.status === 'success') {
-          this.pageTitleSubject.next(res.data.title)
-          this.product = res.data;
-          if (res.data.productPictures !== null) {
-            res.data.productPictures.forEach(gallery => {
-              this.pictureIds.push(gallery.id)
-            });
-          }
-
-          this.tags = res.data.metaKeywords.split(",");
-          this.setMetaTags(res.data)
-
-          this.isDataLoaded = true;
-          this.loading.loadingOff();
-
+        this.pageTitleSubject.next(res.title)
+        this.product = res;
+        if (res.productPictures !== null) {
+          res.productPictures.forEach(gallery => {
+            this.pictureIds.push(gallery.id)
+          });
         }
+
+        this.tags = res.metaKeywords.split(",");
+        this.setMetaTags(res)
+
+        this.isDataLoaded = true;
+        this.loading.loadingOff();
       },
         () => {
           this._location.back()

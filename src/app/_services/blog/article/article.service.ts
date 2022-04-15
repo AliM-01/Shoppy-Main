@@ -1,13 +1,12 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IResponse } from '@app_models/_common/IResponse';
 import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, throwError } from 'rxjs';
 import { LoadingService } from '@loading';
 import { catchError, tap } from 'rxjs/operators';
 import { ArticleModel } from '@app_models/blog/article/article';
-import { ArticleDetailsModel } from '../../../_models/blog/article/article-details';
+import { ArticleDetailsModel } from '@app_models/blog/article/article-details';
 import { SearchArticleModel } from '@app_models/blog/article/search-article';
 
 @Injectable({
@@ -20,7 +19,7 @@ export class ArticleService {
     private loading: LoadingService,
   ) { }
 
-  searchArticle(search: SearchArticleModel): Observable<IResponse<SearchArticleModel>> {
+  searchArticle(search: SearchArticleModel): Observable<SearchArticleModel> {
 
     this.loading.loadingOn();
 
@@ -28,7 +27,7 @@ export class ArticleService {
       .set('PageId', search.pageId.toString())
       .set('TakePage', search.takePage.toString());
 
-    if(search.phrase !== "" && search.phrase !== undefined){
+    if (search.phrase !== "" && search.phrase !== undefined) {
       params.set('Phrase', search.phrase);
     }
 
@@ -40,7 +39,7 @@ export class ArticleService {
       search.selectedCategories = [];
     }
 
-    return this.http.get<IResponse<SearchArticleModel>>
+    return this.http.get<SearchArticleModel>
       (`${environment.blogBaseApiUrl}/article/search`, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -54,10 +53,10 @@ export class ArticleService {
       );
   }
 
-  getLatestArticles(): Observable<IResponse<ArticleModel[]>> {
+  getLatestArticles(): Observable<ArticleModel[]> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ArticleModel[]>>
+    return this.http.get<ArticleModel[]>
       (`${environment.blogBaseApiUrl}/article/get-latest`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -71,10 +70,10 @@ export class ArticleService {
       );
   }
 
-  getArticleDetails(slug: string): Observable<IResponse<ArticleDetailsModel>> {
+  getArticleDetails(slug: string): Observable<ArticleDetailsModel> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ArticleDetailsModel>>
+    return this.http.get<ArticleDetailsModel>
       (`${environment.blogBaseApiUrl}/article/${slug}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -88,10 +87,10 @@ export class ArticleService {
       );
   }
 
-  getRelatedArticles(articleId: string): Observable<IResponse<ArticleModel[]>> {
+  getRelatedArticles(articleId: string): Observable<ArticleModel[]> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ArticleModel[]>>
+    return this.http.get<ArticleModel[]>
       (`${environment.blogBaseApiUrl}/article/get-related/${articleId}`)
       .pipe(
         tap(() => this.loading.loadingOff()),

@@ -74,10 +74,10 @@ export class ProductCategoryDetailsPage implements OnInit {
     this.productCategoryService.getProductCategoryBy(this.filterProductCategory)
       .subscribe(res => {
 
-        this.pageTitleSubject.next(`دسته بندی : ${res.data.productCategory.title}`);
+        this.pageTitleSubject.next(`دسته بندی : ${res.productCategory.title}`);
 
-        this.productCategoryData = res.data;
-        this.setMetaTags(res.data.productCategory);
+        this.productCategoryData = res;
+        this.setMetaTags(res.productCategory);
 
         this.pages = [];
 

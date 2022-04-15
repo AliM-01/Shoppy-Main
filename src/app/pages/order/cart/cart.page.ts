@@ -34,9 +34,7 @@ export class CartPage implements OnInit {
   computeCart(): void {
     this.loading.loadingOn();
     this.cartService.loadCart();
-    this.orderService.computeCart().subscribe(res => {
-      this.cart = res.data;
-    })
+    this.orderService.computeCart().subscribe(res => this.cart = res);
   }
 
   handleCartChanges() {

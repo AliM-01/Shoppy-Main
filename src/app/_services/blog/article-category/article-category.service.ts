@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { IResponse } from '@app_models/_common/IResponse';
 import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
@@ -17,9 +16,9 @@ export class ArticleCategoryService {
     private loading: LoadingService
   ) { }
 
-  getArticleCategoriesList(): Observable<IResponse<ArticleCategoryModel[]>> {
+  getArticleCategoriesList(): Observable<ArticleCategoryModel[]> {
     this.loading.loadingOn();
-    return this.http.get<IResponse<ArticleCategoryModel[]>>
+    return this.http.get<ArticleCategoryModel[]>
       (`${environment.blogBaseApiUrl}/article-category/get-all`)
       .pipe(
         tap(() => this.loading.loadingOff()),

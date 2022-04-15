@@ -53,11 +53,7 @@ export class LatestProductSliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingService.loadingOn();
-    this.productService.getLatestProducts().subscribe(res => {
-      if (res.status === "success") {
-        this.productsSubject.next(res.data);
-      }
-    })
+    this.productService.getLatestProducts().subscribe(res => this.productsSubject.next(res))
     this.loadingService.loadingOff();
 
   }

@@ -44,45 +44,39 @@ export class ArticleDetailsPage implements OnInit {
       }
 
     });
-    this.articleCategoryService.getArticleCategoriesList().subscribe(
-      res => this.articleCategories = res.data
-    );
-
+    this.articleCategoryService.getArticleCategoriesList()
+        .subscribe(res => this.articleCategories = res);
   }
 
-  getArticle(slug:string) {
+  getArticle(slug: string) {
     this.articleService.getArticleDetails(slug)
-    .subscribe((res) => {
-      if (res.status === 'success') {
-        this.pageTitleSubject.next(res.data.title)
-        this.article = res.data;
+      .subscribe((res) => {
+        this.pageTitleSubject.next(res.title)
+        this.article = res;
 
-        this.setMetaTags(res.data)
+        this.setMetaTags(res)
         this.getRelated();
 
         this.isDataLoaded = true;
-      }
-    },
-    () => this._location.back()
-  );
+      },
+        () => this._location.back()
+      );
   }
 
-  setMetaTags(data: ArticleDetailsModel){
+  setMetaTags(data: ArticleDetailsModel) {
     this.title.setTitle(data.title);
     this.meta.addTags([
       { name: 'keywords', content: data.metaKeywords },
       { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'shoppy'},
+      { name: 'author', content: 'shoppy' },
       { name: 'description', content: data.metaDescription },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { charset: 'UTF-8'}
+      { charset: 'UTF-8' }
     ]);
   }
 
-  getRelated(){
+  getRelated() {
     this.articleService.getRelatedArticles(this.article.id)
-      .subscribe(res => {
-        this.relatedArticles = res.data;
-      })
+      .subscribe(res => this.relatedArticles = res)
   }
 }

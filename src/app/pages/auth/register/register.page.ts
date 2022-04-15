@@ -62,13 +62,7 @@ export class RegisterPage implements OnInit {
       );
 
       this.authService.register(registerData)
-        .subscribe(res => {
-
-          if(res.status === 'success'){
-            this.navigateToLogin();
-          }
-
-        });
+        .subscribe(() => this.navigateToLogin());
 
 
     } else {

@@ -37,7 +37,7 @@ export class AuthService {
       })
   }
 
-  register(registerData: RegisterRequestModel): Observable<IResponse<any>> {
+  register(registerData: RegisterRequestModel): Observable<IResponse> {
 
     this.loading.loadingOn();
 
@@ -49,7 +49,7 @@ export class AuthService {
     formData.append('confirmPassword', registerData.confirmPassword);
 
     return this.http
-      .post<IResponse<any>>(`${environment.authBaseApiUrl}/register`, formData)
+      .post<IResponse>(`${environment.authBaseApiUrl}/register`, formData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -72,19 +72,13 @@ export class AuthService {
     this.msg.sendMsg("login");
 
     return this.http
-      .post<IResponse<LoginResponseModel>>(`${environment.authBaseApiUrl}/login`, formData)
+      .post<LoginResponseModel>(`${environment.authBaseApiUrl}/login`, formData)
       .pipe(
         map((res) => {
-          if (res.status === 'success') {
-
-            this.loading.loadingOff();
-            this.tokenStoreService.storeLoginSession(res.data);
-            this.refreshTokenService.scheduleRefreshToken(true, true);
-
-            return true;
-          }
-
-          return false;
+          this.loading.loadingOff();
+          this.tokenStoreService.storeLoginSession(res);
+          this.refreshTokenService.scheduleRefreshToken(true, true);
+          return true;
         }),
         catchError((error: HttpErrorResponse) => {
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
@@ -106,7 +100,7 @@ export class AuthService {
     this.msg.sendMsg("logout");
 
     this.http
-      .post<IResponse<string>>(`${environment.authBaseApiUrl}/logout`, logoutData)
+      .post<IResponse>(`${environment.authBaseApiUrl}/logout`, logoutData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -137,15 +131,9 @@ export class AuthService {
 
 
     return this.http
-      .get<IResponse<string>>(`${environment.authBaseApiUrl}/is-authenticated`)
+      .get<IResponse>(`${environment.authBaseApiUrl}/is-authenticated`)
       .pipe(
-        map(res => {
-          if (res.status === 'success') {
-            return true;
-          } else {
-            return false;
-          }
-        }),
+        map(() => true),
         catchError((error: HttpErrorResponse) => {
           this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
           this.loading.loadingOff();

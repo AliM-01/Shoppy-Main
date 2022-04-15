@@ -13,8 +13,10 @@ export class MainSliderComponent implements OnInit {
   sliders$: Observable<SliderModel[]> = this.slidersSubject.asObservable();
 
   baseSliderPath: string = environment.sliderBaseImagePath;
-  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1, "dots": true,
-     "fade": true, "loop": true, "arrows": true};
+  slideConfig = {
+    "slidesToShow": 1, "slidesToScroll": 1, "dots": true,
+    "fade": true, "loop": true, "arrows": true
+  };
 
   constructor(
     private sliderService: SliderService
@@ -22,10 +24,6 @@ export class MainSliderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.sliderService.getSlidersList().subscribe(res => {
-      if(res.status ==="success"){
-        this.slidersSubject.next(res.data);
-      }
-    })
+    this.sliderService.getSlidersList().subscribe(res => this.slidersSubject.next(res))
   }
 }

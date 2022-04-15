@@ -20,10 +20,10 @@ export class ProductService {
     private loading: LoadingService,
   ) { }
 
-  getLatestProducts(): Observable<IResponse<ProductModel[]>> {
+  getLatestProducts(): Observable<ProductModel[]> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ProductModel[]>>
+    return this.http.get<ProductModel[]>
       (`${environment.shopBaseApiUrl}/product/latest`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -37,7 +37,7 @@ export class ProductService {
       );
   }
 
-  searchProduct(search: SearchProductModel): Observable<IResponse<SearchProductModel>> {
+  searchProduct(search: SearchProductModel): Observable<SearchProductModel> {
 
     this.loading.loadingOn();
 
@@ -49,7 +49,7 @@ export class ProductService {
       .set('SortCreationDateOrder', search.sortCreationDateOrder)
       .set('SearchProductPriceOrder', search.searchProductPriceOrder);
 
-    if(search.phrase !== "" && search.phrase !== undefined){
+    if (search.phrase !== "" && search.phrase !== undefined) {
       params.set('Phrase', search.phrase);
     }
 
@@ -61,7 +61,7 @@ export class ProductService {
       search.selectedCategories = [];
     }
 
-    return this.http.get<IResponse<SearchProductModel>>
+    return this.http.get<SearchProductModel>
       (`${environment.shopBaseApiUrl}/product/search`, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -75,10 +75,10 @@ export class ProductService {
       );
   }
 
-  getProductDetails(slug:string): Observable<IResponse<ProductDetailsModel>> {
+  getProductDetails(slug: string): Observable<ProductDetailsModel> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ProductDetailsModel>>
+    return this.http.get<ProductDetailsModel>
       (`${environment.shopBaseApiUrl}/product/${slug}`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -92,10 +92,10 @@ export class ProductService {
       );
   }
 
-  getRelatedProducts(categoryId: string): Observable<IResponse<ProductModel[]>> {
+  getRelatedProducts(categoryId: string): Observable<ProductModel[]> {
     this.loading.loadingOn();
 
-    return this.http.get<IResponse<ProductModel[]>>
+    return this.http.get<ProductModel[]>
       (`${environment.shopBaseApiUrl}/product/get-related/${categoryId}`)
       .pipe(
         tap(() => this.loading.loadingOff()),

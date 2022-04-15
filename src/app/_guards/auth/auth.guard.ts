@@ -69,7 +69,7 @@ export class AuthGuard implements CanActivate {
         .toPromise()
         .then(res => {
           this.isRefreshing = false;
-          this.refreshTokenSubject.next(res.data.accessToken);
+          this.refreshTokenSubject.next(res.accessToken);
           return this.checkIsLoggedIn();
         }).catch(() => {
           this.router.navigate(["/auth/access-denied"]);

@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { IResponse } from '@app_models/_common/IResponse';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
 import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';
@@ -20,9 +19,9 @@ export class ProductCategoryService {
     private loading: LoadingService
   ) { }
 
-  getProductCategoriesList(): Observable<IResponse<ProductCategoryModel[]>> {
+  getProductCategoriesList(): Observable<ProductCategoryModel[]> {
     this.loading.loadingOn();
-    return this.http.get<IResponse<ProductCategoryModel[]>>
+    return this.http.get<ProductCategoryModel[]>
       (`${environment.shopBaseApiUrl}/product-category/get-all`)
       .pipe(
         tap(() => this.loading.loadingOff()),
@@ -36,7 +35,7 @@ export class ProductCategoryService {
       );
   }
 
-  getProductCategoryBy(filter: FilterProductCategoryRequestModel): Observable<IResponse<FilterProductCategoryResponseModel>> {
+  getProductCategoryBy(filter: FilterProductCategoryRequestModel): Observable<FilterProductCategoryResponseModel> {
     this.loading.loadingOn();
 
     if (filter.slug === undefined || filter.slug === "") {
@@ -45,9 +44,9 @@ export class ProductCategoryService {
     }
 
     let params = new HttpParams()
-     .set('Slug', filter.slug);
+      .set('Slug', filter.slug);
 
-    return this.http.get<IResponse<FilterProductCategoryResponseModel>>
+    return this.http.get<FilterProductCategoryResponseModel>
       (`${environment.shopBaseApiUrl}/product-category/get`, { params })
       .pipe(
         tap(() => this.loading.loadingOff()),
