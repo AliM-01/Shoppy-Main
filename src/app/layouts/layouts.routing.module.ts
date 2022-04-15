@@ -4,6 +4,7 @@ import { HomeLayout } from "./home/home.layout";
 import { UserDashboardLayout } from './user-dashboard/user-dashboard.layout';
 import { AuthGuard } from '../_guards/auth/auth.guard';
 import { IndexComponent } from "@apppages/index/index.component";
+import { NotFoundPage } from "@apppages/not-found/not-found.page";
 
 const routes: Routes = [
   // Home
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: HomeLayout,
     children: [
       { path: '', component: IndexComponent },
+      { path: 'not-found', component: NotFoundPage },
       {
         path: 'auth',
         loadChildren: () => import('../pages/auth/auth.module').then(m => m.AuthModule)
@@ -47,6 +49,8 @@ const routes: Routes = [
       },
     ]
   },
+
+  { path: '**', pathMatch: 'full', redirectTo: 'not-found' },
 ];
 
 @NgModule({
