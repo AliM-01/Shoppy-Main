@@ -5,6 +5,7 @@ export const environment = {
   commentBaseApiUrl: "https://localhost:5001/api/comment",
   blogBaseApiUrl: "https://localhost:5001/api/blog",
   orderBaseApiUrl: "https://localhost:5001/api/order",
+  userBaseApiUrl: "https://localhost:5001/api/user",
 
   sliderBaseImagePath: "https://localhost:5001/upload/slider",
   productCategoryBaseImagePath: "https://localhost:5001/upload/product_category",
