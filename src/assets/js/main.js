@@ -6,9 +6,9 @@ window.addEventListener('load',
     // -----------------*/
     const header = document.getElementsByClassName("sticky-bar")[0];
     let scrollUpBtn = document.getElementById("scrollUp");
-    let win = $(window);
-    win.on('scroll', function () {
-      let scroll = win.scrollTop();
+
+    window.addEventListener("scroll", () => {
+      let scroll = window.scrollTop();
 
       if (scroll > 20 || scroll > 20) {
         scrollUpBtn.style.display = "block";
@@ -30,12 +30,12 @@ window.addEventListener('load',
 
 
     /*====== Sidebar menu Active ======*/
-    let navbarTrigger = document.getElementById('burger_icon');
-    let endTrigger = document.getElementById('mobile_menu_close');
-    let container = document.getElementsByClassName("mobile-header-active")[0];
-    let wrapper4 = document.getElementsByTagName('body')[0];
+    const navbarTrigger = document.getElementById('burger_icon');
+    const endTrigger = document.getElementById('mobile_menu_close');
+    const container = document.getElementsByClassName("mobile-header-active")[0];
+    const wrapper4 = document.getElementsByTagName('body')[0];
 
-    let body_overlay = document.createElement('div');
+    const body_overlay = document.createElement('div');
     body_overlay.classList.add("body-overlay-1")
     wrapper4.prepend(body_overlay);
 
@@ -92,14 +92,14 @@ window.addEventListener('load',
     /*----------------------------
         Category toggle function
     ------------------------------*/
-    let searchToggle = document.querySelector('.categori-button-active');
+    const searchToggle = document.querySelector('.categori-button-active');
     searchToggle.addEventListener('click', (e) => {
       e.preventDefault();
-      if ($(this).hasClass('open')) {
-        $(this).removeClass('open');
+      if (searchToggle.classList.contains('open')) {
+        searchToggle.classList.remove('open');
         $(this).siblings('.categori-dropdown-active-large').removeClass('open');
       } else {
-        $(this).addClass('open');
+        searchToggle.classList.add('open');
         $(this).siblings('.categori-dropdown-active-large').addClass('open');
       }
     })
@@ -233,29 +233,25 @@ window.addEventListener('load',
     });
 
     /*====== SidebarSearch ======*/
-    function sidebarSearch() {
-      let searchTrigger = $('.search-active'),
-        endTriggersearch = $('.search-close'),
-        container = $('.main-search-active');
+    const sidebarSearch = () => {
 
-      searchTrigger.on('click', function (e) {
+      const searchTrigger = document.querySelector('.search-active');
+      const searchTriggerEnd = document.querySelector('.search-close');
+      let container = document.querySelector('.search-close');
+
+      searchTrigger.addEventListener('click', (e) => {
         e.preventDefault();
-        container.addClass('search-visible');
-      });
+        container.classList.add('search-visible');
+      })
 
-      endTriggersearch.on('click', function () {
-        container.removeClass('search-visible');
-      });
+      searchTriggerEnd.addEventListener('click', (e) => {
+        e.preventDefault();
+        container.classList.remove('search-visible');
+      })
 
     };
+
     sidebarSearch();
-
-
-    /*--- language currency active ----*/
-    $('.mobile-language-active').on('click', function (e) {
-      e.preventDefault();
-      $('.lang-dropdown-active').slideToggle(900);
-    });
 
     /*--- Categori-button-active-2 ----*/
     $('.categori-button-active-2').on('click', function (e) {
@@ -263,10 +259,4 @@ window.addEventListener('load',
       $('.categori-dropdown-active-small').slideToggle(900);
     });
 
-    /*--- Mobile demo active ----*/
-    let demo = $('.tm-demo-options-wrapper');
-    $('.view-demo-btn-active').on('click', function (e) {
-      e.preventDefault();
-      demo.toggleClass('demo-open');
-    });
   }, false);
