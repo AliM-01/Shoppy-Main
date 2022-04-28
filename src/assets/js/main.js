@@ -1,27 +1,8 @@
 window.addEventListener('load',
   () => {
 
-    // /*-----------------
-    //     Menu Stick
-    // -----------------*/
-    const header = document.getElementsByClassName("sticky-bar")[0];
-    let scrollUpBtn = document.getElementById("scrollUp");
-
-    window.addEventListener("scroll", () => {
-      let scroll = window.scrollTop();
-
-      if (scroll > 20 || scroll > 20) {
-        scrollUpBtn.style.display = "block";
-      } else {
-        scrollUpBtn.style.display = "none";
-      }
-
-      if (scroll < 200) {
-        header.classList.remove('stick');
-      } else {
-        header.classList.add('stick');
-      }
-    });
+    // Scroll Up Btn
+    const scrollUpBtn = document.getElementById("scrollUp");
 
     scrollUpBtn.addEventListener("click", () => {
       document.body.scrollTop = 0;

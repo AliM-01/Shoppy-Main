@@ -14362,6 +14362,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   height: 200px;
 }
 
+.user-sidebar h2 {
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+}
+
 .user-sidebar a {
   border-bottom: none;
   font-weight: 500;

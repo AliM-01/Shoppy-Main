@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticleCategoryModel } from '@app_models/blog/article-category/article-category';
 import { ProductCategoryModel } from '@app_models/shop/product-category/product-category';
@@ -11,7 +11,7 @@ import { Select2OptionData } from 'ng-select2';
   templateUrl: './header.component.html',
   providers: [ArticleCategoryService, ProductCategoryService]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   productCategorySelectData: Array<Select2OptionData>;
 
@@ -71,5 +71,25 @@ export class HeaderComponent implements OnInit {
       queryParams.categories = [this.selectedCategory]
     }
     this.router.navigate(['/product/search'], { queryParams: queryParams });
+  }
+
+  ngAfterViewInit(): void {
+    const header = document.getElementsByClassName("sticky-bar")[0];
+    const scrollUpBtn = document.getElementById("scrollUp");
+
+    window.addEventListener("scroll", () => {
+      const scroll = document.documentElement.scrollTop;
+      if (scroll > 20 || scroll > 20) {
+        scrollUpBtn.style.display = "block";
+      } else {
+        scrollUpBtn.style.display = "none";
+      }
+
+      if (scroll < 200) {
+        header.classList.remove('stick');
+      } else {
+        header.classList.add('stick');
+      }
+    });
   }
 }

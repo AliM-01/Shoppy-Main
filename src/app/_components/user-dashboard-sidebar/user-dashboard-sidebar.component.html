@@ -2,7 +2,7 @@
   <div class="user-sidebar-profile-container">
     <img [src]="(user$ | async).avatarBase64" alt="" class="user-sidebar-profile-img">
   </div>
-
+  <h2>{{(user$ | async).fullName}}</h2>
   <a class="active"> <i class="las la-user-circle"></i>  داشبورد</a>
   <a><i class="las la-shopping-bag"></i> سفارشات </a>
   <a><i class="las la-edit"></i> ویرایش حساب </a>
