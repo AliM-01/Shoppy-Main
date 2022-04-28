@@ -1,6 +1,6 @@
 <div class="user-sidebar">
   <div class="user-sidebar-profile-container">
-    <img src="/assets/images/user/default-avatar.png" alt="" class="user-sidebar-profile-img">
+    <img [src]="(user$ | async).avatarBase64" alt="" class="user-sidebar-profile-img">
   </div>
 
   <a class="active"> <i class="las la-user-circle"></i>  داشبورد</a>
