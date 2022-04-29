@@ -1,28 +1,21 @@
 import { ProductModel } from '@app_models/shop/product/product';
-import { IPaging, PagingDataSortCreationDateOrder, PagingDataSortIdOrder } from '@app_models/_common/IPaging';
+import { BasePaging } from '@app_models/_common/BasePaging';
 
-export class FilterProductCategoryRequestModel implements IPaging {
+export class FilterProductCategoryRequestModel extends BasePaging {
 
-    pageId: number;
-    dataCount: number;
-    takePage: number;
-    sortCreationDateOrder: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES;
-    sortIdOrder: PagingDataSortIdOrder;
+  slug: string;
+  products: ProductModel[];
 
-    slug: string;
-    products: ProductModel[];
+  constructor(
+    slug: string,
+    pageId: number,
+    takePage: number
+  ) {
+    super();
+    this.slug = slug;
+    this.pageId = pageId;
+    this.takePage = takePage;
 
-    constructor(
-        slug: string,
-        products: ProductModel[],
-        pageId: number,
-        takePage: number
-    ) {
-        this.slug = slug;
-        this.products = products;
-        this.pageId = pageId;
-        this.takePage = takePage;
-
-    }
+  }
 }
 

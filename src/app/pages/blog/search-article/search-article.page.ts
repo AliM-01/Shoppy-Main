@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PagingDataSortCreationDateOrder } from '@app_models/_common/IPaging';
+import { PagingDataSortCreationDateOrder } from '@app_models/_common/BasePaging';
 import { environment } from '@environments/environment';
 import { Title } from '@angular/platform-browser';
 import { SearchArticleModel } from '@app_models/blog/article/search-article';
@@ -21,7 +21,7 @@ export class SearchArticlePage implements OnInit {
   currentCreationSortSelected = [0, "جدیدترین"];
 
   searchPhrase: string = '';
-  searchArticles: SearchArticleModel = new SearchArticleModel(this.searchPhrase, [], 0, 10, this.creationSort);
+  searchArticles: SearchArticleModel = new SearchArticleModel(this.searchPhrase, 0, 10, this.creationSort);
 
   isDataLoaded: boolean = false;
   constructor(

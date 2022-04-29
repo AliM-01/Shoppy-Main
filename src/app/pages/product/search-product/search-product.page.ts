@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PagingDataSortCreationDateOrder } from '@app_models/_common/IPaging';
+import { PagingDataSortCreationDateOrder } from '@app_models/_common/BasePaging';
 import { ProductCategoryService } from '@app_services/shop/product-category/product-category.service';
 import { ProductService } from '@app_services/shop/product/product.service';
 import { environment } from '@environments/environment';
@@ -23,7 +23,7 @@ export class SearchProductPage implements OnInit {
   currentPriceSortSelected = [0, "همه"];
   currentCreationSortSelected = [0, "جدیدترین"];
   searchPhrase: string = '';
-  searchProducts: SearchProductModel = new SearchProductModel(this.searchPhrase, [], 0, 10,
+  searchProducts: SearchProductModel = new SearchProductModel(this.searchPhrase, 0, 10,
     this.creationSort, this.priceSort, 0, 0);
   isDataLoaded: boolean = false;
   constructor(

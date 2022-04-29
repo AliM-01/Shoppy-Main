@@ -20,7 +20,7 @@ export class ProductCategoryDetailsPage implements OnInit {
   pages: number[] = [];
 
   filterProductCategory: FilterProductCategoryRequestModel
-    = new FilterProductCategoryRequestModel("", [], 0, 9);
+    = new FilterProductCategoryRequestModel("", 0, 9);
 
   productCategoryData: FilterProductCategoryResponseModel
     = new FilterProductCategoryResponseModel(null, this.filterProductCategory);
