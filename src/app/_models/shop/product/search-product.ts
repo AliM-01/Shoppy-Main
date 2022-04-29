@@ -3,7 +3,7 @@ import { ProductModel } from "./product";
 
 export class SearchProductModel implements IPaging {
     pageId: number;
-    allPagesCount: number;
+    dataCount: number;
     takePage: number;
     sortCreationDateOrder: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES;
     sortIdOrder: PagingDataSortIdOrder;
@@ -34,7 +34,7 @@ export class SearchProductModel implements IPaging {
         this.searchProductPriceOrder = searchProductPriceOrder;
         this.selectedMinPrice = selectedMinPrice;
         this.selectedMaxPrice = selectedMaxPrice;
-        
+
     }
 }
 

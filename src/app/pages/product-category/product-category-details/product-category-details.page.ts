@@ -81,7 +81,7 @@ export class ProductCategoryDetailsPage implements OnInit {
 
         this.pages = [];
 
-        for (let i = 1; i < ((this.productCategoryData.filterData.allPagesCount / this.productCategoryData.filterData.takePage) + 1); i++) {
+        for (let i = 1; i < ((this.productCategoryData.filterData.dataCount / this.productCategoryData.filterData.takePage) + 1); i++) {
           this.pages.push(i);
         }
 

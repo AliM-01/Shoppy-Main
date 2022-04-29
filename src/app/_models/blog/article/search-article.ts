@@ -3,7 +3,7 @@ import { ArticleModel } from "./article";
 
 export class SearchArticleModel implements IPaging {
     pageId: number;
-    allPagesCount: number;
+    dataCount: number;
     takePage: number;
     sortCreationDateOrder: PagingDataSortCreationDateOrder = PagingDataSortCreationDateOrder.DES;
     sortIdOrder: PagingDataSortIdOrder;

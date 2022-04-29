@@ -5,9 +5,10 @@ import { SearchProductPage } from "./search-product/search-product.page";
 
 const routes: Routes = [
   {path: 'search', component: SearchProductPage},
+  {path: '', redirectTo: '/product/search', pathMatch: 'full'},
   {path: 'details/:slug', component: ProductDetailsPage}
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]

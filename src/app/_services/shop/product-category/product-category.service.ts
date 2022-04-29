@@ -5,7 +5,7 @@ import { ProductCategoryModel } from '@app_models/shop/product-category/product-
 import { environment } from '@environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '@loading';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { FilterProductCategoryRequestModel } from '@app_models/shop/product-category/filter-product-category-request';
 import { FilterProductCategoryResponseModel } from '@app_models/shop/product-category/filter-product-category-response';
 
@@ -24,6 +24,7 @@ export class ProductCategoryService {
     return this.http.get<ProductCategoryModel[]>
       (`${environment.shopBaseApiUrl}/product-category/get-all`)
       .pipe(
+        shareReplay(1),
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
 

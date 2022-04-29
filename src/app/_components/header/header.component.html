@@ -49,6 +49,7 @@
           <nav>
             <ul>
               <li><a routerLink="/" [routerLinkActive]="'active'">صفحه اصلی</a></li>
+              <li><a routerLink="/product/search" [routerLinkActive]="'active'">فروشگاه</a></li>
               <li><a routerLink="/">دسته بندی ها<i class="las la-angle-down"></i></a>
                 <ul class="sub-menu">
                   <li *ngFor="let category of productCategories">

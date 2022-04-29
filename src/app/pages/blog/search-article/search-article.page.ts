@@ -84,7 +84,7 @@ export class SearchArticlePage implements OnInit {
 
     this.articleService.searchArticle(this.searchArticles).subscribe((res) => {
 
-      this.title.setTitle(`جستجو مقالات | ${res.allPagesCount} نتیجه پیدا شد`)
+      this.title.setTitle(`جستجو مقالات | ${res.dataCount} نتیجه پیدا شد`)
       this.searchArticles = res;
 
       if (res.phrase === null) {
@@ -98,7 +98,7 @@ export class SearchArticlePage implements OnInit {
         this.searchArticles.selectedCategories = [];
       }
 
-      for (let i = 1; i < ((this.searchArticles.allPagesCount / this.searchArticles.takePage) + 1); i++) {
+      for (let i = 1; i < ((this.searchArticles.dataCount / this.searchArticles.takePage) + 1); i++) {
         this.pages.push(i);
       }
 

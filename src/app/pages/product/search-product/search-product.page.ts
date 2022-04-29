@@ -95,7 +95,7 @@ export class SearchProductPage implements OnInit {
     this.productService.searchProduct(this.searchProducts).subscribe((res) => {
       this.loadingService.loadingOn();
 
-      this.title.setTitle(`جستجو محصولات | ${res.allPagesCount} نتیجه پیدا شد`)
+      this.title.setTitle(`جستجو محصولات | ${res.dataCount} نتیجه پیدا شد`)
       this.searchProducts = res;
 
       if (res.phrase === null) {
@@ -109,7 +109,7 @@ export class SearchProductPage implements OnInit {
         this.searchProducts.selectedCategories = [];
       }
 
-      for (let i = 1; i < ((this.searchProducts.allPagesCount / this.searchProducts.takePage) + 1); i++) {
+      for (let i = 1; i < ((this.searchProducts.dataCount / this.searchProducts.takePage) + 1); i++) {
         this.pages.push(i);
       }
 
