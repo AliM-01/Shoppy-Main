@@ -1,14 +1,16 @@
 <div class="header-action">
 
-  <div class="d-flex">
-    <a *ngIf="!isChecked" class="h6 header-sync-icon rotating">
+  <div class="header-auth-container">
+
+    <a *ngIf="!isChecked" class="header-sync-icon rotating">
       <i class="las la-sync"></i>
     </a>
+
   </div>
 
-  <div *ngIf="isChecked && !isLoggedIn" class="d-flex">
+  <div *ngIf="isChecked && !isLoggedIn" class="header-auth-container">
 
-    <a (click)="navigateTo('/auth/login')" class="h6">
+    <a (click)="navigateTo('/auth/login')">
       ورود به حساب
       <i class="las la-user"></i>
 
@@ -20,13 +22,13 @@
 
   </div>
 
-  <div *ngIf="isChecked && isLoggedIn" class="d-flex">
+  <div *ngIf="isChecked && isLoggedIn" class="header-auth-container">
 
-    <a routerLink="/user-profile" class="h6">
+    <a routerLink="/user-profile">
       <i class="la la-user"></i>
     </a>
 
-    <a (click)="authService.logout(true)" class="h6">خروج</a>
+    <a (click)="authService.logout(true)">خروج</a>
 
   </div>
 </div>

@@ -9,21 +9,26 @@
 }
 
 :root {
-  --sh-blue: #4e97fd;
-  --sh-red: #e4573d;
-  --sh-bg-blue: #0f51ab;
-  --sh-header-bg: #1d56a7;
-  --sh-font-family: 'IRanSans';
-  --sh-line-awesome: 'Line Awesome Free';
+  --clr-light-blue: #4e97fd;
+  --clr-red: #e4573d;
+  --clr-dark-blue: #0f51ab;
+  --clr-header-blue: #1d56a7;
+  --clr-text-standard: #333333;
+
+  --fs-standard: 16px;
+  --fs-title: 18px;
+
+  --ff-fa: 'IRanSans';
+  --ff-line-awesome: 'Line Awesome Free';
 }
 
 ::selection {
-  background-color: var(--sh-bg-blue);
+  background-color: var(--clr-light-blue);
   color: #fff;
 }
 
 * {
-  font-family: var(--sh-font-family);
+  font-family: var(--ff-fa);
   direction: rtl;
 }
 
@@ -126,25 +131,23 @@ body {
     font-size: 14px;
     font-style: normal;
 
-    color: #333;
+    color: var(--clr-text-standard);
     overflow-x: hidden;
 
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #333;
+    color: var(--clr-text-standard);
 
     margin-top: 0;
 
 }
 
 p {
-    font-size: 14px;
-
-    line-height: 24px;
-    color: #444;
-    margin-bottom: 15px;
-
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--clr-text-standard);
+  margin-bottom: 15px;
 }
 
 h1 {
@@ -160,7 +163,7 @@ h3 {
 }
 
 h4 {
-    font-size: 18px
+    font-size: var(--fs-title)
 }
 
 h5 {
@@ -180,7 +183,7 @@ a, button {
     line-height: inherit;
     text-decoration: none;
     cursor: pointer;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 a, button, img, input, span {
@@ -1836,7 +1839,7 @@ textarea:focus {
     position: fixed;
     width: 45px;
     height: 45px;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff;
     left: 30px;
     bottom: 30px;
@@ -1851,7 +1854,7 @@ textarea:focus {
 
 #scrollUp:hover {
     color: #ffffff;
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -1869,7 +1872,7 @@ textarea:focus {
 
 @media only screen and (max-width: 767px) {
     #scrollUp i {
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -2795,8 +2798,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-info>ul>li a {
-    color: #444;
-
+  color: var(--clr-text-standard);
 }
 
 .header-info>ul>li a i {
@@ -2841,12 +2843,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-info>ul>li>ul li a:hover {
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     background-color: rgba(78, 151, 253, 0.1)
 }
 
 .header-info>ul>li:hover>a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .header-info>ul>li:hover>ul.language-dropdown {
@@ -2858,7 +2860,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .covid-update p {
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .covid-update p a {
@@ -2872,7 +2874,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .covid-update p a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .covid-update.covid-update-mobile {
@@ -2949,9 +2951,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .main-menu>nav>ul>li>a {
     display: inline-block;
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .main-menu>nav>ul>li>a i {
@@ -2962,7 +2964,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li>a.active {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .main-menu>nav>ul>li ul.sub-menu {
@@ -3024,7 +3026,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.sub-menu li a {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     color: #555;
     display: block;
     padding: 0 30px
@@ -3087,7 +3089,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.mega-menu li a.menu-title {
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     display: block
 }
@@ -3107,7 +3109,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.mega-menu li ul li a {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     color: #555;
     display: block;
     line-height: 1.4
@@ -3181,11 +3183,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.new-price {
     font-size: 24px;
 
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-content .menu-banner-price span.old-price {
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     color: #696969;
     text-decoration: line-through;
@@ -3199,7 +3201,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 12px 22px 15px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3240,10 +3242,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap .menu-banner-discount h3 {
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     line-height: 1
 }
@@ -3262,11 +3264,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .main-menu>nav>ul>li ul.mega-menu li .menu-banner-wrap:hover .menu-banner-btn a {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .main-menu>nav>ul>li:hover>a {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .main-menu>nav>ul>li:hover ul.sub-menu {
@@ -3296,7 +3298,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     -o-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
-    background: var(--sh-blue)
+    background: var(--clr-light-blue)
 }
 
 .main-menu.hover-boder>nav>ul>li:hover>a::after {
@@ -3411,6 +3413,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   font-size: 1.8em;
 }
 
+.header-auth-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 4px;
+  align-items: center;
+}
+
+.header-auth-container a {
+  font-size: var(--fs-standard);
+}
+
 .search-style-1 {
     margin-left: 28px
 }
@@ -3447,7 +3460,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .search-style-1 form input {
     font-size: 15px;
     height: 48px;
-    color: #444;
+    color: var(--clr-text-standard);
     border-radius: 26px;
     padding: 3px 20px 3px 50px;
     border: 1px solid #f5f5f5;
@@ -3458,17 +3471,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-1 form input::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-1 form input::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-1 form input:focus {
-    border: 1px solid var(--sh-blue);
+    border: 1px solid var(--clr-light-blue);
     background-color: #ffffff
 }
 
@@ -3480,15 +3493,15 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     transform: translateY(-50%);
     left: 0;
     border: none;
-    font-size: 16px;
+    font-size: var(--fs-standard);
     height: 100%;
     padding: 0 15px;
     background-color: transparent;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .search-style-1 form button:hover {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .header-action {
@@ -3581,7 +3594,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .header-action-icon>a {
     font-size: 24px;
-    color: #333;
+    color: var(--clr-text-standard);
     line-height: 1;
     display: inline-block;
     position: relative
@@ -3614,7 +3627,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-action-icon>a span.pro-count.blue {
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 
@@ -3686,7 +3699,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .header-action-2 .header-action-icon-2>a {
     font-size: 30px;
-    color: #333;
+    color: var(--clr-text-standard);
     line-height: 1;
     display: inline-block;
     position: relative
@@ -3738,12 +3751,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .header-action-2 .header-action-icon-2>a span.pro-count.blue {
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .header-action-2 .header-action-icon-2:hover>a {
-    color: var(--sh-blue);
-    fill: var(--sh-blue)
+    color: var(--clr-light-blue);
+    fill: var(--clr-light-blue)
 }
 
 .header-action-2 .header-action-icon-2:hover .cart-dropdown-wrap {
@@ -3846,15 +3859,15 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h4 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
 
     line-height: 1;
     margin: 0 0 0px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-title h3 span {
@@ -3880,12 +3893,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-delete a {
-    font-size: 18px;
+    font-size: var(--fs-title);
     color: #696969
 }
 
 .cart-dropdown-wrap ul li .shopping-cart-delete a:hover {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-total {
@@ -3902,9 +3915,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-total h4 span {
-    font-size: 18px;
+    font-size: var(--fs-title);
     float: left;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button {
@@ -3928,14 +3941,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   border-radius: 1.4em;
   text-align: center;
   padding: 1em;
-  background-color: var(--sh-blue);
+  background-color: var(--clr-light-blue);
 }
 
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button .delete {
   background-color: #f7492b;
 }
 .cart-dropdown-wrap .shopping-cart-footer .shopping-cart-button a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .sticky-bar.stick {
@@ -3958,7 +3971,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sticky-bar.stick.sticky-blue-bg {
-    background-color: var(--sh-header-bg)
+    background-color: var(--clr-header-blue)
 }
 
 .header-height-1 {
@@ -4062,7 +4075,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     min-height: 52px;
     border: 2px solid #eee;
@@ -4081,11 +4094,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-2 div ng-select2:focus {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .search-style-2 div input {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     min-height: 52px;
     border: 2px solid #eee;
@@ -4102,17 +4115,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-2 div input::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-2 div input::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-2 div input:focus {
-    border: 2px solid var(--sh-blue)
+    border: 2px solid var(--clr-light-blue)
 }
 
 .search-style-2 div button {
@@ -4126,13 +4139,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 0;
     border: none;
     font-size: 20px;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     height: 100%;
     padding: 5px 17px
 }
 
 .header-bottom-bg-color {
-    background-color: var(--sh-header-bg)
+    background-color: var(--clr-header-blue)
 }
 
 .main-categori-wrap {
@@ -4148,7 +4161,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    font-size: 16px;
+    font-size: var(--fs-standard);
     color: #ffffff;
 
 }
@@ -4192,7 +4205,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hotline p {
     color: #ffffff;
-    font-size: 18px;
+    font-size: var(--fs-title);
 
     display: -webkit-box;
     display: -webkit-flex;
@@ -4213,7 +4226,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hotline p i {
     font-size: 24px;
     margin-left: 10px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .hotline p span {
@@ -4279,7 +4292,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     align-items: center;
     padding: 5px 34px;
     line-height: 1.5;
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
@@ -4295,7 +4308,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .categori-dropdown-wrap ul li a:hover {
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     background-color: rgba(78, 151, 253, 0.1)
 }
 
@@ -4311,7 +4324,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .search-style-3 form input {
     font-size: 15px;
     height: 40px;
-    color: #444;
+    color: var(--clr-text-standard);
     border-radius: 26px;
     padding: 3px 20px 3px 50px;
     border: 1px solid #ffffff;
@@ -4322,17 +4335,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .search-style-3 form input::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-3 form input::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .search-style-3 form input:focus {
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .search-style-3 form button {
@@ -4347,11 +4360,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 100%;
     padding: 0 14px;
     background-color: transparent;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .search-style-3 form button:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .search-popup-wrap {
@@ -4385,7 +4398,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 1170px;
     background-color: transparent;
     border: 0;
-    border-bottom: 3px solid var(--sh-blue);
+    border-bottom: 3px solid var(--clr-light-blue);
     font-size: 50px;
     padding: 21px 50px 16px 0px;
     color: #919191;
@@ -4611,7 +4624,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 100%;
     height: 100%;
     content: "";
-    background-color: #333
+    background-color: var(--clr-text-standard)
 }
 
 .burger-icon>span.burger-icon-top {
@@ -4663,7 +4676,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .burger-icon:hover span::before, .burger-icon:hover span::after {
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .burger-icon:hover span.burger-icon-top::before {
@@ -4781,7 +4794,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-top {
@@ -4856,7 +4869,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     background-color: transparent;
     color: #ffffff;
     line-height: 40px;
-    font-size: 18px
+    font-size: var(--fs-title)
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li.menu-item-has-children.active>.menu-expand {
@@ -4868,7 +4881,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-menu-wrap nav .mobile-menu li a {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     line-height: 1;
     text-transform: capitalize;
 
@@ -4925,7 +4938,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info a {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     display: block;
     color: #ffffff;
 
@@ -4933,7 +4946,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info a span {
     float: left;
-    font-size: 18px;
+    font-size: var(--fs-title);
     position: relative;
     top: 8px;
     line-height: 1
@@ -4965,7 +4978,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info .lang-curr-dropdown ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-header-info-wrap .single-mobile-header-info:hover>a {
@@ -4994,7 +5007,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-social-icon a.facebook:hover {
-    color: #333;
+    color: var(--clr-text-standard);
     background-color: #ffffff;
     border: 1px solid #ffffff
 }
@@ -5005,7 +5018,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-social-icon a.twitter:hover {
-    color: #333;
+    color: var(--clr-text-standard);
     background-color: #ffffff;
     border: 1px solid #ffffff
 }
@@ -5016,7 +5029,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-social-icon a.tumblr:hover {
-    color: #333;
+    color: var(--clr-text-standard);
     background-color: #ffffff;
     border: 1px solid #ffffff
 }
@@ -5027,7 +5040,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-content-area .mobile-social-icon a.instagram:hover {
-    color: #333;
+    color: var(--clr-text-standard);
     background-color: #ffffff;
     border: 1px solid #ffffff
 }
@@ -5193,7 +5206,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .slider-product-price h3 {
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0;
     text-align: center;
     font-size: 30px;
@@ -5217,7 +5230,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .slider-product-price h3 span {
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -5353,7 +5366,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
 
     letter-spacing: 3px;
-    color: var(--sh-red);
+    color: var(--clr-red);
     text-transform: uppercase;
     margin: 0 0 20px
 }
@@ -5402,21 +5415,21 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-1 .slider-product-offer-wrap .slider-product-offer span.red {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .hero-slider-content-1 .slider-product-offer-wrap p {
-    font-size: 18px;
+    font-size: var(--fs-title);
     color: #ffffff;
     margin: 0 0 0 10px
 }
 
 .hero-slider-content-1.slider-content-1-black h1 {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .hero-slider-content-1.slider-content-1-black p {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .btn-style-1 a {
@@ -5426,7 +5439,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-weight: bold;
     border-radius: 50px;
     padding: 14px 42px 16px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -5486,7 +5499,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .btn-style-1 a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .nav-style-1.nav-style-1-position-1>span {
@@ -5512,7 +5525,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     text-align: center;
     background: rgba(0, 0, 0, 0.1);
     z-index: 9;
-    font-size: 18px
+    font-size: var(--fs-title)
 }
 
 .nav-style-1>span i {
@@ -5529,7 +5542,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     .nav-style-1>span {
         width: 42px;
         height: 42px;
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -5624,7 +5637,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hero-slider-content-2 h4 {
     font-size: 24px;
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 0 0 18px
 }
 
@@ -5650,7 +5663,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 56px;
 
     line-height: 64px;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0 0 0px
 }
 
@@ -5694,9 +5707,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-2 p {
-    font-size: 18px;
+    font-size: var(--fs-title);
     line-height: 36px;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 7px 0 22px;
     width: 74%
 }
@@ -5738,14 +5751,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hero-slider-content-2 span {
     display: block;
     font-size: 15px;
-    color: #333;
+    color: var(--clr-text-standard);
     line-height: 1
 }
 
 .hero-slider-content-2 h3 {
     font-size: 34px;
 
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 10px 0 15px;
     line-height: 1
 }
@@ -6017,7 +6030,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .hero-slider-content-3 h4 {
     font-size: 24px;
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 0 0 20px
 }
 
@@ -6098,8 +6111,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-3 p {
-    font-size: 18px;
-    color: #444;
+    font-size: var(--fs-title);
+    color: var(--clr-text-standard);
     line-height: 30px;
     margin: 10px 0 30px;
     width: 75%
@@ -6131,14 +6144,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .hero-slider-content-3>span {
     display: block;
     font-size: 15px;
-    color: #333;
+    color: var(--clr-text-standard);
     line-height: 1
 }
 
 .hero-slider-content-3 h3 {
     font-size: 34px;
 
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 10px 0 15px;
     line-height: 1
 }
@@ -6233,18 +6246,18 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-4 .slider-product-offer-wrap-2 .slider-product-offer-2 span.red {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .hero-slider-content-4 .slider-product-offer-wrap-2 p {
     font-size: 24px;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0 0 0 10px
 }
 
 @media only screen and (max-width: 767px) {
     .hero-slider-content-4 .slider-product-offer-wrap-2 p {
-        font-size: 18px;
+        font-size: var(--fs-title);
         margin: 5px 0 0 0px
     }
 }
@@ -6278,8 +6291,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .hero-slider-content-4 p {
-    font-size: 18px;
-    color: #333;
+    font-size: var(--fs-title);
+    color: var(--clr-text-standard);
     line-height: 30px;
     margin: 10px 0 30px;
     width: 75%
@@ -6301,7 +6314,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 @media only screen and (max-width: 767px) {
     .hero-slider-content-4 p {
         width: 100%;
-        font-size: 16px;
+        font-size: var(--fs-standard);
         line-height: 27px;
         margin: 10px 0 20px
     }
@@ -6367,7 +6380,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap .banner-content-1 h2 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: bold;
     margin: 10px 0 12px
 }
@@ -6402,7 +6415,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-1 h3 {
     font-size: 24px;
     font-weight: bold;
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 0px 0 26px
 }
 
@@ -6561,7 +6574,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-2 h4 {
     font-size: 24px;
     font-weight: bold;
-    color: var(--sh-red);
+    color: var(--clr-red);
     margin: 0 0 26px
 }
 
@@ -6627,12 +6640,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .banner-wrap .banner-content-3 h4 {
     font-size: 24px;
     font-weight: bold;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     margin: 0 0 30px
 }
 
 .banner-wrap .banner-content-3 h4.red {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -6670,10 +6683,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap .banner-badge h3 {
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     line-height: 1
 }
@@ -6763,7 +6776,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap .banner-badge-2 h3 {
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0;
     text-align: center;
     font-size: 20px;
@@ -6773,7 +6786,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .banner-wrap .banner-badge-2 h3 {
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -6787,7 +6800,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .banner-wrap .banner-badge-2 h3 span {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -6798,7 +6811,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap .banner-badge-2.banner-badge-2-modify-1 h3 {
-    font-size: 16px
+    font-size: var(--fs-standard)
 }
 
 .banner-wrap .banner-badge-2.banner-badge-2-modify-1 h3 span {
@@ -6824,7 +6837,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .banner-wrap:hover .btn-style-1 a {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -7013,7 +7026,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .section-title-2 p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.74;
     width: 55%;
     margin: 15px auto 0;
@@ -7066,7 +7079,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 30px;
     padding: 6px 24px 5px;
     margin-right: 20px;
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -7173,7 +7186,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .timer-style-1 .syotimer__body .syotimer-cell .syotimer-cell__value {
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -7182,7 +7195,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-area-border {
-    border: 2px solid var(--sh-blue);
+    border: 2px solid var(--clr-light-blue);
     border-radius: 5px;
     padding: 0 30px
 }
@@ -7248,7 +7261,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     line-height: 48px;
     color: #ffffff;
     border-radius: 50%;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     text-align: center;
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
@@ -7266,7 +7279,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
-    background-color: var(--sh-red);
+    background-color: var(--clr-red);
     content: attr(aria-label);
     line-height: 1.3;
     -webkit-transition-delay: .1s;
@@ -7291,7 +7304,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -o-transition-delay: .1s;
     transition-delay: .1s;
     border: 7px solid transparent;
-    border-top-color: var(--sh-red);
+    border-top-color: var(--clr-red);
     z-index: 9;
     margin-bottom: -13px;
     transition-delay: .1s;
@@ -7310,7 +7323,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .single-product-wrap .product-img-action-wrap .product-action-1 button:hover:after {
@@ -7369,7 +7382,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-badges span.red {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .single-product-wrap .product-badges span.red-2 {
@@ -7384,7 +7397,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-content-wrap .product-category a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .single-product-wrap .product-content-wrap h2 {
@@ -7394,27 +7407,27 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-content-wrap h2 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .single-product-wrap .product-content-wrap h2 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .single-product-wrap .product-content-wrap .product-price span {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     font-weight: bold;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .single-product-wrap .product-content-wrap .product-price span.new-price {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .single-product-wrap .product-content-wrap .product-price span.old-price {
     font-size: 14px;
 
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 7px 0 0;
     text-decoration: line-through
 }
@@ -7426,9 +7439,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-stock .status-bar .sold-bar {
-    background-image: -webkit-linear-gradient(215deg, var(--sh-blue) 0%, #77ccfd 100%);
-    background-image: -o-linear-gradient(215deg, var(--sh-blue) 0%, #77ccfd 100%);
-    background-image: linear-gradient(235deg, var(--sh-blue) 0%, #77ccfd 100%);
+    background-image: -webkit-linear-gradient(215deg, var(--clr-light-blue) 0%, #77ccfd 100%);
+    background-image: -o-linear-gradient(215deg, var(--clr-light-blue) 0%, #77ccfd 100%);
+    background-image: linear-gradient(235deg, var(--clr-light-blue) 0%, #77ccfd 100%);
     border-radius: 4px;
     height: 8px
 }
@@ -7482,12 +7495,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-product-wrap .product-stock .product-stock-status .stock-status-same-style span.label {
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .single-product-wrap .product-stock .product-stock-status .stock-status-same-style span.value {
 
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 @media only screen and (max-width: 767px) {
@@ -7592,7 +7605,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .nav-style-2>span:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .nav-style-2.nav-style-2-modify-2>span {
@@ -7677,7 +7690,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     left: 0%;
     width: 48px;
     height: 48px;
-    color: #333;
+    color: var(--clr-text-standard);
     border: 1px solid #ddd;
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.01);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.01);
@@ -7694,7 +7707,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .nav-style-2.nav-style-2-modify-3>span:hover {
     color: #ffffff;
     border: 1px solid #333;
-    background-color: #333
+    background-color: var(--clr-text-standard)
 }
 
 .nav-style-2.nav-style-2-modify-3>span i {
@@ -7769,7 +7782,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .categories-wrap .categories-content h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     margin: 0
 }
 
@@ -7780,11 +7793,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .categories-wrap .categories-content h3 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .categories-wrap .categories-content h3 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .categories-wrap:hover .categories-img-zoom a img {
@@ -7795,7 +7808,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .btn-style-2 a {
     font-size: 15px;
 
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .la, .las {
@@ -7807,11 +7820,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
   margin-right: 4px;
   position: relative;
   top: 3px;
-  color: var(--sh-blue);
+  color: var(--clr-light-blue);
 }
 
 .btn-style-2 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .slidebar-product-wrap {
@@ -7871,7 +7884,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .slidebar-product-wrap .slidebar-product-content h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     margin: 0 0 10px
 }
 
@@ -7940,8 +7953,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .slidebar-product-wrap .slidebar-product-details ul li a {
-    font-size: 16px;
-    color: #444;
+    font-size: var(--fs-standard);
+    color: var(--clr-text-standard);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7956,7 +7969,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .slidebar-product-wrap .slidebar-product-details ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .sidebar-product-wrap .single-sidebar-product {
@@ -8020,29 +8033,29 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 h4 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 h4 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span {
     font-size: 15px;
 
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     display: inline-block
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span.old-price {
     text-decoration: line-through;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 0 0 7px;
 
 }
 
 .sidebar-product-wrap .single-sidebar-product .slidebar-product-content-3 .slidebar-pro-price span.new-price {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8098,9 +8111,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     bottom: 13%;
     right: 10%;
-    font-size: 18px;
+    font-size: var(--fs-title);
 
-    color: #333;
+    color: var(--clr-text-standard);
     z-index: 5
 }
 
@@ -8164,9 +8177,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-testimonial p {
-    font-size: 18px;
+    font-size: var(--fs-title);
     line-height: 30px;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 22px 0 34px
 }
 
@@ -8196,7 +8209,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-testimonial .client-info span {
     font-size: 15px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .single-testimonial-2 {
@@ -8273,7 +8286,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .single-testimonial-2 p {
     font-size: 24px;
     line-height: 1.5;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 15px 0 41px
 }
 
@@ -8293,7 +8306,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .single-testimonial-2 p {
-        font-size: 18px;
+        font-size: var(--fs-title);
         margin: 15px 0 20px
     }
 }
@@ -8306,7 +8319,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-testimonial-2 .client-info-2 span {
     font-size: 15px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .nav-style-3>span {
@@ -8343,13 +8356,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     .nav-style-3>span {
         width: 35px;
         height: 35px;
-        font-size: 16px;
+        font-size: var(--fs-standard);
         bottom: 12%
     }
 }
 
 .nav-style-3>span:hover {
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     background: white
 }
 
@@ -8377,26 +8390,26 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-contact-wrap h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
 
     margin: 0 0 12px
 }
 
 .single-contact-wrap p {
     font-size: 20px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
     .single-contact-wrap p {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
     .single-contact-wrap p {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -8497,7 +8510,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-from-area .contact-form-style .textarea-style textarea:focus {
     background-color: #ffffff;
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .contact-from-area .contact-form-style button {
@@ -8506,7 +8519,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 12px 41px;
     color: #ffffff;
     border: none;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     width: 100%;
     border-radius: 26px
 }
@@ -8517,7 +8530,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-from-area .contact-form-style button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .contact-from-area p {
@@ -8570,7 +8583,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-icon i {
     font-size: 40px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8580,9 +8593,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content p {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     line-height: 1.625em;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 0 0px
 }
 
@@ -8613,11 +8626,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h2 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h2 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h3 {
@@ -8647,11 +8660,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h3 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h3 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 {
@@ -8662,17 +8675,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 {
-        font-size: 18px;
+        font-size: var(--fs-title);
         line-height: 28px
     }
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .contact-info-wrap .single-contact-info2-wrap .single-contact-info2-content h4 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .single-contact-info3-wrap {
@@ -8694,7 +8707,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-contact-info3-wrap .single-contact-info3-icon i {
     font-size: 32px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8704,7 +8717,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-contact-info3-wrap .single-contact-info3-content h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     margin: 0 0 23px
 }
 
@@ -8716,7 +8729,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-contact-info3-wrap .single-contact-info3-content p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 0 3px
 }
 
@@ -8732,7 +8745,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .single-contact-info3-wrap .single-contact-info3-content p span {
     font-weight: 700;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 @media only screen and (max-width: 767px) {
@@ -8773,16 +8786,16 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .copyright p {
     line-height: 1.6em;
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .copyright p a {
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .copyright p a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -8811,7 +8824,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .footer-widget h3.footer-title {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -8823,7 +8836,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
     .footer-widget h3.footer-title {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -8850,16 +8863,16 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .footer-widget .footer-info-list ul li a {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     display: block
 }
 
 .footer-widget .footer-info-list ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .footer-widget .app-visa-wrap p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0
 }
@@ -8952,7 +8965,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .footer-about-2 .footer-contact-info p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 8px
 }
@@ -8962,7 +8975,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 20px;
 
     margin: 4px 0 18px;
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .footer-about-2 .footer-social-icon {
@@ -9000,7 +9013,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .subscribe-wrap p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.6em;
     margin: 0 0 37px
 }
@@ -9016,7 +9029,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .subscribe-form form .mc-form input {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     height: 48px;
     border: 1px solid #f8f8f8;
@@ -9045,12 +9058,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .subscribe-form form .mc-form input::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .subscribe-form form .mc-form input::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
@@ -9071,7 +9084,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: auto;
 
     color: #ffffff;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     padding: 0 36px
 }
 
@@ -9094,7 +9107,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .subscribe-form form .mc-form .clear input:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .payment-img-wrap {
@@ -9134,7 +9147,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .payment-img-wrap span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 0 30px
 }
@@ -9240,7 +9253,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap .blog-img .blog-tag a {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff;
     font-size: 14px;
     display: inline-block;
@@ -9277,7 +9290,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-wrap .blog-content .blog-meta span {
     font-size: 14px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .blog-wrap .blog-content .blog-meta span i {
@@ -9300,7 +9313,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .blog-wrap .blog-content h3 {
         line-height: 1.3;
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -9312,11 +9325,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap .blog-content h3 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .blog-wrap .blog-content h3 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-wrap:hover .blog-img a img {
@@ -9357,7 +9370,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-wrap-2 .blog-img-2 .blog-tag-2 a {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff;
     font-size: 14px;
     display: inline-block;
@@ -9411,7 +9424,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-wrap-2 .blog-content-2 .blog-meta-2 ul li {
     font-size: 14px;
-    color: #444;
+    color: var(--clr-text-standard);
     display: inline-block;
     margin-left: 20px
 }
@@ -9450,7 +9463,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .blog-wrap-2 .blog-content-2 h3 {
-        font-size: 18px;
+        font-size: var(--fs-title);
         margin: 10px 0 15px;
         line-height: 1.5
     }
@@ -9458,7 +9471,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .blog-wrap-2 .blog-content-2 h3 {
-        font-size: 18px;
+        font-size: var(--fs-title);
         margin: 10px 0 15px;
         line-height: 1.5
     }
@@ -9466,36 +9479,36 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .blog-wrap-2 .blog-content-2 h3 {
-        font-size: 18px;
+        font-size: var(--fs-title);
         margin: 10px 0 15px;
         line-height: 1.5
     }
 }
 
 .blog-wrap-2 .blog-content-2 h3 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .blog-wrap-2 .blog-content-2 h3 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a {
     display: inline-block;
     font-size: 15px;
 
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a i {
-  color: var(--sh-blue);
+  color: var(--clr-light-blue);
   font-size: 19px;
   position: relative;
   top: 4px;
 }
 
 .blog-wrap-2 .blog-content-2 .blog-btn a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-wrap-2:hover .blog-img-2 a img {
@@ -9550,7 +9563,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tm-demo-options-wrapper .tm-demo-options-toolbar a i {
-    font-size: 16px
+    font-size: var(--fs-standard)
 }
 
 .tm-demo-options-wrapper.demo-open {
@@ -9587,7 +9600,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .tm-demo-panel-header p {
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.74;
     margin: 14px 0 20px
 }
@@ -9597,18 +9610,18 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     color: #ffffff;
 
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     border-radius: 26px;
     padding: 10px 28px
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .tm-demo-panel-header .tm-demo-btn a i {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     margin-right: 14px
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .tm-demo-panel-header .tm-demo-btn a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .tm-demo-options-wrapper .tm-demo-panel .quick-option-list a {
@@ -9752,14 +9765,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .medizin-common-style-wrap .medizin-common-paragraph-style h4 {
 
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 20px 0 0
 }
 
 .medizin-common-style-wrap .medizin-common-paragraph-style h3 {
 
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 26px;
     margin: 0px 0 16px
 }
@@ -9784,13 +9797,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .medizin-common-style-wrap .medizin-common-paragraph-style p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.74;
     margin: 0
 }
 
 .medizin-common-style-wrap .medizin-common-paragraph-style p a {
-    color: #444;
+    color: var(--clr-text-standard);
 
 }
 
@@ -9805,7 +9818,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .medizin-common-style-wrap .medizin-common-paragraph-style .medizin-common-list ul li {
     margin: 0 0 11px;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     list-style: disc
 }
 
@@ -9824,7 +9837,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .medizin-common-style-wrap .medizin-common-paragraph-style .medizin-common-list-2 ul li {
     margin: 0 0 14px;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.74;
     list-style: decimal
 }
@@ -9855,7 +9868,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .medizin-common-style-wrap .medizin-common-paragraph-style span {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     font-style: italic;
     margin: 18px 0 0;
     display: block
@@ -9907,7 +9920,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     display: inline-block;
     font-size: 15px;
 
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     margin-left: 18px;
     text-transform: capitalize;
     position: relative
@@ -9936,7 +9949,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .breadcrumb-content ul li a {
-    color: #333;
+    color: var(--clr-text-standard);
     position: relative
 }
 
@@ -9951,11 +9964,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     -o-transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
-    background: var(--sh-blue)
+    background: var(--clr-light-blue)
 }
 
 .breadcrumb-content ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .breadcrumb-content ul li a:hover::after {
@@ -9968,7 +9981,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 40px;
 
     line-height: 1.2;
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0
 }
 
@@ -10033,7 +10046,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget h4.sidebar-widget-title.widget-title-font-dec {
-    font-size: 18px
+    font-size: var(--fs-title)
 }
 
 .sidebar-widget .sidebar-categories-list ul li {
@@ -10049,7 +10062,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     margin-bottom: 0px
 }
 .sidebar-widget .sidebar-categories-list ul li label {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     width: 80%;
     margin-bottom: 0;
@@ -10068,7 +10081,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-categories-list ul li:hover>a {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .sidebar-widget .sidebar-brand-list ul li, .sidebar-widget .sidebar-sort-list ul li, .sidebar-widget .sidebar-price-filter-list ul li {
@@ -10080,7 +10093,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-brand-list ul li a, .sidebar-widget .sidebar-sort-list ul li a, .sidebar-widget .sidebar-price-filter-list ul li a {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
@@ -10089,7 +10102,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-brand-list ul li:hover>a, .sidebar-widget .sidebar-sort-list ul li:hover>a, .sidebar-widget .sidebar-price-filter-list ul li:hover>a {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .sidebar-widget .price-filter {
@@ -10124,7 +10137,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     position: absolute;
     display: block;
     border: 0;
-    background: var(--sh-blue) none repeat scroll 0 0;
+    background: var(--clr-light-blue) none repeat scroll 0 0;
     border: none;
     -webkit-transition: all .0s ease 0s;
     -o-transition: all .0s ease 0s;
@@ -10132,7 +10145,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .price-filter #slider-range .ui-slider-handle {
-    background: var(--sh-blue) none repeat scroll 0 0;
+    background: var(--clr-light-blue) none repeat scroll 0 0;
     border: medium none;
     border-radius: 50%;
     height: 19px;
@@ -10158,7 +10171,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .price-filter .price-slider-amount .label-input input {
-    color: #333;
+    color: var(--clr-text-standard);
     height: auto;
     width: 100%;
     font-size: 14px;
@@ -10168,7 +10181,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .sidebar-widget .price-filter .price-slider-amount button {
     background-color: #ffffff;
     border: medium none;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     line-height: 1;
     padding: 10px 35px;
     cursor: pointer;
@@ -10193,7 +10206,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .price-filter .price-slider-amount button:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -10231,7 +10244,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget.slidebar-product-wrap-2 .slidebar-product-content-2 h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     margin: 0 0 5px
 }
 
@@ -10291,10 +10304,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget.slidebar-product-wrap-2 .slidebar-product-img-2 .slidebar-pro-badge h3 {
-    color: #333;
+    color: var(--clr-text-standard);
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     line-height: 1
 }
@@ -10309,7 +10322,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .sidebar-widget.slidebar-product-wrap-2 .slidebar-product-img-2 .slidebar-pro-badge h3 span {
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -10341,7 +10354,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .product-highlight ul li span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin-right: 16px;
     display: inline-block
@@ -10385,7 +10398,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sidebar-widget .sidebar-tag ul li a:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -10476,7 +10489,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tooltip-style-3 ul li a:hover {
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .tooltip-style-3 ul li a:hover:after {
@@ -10509,7 +10522,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 14px;
     padding: 7px 10px;
     color: #ffffff;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     content: attr(aria-label);
     line-height: 1.3;
     -webkit-transition-delay: .1s;
@@ -10534,7 +10547,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -o-transition-delay: .1s;
     transition-delay: .1s;
     border: 7px solid transparent;
-    border-top-color: var(--sh-blue);
+    border-top-color: var(--clr-light-blue);
     z-index: 9;
     margin-bottom: -13px;
     transition-delay: .1s;
@@ -10615,11 +10628,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .totall-product p {
     font-size: 15px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .shop-topbar-wrapper .totall-product p span {
-    color: #333;
+    color: var(--clr-text-standard);
 
 }
 
@@ -10653,7 +10666,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .sort-by-product-area .sort-by-product-wrap .sort-by i {
     margin-left: 16px;
-    font-size: 16px;
+    font-size: var(--fs-standard);
     color: #ababab;
     position: relative;
     top: 2px
@@ -10667,12 +10680,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .shop-topbar-wrapper .sort-by-product-area .sort-by-product-wrap .sort-by-dropdown-wrap span {
     font-size: 15px;
 
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .shop-topbar-wrapper .sort-by-product-area .sort-by-product-wrap .sort-by-dropdown-wrap span i {
-    font-size: 18px;
-    color: #333;
+    font-size: var(--fs-title);
+    color: var(--clr-text-standard);
     margin-right: 10px;
     position: relative;
     top: 2px
@@ -10680,7 +10693,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .shop-topbar-wrapper .sort-by-product-area:hover .sort-by-product-wrap {
     background-color: #ffffff;
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .sort-by-dropdown {
@@ -10698,7 +10711,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     min-width: 100%;
     -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    color: #333;
+    color: var(--clr-text-standard);
 
 }
 
@@ -10712,7 +10725,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .sort-by-dropdown ul li a {
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px;
     padding: 5px 30px;
     display: block;
@@ -10725,13 +10738,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     top: 5px;
     left: 10px;
     font-size: 12px;
-    color: var(--sh-blue);
-    font-family: var(--sh-line-awesome);
+    color: var(--clr-light-blue);
+    font-family: var(--ff-line-awesome);
     font-weight: 900
 }
 
 .sort-by-dropdown ul li a:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff !important;
 }
 
@@ -10750,20 +10763,20 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    font-size: 16px;
+    font-size: var(--fs-standard);
 
     display: inline-block;
     border-radius: 100%;
     margin: 0 2px;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .pro-pagination-style ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .pro-pagination-style ul li a.active {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -10863,14 +10876,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     color: #ffffff;
     display: inline-block;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     position: relative;
     border-radius: 26px;
     padding: 11px 24px 10px
 }
 
 .shop-filter a span {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     margin-left: 5px
 }
 
@@ -10897,7 +10910,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .shop-filter a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .widget-menu-style {
@@ -10914,7 +10927,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .widget-menu-style nav ul li a {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     position: relative;
     display: block;
@@ -10930,7 +10943,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     right: 16px;
-    font-family: var(--sh-line-awesome);
+    font-family: var(--ff-line-awesome);
     color: #ababab;
     font-weight: 900;
     -webkit-transition: all .3s ease 0s;
@@ -10940,7 +10953,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .widget-menu-style nav ul li a:hover, .widget-menu-style nav ul li a.active {
     color: #ffffff;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .widget-menu-style nav ul li a:hover::before, .widget-menu-style nav ul li a.active::before {
@@ -11006,15 +11019,15 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-sidebar-post .sidebar-post-content h4 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .single-sidebar-post .sidebar-post-content h4 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .single-sidebar-post .sidebar-post-content span {
-    color: #444;
+    color: var(--clr-text-standard);
     margin-top: 6px;
     display: block
 }
@@ -11059,11 +11072,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-dec-small-style1 .product-dec-small.slick-active img:hover {
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .product-dec-small-style1 .product-dec-small.slick-active.slick-current img {
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .product-dec-small-style1 .product-dec-small:last-child {
@@ -11105,7 +11118,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .single-big-img-style .pro-details-badges span.red {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .product-details-content .pro-details-category ul {
@@ -11116,7 +11129,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-category ul li {
-    color: #444;
+    color: var(--clr-text-standard);
     margin-left: 5px
 }
 
@@ -11125,13 +11138,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-category ul li a {
-    color: #444;
+    color: var(--clr-text-standard);
     text-transform: uppercase;
     letter-spacing: 1px
 }
 
 .product-details-content .pro-details-category ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -11259,17 +11272,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-brand-review .pro-details-brand span {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .product-details-content .pro-details-brand-review .pro-details-brand span a {
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     display: inline-block;
     margin: 0 0 0 3px
 }
 
 .product-details-content .pro-details-brand-review .pro-details-brand span a:hover {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .product-details-content .pro-details-brand-review .pro-details-rating-wrap {
@@ -11284,7 +11297,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-brand-review .pro-details-rating-wrap span {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .product-details-content .pro-details-brand-review .pro-details-rating-wrap .pro-details-rating {
@@ -11303,7 +11316,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .product-details-content .pro-details-brand-review .pro-details-rating-wrap a {
     display: inline-block;
     font-size: 15px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .product-details-content .pro-details-price-short-description {
@@ -11330,7 +11343,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-price-short-description .pro-details-price span.new-price {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .product-details-content .pro-details-price-short-description .pro-details-price span.old-price {
@@ -11343,7 +11356,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-content .pro-details-price-short-description .pro-details-short-description p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 15px 0 0
 }
 
@@ -11363,7 +11376,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-content .pro-details-color-wrap span {
     font-size: 15px;
-    color: #333;
+    color: var(--clr-text-standard);
     min-width: 85px
 }
 
@@ -11396,7 +11409,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-content .pro-details-quality-stock-area span {
     font-size: 15px;
-    color: #333;
+    color: var(--clr-text-standard);
     min-width: 85px
 }
 
@@ -11437,7 +11450,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-quality-stock-area .pro-details-quality-stock-wrap .pro-details-stock span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
@@ -11472,10 +11485,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-add-to-cart button {
-  background-color: var(--sh-blue)
+  background-color: var(--clr-light-blue)
 }
 .product-details-content .pro-details-action-wrap .pro-details-remove-from-cart button {
-  background-color: var(--sh-red)
+  background-color: var(--clr-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -11486,7 +11499,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-add-to-cart button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-action {
@@ -11507,7 +11520,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.09);
     background-color: #ffffff;
-    color: #333;
+    color: var(--clr-text-standard);
     border-radius: 50%;
     font-size: 14px;
     padding: 0;
@@ -11520,7 +11533,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .pro-details-action-wrap .pro-details-action button:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -11531,7 +11544,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .product-details-meta ul li {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 4px
 }
@@ -11541,18 +11554,18 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-details-content .product-details-meta ul li a {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .product-details-content .product-details-meta ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .product-details-content .product-details-meta ul li span {
     font-size: 15px;
     min-width: 100px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin-left: 15px;
     display: inline-block
 }
@@ -11689,7 +11702,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .product-details-description ul li {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 0 12px;
     list-style: disc
 }
@@ -11703,7 +11716,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .additional-information ul li {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -11733,7 +11746,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-flex: 0 0 165px;
     -ms-flex: 0 0 165px;
     flex: 0 0 165px;
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     display: inline-block
 }
@@ -11748,15 +11761,15 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 29px
 }
 
 .pro-details-review p span {
-    font-size: 18px;
+    font-size: var(--fs-title);
 
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .pro-details-review .single-pro-details-review {
@@ -11843,8 +11856,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .single-pro-details-review .review-content p {
-    color: #444;
-    font-size: 16px;
+    color: var(--clr-text-standard);
+    font-size: var(--fs-standard);
     margin: 14px 0 17px
 }
 
@@ -11881,19 +11894,19 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .single-pro-details-review .review-content .review-date-btn .review-date span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .pro-details-review .single-pro-details-review .review-content .review-date-btn .review-btn a {
     display: inline-block;
 
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .pro-details-review .single-pro-details-review .review-content .review-date-btn .review-btn a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .pro-details-review .ratting-form-wrapper h3 {
@@ -11904,7 +11917,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .ratting-form-wrapper p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 35px 0 20px
 }
 
@@ -11922,14 +11935,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .pro-details-review .ratting-form-wrapper .comment-form-rating-wrap span {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     display: inline-block;
     margin-left: 25px
 }
 
 .pro-details-review .ratting-form-wrapper .comment-form-rating-wrap .comment-form-rating i {
 
-    font-size: 18px;
+    font-size: var(--fs-title);
     color: #ababab
 }
 
@@ -11940,7 +11953,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     height: 48px;
     padding: 3px 20px;
     border-radius: 26px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin-bottom: 25px;
     -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     -o-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -11948,17 +11961,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form input:focus, .pro-details-review .ratting-form-wrapper .rating-form-style form textarea:focus {
-    border: 1px solid var(--sh-blue);
+    border: 1px solid var(--clr-light-blue);
     background-color: #ffffff
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form input::-webkit-input-placeholder, .pro-details-review .ratting-form-wrapper .rating-form-style form textarea::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form input::-moz-input-placeholder, .pro-details-review .ratting-form-wrapper .rating-form-style form textarea::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
@@ -11987,7 +12000,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form .cookies-consent p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 15px 0 0
 }
@@ -11998,14 +12011,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     height: auto;
     color: #ffffff;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     border: none;
     padding: 12px 54px 13px;
     margin: 0
 }
 
 .pro-details-review .ratting-form-wrapper .rating-form-style form .form-submit input:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .pro-details-mrg-tb {
@@ -12030,7 +12043,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     .tab-style-1 a {
         margin: 0 15px 10px 0;
         padding: 0 0 6px;
-        font-size: 16px
+        font-size: var(--fs-standard)
     }
 }
 
@@ -12038,7 +12051,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     .tab-style-1 a {
         margin: 0 30px 0px 0;
         padding: 0 0 6px;
-        font-size: 18px
+        font-size: var(--fs-title)
     }
 }
 
@@ -12047,8 +12060,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .tab-style-1 a.active {
-    color: #333;
-    border-bottom: 3px solid var(--sh-blue)
+    color: var(--clr-text-standard);
+    border-bottom: 3px solid var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12066,7 +12079,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     width: 110px;
     font-size: 15px;
     font-weight: 700;
-    color: #333;
+    color: var(--clr-text-standard);
     padding: 2px 10px 2px 30px;
     border: 1px solid #f5f5f5;
     background-color: #f5f5f5;
@@ -12103,7 +12116,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-quality .qtybutton.dec:hover::before {
-    border-top: 5px solid var(--sh-blue)
+    border-top: 5px solid var(--clr-light-blue)
 }
 
 .product-quality .qtybutton.inc {
@@ -12129,7 +12142,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .product-quality .qtybutton.inc:hover::after {
-    border-bottom: 5px solid var(--sh-blue)
+    border-bottom: 5px solid var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12152,7 +12165,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-table-content .table-content table thead>tr th {
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px;
     font-weight: 500;
     text-align: center;
@@ -12273,21 +12286,21 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .cart-table-content .table-content table tbody>tr td.product-name h5 {
     display: block;
     font-size: 15px;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-name h5 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-name h5 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-price span, .cart-table-content .table-content table tbody>tr td.product-total span {
     font-size: 15px;
     font-weight: 500;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-table-content .table-content table tbody>tr td.product-remove a {
@@ -12383,13 +12396,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .cart-shiping-update-wrapper .continure-clear-btn .clear-btn a {
     font-size: 15px;
     font-weight: 700;
-    color: #444;
+    color: var(--clr-text-standard);
     display: inline-block
 }
 
 .cart-shiping-update-wrapper .continure-clear-btn .clear-btn a i {
     margin-left: 8px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -12399,7 +12412,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-shiping-update-wrapper .continure-clear-btn .clear-btn a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .cart-shiping-update-wrapper .update-btn a {
@@ -12409,7 +12422,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12419,17 +12432,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .cart-shiping-update-wrapper .update-btn a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .coupon-wrap h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 0 0 15px
 }
 
 .coupon-wrap .coupon-content p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0
 }
@@ -12476,25 +12489,25 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .input-style input:focus {
     background-color: #ffffff;
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .cart-collaterals-wrap h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 0 0 15px
 }
 
 .cart-collaterals-wrap .collaterals-content p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 11px
 }
 
 .cart-collaterals-wrap .collaterals-content p span {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 700;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .select-style.select-style-mrg-1 {
@@ -12521,7 +12534,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .select-style .select2-container--default .select2-selection--single[aria-expanded="true"] {
     background-color: #ffffff;
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .select-style .select2-container--default .select2-selection--single span {
@@ -12541,7 +12554,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .select2-container .select2-dropdown {
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .select2-container .select2-dropdown.select2-dropdown--below {
@@ -12574,13 +12587,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     transform: translateY(-50%);
     left: 40px;
     font-weight: 900;
-    font-family: var(--sh-line-awesome);
+    font-family: var(--ff-line-awesome);
     display: inline-block;
     cursor: pointer
 }
 
 .select2-container .select2-dropdown .select2-search--dropdown:hover::after {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .select2-container .select2-dropdown .select2-search--dropdown>input {
@@ -12605,23 +12618,23 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .select2-container .select2-dropdown .select2-search--dropdown>input:focus {
     background-color: #ffffff;
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option {
     padding: 7px 20px;
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option.select2-results__option--highlighted {
     color: #ffffff;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option[aria-selected="true"] {
     color: #ffffff;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .continure-btn a, .common-btn-style a {
@@ -12631,7 +12644,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12645,7 +12658,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .continure-btn a:hover, .common-btn-style a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .grand-total-wrap {
@@ -12661,7 +12674,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .grand-total-wrap ul li {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     padding: 12px 0;
     border-bottom: 1px solid #eee;
     display: -webkit-box;
@@ -12675,9 +12688,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .grand-total-wrap ul li h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 700;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -12688,7 +12701,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .grand-total-wrap ul li h4 span {
     margin: 0 5px 0 0;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     font-weight: 400
 }
 
@@ -12697,7 +12710,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .grand-total-wrap .grand-total h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 0
 }
@@ -12705,7 +12718,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .grand-total-wrap .grand-total h4 span {
     float: left;
     font-size: 20px;
-    color: var(--sh-red);
+    color: var(--clr-red);
     font-weight: 700
 }
 
@@ -12716,12 +12729,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 26px;
     padding: 13px 36px;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     text-align: center
 }
 
 .grand-total-wrap .grand-total-btn a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 @media only screen and (max-width: 767px) {
@@ -12731,13 +12744,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p {
-    font-size: 16px;
-    color: #444;
+    font-size: var(--fs-standard);
+    color: var(--clr-text-standard);
     margin: 0 0 0px
 }
 
 .customer-zone>p a {
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     display: inline-block;
     position: relative
 }
@@ -12773,7 +12786,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p a:hover::before {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     -webkit-transform: scaleX(0) translateZ(0);
     transform: scaleX(0) translateZ(0);
     transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -12785,7 +12798,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone>p a:hover::after {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     -webkit-transform: scaleX(1) translateZ(0);
     transform: scaleX(1) translateZ(0);
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s, -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s
@@ -12797,7 +12810,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone .checkout-login-info p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     line-height: 1.74;
     margin: 0 0 20px
@@ -12808,7 +12821,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin-bottom: 8px
 }
 
@@ -12844,7 +12857,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .customer-zone .checkout-login-info .button-remember-wrap .checkout-login-toggle-btn label {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin: 0 0 0 12px
 }
@@ -12857,20 +12870,20 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 10px 41px;
     color: #ffffff;
     border-radius: 26px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .customer-zone .checkout-login-info .button-remember-wrap button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .customer-zone .checkout-login-info .lost-password a {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
 .customer-zone .checkout-login-info .lost-password a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .customer-zone .checkout-login-info3 {
@@ -12904,14 +12917,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 22px;
     border: none;
     background-color: transparent;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     height: 100%;
     border-radius: 26px
 }
 
 .customer-zone .checkout-login-info3 form button:hover {
     color: #ffffff;
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .billing-info-wrap h3 {
@@ -12927,7 +12940,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .billing-info-wrap .billing-info label, .billing-info-wrap .checkout-account-toggle label, .billing-info-wrap .billing-select label {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
@@ -12987,7 +13000,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .billing-info-wrap .checkout-account>span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin-right: 10px
 }
@@ -13009,7 +13022,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .billing-info-wrap .different-address>span {
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 20px;
     font-weight: 500;
     margin-right: 10px
@@ -13020,7 +13033,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .billing-info-wrap .additional-info-wrap label {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
@@ -13092,9 +13105,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .payment-details-area .payment-method .sin-payment label {
     padding: 13px 20px;
     border: 1px solid #e0e0e0;
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
-    color: #333;
+    color: var(--clr-text-standard);
     border-radius: 5px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -13133,7 +13146,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .payment-details-area .payment-method .sin-payment .payment-box p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0
 }
 
@@ -13283,7 +13296,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-top .order-summary-img-price .order-summary-price span {
     font-weight: 700;
     font-size: 15px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .order-summary .order-summary-middle ul {
@@ -13293,7 +13306,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .order-summary .order-summary-middle ul li {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     padding: 12px 0;
     border-bottom: 1px solid #eee;
     display: -webkit-box;
@@ -13307,9 +13320,9 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .order-summary .order-summary-middle ul li h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 700;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     display: block;
     text-align: right;
     margin: 0
@@ -13318,19 +13331,19 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-middle ul li h4 span {
     margin: 0 5px 0 0;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     display: block;
     font-weight: 400
 }
 
 .order-summary .order-summary-middle ul li h4 span.price {
-    color: #444;
+    color: var(--clr-text-standard);
     font-weight: 700;
     font-size: 15px
 }
 
 .order-summary .order-summary-bottom h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 16px 0 0
 }
@@ -13338,7 +13351,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .order-summary .order-summary-bottom h4 span {
     float: left;
     font-size: 20px;
-    color: var(--sh-red);
+    color: var(--clr-red);
     font-weight: 700
 }
 
@@ -13392,12 +13405,12 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-thumbnail a i {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     color: #9b9b9b
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-thumbnail a i:hover {
-    color: var(--sh-red)
+    color: var(--clr-red)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-img {
@@ -13437,11 +13450,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info h5 a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info h5 a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info .wishlist-product-price {
@@ -13450,8 +13463,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info .wishlist-product-price span {
     font-weight: 700;
-    color: var(--sh-blue);
-    font-size: 18px
+    color: var(--clr-light-blue);
+    font-size: var(--fs-title)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info .wishlist-product-price span.old-price {
@@ -13463,7 +13476,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-info>span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     display: block;
     line-height: 1
@@ -13486,7 +13499,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-add-wrap span {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     display: block;
     margin: 0 0 6px
@@ -13500,11 +13513,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     line-height: 1;
     color: #ffffff;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .wishlist-table-content .table-content table tbody>tr td.wishlist-product-add-wrap .wishlist-product-add a:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .wishlist-bottom {
@@ -13575,7 +13588,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-bottom .wishlist-social-wrap .wishlist-social a {
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px;
     margin-left: 8px;
     display: inline-block
@@ -13594,7 +13607,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .wishlist-bottom .wishlist-social-wrap .wishlist-social a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .wishlist-bottom .wishlist-social-wrap .wishlist-social a:last-child {
@@ -13683,7 +13696,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-radius: 26px;
     padding: 0 41px;
     padding: 9px 41px 13px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .about-us-img img {
@@ -13740,7 +13753,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 200px;
     font-weight: 900;
     line-height: .8em;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     margin: 0
 }
 
@@ -13774,7 +13787,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     text-transform: uppercase;
     line-height: 2em;
     letter-spacing: 2px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 12px 0 0
 }
 
@@ -13786,22 +13799,22 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .about-us-content h3 {
-        font-size: 18px;
+        font-size: var(--fs-title);
         line-height: 1.5;
         margin: 18px 0 18px
     }
 }
 
 .about-us-content p {
-    font-size: 18px;
-    color: #444;
+    font-size: var(--fs-title);
+    color: var(--clr-text-standard);
     line-height: 1.67em;
     margin: 0 0 28px
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .about-us-content p {
-        font-size: 16px;
+        font-size: var(--fs-standard);
         margin: 0 0 20px
     }
 }
@@ -13814,7 +13827,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .about-us-content p {
-        font-size: 16px;
+        font-size: var(--fs-standard);
         margin: 0 0 20px;
         color: #555
     }
@@ -13828,17 +13841,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     padding: 0 36px;
     padding: 13px 36px;
     background-color: #edf4fe;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .about-us-content .about-btn a i {
-    font-size: 16px;
+    font-size: var(--fs-standard);
     margin-right: 10px
 }
 
 .about-us-content .about-btn a:hover {
     color: #ffffff;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .about-us-img {
@@ -13927,7 +13940,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .medizin-box .icon-box-wrapper .icon-box-content ul li {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     list-style: disc;
     margin: 0 0 13px
@@ -14022,7 +14035,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .team-wrap .team-img .team-social a:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -14033,7 +14046,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .team-wrap .team-info h3 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 0 0 8px
 }
@@ -14116,7 +14129,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .about-us-area .mouse-scroll-area-2 .about-us-shape-1 .medizin-shape {
     width: 150px;
     height: 150px;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     border-radius: 50%;
     background: currentColor
 }
@@ -14241,8 +14254,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .error-content p {
-    font-size: 18px;
-    color: #444;
+    font-size: var(--fs-title);
+    color: var(--clr-text-standard);
     line-height: 1.67;
     margin: 0px 0 60px
 }
@@ -14284,7 +14297,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .error-content .search-style-4 form input {
     background-color: #f8f8f8;
     border: 1px solid #f8f8f8;
-    color: #444;
+    color: var(--clr-text-standard);
     height: 48px;
     font-size: 15px;
     border-radius: 26px;
@@ -14298,17 +14311,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .error-content .search-style-4 form input::-moz-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .error-content .search-style-4 form input::-webkit-input-placeholder {
-    color: #444;
+    color: var(--clr-text-standard);
     opacity: 1
 }
 
 .error-content .search-style-4 form input:focus {
-    border: 1px solid var(--sh-blue)
+    border: 1px solid var(--clr-light-blue)
 }
 
 .error-content .search-style-4 form button {
@@ -14325,7 +14338,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     padding: 5px 41px;
     border-radius: 26px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 @media only screen and (max-width: 767px) {
@@ -14335,11 +14348,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .error-content .search-style-4 form button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .user-sidebar {
-  background-color: var(--sh-bg-blue);
+  background-color: var(--clr-dark-blue);
   border-radius: 2em;
   padding: 1em;
   -webkit-box-orient: vertical;
@@ -14372,11 +14385,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .user-sidebar a {
   border-bottom: none;
   font-weight: 500;
-  font-size: 16px;
+  font-size: var(--fs-standard);
   display: block;
   margin-top: 0.6em;
   margin-bottom: 0.6em;
-  color: #fff !important;
+  color: #f2fffd !important;
   padding: 15px 30px;
 }
 
@@ -14412,7 +14425,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .user-dashboard-content .account-details-form .account-info label {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 0 0 3px
 }
 
@@ -14425,7 +14438,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .user-dashboard-content .account-details-form span {
     font-style: italic;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin: 5px 0 0;
     display: block
 }
@@ -14443,7 +14456,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .user-dashboard-content .account-details-form fieldset legend {
-    font-size: 18px;
+    font-size: var(--fs-title);
     width: auto;
     float: inherit
 }
@@ -14452,14 +14465,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     font-weight: 700;
     color: #ffffff;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     border-radius: 26px;
     padding: 11px 41px 13px;
     border: none
 }
 
 .user-dashboard-content .account-details-form .account-info-btn button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .user-dashboard-content.myaccount-address .myaccount-address-wrap {
@@ -14501,14 +14514,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-size: 500;
     margin: 0 0 5px
 }
 
 .user-dashboard-content.myaccount-address .myaccount-address-wrap .myaccount-address-content p {
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     line-height: 1.74;
     margin: 0
 }
@@ -14525,14 +14538,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     border-color: #eee;
     border-bottom: 0;
     font-size: 15px;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .myaccount-table table td, .myaccount-table .table td {
     padding: 10px;
     vertical-align: middle;
     border-color: #eee;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .login-register-wrap.login-register-gray-bg {
@@ -14589,7 +14602,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin-bottom: 8px
 }
 
@@ -14645,13 +14658,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .login-register-wrap .login-register-form form .lost-remember-wrap .remember-wrap span {
     display: block;
     font-size: 15px;
-    color: #444;
+    color: var(--clr-text-standard);
     margin-right: 15px
 }
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a {
     font-size: 15px;
-    color: var(--sh-blue);
+    color: var(--clr-light-blue);
     position: relative;
     display: inline-block
 }
@@ -14687,7 +14700,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a:hover::before {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     -webkit-transform: scaleX(0) translateZ(0);
     transform: scaleX(0) translateZ(0);
     transition: -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -14699,7 +14712,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .lost-remember-wrap .lost-wrap a:hover::after {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     -webkit-transform: scaleX(1) translateZ(0);
     transform: scaleX(1) translateZ(0);
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s, -webkit-transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s
@@ -14719,7 +14732,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     font-weight: 700;
     border: none;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff;
     display: block;
     text-align: center;
@@ -14729,21 +14742,21 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .login-register-wrap .login-register-form form .login-register-btn button:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 .login-register-wrap .login-register-form form .privacy-policy-wrap p {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     line-height: 1.74
 }
 
 .login-register-wrap .login-register-form form .privacy-policy-wrap p a {
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .login-register-wrap .login-register-form form .privacy-policy-wrap p a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .compare-table .table thead tr {
@@ -14757,13 +14770,13 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .compare-table .table thead tr th a.title {
-    color: #333;
+    color: var(--clr-text-standard);
     font-size: 15px;
     font-weight: 400
 }
 
 .compare-table .table thead tr th a.title:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .compare-table .table tbody tr {
@@ -14775,7 +14788,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     vertical-align: middle;
     border: none;
     padding: 13px 20px;
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px
 }
 
@@ -14828,7 +14841,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .compare-table .table tbody tr td.compare-rating span {
     font-weight: 700;
     font-size: 20px;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .compare-table .table tbody tr td.compare-btn a {
@@ -14838,7 +14851,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-size: 15px;
     padding: 12px 41px;
     font-weight: 700;
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -14854,7 +14867,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .compare-table .table tbody tr td.compare-btn a:hover {
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff
 }
 
@@ -14888,7 +14901,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     color: #ffffff;
     border-radius: 2px;
     padding: 1px 10px;
-    background-color: var(--sh-blue)
+    background-color: var(--clr-light-blue)
 }
 
 .blog-details-wrapper .blog-details-top-content h1 {
@@ -14916,7 +14929,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-details-wrapper .blog-details-top-content .blog-meta-3 ul li {
     font-size: 14px;
-    color: #444;
+    color: var(--clr-text-standard);
     display: inline-block;
     margin-left: 20px
 }
@@ -14949,7 +14962,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-details-wrapper .blog-details-top-content .blog-meta-3 ul li a {
     font-size: 14px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .blog-details-wrapper .blog-details-top-content .blog-meta-3 ul li a img {
@@ -14960,7 +14973,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-details-top-content .blog-meta-3 ul li a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-details-wrapper img {
@@ -14970,7 +14983,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-details-wrapper blockquote {
     padding-right: 1em;
-    border-right: 4px solid var(--sh-blue);
+    border-right: 4px solid var(--clr-light-blue);
     margin: 49px 50px 45px 0
 }
 
@@ -14981,10 +14994,10 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper blockquote p {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     line-height: 1.78;
-    color: #333;
+    color: var(--clr-text-standard);
     width: 90%;
     margin: 0
 }
@@ -15004,7 +15017,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper p {
-  color: #444;
+  color: var(--clr-text-standard);
   font-size: 1.18em;
   line-height: 1.8;
 }
@@ -15081,18 +15094,18 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-tag-wrap span {
-    color: #333;
-    font-size: 18px;
+    color: var(--clr-text-standard);
+    font-size: var(--fs-title);
     margin-left: 10px
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-tag-wrap .blog-tag a {
     font-size: 15px;
-    color: #444
+    color: var(--clr-text-standard)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-tag-wrap .blog-tag a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap {
@@ -15110,7 +15123,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     font-weight: 500;
     margin-left: 15px;
     font-size: 15px;
-    color: #333
+    color: var(--clr-text-standard)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon {
@@ -15118,14 +15131,14 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon span {
-    font-size: 18px;
+    font-size: var(--fs-title);
     color: #ffffff;
     width: 25px;
     height: 25px;
     line-height: 25px;
     text-align: center;
     border-radius: 100%;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     cursor: pointer
 }
 
@@ -15228,7 +15241,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon .blog-share-list a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-details-wrapper .blog-tag-share-wrap .blog-share-wrap .blog-share-icon:hover .blog-share-list {
@@ -15319,7 +15332,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-author-wrap .blog-author-img .blog-author-social a:hover {
-    color: var(--sh-blue)
+    color: var(--clr-light-blue)
 }
 
 .blog-details-wrapper .blog-author-wrap .blog-author-content {
@@ -15341,7 +15354,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-author-wrap .blog-author-content h4 {
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     margin: 0 0 10px
 }
@@ -15388,7 +15401,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 .blog-details-wrapper .blog-prev-next-wrap .blog-prev-next-style a h4 {
     color: #ffffff;
-    font-size: 18px;
+    font-size: var(--fs-title);
     font-weight: 500;
     line-height: 1.56;
     margin: 0;
@@ -15412,7 +15425,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 
 @media only screen and (max-width: 767px) {
     .blog-details-wrapper .blog-prev-next-wrap .blog-prev-next-style a h4 {
-        font-size: 16px;
+        font-size: var(--fs-standard);
         line-height: 1.4
     }
 }
@@ -15455,7 +15468,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: var(--sh-line-awesome)
+    font-family: var(--ff-line-awesome)
 }
 
 @media only screen and (max-width: 767px) {
@@ -15501,7 +15514,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     font-weight: 900;
-    font-family: var(--sh-line-awesome);
+    font-family: var(--ff-line-awesome);
 }
 
 .blog-details-wrapper .blog-prev-next-wrap .blog-prev-next-style:hover a img {
@@ -15547,7 +15560,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-reply-wrapper form .blog-textarea-style textarea:focus {
-    border: 1px solid var(--sh-blue);
+    border: 1px solid var(--clr-light-blue);
     background-color: #ffffff
 }
 
@@ -15575,7 +15588,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-reply-wrapper form .blog-remember-wrap label {
-    color: #444;
+    color: var(--clr-text-standard);
     font-size: 15px;
     line-height: 1.74;
     margin: 0 10px 0 0
@@ -15584,7 +15597,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .blog-details-wrapper .blog-reply-wrapper form .blog-comment-submit input {
     width: auto;
     height: 48px;
-    background-color: var(--sh-blue);
+    background-color: var(--clr-light-blue);
     color: #ffffff;
     border-radius: 26px;
     padding: 0 41px;
@@ -15593,7 +15606,7 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .blog-details-wrapper .blog-reply-wrapper form .blog-comment-submit input:hover {
-    background-color: var(--sh-red)
+    background-color: var(--clr-red)
 }
 
 @media only screen and (max-width: 767px) {
