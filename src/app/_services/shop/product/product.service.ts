@@ -50,7 +50,7 @@ export class ProductService {
       .set('SearchProductPriceOrder', search.searchProductPriceOrder);
 
     if (search.phrase !== "" && search.phrase !== undefined) {
-      params.set('Phrase', search.phrase);
+      params = params.set('Phrase', search.phrase);
     }
 
     if (search.selectedCategories !== null && search.selectedCategories?.length) {

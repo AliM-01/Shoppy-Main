@@ -13,6 +13,7 @@ import { InitializePaymentResponseModel } from '@app_models/order/initialize-pay
 import { PlaceOrderResponseModel } from '@app_models/order/place-order-response';
 import { VerifyPaymentRequestModel } from '@app_models/order/verify-payment-request';
 import { VerifyPaymentResponseModel } from '@app_models/order/verify-payment-response';
+import { FilterUserOrdersModel } from '@app_models/order/filter-user-orders';
 
 @Injectable({
   providedIn: 'any',
@@ -27,13 +28,38 @@ export class OrderService {
   ) {
   }
 
+  getMyOrders(filter: FilterUserOrdersModel): Observable<FilterUserOrdersModel> {
+    this.loading.loadingOn();
+
+    let params = new HttpParams()
+      .set('PageId', filter.pageId.toString())
+      .set('TakePage', filter.takePage.toString());
+
+    if(filter.issueTrackingNo !== null) {
+      params = params.set('issueTrackingNo', filter.issueTrackingNo)
+    }
+
+    return this.http.get<FilterUserOrdersModel>
+      (`${environment.orderBaseApiUrl}/my-orders`, { params })
+      .pipe(
+        tap(() => this.loading.loadingOff()),
+        catchError((error: HttpErrorResponse) => {
+
+          this.toastr.error(error.error.message, 'خطا', { timeOut: 2500 });
+          this.loading.loadingOff();
+
+          return throwError(error);
+        })
+      );
+  }
+
   computeCart(): Observable<CartModel> {
     this.loading.loadingOn();
 
     const itemsData = this.cartService.getCartItems();
 
     return this.http.post<CartModel>
-      (`${environment.orderBaseApiUrl}/cart/compute`, itemsData)
+      (`${environment.cartBaseApiUrl}/compute`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
@@ -52,7 +78,7 @@ export class OrderService {
     const itemsData = this.cartService.getCartItems();
 
     return this.http.post<CartModel>
-      (`${environment.orderBaseApiUrl}/cart/checkout`, itemsData)
+      (`${environment.cartBaseApiUrl}/checkout`, itemsData)
       .pipe(
         tap(() => this.loading.loadingOff()),
         catchError((error: HttpErrorResponse) => {
