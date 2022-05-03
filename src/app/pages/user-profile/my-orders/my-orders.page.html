@@ -1,0 +1,38 @@
+<div class="card user-dashboard-content">
+  <div class="card-body">
+    <h4 class="card-title mb-2">سفارشات من</h4>
+
+    <table class="table table-striped table-border table-responsive">
+      <thead>
+        <tr>
+          <th>تاریخ</th>
+          <th>وضعیت</th>
+          <th>قیمت کل</th>
+          <th>تخفیف</th>
+          <th>مبلغ قابل پرداخت</th>
+          <th>کد پیگیری</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of filterOrders.orders">
+
+          <td>{{order.creationDate}}</td>
+
+          <td>
+            <p *ngIf="order.state" class="text-success">پرداخت شده</p>
+            <p *ngIf="!order.state" class="text-danger">پرداخت نشده</p>
+          </td>
+
+          <td>{{order.totalAmount}}</td>
+
+          <td>{{order.discountAmount}}</td>
+
+          <td>{{order.paymentAmount}}</td>
+
+          <td>{{order.issueTrackingNo}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

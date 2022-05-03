@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@app_services/auth/auth.service';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
+import { Observable, BehaviorSubject } from 'rxjs';
+
+export enum AuhLoadingState {
+  Pending,
+  UnAuthorized,
+  LoggedIn
+}
 
 @Component({
   selector: 'app-header-auth',
@@ -9,8 +16,9 @@ import { MessengerService } from '@app_services/_common/messenger/messenger.serv
 })
 export class HeaderAuthComponent implements OnInit {
 
-  isChecked: boolean = false;
-  isLoggedIn: boolean = false;
+  private authStateSubject: BehaviorSubject<AuhLoadingState> =
+    new BehaviorSubject<AuhLoadingState>(AuhLoadingState.Pending);
+  authState$: Observable<AuhLoadingState> = this.authStateSubject.asObservable();
 
   constructor(
     public authService: AuthService,
@@ -31,8 +39,11 @@ export class HeaderAuthComponent implements OnInit {
 
   checkAuth() {
     this.authService.isUserLoggedInRequest().subscribe(res => {
-      this.isLoggedIn = res;
-      this.isChecked = true;
+      if(res){
+        this.authStateSubject.next(AuhLoadingState.LoggedIn);
+      } else {
+        this.authStateSubject.next(AuhLoadingState.UnAuthorized);
+      }
     })
   }
 

@@ -2,13 +2,13 @@
 
   <div class="header-auth-container">
 
-    <a *ngIf="!isChecked" class="header-sync-icon rotating">
+    <a *ngIf="(authState$ | async) === 0" class="header-sync-icon rotating">
       <i class="las la-sync"></i>
     </a>
 
   </div>
 
-  <div *ngIf="isChecked && !isLoggedIn" class="header-auth-container">
+  <div *ngIf="(authState$ | async) === 1" class="header-auth-container">
 
     <a (click)="navigateTo('/auth/login')">
       ورود به حساب
@@ -22,7 +22,7 @@
 
   </div>
 
-  <div *ngIf="isChecked && isLoggedIn" class="header-auth-container">
+  <div *ngIf="(authState$ | async) === 2" class="header-auth-container">
 
     <a routerLink="/user-profile">
       <i class="la la-user"></i>
