@@ -1,8 +1,8 @@
 export class InitializePaymentRequestModel {
 
-  constructor(
-    public orderId: string,
-    public amount: number,
-    public callBackUrl: string
-  ){ }
+  orderId: string;
+  amount: number;
+  callBackUrl: string;
+
+  constructor(){}
 }

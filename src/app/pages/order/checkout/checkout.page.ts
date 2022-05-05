@@ -64,10 +64,12 @@ export class CheckoutPage implements OnInit {
   paymentRedirect(oId: string) {
     this.loading.loadingOn();
 
-    const payment = new InitializePaymentRequestModel(oId,
-      this.cart.payAmount, "http://localhost:4200/cart/payment-result/callBack?oId=" + oId);
+    let paymentData = new InitializePaymentRequestModel();
+    paymentData.orderId = oId;
+    paymentData.amount = this.cart.payAmount;
+    paymentData.callBackUrl = encodeURIComponent(`http://localhost:4200/cart/payment-result/callBack?oId=${oId}`);
 
-    this.orderService.initializePaymentRequest(payment)
+    this.orderService.initializePaymentRequest(paymentData)
       .subscribe(res => {
 
         this.loading.loadingOff();
