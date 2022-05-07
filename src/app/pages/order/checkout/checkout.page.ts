@@ -67,7 +67,7 @@ export class CheckoutPage implements OnInit {
     let paymentData = new InitializePaymentRequestModel();
     paymentData.orderId = oId;
     paymentData.amount = this.cart.payAmount;
-    paymentData.callBackUrl = encodeURIComponent(`http://localhost:4200/cart/payment-result/callBack?oId=${oId}`);
+    paymentData.callBackUrl = `http://localhost:4200/cart/payment-result/callBack?oId=${oId}`;
 
     this.orderService.initializePaymentRequest(paymentData)
       .subscribe(res => {

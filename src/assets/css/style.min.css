@@ -272,10 +272,6 @@ ul {
     margin-top: 0
 }
 
-.mt-5 {
-    margin-top: 5px !important
-}
-
 .mt-10 {
     margin-top: 10px
 }
@@ -12734,7 +12730,8 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 }
 
 .grand-total-wrap .grand-total-btn a:hover {
-    background-color: var(--clr-red)
+  background-color: var(--clr-red);
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 767px) {

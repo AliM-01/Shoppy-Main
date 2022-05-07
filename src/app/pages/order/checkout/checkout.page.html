@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <div class="cart-table-content" *ngIf="(cart.items.length > 0)">
+        <div class="cart-table-content shadow" *ngIf="(cart.items.length > 0)">
 
           <div class="table-content table-responsive">
             <table>
@@ -57,9 +57,12 @@
 
       </div>
     </div>
-    <div class="row" *ngIf="(cart.items.length > 0)">
+
+    <br />
+
+    <div class="row justify-content-center" *ngIf="(cart.items.length > 0)">
       <div class="col-lg-4 col-md-12 col-12">
-        <div class="coupon-wrap mb-40">
+        <div class="coupon-wrap mb-40 shadow">
           <h4>کد تخفیف</h4>
           <div class="coupon-content common-form-style">
             <p>اگر کد تخفیف دارید آنرا وارد کنید.</p>
@@ -72,26 +75,24 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8 col-md-12 col-12">
-        <div class="row d-flex justify-content-center">
-          <div class="col-lg-6 col-md-6 col-12">
-            <div class="grand-total-wrap mb-40">
-              <ul>
-                <li>خرید<h4>{{cart.totalAmount | thousandSeparator}} تومن</h4>
-                </li>
-                <li>تخفیف <h4>{{cart.discountAmount | thousandSeparator}} تومن</h4>
-                </li>
-              </ul>
-              <div class="grand-total">
-                <h4>جمع کل<span>{{cart.payAmount | thousandSeparator}} تومن</span></h4>
-              </div>
-              <div class="grand-total-btn">
-                <a (click)="pay()"> پرداخت </a>
-              </div>
-            </div>
+
+      <div class="col-lg-4 col-md-12 col-12">
+        <div class="grand-total-wrap mb-40 shadow">
+          <ul>
+            <li>خرید<h4>{{cart.totalAmount | thousandSeparator}} تومن</h4>
+            </li>
+            <li>تخفیف <h4>{{cart.discountAmount | thousandSeparator}} تومن</h4>
+            </li>
+          </ul>
+          <div class="grand-total">
+            <h4>جمع کل<span>{{cart.payAmount | thousandSeparator}} تومن</span></h4>
+          </div>
+          <div class="grand-total-btn">
+            <a (click)="pay()"> پرداخت </a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
