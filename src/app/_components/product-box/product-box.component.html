@@ -29,7 +29,7 @@
     <h2><a [routerLink]="'/product/details/' + product.slug"> {{product.title}} </a></h2>
 
     <div class="product-price" *ngIf="product.hasDiscount">
-      <span class="new-price">{{product.priceWithDiscount + ' تومان '}}</span>
+      <span>{{product.priceWithDiscount + ' تومان '}}</span>
     </div>
 
     <div class="product-price" *ngIf="!product.hasDiscount">
