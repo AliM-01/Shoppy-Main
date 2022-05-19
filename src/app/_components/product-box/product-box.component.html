@@ -11,16 +11,15 @@
     <div class="product-action-1">
       <button (click)="addToCart()" aria-label="افزودن به سبد خرید"><i class="las la-shopping-bag"></i></button>
       <button aria-label="افزودن به علاقه مندی‌ها"><i class="las la-heart"></i></button>
-      <button aria-label="مقایسه"><i class="las la-signal"></i></button>
     </div>
     <div *ngIf="product.hasDiscount" class="product-badges product-badges-position product-badges-mrg">
-      <span *ngIf="product.discountRate >= 50" class="hot red">{{ product.discountRate
-        +
-        '% تخفیف'}}</span>
-      <span *ngIf="product.discountRate < 50" class="hot yellow">{{
-        product.discountRate +
-        '% تخفیف'}}</span>
+
+      <span class="hot" [ngClass]="product.discountState === 1 ? 'yellow': 'red'">
+        {{ product.discountRate + '% تخفیف'}}
+      </span>
+
     </div>
+
   </div>
   <div class="product-content-wrap">
     <div class="product-category">

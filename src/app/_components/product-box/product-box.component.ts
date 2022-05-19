@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartItemCookieModel } from '@app_models/order/cart-item-cookie';
 import { MessengerService } from '@app_services/_common/messenger/messenger.service';
 import { environment } from '@environments/environment';
-import { ProductModel } from '../../_models/shop/product/product';
-import { CartService } from '../../_services/order/cart.service';
+import { DiscountState, ProductModel } from '@app_models/shop/product/product';
+import { CartService } from '@app_services/order/cart.service';
 
 @Component({
   selector: 'app-product-box',
@@ -13,15 +13,23 @@ export class ProductBoxComponent implements OnInit {
 
   isInCart: boolean = false;
 
-  @Input() product!: ProductModel;
+  @Input() product: ProductModel;
   baseProductPath: string = environment.productBaseImagePath + '/thumbnail/';
 
   constructor(
-    private cartService:CartService,
+    private cartService: CartService,
     private msg: MessengerService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+    if (!this.product.hasDiscount)
+      this.product.discountState = DiscountState.None;
+    else {
+      if (this.product.discountRate >= 50)
+        this.product.discountState = DiscountState.High;
+      else
+        this.product.discountState = DiscountState.Medium;
+    }
     this.handleCartChanges();
   }
 
