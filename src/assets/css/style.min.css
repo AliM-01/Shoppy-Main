@@ -8780,17 +8780,17 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
     }
 }
 
-.copyright p {
+.copyright {
     line-height: 1.6em;
-    color: var(--clr-text-standard);
+    color: var(--bs-gray-100);
     font-size: 15px
 }
 
-.copyright p a {
+.copyright a {
     color: var(--clr-text-standard)
 }
 
-.copyright p a:hover {
+.copyright a:hover {
     color: var(--clr-light-blue)
 }
 
@@ -9174,7 +9174,11 @@ body:not(.elementor-editor-active) .modern-grid .grid-item.animate {
 .footer-bottom {
     padding: 30px 0
 }
-
+.footer-area {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
 @media only screen and (max-width: 767px) {
     .mrg-top-xs {
         margin-top: 7px
